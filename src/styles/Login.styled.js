@@ -20,6 +20,23 @@ export const Form = styled.form`
 		border-radius: 10px;
 		background-color: #E1CF7D;
 		border: none;
+		font-size: 1.5rem;
+	}
+
+	input::placeholder{
+		font-size: 1.5rem;
+		color: #963C08;
+	}
+
+	label{
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: #E1CF7D;
+		
+				
+		span{
+			margin-left: 1rem
+		}
 	}
 `
 export const Button = styled.button`
@@ -30,5 +47,5 @@ export const Button = styled.button`
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-top: 2rem;
-	
+
 `

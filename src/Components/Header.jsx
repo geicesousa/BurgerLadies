@@ -1,7 +1,7 @@
 import burguerLogo from '../assets/burguerLogo.png'
 import { HeaderContainer } from '../styles/Header.styles'
 
-function Header() {
+const Header = () => {
   return(
     <HeaderContainer>
       <img width='300px'src={burguerLogo} />
@@ -10,3 +10,4 @@ function Header() {
 }
 
 export default Header
+
