@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { Button, Form } from "../styles/Login.styled";
 
-const Login = () => {
+const Register = () => {
+	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
-	const urlLogin = "http://localhost:8080/login"
+	const urlLogin = "http://localhost:8080/users"
+
+	const handleName = (e) => {
+		setName(e.target.value)
+	}
 
 	const handleEmail = (e) => {
 		setEmail(e.target.value)
@@ -19,39 +24,9 @@ const Login = () => {
 		setRole(e.target.value)
 	}
 
-// let getWelcome = async () =>{
-// 	try {
-// 		const response = await fetch(url) //reuisição
-// 		const welcomeMessage = await response.json()
-// 		console.log(welcomeMessage)
-// 	}
-// 	catch(error){
-// 		console.error("capturei um erro")
-// 	}
-// }
-
-// const handlesubmit = async (e) => {
-// e.preventDefault()   
-
-// const users = {
-// 	name,
-// 	email,
-// 	password,
-// 	role,
-// }
-
-// const res = await fetch(url, {
-// 	method: "POST",
-// 	headrs: {
-// 		'Content-Type': 'application/json',
-// 	},
-// 	body: JSON.stringify(users)
-// })
-
-// }
-
-	const login = async (email, password, role) => {
-		const loginData = {
+	const criarusuario = async (name, email, password, role) => {
+		const userData = {
+			name,
 			email,
 			password,
 			role,
@@ -61,17 +36,15 @@ const Login = () => {
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(loginData)
+			body: JSON.stringify(userData)
 		});
 		return response.json();
 	} 
   
-
-
-	const logar = async (e) => {
+	const aoCriar = async (e) => {
 		e.preventDefault()
 		try {
-			const loginUsuario = await login(email, password)
+			const loginUsuario = await criarusuario(name,email, password, role)
 			console.log(loginUsuario)
 
 		} catch (error) {
@@ -82,7 +55,7 @@ const Login = () => {
 
 	return (
 		<>
-		<Form onSubmit={logar}>
+		<Form onSubmit={aoCriar}>
 		<label>
 			<span>Selecione seu cargo</span>
 			<select name="role" 
@@ -94,7 +67,18 @@ const Login = () => {
 				<option value="admin">Admnistrador</option>
 			</select>
 		</label>
-				<label>
+		<label>
+			<span>Nome</span>
+			<input 
+				type="text" 
+				value={name}
+				name="name"
+				placeholder="Digite seu nome" 
+				onChange={handleName}  
+			/>
+		</label>
+
+		<label>
 			<span>Email</span>
 			<input 
 				type="text" 
@@ -115,11 +99,11 @@ const Login = () => {
 				onChange={handlePassword} 
 			/>
 		</label>
-		<Button type="submit" value="Login">Login</Button>
+		<Button type="submit" value="Login">Criar usuário</Button>
 
 		</Form>
 		</>
 	)
 }
 
-export default Login;
+export default Register;
