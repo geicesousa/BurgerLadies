@@ -1,7 +1,7 @@
 
 import { Button, ButtonContainer } from "../styles/Home.styled";
 
-function Home() {
+const Home = () => {
   return (
     <>
       <ButtonContainer>
