@@ -20,6 +20,7 @@ export const Button = styled.button`
 	color: #E1CF7D;
 	text-transform: uppercase;
 	font-size: 1.5rem;
+	font-family: 'Aladin';
 	border: none;
 	font-weight: bold
 `

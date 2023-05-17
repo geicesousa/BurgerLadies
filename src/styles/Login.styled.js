@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Form = styled.form`
 	background-color: #963C08;
+	font-family: 'Pacifico';
 	display: grid;
 	justify-content: center;
 	align-items: center;
@@ -46,6 +47,7 @@ export const Button = styled.button`
 	color: #E1CF7D;
 	text-transform: uppercase;
 	font-weight: bold;
+	font-family: 'Aladin';
 	margin-top: 2rem;
 
 `

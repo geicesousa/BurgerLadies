@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Form, Button } from "../styles/Login.styled";
-import { useState } from 'react'
 
 
 function Login() {
@@ -20,8 +19,6 @@ function Login() {
 		setRole(e.target.value)
 	}
 
-
-
 	function sendLogin(e) {
 		e.preventDefault()	
 		console.log("enviando")	
@@ -38,7 +35,7 @@ function Login() {
 				<option disabled="disabled" value="role">Cargo</option>
 				<option value="garcon">Garçon</option>
 				<option value="chefe">Chefe de cozinha</option>
-				<option value="administrador">Admnistrador</option>
+				<option value="adm">Admnistrador</option>
 			</select>
 		</label>
 		<label>
