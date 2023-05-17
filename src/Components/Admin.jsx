@@ -1,15 +1,16 @@
 
 import { Button, ButtonContainer } from "../styles/Home.styled";
 
-const Home = () => {
+const Admin = () => {
   return (
     <>
       <ButtonContainer>
-      <Button>Anotar um novo pedido</Button>
-      <Button>Pedidos prontos</Button>
+      <Button>Funcionários</Button>
+      <Button>Produtos</Button>
+
       </ButtonContainer>
     </>
   )
 }
 
-export default Home
+export default Admin

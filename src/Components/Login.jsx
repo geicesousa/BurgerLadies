@@ -93,7 +93,7 @@ const Login = () => {
 			onChange={handleRole}>
 
 				<option hidden>Cargo</option>
-				<option value="waiter">Garçon</option>
+				<option value="waiter">Atendente</option>
 				<option value="chef">Chefe de cozinha</option>
 				<option value="admin">Admnistrador</option>
 

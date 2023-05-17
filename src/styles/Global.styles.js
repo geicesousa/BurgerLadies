@@ -10,8 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #F0B04E;
-    font-family: 'Aladin' ;
-    font-family: 'Pacifico';
+    font-family: Arial, Helvetica, sans-serif
   }
 
  a {

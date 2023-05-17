@@ -1,5 +1,5 @@
 import { Error } from "../styles/NotFound.styles";
-import imgError from "../assets/error-burguerLogo-removebg.png"
+import imgError from "../assets/error.svg"
 
 const NotFound = () => {
 	// tirar o header daqui

@@ -6,7 +6,8 @@ const Register = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
-	const urlLogin = "http://localhost:8080/users"
+	
+	const urlRegister = "http://localhost:8080/users"
 
 	const handleName = (e) => {
 		setName(e.target.value)
@@ -31,7 +32,7 @@ const Register = () => {
 			password,
 			role,
 		}
-		const response = await fetch(urlLogin, {
+		const response = await fetch(urlRegister, {
 			method: "POST",
 			headers: {
 				'Content-Type': 'application/json'
@@ -47,7 +48,7 @@ const Register = () => {
 			const loginUsuario = await criarusuario(name,email, password, role)
 			console.log(loginUsuario)
 
-		} catch (error) {
+		}catch (error) {
 			console.log(error.message);
 		}
 	}

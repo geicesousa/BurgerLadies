@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Login from './Components/Login';
-import Home from './Components/Home';
+import Atendente from './Components/Atendente';
 import NotFound from './Components/NotFound';
 import Register from './Components/Register';
+import Admin from './Components/Admin';
 
 
 function Router() {
@@ -14,8 +15,9 @@ function Router() {
 			
 			<Route path="/" element={<Login/>} />
 			<Route path="/register" element={<Register/>} />
-			<Route path="/home" element={<Home/>} />
-			<Route path="*" element={<NotFound/>} />			
+			<Route path="/atendente" element={<Atendente/>} />
+			<Route path="*" element={<NotFound/>} />	
+			<Route path="/admin" element={<Admin/>} />		
 
 		
 		</Routes>	
