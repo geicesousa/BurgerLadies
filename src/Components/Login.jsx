@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "../styles/Login.styled";
 
+
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
@@ -18,6 +19,7 @@ const Login = () => {
 	const handleRole = (e) => {
 		setRole(e.target.value)
 	}
+
 
 // let getWelcome = async () =>{
 // 	try {
@@ -77,6 +79,7 @@ const Login = () => {
 		} catch (error) {
 			console.log(error.message);
 		}
+
 	}
 
 
@@ -88,10 +91,12 @@ const Login = () => {
 			<select name="role" 
 			value={role}
 			onChange={handleRole}>
+
 				<option hidden>Cargo</option>
 				<option value="waiter">Garçon</option>
 				<option value="chef">Chefe de cozinha</option>
 				<option value="admin">Admnistrador</option>
+
 			</select>
 		</label>
 				<label>
