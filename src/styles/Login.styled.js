@@ -31,5 +31,4 @@ export const Button = styled.button`
 	font-weight: bold;
 	margin-top: 2rem;
 	
-
 `
