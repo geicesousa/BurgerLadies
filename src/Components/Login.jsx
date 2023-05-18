@@ -68,10 +68,8 @@ const Login = () => {
 	});
 	return response.json();
 	} 
-  
 
-
-	const logiForm = async (e) => {
+	const loginForm = async (e) => {
 		e.preventDefault()
 		try {
 		const loginUser = await createLogin(email, password)
@@ -84,10 +82,9 @@ const Login = () => {
 		}
 	}
 
-
 return (
 <>
-<Form onSubmit={logiForm}>
+<Form onSubmit={loginForm}>
 	<label>
 		<span>Selecione seu cargo</span>
 		<select name="role" 
@@ -108,8 +105,7 @@ return (
 			placeholder="Digite seu Email" 
 			onChange={handleEmail}  
 		/>
-	</label>
-	
+	</label>	
 	<label>
 		<span>Senha</span>
 		<input 
@@ -121,7 +117,6 @@ return (
 		/>
 	</label>
 	<Button type="submit" value="Login">Login</Button>
-
 </Form>
 </>
 )

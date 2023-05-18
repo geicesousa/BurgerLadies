@@ -2,15 +2,12 @@ import { useState } from "react";
 import { Button, Form, ParagrafoErro } from "../styles/Login.styled";
 import Alert from 'react-bootstrap/Alert'
 
-
 const Register = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
-	const [msg, setMsg] = useState('')
-
-	
+	const [msg, setMsg] = useState('')	
 	const urlRegister = "http://localhost:8080/users"
 
 	const handleName = (e) => {
@@ -44,9 +41,7 @@ const Register = () => {
 			body: JSON.stringify(userData)
 		});
 		return response.json();
-	} 
-
-	
+	} 	
 
 	const aoCriar = async (e) => {		
 		e.preventDefault()
@@ -64,8 +59,6 @@ const Register = () => {
 			console.error(error.message);
 		}
 	}
-
-
 
 	return (
 		<>
@@ -90,8 +83,7 @@ const Register = () => {
 				placeholder="Digite seu nome" 
 				onChange={handleName}  
 			/>
-		</label>
-		
+		</label>		
         <label>
 			<span>Email</span>
 			<input 
@@ -101,8 +93,7 @@ const Register = () => {
 				placeholder="Digite seu Email" 
 				onChange={handleEmail} 
 				/>
-		</label>
-			
+		</label>			
 		<label>
 			<span>Senha</span>
 			<input 
@@ -112,8 +103,7 @@ const Register = () => {
 				placeholder="Digite sua senha"
 				onChange={handlePassword} 
 			/>
-		</label>
-		
+		</label>		
         <ParagrafoErro>
           { msg !== '' && <Alert variant='warning'>
               {msg}
@@ -121,7 +111,6 @@ const Register = () => {
           }
         </ParagrafoErro>		               
 		<Button type="submit" value="Login">Criar usuário</Button>
-
 		</Form>
 		</>
 	)
