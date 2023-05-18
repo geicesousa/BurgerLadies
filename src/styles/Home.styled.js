@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ButtonContainer = styled.main`
 	margin: auto;
 	padding: 5rem;
-	margin-top: 5rem;
+	margin-top: 1rem;
 	width: 90vw;
 `
 

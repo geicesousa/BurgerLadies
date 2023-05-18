@@ -7,7 +7,6 @@ const Admin = () => {
       <ButtonContainer>
       <Button>Funcionários</Button>
       <Button>Produtos</Button>
-
       </ButtonContainer>
     </>
   )

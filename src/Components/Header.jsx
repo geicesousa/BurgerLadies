@@ -1,10 +1,10 @@
-import burguerLogo from '../assets/burguerLogo.png'
+import burguerLogo from '../assets/ladies.png'
 import { HeaderContainer } from '../styles/Header.styles'
 
 const Header = () => {
   return(
     <HeaderContainer>
-      <img width='300px'src={burguerLogo} />
+      <img width='480px'src={burguerLogo} />
     </HeaderContainer>
   )
 }
