@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Button, ButtonContainer } from '../styles/Home.styled'
 
-const Atendente = () => {  
+const Atendente = () => {
+
   return (
 	<ButtonContainer>
       <Button><Link to='/novopedido'></Link>Novo pedido</Button>

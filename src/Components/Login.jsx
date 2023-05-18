@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form } from "../styles/Login.styled";
+import { Button, Form } from "../styles/Form.styled";
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {

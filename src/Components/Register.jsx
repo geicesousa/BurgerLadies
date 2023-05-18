@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, ParagrafoErro } from "../styles/Login.styled";
+import { Button, Form, ParagrafoErro } from "../styles/Form.styled";
 import Alert from 'react-bootstrap/Alert'
 
 const Register = () => {

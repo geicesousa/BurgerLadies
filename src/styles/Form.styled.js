@@ -6,17 +6,16 @@ export const Form = styled.form`
 	justify-content: center;
 	align-items: center;
 	width: 60vw;
-	height: 60vh;
+	height: auto;
 	margin: auto;
-	margin-top: 3rem;
+	margin-top: 4rem;
 	gap: 1.5rem;
 	border-radius: 20px;
 	padding: 1rem;
 
 	@media (min-width: 1200px) {
     width: 30vw;	
-	height: 60vh;
-  }
+	}
 
 		select, input {
 		width: 50vw;
@@ -72,8 +71,7 @@ export const Button = styled.button`
 	font-weight: bold;
 	padding: .3rem;
 	border-radius: 10px;
-	margin-top: -2rem;
-
+	
 	:hover {
 		background-color: #3a6332;
   }
