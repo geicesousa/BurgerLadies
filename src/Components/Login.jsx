@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Button, Form } from "../styles/Form.styled";
-import { redirect } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
 	const urlLogin = "http://localhost:8080/login"
-	const navigate = redirect();
+	const navigate = useNavigate();
 
 	const handleEmail = (e) => {
 	setEmail(e.target.value)
@@ -74,7 +74,7 @@ const Login = () => {
 		const loginUser = await createLogin(email, password)
 		console.log(loginUser)
 		if(loginUser.user.role === 'waiter' )
-		redirect('/atendente');
+		navigate('/atendente');
 
 		} catch (error) {
 		console.log(error.message);
