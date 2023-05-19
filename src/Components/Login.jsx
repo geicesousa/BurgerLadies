@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Button, Form } from "../styles/Login.styled";
-
+import { getErrorMessage } from "../error/errorLogin.js";
+import { ErrorDiv } from '../styles/ErrorMessage.styled.js'
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
+
 	const urlLogin = "http://localhost:8080/login"
 
 	const handleEmail = (e) => {
@@ -20,6 +24,7 @@ const Login = () => {
 		setRole(e.target.value)
 	}
 
+	const navigate = useNavigate();
 
 // let getWelcome = async () =>{
 // 	try {
@@ -52,34 +57,73 @@ const Login = () => {
 
 // }
 
-	const login = async (email, password, role) => {
-		const loginData = {
-			email,
-			password,
-			role,
-		}
-		const response = await fetch(urlLogin, {
+	// const login = async (email, password, role) => {
+	// 	const loginData = {
+	// 		email,
+	// 		password,
+	// 		role,
+	// 	}
+	// 	const response = await fetch(urlLogin, {
+	// 		method: "POST",
+	// 		headers: {
+	// 			'Content-Type': 'application/json'
+	// 		},
+	// 		body: JSON.stringify(loginData)
+	// 	});
+	// } 
+  
+	// Login mudado
+	const login = (email, password) => {
+		return fetch (urlLogin, {
 			method: "POST",
+			body: JSON.stringify({
+				email, password
+			}),
 			headers: {
 				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(loginData)
-		});
-		return response.json();
-	} 
-  
+			}
+		})
+	}
 
+	// const logar = async (e) => {
+	// 	e.preventDefault()
+	// 	try {
+	// 		const loginUsuario = await login(email, password)
+	// 		console.log(loginUsuario)
 
-	const logar = async (e) => {
-		e.preventDefault()
-		try {
-			const loginUsuario = await login(email, password)
-			console.log(loginUsuario)
+	// 	} catch (error) {
+	// 		console.log(error.code);
+	// 	}
 
-		} catch (error) {
-			console.log(error.message);
-		}
+	// }
 
+	// Login mudado
+	const logar = (e) => {
+		e.preventDefault();
+		login(email, password).then((response) => {
+			const data = response.json();
+			if (response.status === 200) {
+				return data.then((object) => {
+					// console.log(object)
+					if (object.user.role === 'waiter') {
+						return navigate('./atendente')
+					}
+					else if(object.user.role === 'admin') {
+						return navigate('./admin')
+					}
+					// else if(object.user.role === 'chef') {
+					// 	return navigate('./')
+					// }
+				})
+			}
+			else if (response.status !== 200) {
+				return data.then((errorMessage) => {
+					const error = getErrorMessage(errorMessage);
+					setErrorMessage(error);
+					console.log(error)
+				})
+			}
+		})
 	}
 
 
@@ -120,6 +164,7 @@ const Login = () => {
 				onChange={handlePassword} 
 			/>
 		</label>
+		{errorMessage && <ErrorDiv><p>{errorMessage}</p></ErrorDiv>}
 		<Button type="submit" value="Login">Login</Button>
 
 		</Form>
