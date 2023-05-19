@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Button, Form } from "../styles/Form.styled";
-import { useNavigate } from 'react-router-dom';
+import { redirect } from "react-router-dom";
 
 const Login = () => {
-	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
 	const urlLogin = "http://localhost:8080/login"
-	const navigate = useNavigate();
+	const navigate = redirect();
 
 	const handleEmail = (e) => {
 	setEmail(e.target.value)
@@ -54,19 +53,19 @@ const Login = () => {
 // }
 
 	const createLogin = async (email, password) => {
-	const dataLogin = {
-	email,
-	password,
-	role,
-	}
-	const response = await fetch(urlLogin, {
-		method: "POST",
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(dataLogin)
-	});
-	return response.json();
+		const dataLogin = {
+		email,
+		password,
+		role,
+		}
+		const response = await fetch(urlLogin, {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(dataLogin)
+		});
+		return response.json();
 	} 
 
 	const loginForm = async (e) => {
@@ -75,7 +74,7 @@ const Login = () => {
 		const loginUser = await createLogin(email, password)
 		console.log(loginUser)
 		if(loginUser.user.role === 'waiter' )
-		navigate('/atendente');
+		redirect('/atendente');
 
 		} catch (error) {
 		console.log(error.message);

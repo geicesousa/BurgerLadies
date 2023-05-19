@@ -5,7 +5,11 @@ const Atendente = () => {
 
   return (
 	<ButtonContainer>
-      <Button><Link to='/novopedido'></Link>Novo pedido</Button>
+      <Button type='submit'>
+        <Link to='/novopedido'>
+        Novo pedido
+        </Link>      
+      </Button>
       <Button>Pedidos prontos</Button>
       <Button>Pedidos entregues</Button>
       <Button>Pedidos pendentes</Button>
