@@ -11,7 +11,7 @@ export const Form = styled.form`
 	margin-top: 4rem;
 	gap: 1.5rem;
 	border-radius: 20px;
-	padding: 1rem;
+	padding: 2rem;
 
 	@media (min-width: 1200px) {
     width: 30vw;	
@@ -29,6 +29,7 @@ export const Form = styled.form`
 			@media (min-width: 1200px) {
 				width: 25vw;
 				padding: .2rem;
+				font-size: 1rem;
 			}
 	}
 
@@ -42,11 +43,11 @@ export const Form = styled.form`
 	}
 
 	label{
-		font-size: 1.8rem;		
+		font-size: 1.5rem;		
 		color: #E1CF7D;	
 		
 		@media (min-width: 1200px) {
-				font-size:1.2rem;
+				font-size: 1rem;
 			}
 				
 		span{

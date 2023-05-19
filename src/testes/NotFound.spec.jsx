@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 
 
 describe('NotFound', () => {
-	it('renderizar o NotFound corretamente', () => {
+	it('should display elements', () => {
 		render (<NotFound></NotFound>)
 	})
 })

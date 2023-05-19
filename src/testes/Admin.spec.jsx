@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 
 
 describe('Admin', () => {
-	it('renderizar o Admin corretamente', () => {
+	it('should display elements', () => {
 		render (<Admin></Admin>)
 	})
 })

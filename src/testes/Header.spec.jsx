@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 
 
 describe('Header', () => {
-	it('renderizar o Header corretamente', () => {
+	it('should display elements', () => {
 		render (<Header></Header>)
 	})
 })

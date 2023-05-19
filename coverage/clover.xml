@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684463835819" clover="3.2.0">
-  <project timestamp="1684463835819" name="All files">
-    <metrics statements="85" coveredstatements="43" conditionals="10" coveredconditionals="1" methods="22" coveredmethods="7" elements="117" coveredelements="51" complexity="0" loc="85" ncloc="85" packages="4" files="14" classes="14"/>
+<coverage generated="1684466492587" clover="3.2.0">
+  <project timestamp="1684466492587" name="All files">
+    <metrics statements="97" coveredstatements="53" conditionals="21" coveredconditionals="2" methods="26" coveredmethods="9" elements="144" coveredelements="64" complexity="0" loc="97" ncloc="97" packages="5" files="16" classes="16"/>
     <package name=".jest.mocks">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="fileMock.js" path="C:\Users\dayan\Desktop\LAB\burger-ladies\.jest\mocks\fileMock.js">
@@ -21,16 +21,16 @@
       </file>
     </package>
     <package name="src.Components">
-      <metrics statements="75" coveredstatements="33" conditionals="10" coveredconditionals="1" methods="20" coveredmethods="5"/>
+      <metrics statements="82" coveredstatements="42" conditionals="18" coveredconditionals="2" methods="23" coveredmethods="7"/>
       <file name="Admin.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\Admin.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
       </file>
       <file name="Atendente.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\Atendente.jsx">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
       </file>
       <file name="Header.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\Header.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -38,32 +38,39 @@
         <line num="6" count="2" type="stmt"/>
       </file>
       <file name="Login.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\Login.jsx">
-        <metrics statements="25" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="1"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
+        <metrics statements="32" coveredstatements="13" conditionals="10" coveredconditionals="1" methods="9" coveredmethods="1"/>
         <line num="8" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
-        <line num="72" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="107" count="2" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="111" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="117" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="133" count="2" type="stmt"/>
       </file>
       <file name="NotFound.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\NotFound.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -71,17 +78,17 @@
         <line num="6" count="1" type="stmt"/>
       </file>
       <file name="NovoPedido.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\NovoPedido.jsx">
-        <metrics statements="11" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
+        <metrics statements="11" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
       </file>
       <file name="Register.jsx" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\Components\Register.jsx">
@@ -119,8 +126,22 @@
         <line num="63" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="src.error">
+      <metrics statements="4" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="errorLogin.js" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\error\errorLogin.js">
+        <metrics statements="4" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+      </file>
+    </package>
     <package name="src.styles">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="ErrorMessage.styled.js" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\styles\ErrorMessage.styled.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
       <file name="Form.styled.js" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\styles\Form.styled.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="3" type="stmt"/>
@@ -133,8 +154,8 @@
       </file>
       <file name="Home.styled.js" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\styles\Home.styled.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
       </file>
       <file name="NotFound.styles.js" path="C:\Users\dayan\Desktop\LAB\burger-ladies\src\styles\NotFound.styles.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
