@@ -3,9 +3,9 @@ import  { DivMenu, FormClient }  from "../styles/Ordered.styles";
 
 // colocar o café da manhã no cardapio
 // baixar o icons do react para usar setas e + - 
-import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineArrowRight, AiOutlineCheck, AiOutlineCheckCircle, AiOutlineCloseCircle, AiOutlineClose, AiOutlineCrown } from "react-icons/ai";
-import { FcApproval, FcCheckmark } from "react-icons/fc";
-import { MdDeleteForever, MdOutlineDoNotDisturbOn, MdOutlineExpandMore } from "react-icons/md";
+import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineArrowRight, AiOutlineCheckCircle, AiOutlineCloseCircle, AiOutlineClose, AiOutlineCrown } from "react-icons/ai";
+import { FcApproval, FcCancel } from "react-icons/fc";
+import { MdOutlineDoNotDisturbOn, MdOutlineExpandMore, MdOutlineAddCircleOutline } from "react-icons/md";
 import { VscError } from "react-icons/vsc";
 
 // na hora de usar metodos de array usar () no lugar das {} assim: map(()=>()) por causa do jsx que é lido como obj
@@ -20,11 +20,15 @@ const Ordered = ()=>{
   // função de soma para o + com onclick
   const handleSome = () =>{
     let add = 0;
+    console.log('soma')
+
     return add += 1;
   }
   // função de subtração para o - 
   const handleSub = (n)=>{
     let sub = n;
+    console.log('diminui')
+
     return sub -= 1;
   }
   const handleShow = ()=>{
@@ -33,86 +37,152 @@ const Ordered = ()=>{
 
 
   return <>
-  <div>
     <DivMenu>
-      <span onClick={handleShow}><AiOutlineArrowDown/></span>
       <section> 
-        <h4>Café da Manhã</h4>
+        <h4>Café da Manhã {/* <MdOutlineExpandMore onClick={handleShow}/>*/}</h4> 
         <ul> 
-          <li> Café americano
-            <p>R$5,00</p>
+          <li> 
+            <div>Café americano
+              <p>R$5,00</p>
+            </div>
             <div>
-              <span onClick={handleSome}></span>
-              <span value={qntd ||'00'}></span>
-              <span onClick={handleSub}></span>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
             </div>
           </li>
 
-          <li> Café com leite
-            <p>R$7,00</p>
-            <span></span>
+          <li>
+            <div> Café com leite
+              <p>R$7,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li> Sanduíche de queijo e presunto
-            <p>R$10,00</p>
-            <span></span>
+          <li>
+            <div> Sanduíche de queijo e presunto
+              <p>R$10,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li> Suco de fruta natural
-            <p>R$7,00</p>
-            <span></span>
+          <li>
+            <div> Suco de fruta natural
+              <p>R$7,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
         </ul>
       </section>
 
       <section>
-        <h4>A qualquer hora</h4>
+        <h4>A qualquer hora {/* <MdOutlineExpandMore onClick={handleShow}/>*/}</h4>
         <ul> 
           <h5>Hambúrguers</h5>
-          <li> Hambúrguer simples
-            <p>R$10,00</p>
-            <span></span>
+          <li>
+            <div> Hambúrguer simples
+              <p>R$10,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li> Hambúrguer duplo 
-            <p>R$15,00</p>
-            <span></span>
+          <li>
+            <div> Hambúrguer duplo 
+              <p>R$15,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
         </ul>
 
         <ul>
           <h5>Acompanhamentos</h5>
-          <li> Batata frita
-            <p>R$5,00</p>
-            <span></span>
+          <li> 
+            <div> Batata frita
+              <p>R$5,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li>
-            <p>R$5,00</p>
-            <span></span>
+          <li> 
+            <div> Anéis de cebola
+              <p>R$5,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
         </ul>
 
         <ul> 
           <h5>Bebidas</h5>
-          <li> Água 500ml
-            <p>R$5</p>
-            <span></span>
+          <li>
+            <div> Água 500ml
+              <p>R$5,00</p>
+            </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li> Água 750ml
+          <li>
+            <div> Água 750ml
             <p>R$7,00</p>
-            <span></span>
+              </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li> Bebida gaseificada 500ml
+          <li>
+            <div> Bebida gaseificada 500ml
             <p>R$7,00</p>
-            <span></span>
+              </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
 
-          <li> Bebida gaseificada 750ml
+          <li>
+            <div> Bebida gaseificada 750ml
             <p>R$10,00</p>
-            <span></span>
+              </div>
+            <div>
+              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <span>{qntd ||' 00 '}</span>
+              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+            </div>
           </li>
         </ul>
       </section>
@@ -140,10 +210,13 @@ const Ordered = ()=>{
 
     <span>
       Pedido enviado com sucesso! <br/>
-      <AiOutlineCheck/>
+      <FcApproval/>
     </span>
-  
-  </div>
+    <br/>
+    <span>
+      Pedido cancelado. <br/>
+      <FcCancel/>
+    </span>
   </>
 }
 

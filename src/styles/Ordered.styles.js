@@ -20,15 +20,27 @@ export const DivMenu = styled.div`
     h4{
       text-transform: uppercase;
       text-align: center;
-      margin: .3rem auto;
-
+      margin: .5rem auto .5rem;
     }
     ul{
       display: flex;
       flex-direction: column;
-      gap:.5rem;
+      gap: 1rem;
       text-transform: none;
+        li{
+          display:flex;
+          flex-direction: row;
+          justify-content: space-between;
+          aling-items: center;
+        }
+        h5{
+          text-transform: uppercase;
+          font-size: 12px;
+          margin-top: .8rem;
+          
+        }
     }
+   
 
 `
 export const FormClient= styled.form`

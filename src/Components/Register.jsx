@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Button, Form } from "../styles/Login.styled";
+import { Button, Form, ParagrafoErro } from "../styles/Form.styled";
+import Alert from 'react-bootstrap/Alert'
 
 const Register = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");  
 	const [role, setRole] = useState("");
-	
+	const [msg, setMsg] = useState('')	
 	const urlRegister = "http://localhost:8080/users"
 
 	const handleName = (e) => {
@@ -40,19 +41,24 @@ const Register = () => {
 			body: JSON.stringify(userData)
 		});
 		return response.json();
-	} 
-  
-	const aoCriar = async (e) => {
+	} 	
+
+	const aoCriar = async (e) => {		
 		e.preventDefault()
 		try {
 			const loginUsuario = await criarusuario(name,email, password, role)
 			console.log(loginUsuario)
+			if (name === '' || email === '' || password === '' || role === '') {
+				setMsg('Preencha todos os campos!')
+			return false
+			}
+			setMsg('')
+			return true
 
-		}catch (error) {
-			console.log(error.message);
+		}catch(error){
+			console.error(error.message);
 		}
 	}
-
 
 	return (
 		<>
@@ -63,7 +69,7 @@ const Register = () => {
 			value={role}
 			onChange={handleRole}>
 				<option hidden>Cargo</option>
-				<option value="waiter">Garçon</option>
+				<option value="waiter">Garçon/Garçonete</option>
 				<option value="chef">Chefe de cozinha</option>
 				<option value="admin">Admnistrador</option>
 			</select>
@@ -77,19 +83,17 @@ const Register = () => {
 				placeholder="Digite seu nome" 
 				onChange={handleName}  
 			/>
-		</label>
-
-		<label>
+		</label>		
+        <label>
 			<span>Email</span>
 			<input 
 				type="text" 
 				value={email}
 				name="email"
 				placeholder="Digite seu Email" 
-				onChange={handleEmail}  
-			/>
-		</label>
-		
+				onChange={handleEmail} 
+				/>
+		</label>			
 		<label>
 			<span>Senha</span>
 			<input 
@@ -99,9 +103,14 @@ const Register = () => {
 				placeholder="Digite sua senha"
 				onChange={handlePassword} 
 			/>
-		</label>
+		</label>		
+        <ParagrafoErro>
+          { msg !== '' && <Alert variant='warning'>
+              {msg}
+            </Alert>
+          }
+        </ParagrafoErro>		               
 		<Button type="submit" value="Login">Criar usuário</Button>
-
 		</Form>
 		</>
 	)

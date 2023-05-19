@@ -6,6 +6,7 @@ import NotFound from './Components/NotFound';
 import Register from './Components/Register';
 import Admin from './Components/Admin';
 import Ordered from './Components/Ordered';
+import NovoPedido from './Components/NovoPedido';
 
 
 function Router() {
@@ -19,6 +20,8 @@ function Router() {
 			<Route path="*" element={<NotFound/>} />	
 			<Route path="/admin" element={<Admin/>} />		
 			<Route path="/ordered" element={<Ordered/>} />		
+			<Route path="/novopedido" element={<NovoPedido/>} />
+		
 		</Routes>	
 	</BrowserRouter>
   )
