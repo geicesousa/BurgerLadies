@@ -44,15 +44,10 @@ const Login = () => {
 		return response.json();
 	}
 
-
-
-
-	// Login mudado
-	
+	// Login mudado	
 	const logar = (e) => {
 		e.preventDefault();
-		createLogin(email, password).then((response) => {
-			
+		createLogin(email, password).then((response) => {			
 			const data = response.json();
 			if (response.status === 200) {
 				return data.then((object) => {
@@ -91,7 +86,6 @@ const Login = () => {
 				<option value="waiter">Atendente</option>
 				<option value="chef">Chefe de cozinha</option>
 				<option value="admin">Admnistrador</option>
-
 			</select>
 		</label>
 		<label>
@@ -107,7 +101,7 @@ const Login = () => {
 		<label>
 			<span>Senha</span>
 			<input 
-				type="text" 
+				type="password" 
 				value={password}
 				name="password"
 				placeholder="Digite sua senha"

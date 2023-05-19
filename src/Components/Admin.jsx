@@ -1,13 +1,12 @@
-
 import { Button, ButtonContainer } from "../styles/Home.styled";
 
 const Admin = () => {
   return (
     <>
-      <ButtonContainer>
+    <ButtonContainer>
       <Button>Funcionários</Button>
       <Button>Produtos</Button>
-      </ButtonContainer>
+    </ButtonContainer>
     </>
   )
 }
