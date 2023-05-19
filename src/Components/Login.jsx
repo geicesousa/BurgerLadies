@@ -57,7 +57,8 @@ const Login = () => {
 			email,
 			password,
 			role,
-		}
+		};
+
 		const response = await fetch(urlLogin, {
 			method: "POST",
 			headers: {
@@ -66,21 +67,18 @@ const Login = () => {
 			body: JSON.stringify(loginData)
 		});
 		return response.json();
-	} 
+	};
   
-
-
 	const logar = async (e) => {
 		e.preventDefault()
 		try {
-			const loginUsuario = await login(email, password)
+			const loginUsuario = await login(email, password);
 			console.log(loginUsuario)
 
 		} catch (error) {
 			console.log(error.message);
 		}
-
-	}
+	};
 
 
 	return (
@@ -96,10 +94,10 @@ const Login = () => {
 				<option value="waiter">Atendente</option>
 				<option value="chef">Chefe de cozinha</option>
 				<option value="admin">Admnistrador</option>
-
 			</select>
 		</label>
-				<label>
+
+		<label>
 			<span>Email</span>
 			<input 
 				type="text" 
@@ -113,7 +111,7 @@ const Login = () => {
 		<label>
 			<span>Senha</span>
 			<input 
-				type="text" 
+				type="password" 
 				value={password}
 				name="password"
 				placeholder="Digite sua senha"
