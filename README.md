@@ -1,3 +1,3 @@
 
 *** 
-<img width= "100px" src= "./assets/ladies.png">
+<img width= "100px" src= "../src/assets/ladies.png">
