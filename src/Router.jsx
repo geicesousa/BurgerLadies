@@ -5,6 +5,7 @@ import Atendente from './Components/Atendente';
 import NotFound from './Components/NotFound';
 import Register from './Components/Register';
 import Admin from './Components/Admin';
+import NovoPedido from './Components/NovoPedido';
 
 
 function Router() {
@@ -12,12 +13,14 @@ function Router() {
 	<BrowserRouter>
 		<Header/>
 		<Routes>
-			
+			<Route path="*" element={<NotFound/>} />
 			<Route path="/" element={<Login/>} />
 			<Route path="/register" element={<Register/>} />
 			<Route path="/atendente" element={<Atendente/>} />
-			<Route path="*" element={<NotFound/>} />	
-			<Route path="/admin" element={<Admin/>} />		
+			<Route path="/admin" element={<Admin/>} />
+			<Route path="/novopedido" element={<NovoPedido/>} />
+			
+				
 
 		
 		</Routes>	
