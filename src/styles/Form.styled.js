@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const MainForm = styled.main`
+width: 100vw;
+	
+`
 export const Form = styled.form`
 	background-color: #963C08;
 	display: grid;
@@ -11,21 +15,27 @@ export const Form = styled.form`
 	margin-top: 4rem;
 	gap: 1.5rem;
 	border-radius: 20px;
-	padding: 2rem;
+	padding: 3rem;
 
 	@media (min-width: 1200px) {
     width: 30vw;	
 	}
 
+	h2{
+		margin-bottom: 1rem;
+		color: #E1CF7D;
+		text-align: center;
+	}
+
 		select, input {
 		width: 50vw;
-		padding: .9rem;	
+		padding: 1rem;	
 		border-radius: 10px;
 		background-color: #E1CF7D;
 		border: none;
 		font-size: 1.3rem;
 		display: grid;
-		
+				
 			@media (min-width: 1200px) {
 				width: 25vw;
 				padding: .2rem;
@@ -38,7 +48,7 @@ export const Form = styled.form`
 		color: #963C08;
 
 		@media (min-width: 1200px) {
-				font-size:1.2rem;
+				font-size: .8rem;
 			}
 	}
 
@@ -61,16 +71,16 @@ export const Form = styled.form`
 
 
 `
-export const Button = styled.button`
+export const ButtonForm = styled.button`
 	width: 50%;
 	margin: auto;
 	border: none;
-	font-size: 1.3rem;
+	font-size: 1rem;
 	background-color: #03300b;
 	color: #E1CF7D;
 	text-transform: uppercase;
 	font-weight: bold;
-	padding: .3rem;
+	padding: .5rem;
 	border-radius: 10px;
 	
 	:hover {
@@ -80,10 +90,3 @@ export const Button = styled.button`
 
 `
 
-export const ParagrafoErro = styled.p`
-	font-size: 1.5rem;
-	color: #E1CF7D;
-	text-align: center;
-	font-weight: bold;
-
-`
