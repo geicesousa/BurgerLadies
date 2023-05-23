@@ -5,6 +5,7 @@ import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineArrowRight, AiOutlineChe
 import { FcApproval, FcCancel } from "react-icons/fc";
 import { MdOutlineDoNotDisturbOn, MdOutlineExpandMore, MdOutlineAddCircleOutline } from "react-icons/md";
 import { VscError } from "react-icons/vsc";
+import { getListProducts } from "../services/api";
 
 // na hora de usar metodos de array usar () no lugar das {} assim: map(()=>()) por causa do jsx que é lido como obj
 // como fazer acodeon no react?
@@ -86,7 +87,7 @@ const Ordered = ()=>{
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlaWNldGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg0ODYwODU4LCJleHAiOjE2ODQ4NjQ0NTgsInN1YiI6IjQifQ.qw7a_0Ezp5iTLWNNuBONtwR-I19xmy3Os0sixOVMWUg' 
+          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlaWNldGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg0ODczMTAwLCJleHAiOjE2ODQ4NzY3MDAsInN1YiI6IjQifQ.ro_q3UnzO936qcATFsJXqb93flEHZQJ2koe4d_D246c' 
         } //mudar toda vez que alterar o login
       });
       const data = await response.json();
@@ -96,179 +97,96 @@ const Ordered = ()=>{
     fetchApi();
   }, [])
 
-  // const productos = products.map((product)=>{ console.log(product)})
+  const productos = products.map((product)=>{ 
+    console.log(product[0])
+  console.log(product.type);
+
+  })
 
   console.log(products);
-  console.log(products[0].name);
-  if(type=== 'café da manhã'){
-
-  }
+  // console.log(product.type);
+  // console.log(products[0].name);
 
   return <>
     <DivMenu>
       <section> 
         <h4>Café da Manhã {/* <MdOutlineExpandMore onClick={handleShow}/>*/}</h4> 
         { products.map((p)=>(
-            <ul key={p.id}>
-              <li>
+          p.type === 'café da manhã' && 
+          <ul key={p.id}>
+            <li>
               <div>{p.name}
+                <p>R${p.price},00</p>
+              </div> 
+
+              <div>
+                <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+                <span>{qntd ||' 00 '}</span> 
+                <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+              </div>
+            </li>
+          </ul>
+          )) 
+        }        
+      </section>
+
+      <section>
+        <h4>A qualquer hora {/* <MdOutlineExpandMore onClick={handleShow}/>*/}</h4>
+        <h5>Hambúrguers</h5>
+        {products.map((p)=>(
+          p.type === 'menu principal' && p.category === 'hambúrgueres' &&
+          <ul key={p.id}>
+            <li>
+              <div>{p.name}
+                <p>R${p.price},00</p>
+              </div> 
+
+              <div>
+                <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+                <span>{qntd ||' 00 '}</span> 
+                <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+              </div>
+            </li>
+          </ul>
+          )) 
+        }  
+
+        <h5>Acompanhamentos</h5>
+        {products.map((p)=>(
+          p.type === 'menu principal' && p.category === 'acompanhamentos' &&
+          <ul key={p.id}>
+            <li>
+              <div>{p.name}
+                <p>R${p.price},00</p>
+              </div> 
+
+              <div>
+                <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+                <span>{qntd ||' 00 '}</span> 
+                <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+              </div>
+            </li>
+          </ul>
+          ))
+        }  
+        <h5>Bebidas</h5>
+        {products.map((p)=>(
+        p.type === 'menu principal' && p.category === 'bebidas' &&
+        <ul key={p.id}>
+          <li>
+            <div>{p.name}
               <p>R${p.price},00</p>
-            </div>
+            </div> 
+
             <div>
               <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
               <span>{qntd ||' 00 '}</span> 
               <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
             </div>
           </li>
-            </ul>
-          )) 
-        }        
-
-        <ul> 
-          {/* <li> 
-            <div>Café americano
-              <p>R$5,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span> {/* colocar key ou id em algum lugar
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li> */}
-
-          {/* <li>
-            <div> Café com leite
-              <p>R$7,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-
-          <li>
-            <div> Sanduíche de queijo e presunto
-              <p>R$10,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li> */}
-
-          {/* <li>
-            <div> Suco de fruta natural
-              <p>R$7,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li> */}
         </ul>
-      </section>
-
-      <section>
-        <h4>A qualquer hora {/* <MdOutlineExpandMore onClick={handleShow}/>*/}</h4>
-        <ul> 
-          <h5>Hambúrguers</h5>
-          <li>
-            <div> Hambúrguer simples
-              <p>R$10,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-
-          <li>
-            <div> Hambúrguer duplo 
-              <p>R$15,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-        </ul>
-
-        <ul>
-          <h5>Acompanhamentos</h5>
-          <li> 
-            <div> Batata frita
-              <p>R$5,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-
-          <li> 
-            <div> Anéis de cebola
-              <p>R$5,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-        </ul>
-
-        <ul> 
-          <h5>Bebidas</h5>
-          <li>
-            <div> Água 500ml
-              <p>R$5,00</p>
-            </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-
-          <li>
-            <div> Água 750ml
-            <p>R$7,00</p>
-              </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-
-          <li>
-            <div> Bebida gaseificada 500ml
-            <p>R$7,00</p>
-              </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-
-          <li>
-            <div> Bebida gaseificada 750ml
-            <p>R$10,00</p>
-              </div>
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span>
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-        </ul>
+        )) 
+        } 
       </section>
     </DivMenu>
 
