@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Button, ButtonContainer } from '../styles/Home.styled'
 
-const Atendente = () => {
+const Attendant = () => {
 
   return (
 	<ButtonContainer>
@@ -17,5 +17,5 @@ const Atendente = () => {
   )
 }
 
-export default Atendente
+export default Attendant
 
