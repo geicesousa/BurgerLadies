@@ -22,7 +22,7 @@ function Router() {
 			<Route path="*" element={<NotFound/>} />
 			<Route path="/" element={<Login/>} />
 			<Route path="/register" element={<Register/>} />
-			<Route path="/attendant" element={<Attendant/>} />				
+			<Route path="/attendance" element={<Attendance/>} />				
 			<Route path="/admin" element={<Admin/>} />		
 			<Route path="/ordered" element={<Ordered/>} />		
 			<Route path="/kitchen" element={<Kitchen/>} />	

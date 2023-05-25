@@ -6,14 +6,9 @@ import { Link } from 'react-router-dom'
 function Kitchen() {
   return (
 	<ButtonContainer >
-      <Button type='submit'>
-        <Link to='/ordered'>
-        Novo pedido
-        </Link>      
-      </Button>
-      <Button>Pedidos prontos</Button>
-      <Button>Pedidos entregues</Button>
       <Button>Pedidos pendentes</Button>
+      <Button>Pedidos prontos</Button>
+      <Button>Pedidos entregues</Button>      
   </ButtonContainer>
   
   )

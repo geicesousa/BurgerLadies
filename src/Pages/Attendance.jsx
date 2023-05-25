@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Button, ButtonContainer } from '../styles/Home.styled'
 
-const Attendant = () => {
+const Attendance = () => {
 
   return (
 	<ButtonContainer>
       <Button type='submit'>
-        <Link to='/novopedido'>
+        <Link to='/ordered'>
         Novo pedido
         </Link>      
       </Button>
@@ -17,5 +17,5 @@ const Attendant = () => {
   )
 }
 
-export default Attendant
+export default Attendance
 
