@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
-import Attendant from './Pages/Attendant';
+import Attendance from './Pages/Attendance';
 import NotFound from './Pages/NotFound';
 import Admin from './Pages/Admin';
 import Ordered from './Pages/Ordered';
