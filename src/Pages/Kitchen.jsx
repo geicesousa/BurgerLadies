@@ -7,7 +7,7 @@ function Kitchen() {
   return (
 	<ButtonContainer >
       <Button type='submit'>
-        <Link to='/menu'>
+        <Link to='/ordered'>
         Novo pedido
         </Link>      
       </Button>

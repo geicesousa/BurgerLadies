@@ -56,7 +56,7 @@ function Login() {
                 <label>
                     <span>Digite seu email</span>
                     <input
-                    type="text" 
+                    type="email" 
                     value={email}
                     name="email"
                     placeholder="Digite seu Email" 
@@ -66,7 +66,7 @@ function Login() {
                 <label>
                     <span>Digite sua senha</span>
                     <input
-                   type="text" 
+                   type="password" 
                    value={password}
                    name="password"
                    placeholder="Digite sua senha" 
