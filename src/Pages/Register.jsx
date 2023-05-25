@@ -86,6 +86,7 @@ function Register() {
                         <option hidden>Cargo</option>
                         <option value='attendant'>Atendimento</option>
                         <option value='kitchen'>Cozinha</option>
+                        <option value='admin'>Administração</option>
                     </select>
                 </label>                
                 {/* <div>

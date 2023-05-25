@@ -4,7 +4,6 @@ import Register from './Pages/Register';
 import Login from './Pages/Login';
 import Attendant from './Pages/Attendant';
 import NotFound from './Pages/NotFound';
-
 import Admin from './Pages/Admin';
 import Ordered from './Pages/Ordered';
 import Kitchen from './Pages/Kitchen';

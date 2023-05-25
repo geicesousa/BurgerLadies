@@ -12,7 +12,7 @@ export const Form = styled.form`
 	width: 80vw;
 	height: auto;
 	margin: auto;
-	margin-top: 4rem;
+	margin-top: 2rem;
 	gap: 1.5rem;
 	border-radius: 20px;
 	padding: 3rem;

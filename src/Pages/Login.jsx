@@ -34,9 +34,15 @@ function Login() {
             })
             .then((data) => {
                 if (!data.code) {
-                    login(data.token, data.role);
+                    login(data.accessToken, data.role);
                     toast.success("Sucesso!");
-                    navigate(data.role === 'attendance' ? '/attendance' : '/kitchen');
+                    if(data.role === 'attendance'){
+                        navigate('/attendance') 
+                    }if(data.role === 'kitchen'){
+                        navigate('/kitchen');  
+                    }if(data.role === 'admin'){
+                        navigate('/admin');  
+                    } 
                 }
                 return data
             })
