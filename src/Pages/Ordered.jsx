@@ -83,11 +83,11 @@ const Ordered = ()=>{
   // renderiza os produtos dinamicamente
   useEffect(()=>{
     async function fetchApi(){
-      const response = await fetch('http://localhost:8080/products', {
+      const response = await fetch('https://burger-queen-api-mock-tau.vercel.app/products', {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlaWNldGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg0ODczMTAwLCJleHAiOjE2ODQ4NzY3MDAsInN1YiI6IjQifQ.ro_q3UnzO936qcATFsJXqb93flEHZQJ2koe4d_D246c' 
+          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kZW50ZUBnbWFpbC5jb20iLCJpYXQiOjE2ODUwNDA0NDAsImV4cCI6MTY4NTA0NDA0MCwic3ViIjoiMyJ9.d2OMIzyf9XlGU28M0vaUPkHjwCE7yuWhBTYQ1SMIsgQ' 
         } //mudar toda vez que alterar o login
       });
       const data = await response.json();

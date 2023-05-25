@@ -36,11 +36,11 @@ function Login() {
                 if (!data.code) {
                     login(data.accessToken, data.role);
                     toast.success("Sucesso!");
-                    if(data.role === 'attendance'){
+                    if(data.user.role === 'attendance' ){
                         navigate('/attendance') 
-                    }if(data.role === 'kitchen'){
+                    }else if(data.user.role === 'kitchen' ){
                         navigate('/kitchen');  
-                    }if(data.role === 'admin'){
+                    } else {
                         navigate('/admin');  
                     } 
                 }
