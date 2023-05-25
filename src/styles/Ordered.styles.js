@@ -1,11 +1,10 @@
 import styled from "styled-components";
+import { VscError } from "react-icons/vsc";
+
 
 export const DivMenu = styled.div`
   background-color: #963C08;
-  diplay: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80vw;
+  width: 90vw;
   height: 50vh;
   margin: auto;
   gap: 2rem;
@@ -16,32 +15,32 @@ export const DivMenu = styled.div`
       font-size: small;
     }
     section{
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
     }
     h4{
       text-transform: uppercase;
       text-align: center;
       margin: .5rem auto .5rem;
     }
+    h5{
+      text-transform: uppercase;
+      font-size: .7rem;
+    }
     ul{
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 5rem;
       text-transform: none;
         li{
           display:flex;
           flex-direction: row;
           justify-content: space-between;
-          aling-items: center;
-        }
-        h5{
-          text-transform: uppercase;
-          font-size: 12px;
-          margin-top: .8rem;
-          
+          align-items: center;
+          gap: .3rem;
         }
     }
-   
-
 `
 export const FormClient= styled.form`
   width: 80%;

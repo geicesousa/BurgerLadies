@@ -8,6 +8,7 @@ import { VscError } from "react-icons/vsc";
 import { getListProducts } from "../services/api";
 
 // na hora de usar metodos de array usar () no lugar das {} assim: map(()=>()) por causa do jsx que é lido como obj
+// na hora de deletar um pedido, mostrar todos menos o que tem o id (todosPedidos.id !== pedidoId )
 // como fazer acodeon no react?
 // para remover os itens usar o previousStates e fazer um filter
 
@@ -23,15 +24,16 @@ const Ordered = ()=>{
   const [orders, setAllOrders] = useState('');
   const [products, setProducts] = useState([]);
   const handleSome = (e) =>{
+    e.addEvent
     let add = 0;
     console.log('soma', e)
-    return add += 1;
+    return add = qntd + 1;
   };
-  const handleSub = (e)=>{
+  const handleSub = (e, id)=>{
 
     let sub = 0;
-    console.log('diminui', e.target)
-    return sub -= 1;
+    console.log('diminui', e.target, e)
+    return sub = qntd - 1;
   };
   const handleShow = ()=>{
     console.log('desceu/subiu usar toggle');
@@ -52,7 +54,7 @@ const Ordered = ()=>{
       name, 
       table,
       obs,
-      // itens do pedidos
+      // pedidos colocar rota dinamica ${`/pedidos/:id"`} 
       // reload()
     }; // postar na api em orders essa order
 
@@ -73,12 +75,12 @@ const Ordered = ()=>{
 
   const handleCanceled = ()=>{
     console.log('cancelado')
-    // aparece o modal com pedido cancelado
+    // aparece o toast com pedido cancelado
   };
 
   const handleObs = (e) =>{
     setObs(e.target.value);
-  }
+  };
 
   // renderiza os produtos dinamicamente
   useEffect(()=>{
@@ -87,7 +89,7 @@ const Ordered = ()=>{
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlaWNldGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg0ODczMTAwLCJleHAiOjE2ODQ4NzY3MDAsInN1YiI6IjQifQ.ro_q3UnzO936qcATFsJXqb93flEHZQJ2koe4d_D246c' 
+          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlaWNldGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg0ODk2NTk1LCJleHAiOjE2ODQ5MDAxOTUsInN1YiI6IjQifQ.VQyQoCxjy1OEZ9mgZKkzYoOV2fROJFgTCjmuwN3nNIM' 
         } //mudar toda vez que alterar o login
       });
       const data = await response.json();
@@ -96,17 +98,7 @@ const Ordered = ()=>{
     }
     fetchApi();
   }, [])
-
-  const productos = products.map((product)=>{ 
-    console.log(product[0])
-  console.log(product.type);
-
-  })
-
-  console.log(products);
-  // console.log(product.type);
-  // console.log(products[0].name);
-
+  
   return <>
     <DivMenu>
       <section> 
@@ -119,10 +111,10 @@ const Ordered = ()=>{
                 <p>R${p.price},00</p>
               </div> 
 
-              <div>
-                <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+              <div> 
+                <span onClick={handleSub} ><MdOutlineDoNotDisturbOn/></span>
                 <span>{qntd ||' 00 '}</span> 
-                <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+                <span onClick={handleSome} ><MdOutlineAddCircleOutline/></span>
               </div>
             </li>
           </ul>
@@ -133,7 +125,7 @@ const Ordered = ()=>{
       <section>
         <h4>A qualquer hora {/* <MdOutlineExpandMore onClick={handleShow}/>*/}</h4>
         <h5>Hambúrguers</h5>
-        {products.map((p)=>(
+        { products.map((p)=>(
           p.type === 'menu principal' && p.category === 'hambúrgueres' &&
           <ul key={p.id}>
             <li>
@@ -152,7 +144,7 @@ const Ordered = ()=>{
         }  
 
         <h5>Acompanhamentos</h5>
-        {products.map((p)=>(
+        { products.map((p)=>(
           p.type === 'menu principal' && p.category === 'acompanhamentos' &&
           <ul key={p.id}>
             <li>
@@ -170,21 +162,21 @@ const Ordered = ()=>{
           ))
         }  
         <h5>Bebidas</h5>
-        {products.map((p)=>(
-        p.type === 'menu principal' && p.category === 'bebidas' &&
-        <ul key={p.id}>
-          <li>
-            <div>{p.name}
-              <p>R${p.price},00</p>
-            </div> 
+        { products.map((p)=>(
+          p.type === 'menu principal' && p.category === 'bebidas' &&
+          <ul key={p.id}>
+            <li>
+              <div>{p.name}
+                <p>R${p.price},00</p>
+              </div> 
 
-            <div>
-              <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
-              <span>{qntd ||' 00 '}</span> 
-              <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
-            </div>
-          </li>
-        </ul>
+              <div>
+                <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+                <span>{qntd ||' 00 '}</span> 
+                <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
+              </div>
+            </li>
+          </ul>
         )) 
         } 
       </section>
@@ -208,17 +200,19 @@ const Ordered = ()=>{
 
         </select>
       </label>
-
-      <label> Observações:
-        <textarea name="obs" onChange={handleObs} value={obs}></textarea>
-      </label>
-
       <div>
-        <p>Total:{total || " R$0,00"}</p>
-        <div>
-          <button type="button" ><AiOutlineCheckCircle onClick={createOrder} /></button>
+      {/* para estiliza e colocar total e obs um ao lado do outro e alinhado ao meio */}
+        <label> Observações:
+          <textarea name="obs" onChange={handleObs} value={obs}></textarea>
+        </label>
 
-          <button type="button"><AiOutlineCloseCircle onSubmit={handleCanceled}/></button>
+        <div>
+          <p>Total:{total || " R$0,00"}</p>
+          <div>
+            <button type="button" ><AiOutlineCheckCircle onClick={createOrder} /></button>
+
+            <button type="button"><AiOutlineCloseCircle onSubmit={handleCanceled}/></button>
+          </div>
         </div>
       </div>
     </FormClient>

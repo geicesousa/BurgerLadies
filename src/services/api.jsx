@@ -34,12 +34,12 @@ export const loginUser = (email, password) => {
 
 export const getListProducts = () => {
 	return fetch(`${API}/products`, {
-	  method: 'GET',
-	  headers: {
+		method: 'GET',
+		headers: {
 		'Content-Type': 'application/json',
-		'Authorization': getToken()
-	  },
-	})
-	.then(res => res.json())
+		'Authorization':`Bearer ${getToken()}`
+		},
+		})
+		.then(res => res.json())
   };
   
