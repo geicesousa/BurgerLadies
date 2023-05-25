@@ -37,9 +37,12 @@ export const getListProducts = () => {
 	  method: 'GET',
 	  headers: {
 		'Content-Type': 'application/json',
-		'Authorization': getToken()
+		'Authorization': (getToken('token'))
 	  },
 	})
-	.then(res => res.json())
+
   };
   
+
+  
+

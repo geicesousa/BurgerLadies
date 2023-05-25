@@ -1,5 +1,5 @@
-export const login = (accessToken, role) => {
-    localStorage.setItem('accessToken', accessToken)
+export const login = (token, role) => {
+    localStorage.setItem('token', token)
     localStorage.setItem('role', role)
    
 
@@ -11,13 +11,18 @@ export const login = (accessToken, role) => {
 // Um DOMString contendo o valor da chave que você está criando ou atualizando.
 }
 
-export const removeLogin = (accessToken, role) => {
-    localStorage.removeItem('accessToken', accessToken)
+export const removeLogin = (token, role) => {
+    localStorage.removeItem('token', token)
     localStorage.removeItem('role', role)
 }
 
-export const getToken = () => localStorage.getItem('accessToken');
-export const getRole = () => localStorage.getItem("role");
+
+export const getToken = () =>
+localStorage.getItem('token')
+
+
+export const getRole = () => 
+localStorage.getItem("role");
 
 
 // Passar o nome da chave para o método getItem() da interface Storage retornará o seu valor.

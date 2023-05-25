@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DivMenu = styled.div`
   background-color: #963C08;
-  diplay: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 80vw;
@@ -31,7 +31,7 @@ export const DivMenu = styled.div`
           display:flex;
           flex-direction: row;
           justify-content: space-between;
-          aling-items: center;
+          align-items: center;
         }
         h5{
           text-transform: uppercase;
