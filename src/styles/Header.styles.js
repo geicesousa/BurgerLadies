@@ -6,10 +6,17 @@ export const HeaderContainer = styled.header `
  align-items: center;
  justify-content: center;
 
- img{
+
+	img{
+		width: 380px;
+
+
 	@media (min-width: 1200px) {
 				width: 25%;
 			}
  }
+	
+
+
  
  `
