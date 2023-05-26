@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
-import Attendant from './Pages/Attendant';
+import Attendance from './Pages/Attendance';
 import NotFound from './Pages/NotFound';
-
 import Admin from './Pages/Admin';
 import Ordered from './Pages/Ordered';
 import Kitchen from './Pages/Kitchen';
@@ -23,7 +22,7 @@ function Router() {
 			<Route path="*" element={<NotFound/>} />
 			<Route path="/" element={<Login/>} />
 			<Route path="/register" element={<Register/>} />
-			<Route path="/attendant" element={<Attendant/>} />				
+			<Route path="/attendance" element={<Attendance/>} />				
 			<Route path="/admin" element={<Admin/>} />		
 			<Route path="/ordered" element={<Ordered/>} />		
 			<Route path="/kitchen" element={<Kitchen/>} />	

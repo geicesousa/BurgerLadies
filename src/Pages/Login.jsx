@@ -36,7 +36,13 @@ function Login() {
                 if (!data.code) {
                     login(data.accessToken, data.role);
                     toast.success("Sucesso!");
-                    navigate(data.role === 'attendance' ? '/attendance' : '/kitchen');
+                    if(data.user.role === 'attendance' ){
+                        navigate('/attendance') 
+                    }else if(data.user.role === 'kitchen' ){
+                        navigate('/kitchen');  
+                    } else {
+                        navigate('/admin');  
+                    } 
                 }
                 return data
             })
@@ -50,7 +56,7 @@ function Login() {
                 <label>
                     <span>Digite seu email</span>
                     <input
-                    type="text" 
+                    type="email" 
                     value={email}
                     name="email"
                     placeholder="Digite seu Email" 
@@ -60,7 +66,7 @@ function Login() {
                 <label>
                     <span>Digite sua senha</span>
                     <input
-                   type="text" 
+                   type="password" 
                    value={password}
                    name="password"
                    placeholder="Digite sua senha" 

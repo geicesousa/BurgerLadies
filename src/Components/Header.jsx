@@ -5,7 +5,7 @@ import { HeaderContainer } from '../styles/Header.styles'
 const Header = () => {
   return(
     <HeaderContainer>
-      <img width='480px'src={burguerLogo} />
+      <img src={burguerLogo} />
     </HeaderContainer>
   )
 }

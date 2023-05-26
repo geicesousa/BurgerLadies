@@ -9,10 +9,10 @@ export const Form = styled.form`
 	display: grid;
 	justify-content: center;
 	align-items: center;
-	width: 60vw;
+	width: 80vw;
 	height: auto;
 	margin: auto;
-	margin-top: 4rem;
+	margin-top: 2rem;
 	gap: 1.5rem;
 	border-radius: 20px;
 	padding: 3rem;
@@ -28,7 +28,7 @@ export const Form = styled.form`
 	}
 
 		select, input {
-		width: 50vw;
+		width: 70vw;
 		padding: 1rem;	
 		border-radius: 10px;
 		background-color: #E1CF7D;

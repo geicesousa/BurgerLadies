@@ -1,4 +1,4 @@
-const API = 'http://localhost:8080'
+const API = 'https://burger-queen-api-mock-tau.vercel.app/'
 export { getToken }from './localStorage'
 
 export const createUser = (email, password, role) => {
@@ -7,7 +7,7 @@ export const createUser = (email, password, role) => {
 		password,
 		role,
 		}
-  return fetch(`${API}/users`, { 
+  return fetch(`${API}users`, { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const loginUser = (email, password) => {
 		password,
 	
 		}
-		return fetch(`${API}/login`, { 
+		return fetch(`${API}login`, { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -33,13 +33,16 @@ export const loginUser = (email, password) => {
 
 
 export const getListProducts = () => {
-	return fetch(`${API}/products`, {
-		method: 'GET',
-		headers: {
+	return fetch(`${API}products`, {
+	  method: 'GET',
+	  headers: {
 		'Content-Type': 'application/json',
-		'Authorization':`Bearer ${getToken()}`
-		},
-		})
-		.then(res => res.json())
+		'Authorization': (getToken('token'))
+	  },
+	})
+
   };
   
+
+  
+

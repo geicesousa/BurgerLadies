@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { VscError } from "react-icons/vsc";
 
 
+
 export const DivMenu = styled.div`
   background-color: #963C08;
   width: 90vw;
@@ -70,6 +71,4 @@ export const FormClient= styled.form`
 
         }
     }
-
-    
-`;
+  `
