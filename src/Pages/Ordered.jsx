@@ -27,7 +27,7 @@ const Ordered = ()=>{
     e.addEvent
     let add = 0;
     console.log('soma', e)
-    return add = qntd + 1;
+    return qntd + 1;
   };
   const handleSub = (e, id)=>{
 
@@ -66,15 +66,21 @@ const Ordered = ()=>{
     //   // body: PAREI AQUI COM MATHEUS
     // });
 
-    // setAllOrders((prevState) => [...prevState, orders]) // vai pegar todas os pedidos anteriores, tenh
+  // se sendOrder der certo
+    toast.success('Pedido enviado com sucesso!')
     
     setName('');
     setTable('');
     setObs('');
+
+    // se não der certo catch {toast.error('Houve um erro na solicitação do pedido!')}
+    
   };
 
-  const handleCanceled = ()=>{
-    console.log('cancelado')
+  const handleCanceled = (e)=>{
+    e.preventDefault()
+    console.log('cancelado');
+    toast.error('Pedido cancelado');
     // aparece o toast com pedido cancelado
   };
 
@@ -89,7 +95,7 @@ const Ordered = ()=>{
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
-          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF0ZW5kZW50ZUBnbWFpbC5jb20iLCJpYXQiOjE2ODUwNDA0NDAsImV4cCI6MTY4NTA0NDA0MCwic3ViIjoiMyJ9.d2OMIzyf9XlGU28M0vaUPkHjwCE7yuWhBTYQ1SMIsgQ' 
+          'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlaWNldGVzdGVAdGVzdGUuY29tIiwiaWF0IjoxNjg1MDY1Nzg3LCJleHAiOjE2ODUwNjkzODcsInN1YiI6IjQifQ.ZymSex6lRiiXDWSys0ngWLoQFWCncwXHQWH0Tjp2sYY' 
         } //mudar toda vez que alterar o login
       });
       const data = await response.json();
@@ -111,10 +117,10 @@ const Ordered = ()=>{
                 <p>R${p.price},00</p>
               </div> 
 
-              <div> 
-                <span onClick={handleSub} ><MdOutlineDoNotDisturbOn/></span>
-                <span>{qntd ||' 00 '}</span> 
-                <span onClick={handleSome} ><MdOutlineAddCircleOutline/></span>
+              <div > 
+                <span key={p.id} onClick={()=> setQntd(Number(qntd) - 1)}><MdOutlineDoNotDisturbOn/></span>
+                <span id={p.id}>{qntd || '00'}</span> 
+                <span id={p.id} onClick={()=> setQntd(parseInt(qntd) + 1)}><MdOutlineAddCircleOutline/></span>
               </div>
             </li>
           </ul>
@@ -134,7 +140,7 @@ const Ordered = ()=>{
               </div> 
 
               <div>
-                <span onClick={handleSub}><MdOutlineDoNotDisturbOn/></span>
+                <span onClick={()=> setQntd(qntd + 1)}><MdOutlineDoNotDisturbOn/></span>
                 <span>{qntd ||' 00 '}</span> 
                 <span onClick={handleSome}><MdOutlineAddCircleOutline/></span>
               </div>
@@ -203,29 +209,20 @@ const Ordered = ()=>{
       <div>
       {/* para estiliza e colocar total e obs um ao lado do outro e alinhado ao meio */}
         <label> Observações:
-          <textarea name="obs" onChange={handleObs} value={obs}></textarea>
+          <textarea name="obs" onChange={handleObs} value={obs} placeholder="detalhes do pedido"></textarea>
         </label>
 
         <div>
           <p>Total:{total || " R$0,00"}</p>
           <div>
-            <button type="button" ><AiOutlineCheckCircle onClick={createOrder} /></button>
+            <button type="button"><AiOutlineCheckCircle onClick={createOrder}/></button>
 
-            <button type="button"><AiOutlineCloseCircle onSubmit={handleCanceled}/></button>
+            <button type="button"><AiOutlineCloseCircle onClick={handleCanceled}/></button>
           </div>
         </div>
       </div>
     </FormClient>
 
-    <span>
-      Pedido enviado com sucesso! <br/>
-      <FcApproval/>
-    </span>
-    <br/>
-    <span>
-      Pedido cancelado. <br/>
-      <FcCancel/>
-    </span>
   </>
 }
 

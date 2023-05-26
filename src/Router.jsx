@@ -9,7 +9,7 @@ import Ordered from './Pages/Ordered';
 import Kitchen from './Pages/Kitchen';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Menu from './Pages/Menu';
+
 
 
 
@@ -26,7 +26,6 @@ function Router() {
 			<Route path="/admin" element={<Admin/>} />		
 			<Route path="/ordered" element={<Ordered/>} />		
 			<Route path="/kitchen" element={<Kitchen/>} />	
-			<Route path="/menu" element={<Menu/>} />
 		</Routes>	
 	
 	</BrowserRouter>

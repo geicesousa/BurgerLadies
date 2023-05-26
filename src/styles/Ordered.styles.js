@@ -40,6 +40,9 @@ export const DivMenu = styled.div`
           justify-content: space-between;
           align-items: center;
           gap: .3rem;
+            div span{
+              gap: 2rem;
+            }
         }
     }
 `
@@ -71,4 +74,5 @@ export const FormClient= styled.form`
 
         }
     }
+
   `
