@@ -21,14 +21,17 @@ const ListUsers = () => {
       console.error(error);
     }
 };
-async function deleteUsers(id){
+async function deleteUsers(){
   deleteUsersId()
   .then(response => {
     return response.json( )
 })
-.then(data => 
-   console.log(data) 
-);
+.then(data => {
+  const token = localStorage.setItem('accessToken', data.accessToken)
+  if(!token){
+    throw new Error ('erroooo')
+  }
+});
 }
 
 useEffect(() => {

@@ -8,6 +8,7 @@ function Register() {
     const [email, setEmail] = useState(" ");
     const [password, setPassword] = useState(" ");
     const [sector, setSector] = useState(" ");
+    const [cadastrado, setCadastrado ] = useState(false)
 
     const handleName = (e) => setName(e.target.value)
 	const handleEmail = (e) => setEmail(e.target.value)
@@ -25,10 +26,10 @@ function Register() {
                
         createUser(name, email, password, sector)
         .then((response) => {
-            if (response.status <= 299 ) {  
-                toast.success("Cadastro realizado com sucesso!"); 
-                return response.json();    
-                                            
+            if (response.status <= 299 ) { 
+                setCadastrado(true); 
+                return response.json(); 
+                                                            
         }}).catch(() => toast.error("Algo deu errado, confira os dados e tente novamente!"))  
         
           
@@ -38,7 +39,7 @@ function Register() {
     
     return (
         <MainForm>          
-             <Form onSubmit={createUser}>
+             <Form onSubmit={registerUser}>
              <h2>Cadastro de colaboradores</h2>
              <label>
                     <span>Nome do colaborador</span>
@@ -82,8 +83,11 @@ function Register() {
                 {/* <div>
                     <ErrorMsg type="error" message={error} changeSetError={setError} />
                 </div> */}
-                <ButtonForm type="submit" onClick={registerUser}>Efetuar cadastro</ButtonForm>
+                <ButtonForm>Efetuar cadastro</ButtonForm>
         </Form>
+        {cadastrado && (
+        toast.success('Cadastro realizado com sucesso!')        
+      )}
         </MainForm>
     );
 };
