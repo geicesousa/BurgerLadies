@@ -1,4 +1,4 @@
-const API = 'http://localhost:8080'
+const API = 'https://burger-queen-api-mock-tau.vercel.app/'
 const getToken = localStorage.getItem('accessToken')
 
 
@@ -9,7 +9,7 @@ export async function createUser(name, email, password, sector){
 		password,
 		sector,
 		}
-  return await fetch(`${API}/users`, { 
+  return await fetch(`${API}users`, { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export async function loginUser(email, password){
 		password,
 	
 		}
-		return await fetch(`${API}/login`, { 
+		return await fetch(`${API}login`, { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export async function loginUser(email, password){
 };
 
 export async function getProduct() {
-	return await fetch(`${API}/products`, {
+	return await fetch(`${API}products`, {
 	  method: "GET",
 	  headers: {
 		'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export async function getProduct() {
   };
 
   export async function listOfUsers(){
-	return await fetch(`${API}/users`, {
+	return await fetch(`${API}users`, {
 		method: 'GET',
 		headers: {
 			'Content-type': 'application/json',
@@ -56,7 +56,7 @@ export async function getProduct() {
 	
   
 export async function deleteUsersId(id){
-	return await fetch(`${API}/users/${id}`, {
+	return await fetch(`${API}users/${id}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-type': 'application/json',
