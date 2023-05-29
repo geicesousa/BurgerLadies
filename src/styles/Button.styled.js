@@ -7,10 +7,10 @@ export const ButtonContainer = styled.main`
 	width: 90vw;
 `
 
-export const Button = styled.button`
+export const ButtonGlobal = styled.button`
 	margin: auto;
 	display: flex;
-	width: 95%;
+	width: 50%;
 	align-items: center;
 	justify-content: center;	
 	padding: 2rem;
@@ -18,8 +18,18 @@ export const Button = styled.button`
 	margin-top: 2rem;
 	background-color: #963C08;
 	color: #E1CF7D;
-	text-transform: uppercase;
-	font-size: 1.5rem;
+	text-transform: uppercase;	
 	border: none;
-	font-weight: bold
+	font-weight: bold;
+	cursor: pointer;
+
+	a{
+		color: #E1CF7D;
+	}
+
+	:hover {
+		background-color: #763C09;
+  }
+
+
 `

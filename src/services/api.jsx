@@ -1,28 +1,31 @@
-const API = 'https://burger-queen-api-mock-tau.vercel.app/'
-export { getToken }from './localStorage'
+const API = 'https://burger-queen-api-mock-tau.vercel.app'
+const getToken = localStorage.getItem('accessToken')
 
-export const createUser = (email, password, role) => {
+
+export async function createUser(name, email, password, sector){
 	const dataUser = {
+		name,
 		email,
 		password,
-		role,
+		sector,
 		}
-  return fetch(`${API}users`, { 
+  return await fetch(`${API}/users`, { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(dataUser),
-  });
-};
+  })
+}
 
-export const loginUser = (email, password) => {
+
+export async function loginUser(email, password){
 	const dataLogin = {
 		email,
 		password,
 	
 		}
-		return fetch(`${API}login`, { 
+		return await fetch(`${API}/login`, { 
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,17 +34,37 @@ export const loginUser = (email, password) => {
   });
 };
 
-
-export const getListProducts = () => {
-	return fetch(`${API}products`, {
-	  method: 'GET',
+export async function getProduct() {
+	return await fetch(`${API}/products`, {
+	  method: "GET",
 	  headers: {
 		'Content-Type': 'application/json',
-		'Authorization': (getToken('token'))
+		Authorization: `Bearer ${getToken}` 
 	  },
-	})
-
+	});
   };
+
+  export async function listOfUsers(){
+	return await fetch(`${API}/users`, {
+		method: 'GET',
+		headers: {
+			'Content-type': 'application/json',
+			Authorization: `Bearer ${getToken}`,
+		},
+	});
+  };
+	
+  
+export async function deleteUsersId(id){
+	return await fetch(`${API}/users/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-type': 'application/json',
+			Authorization: `Bearer ${getToken}`,
+		}
+	})
+	
+}
   
 
   

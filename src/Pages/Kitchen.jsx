@@ -1,7 +1,7 @@
 import React from 'react'
-import { ButtonContainer } from '../styles/Home.styled'
-import { Button } from '../styles/Home.styled'
-import { Link } from 'react-router-dom'
+import { ButtonContainer } from '../styles/Button.styled'
+import  Button  from '../Components/Button'
+
 
 function Kitchen() {
   return (

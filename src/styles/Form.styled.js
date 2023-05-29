@@ -64,12 +64,6 @@ export const Form = styled.form`
 			margin-left: .4rem
 		}
 	}
-
-
-	
-
-
-
 `
 export const ButtonForm = styled.button`
 	width: 50%;
@@ -82,6 +76,7 @@ export const ButtonForm = styled.button`
 	font-weight: bold;
 	padding: .5rem;
 	border-radius: 10px;
+	cursor: pointer;
 	
 	:hover {
 		background-color: #3a6332;

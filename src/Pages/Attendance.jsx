@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom'
-import { Button, ButtonContainer } from '../styles/Home.styled'
+import { ButtonContainer } from '../styles/Button.styled'
+import  Button  from '../Components/Button'
 
 const Attendance = () => {
 
   return (
 	<ButtonContainer>
-      <Button type='submit'>
-        <Link to='/ordered'>
-        Novo pedido
-        </Link>      
-      </Button>
+    <Button><Link to='/ordered'>Novo pedido</Link></Button>
+    
       <Button>Pedidos prontos</Button>
       <Button>Pedidos entregues</Button>
       <Button>Pedidos pendentes</Button>

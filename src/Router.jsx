@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import Header from './Components/Header';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
@@ -7,8 +9,8 @@ import NotFound from './Pages/NotFound';
 import Admin from './Pages/Admin';
 import Ordered from './Pages/Ordered';
 import Kitchen from './Pages/Kitchen';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Menu from './Pages/Menu';
+import ListUsers from './Pages/ListUsers';
 
 
 
@@ -26,6 +28,8 @@ function Router() {
 			<Route path="/admin" element={<Admin/>} />		
 			<Route path="/ordered" element={<Ordered/>} />		
 			<Route path="/kitchen" element={<Kitchen/>} />	
+			<Route path="/menu" element={<Menu/>} />
+			<Route path="/listusers" element={<ListUsers/>} />
 		</Routes>	
 	
 	</BrowserRouter>
