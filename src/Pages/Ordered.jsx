@@ -27,8 +27,8 @@ const Ordered = ({handleClick})=>{
       console.error(error);
     }
 };
-useEffect(() => {
-apiGet();
+useEffect(() => { 
+  apiGet();
 }, []);
 
 const filterType = (type) => {
@@ -42,6 +42,7 @@ const filteredTypes = selectedType
 
 
   return( 
+<<<<<<< HEAD
   <>         
     <DivButtons>
         <Button onClick={() => filterType('café da manhã')}>Café da manhã</Button>
@@ -77,6 +78,53 @@ const filteredTypes = selectedType
           </select>
       </label>
       </FormClient> 
+=======
+  <>    
+    {/* <Link>
+        <TiShoppingCart color="black" size={52}/>
+          <SpanSize>{cart.length}</SpanSize>
+
+      </Link> */}
+    <DivMenu>
+      <DivButtons>
+          <Button onClick={() => filterType('café da manhã')}>Café da manhã</Button>
+          <Button onClick={() => filterType('menu principal')}>Menu pricipal</Button>
+          </DivButtons>
+      <CategoryMenu> 
+      {showTypes && 
+        filteredTypes.map((item)=>(        
+          <Cards item={item} key = {item.id} handleClick={handleClick}> </Cards>
+        ))}
+              
+      </CategoryMenu> 
+      
+      <FormClient>
+        <label>
+          <span>Nome do cliente:</span>
+          <input 
+            type="text" 
+              value={clientName}
+              name="text"
+              placeholder="Digite o nome do cliente" 
+              onChange={handleClientName} 
+          />
+        </label>
+
+        <label>
+          <span>Nº da mesa:</span>
+            <select value={tableNumber} placeholder='Número da mesa' onChange={handleTableNumber}>
+              <option hidden>Número da mesa</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+              <option value='5'>5</option>
+              <option value='6'>6</option>
+            </select>
+        </label>
+      </FormClient>  
+    </DivMenu>
+>>>>>>> 3afedd907019860501d4ce7d69414a580e00014b
   </>
   )
 }

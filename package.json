@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
-    "test": "jest  --coverage",
+    "test": "jest --coverage",
     "build": "vite build",
     "preview": "vite preview"
   },
