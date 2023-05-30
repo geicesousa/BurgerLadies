@@ -18,7 +18,6 @@ function Router() {
 	<BrowserRouter>
 		<ToastContainer autoClose={2000} />
 		<Header/>
-
 		<Routes>
 			<Route path="*" element={<NotFound/>} />
 			<Route path="/" element={<Login/>} />
