@@ -14,9 +14,5 @@ export const HeaderContainer = styled.header `
 	@media (min-width: 1200px) {
 				width: 25%;
 			}
- }
-	
-
-
- 
+ } 
  `

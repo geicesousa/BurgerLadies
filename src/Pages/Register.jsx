@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { createUser } from "../services/api";
-import { ButtonForm, Form, MainForm } from "../styles/Form.styled";
-import { toast } from "react-toastify";
+import { useState } from 'react';
+import { createUser } from '../services/api';
+import { ButtonForm, Form, MainForm } from '../styles/Form.styled';
+import { toast } from 'react-toastify';
 
 function Register() {
-    const [name, setName] = useState(" ");
-    const [email, setEmail] = useState(" ");
-    const [password, setPassword] = useState(" ");
-    const [sector, setSector] = useState(" ");
+    const [name, setName] = useState(' ');
+    const [email, setEmail] = useState(' ');
+    const [password, setPassword] = useState(' ');
+    const [sector, setSector] = useState(' ');
     const [cadastrado, setCadastrado ] = useState(false)
 
     const handleName = (e) => setName(e.target.value)
@@ -30,44 +30,39 @@ function Register() {
                 setCadastrado(true); 
                 return response.json(); 
                                                             
-        }}).catch(() => toast.error("Algo deu errado, confira os dados e tente novamente!"))  
-        
-          
-    }
-
-    
-    
-    return (
+        }}).catch(() => toast.error('Algo deu errado, confira os dados e tente novamente!'))  
+    }     
+     return (
         <MainForm>          
              <Form onSubmit={registerUser}>
              <h2>Cadastro de colaboradores</h2>
              <label>
                     <span>Nome do colaborador</span>
                     <input
-                       type="text" 
+                       type='text' 
                        value={name}
-                       name="name"
-                       placeholder="Digite o nome do colaborador" 
+                       name='name'
+                       placeholder='Digite o nome do colaborador' 
                        onChange={handleName} 
                     />
                </label>
                <label>
                     <span>E-mail do colaborador</span>
                     <input
-                       type="text" 
+                       type='text' 
                        value={email}
-                       name="email"
-                       placeholder="Digite o e-mail do colaborador" 
+                       name='email'
+                       placeholder='Digite o e-mail do colaborador' 
                        onChange={handleEmail} 
                     />
                </label>
                 <label>
                     <span>Digite uma senha</span>                 
                     <input
-                		type="text" 
+                		type='text' 
                         value={password}
-                        name="password"
-                        placeholder="Digite uma senha" 
+                        name='password'
+                        placeholder='Digite uma senha' 
                         onChange={handlePassword} 
                     />                
                 </label>                   
@@ -80,10 +75,7 @@ function Register() {
                         <option value='administração'>Administração</option>
                     </select>
                 </label>                
-                {/* <div>
-                    <ErrorMsg type="error" message={error} changeSetError={setError} />
-                </div> */}
-                <ButtonForm>Efetuar cadastro</ButtonForm>
+               <ButtonForm type='submit'>Efetuar cadastro</ButtonForm>
         </Form>
         {cadastrado && (
         toast.success('Cadastro realizado com sucesso!')        

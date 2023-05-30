@@ -1,20 +1,23 @@
 import React from 'react'
 import Ordered from '../Pages/Ordered'
 import {useState} from 'react';
-import Header from './Header';
 import Cart from './Cart';
 import { WarningMsg } from '../styles/Ordered.styles';
+import { toast } from 'react-toastify';
+import MyCart from './MyCart';
 
 const TesteOrdered = () => {
 
 	const [cart, setCart] = useState([])
 	const [show, setShow ] = useState(true)
 	const [warning, setWarning] = useState(false)
+
 	const handleClick = (item ) => {
 		let isPresent = false;
 		cart.forEach((product) => {
 			if (item.id === product.id)
 			isPresent = true
+					
 		})
 		if (isPresent){
 			setWarning(true)
@@ -22,6 +25,9 @@ const TesteOrdered = () => {
 				setWarning(false)
 			}, 2000)
 			return;
+
+		}else{
+			toast.success('ìtem adicionado ao carrinho!')
 		}
 	
 		setCart([...cart, item])	
@@ -43,14 +49,14 @@ const TesteOrdered = () => {
 
   return (
 	<>
-	<Header size={cart.length} setShow={setShow} />
+	<MyCart size={cart.length} setShow={setShow} />
 	
 	{
 			show ? <Ordered handleClick={handleClick} /> : <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
 	}
 	
 	{
-		warning && <WarningMsg>'Item adicionado ao pedido!'</WarningMsg>
+		warning && <WarningMsg>⚠ Este ítem já foi adicionado ao carrinho, consulte carrinho para aumentar a quantidade</WarningMsg>
 	}
 	
 

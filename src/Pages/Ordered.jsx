@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import  { Button, CategoryMenu, DivMenu, FormClient, SectionItens, DivButtons, SpanSize }  from "../styles/Ordered.styles";
-import { getProduct } from "../services/api";
+import { useState, useEffect } from 'react';
+import  { Button, FormClient, DivButtons, DivMenu  }  from '../styles/Ordered.styles';
+import { getProduct } from '../services/api';
 import Cards from '../Components/Cards'
 
 
@@ -42,35 +42,26 @@ const filteredTypes = selectedType
 
 
   return( 
-  <>    
-     {/* <Link>
-        <TiShoppingCart color="black" size={52}/>
-          <SpanSize>{cart.length}</SpanSize>
-
-      </Link> */}
-    <DivMenu>
+  <>         
     <DivButtons>
         <Button onClick={() => filterType('café da manhã')}>Café da manhã</Button>
         <Button onClick={() => filterType('menu principal')}>Menu pricipal</Button>
         </DivButtons>
-    <CategoryMenu> 
+    <DivMenu>
+  
     {showTypes && 
       filteredTypes.map((item)=>(        
         <Cards item={item} key = {item.id} handleClick={handleClick}> </Cards>
-      ))}
-            
-    </CategoryMenu> 
-
-
-    
+     ))}    
+      </DivMenu>
       <FormClient>
       <label>
         <span>Nome do cliente:</span>
         <input 
-          type="text" 
+          type='text' 
             value={clientName}
-            name="text"
-            placeholder="Digite o nome do cliente" 
+            name='text'
+            placeholder='Digite o nome do cliente' 
             onChange={handleClientName} 
         />
       </label>
@@ -85,8 +76,7 @@ const filteredTypes = selectedType
             <option value='5'>5</option>
           </select>
       </label>
-      </FormClient>  
-    </DivMenu>
+      </FormClient> 
   </>
   )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Article, CartBox, Total, CartImg } from '../styles/Cart.styled'
+import { Article, CartBox, Total, CartImg, DivTest, DivButton, FinalizeOrder, ContainerFooterOrder} from '../styles/Cart.styled'
+import burguer from '../assets/hamburguer.png'
 
 const Cart = ({cart, setCart, handleChange}) => {
 	const [price, setPrice] = useState(0)
@@ -27,25 +28,33 @@ const Cart = ({cart, setCart, handleChange}) => {
 			cart?.map((item) => (
 				<CartBox key={item.id}>
 					<CartImg>
-						 {/* <Img src="" alt="" />  */}
+						<img src={burguer} alt='Image' />
 						<p>{item.name}</p>
+						<p>R$:{item.price},00</p>
 					</CartImg>		
-					<div>
-						<button onClick={()=>handleChange(item, -1)}> - </button>
-						<button>{item.amount}</button>
-						<button onClick={()=>handleChange(item, +1)}> + </button>                       
-					</div>
-					<div>
-						<span>Preço unitário - R$:{item.price}</span>
-						<button onClick={()=>handleRemove(item.id)}>Remover</button>
-					</div>
+					<DivTest>				
+						<DivButton>
+							<button onClick={()=>handleChange(item, -1)}> - </button>
+							<span>{item.amount}</span>
+							<button onClick={()=>handleChange(item, +1)}> + </button>  
+						</DivButton>					
+						<span> R$:{item.amount * item.price},00</span>
+						<button onClick={()=>handleRemove(item.id)}>Remover</button>					
+					</DivTest>         
+				
+					
 				</CartBox>
 			))
 		}
+		<ContainerFooterOrder>
+		<FinalizeOrder>
+			<p>Finalizar Pedido</p>
+		</FinalizeOrder>
 		<Total>
-			{/* <span>Valor total do pedido</span> */}
-			<span>Valor total R${price},00</span>
+			<span>Total</span>
+			<span> R${price},00</span>
 		</Total>
+		</ContainerFooterOrder>
 	</Article>
   )
 }

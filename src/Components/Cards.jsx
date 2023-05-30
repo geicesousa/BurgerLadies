@@ -1,20 +1,21 @@
 import React from 'react'
-import { Button, CardsItens } from '../styles/Cards.styled'
+import { Button, CardInfo, CardPrice, CardsItens } from '../styles/Cards.styled'
+import burguer from '../assets/hamburguer.png'
 
 const Cards = ({item, handleClick}) => {
 
-	const {name, price} = item;
+	const {name, price, description} = item;
   return (
 	<CardsItens>
-	{/* <div>
-		<img src={img} alt="Image" />
-
-	</div> */}
-	<div>
-		<p>{name}</p>
-		<p>Preço - R$:{price}</p>
-		<Button onClick={()=>handleClick(item)}>Adicionar no pedido</Button>		
-	</div>
+	<CardInfo>
+		<h3>{name}</h3>
+		<img src={burguer} alt="Image" />
+		<p>{description}</p>
+	</CardInfo>
+	<CardPrice>		
+		<p>R$ {price},00</p>
+		<Button onClick={()=>handleClick(item)}>+</Button>		
+	</CardPrice>
 	</CardsItens>
   )
 }

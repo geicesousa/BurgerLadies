@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { deleteUsersId, listOfUsers } from "../services/api";
-import { BtnsUsers, CardUsers, H3, UsersContainer } from "../styles/ListUers.styled";
+import { useState, useEffect } from 'react';
+import { deleteUsersId, listOfUsers } from '../services/api';
+import { BtnsUsers, CardUsers, H3, UsersContainer } from '../styles/ListUers.styled';
 
 const ListUsers = () => {
     const [users, setUsers] = useState([]);

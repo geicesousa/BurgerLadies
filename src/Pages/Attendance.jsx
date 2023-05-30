@@ -6,7 +6,7 @@ const Attendance = () => {
 
   return (
 	<ButtonContainer>
-    <Button><Link to='/ordered'>Novo pedido</Link></Button>
+ <Link to='/ordered'><Button> Novo Pedido</Button></Link>
     
       <Button>Pedidos prontos</Button>
       <Button>Pedidos entregues</Button>

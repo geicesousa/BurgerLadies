@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
 export const DivMenu = styled.div`
-  background-color: #963C08;
-  width: 90vw;
-  height: auto;
-  margin: auto;
-  gap: 2rem;
-  border-radius: 10px;
-  padding: 2rem;
-  overflow: auto;
+    width: 90vw;
+    height: auto;
+    margin: auto;
+    gap: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #963C08;
   
     h4{
       text-transform: uppercase;
@@ -17,16 +21,11 @@ export const DivMenu = styled.div`
     }
 `
 export const FormClient= styled.form`
-    width: 50vw;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    -webkit-box-pack: center;
+    flex-direction: column;  
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-left: 1rem;
-    align-content: flex-start;
+    gap: 1rem; 
 
     input, select{
       width: 12rem;
@@ -41,21 +40,7 @@ export const FormClient= styled.form`
       }
   `
 
-  export const CategoryMenu = styled.section`
-  margin: auto;
-  width: 99%;
-  height: auto;
-  background-color: #F0B04E;
-  margin-bottom: 2rem;
-  border-radius: 15px;
-  padding: 1rem;
-
-    li{     
-      margin: .4rem;
-      font-size: 1rem;    
-    }
   
-  `
 export const SectionItens = styled.section `
   display: flex;
 	justify-content: space-between;
@@ -86,19 +71,18 @@ export const Button = styled.button `
 `
 export const SpanSize = styled.span `
 color: red;
-width: 50px
-
+width: 50px;
 `
 
 export const WarningMsg = styled.p `
-    height: 40px;
+    height: auto;
     width: 250px;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 10%;
-    background-color: rgb(210, 91, 91);
-    font-size: 1.1rem;
-    color: white;
+    top: 5%;
+    background-color: white;
+    color: red;
+    font-size: 1rem;
     font-family: cursive;
     padding: 5px;
     border-radius: 5px;
