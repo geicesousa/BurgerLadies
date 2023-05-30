@@ -6,8 +6,8 @@ const Admin = () => {
   return (
     <>
     <ButtonContainer>
-    <Button type= 'submit'> <Link to='/register'>Adcionar novo colaborador</Link></Button>
-    <Button type= 'submit'> <Link to='/listusers'>Lista de colaboradores</Link></Button>
+    <Link to='/register'><Button>Adcionar novo colaborador</Button></Link>   
+    <Link to='/listusers'><Button> Lista de colaboradores</Button></Link>   
     <Button>Lista de Produtos</Button>
     </ButtonContainer>
     </>

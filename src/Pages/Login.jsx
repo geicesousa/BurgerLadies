@@ -6,9 +6,11 @@ import { ButtonForm, Form, MainForm } from '../styles/Form.styled';
 import { toast } from 'react-toastify';
 
 function Login() {
-    const [email, setEmail] = useState(' ');
-    const [password, setPassword] = useState(' ');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     const navigate = useNavigate();
+
 	const handleEmail = (e) => setEmail(e.target.value)
 	const handlePassword = (e) => setPassword(e.target.value)	
 
@@ -66,9 +68,6 @@ function Login() {
                    onChange={handlePassword} 
                     />                
                 </label>              
-                {/* <div>
-                    <ErrorMsg type='error' message={error} changeSetError={setError} />
-                </div> */}
                 <ButtonForm onClick={logIn} type='button'>Login</ButtonForm>
          	
             </Form>
