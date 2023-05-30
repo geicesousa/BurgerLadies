@@ -46,7 +46,7 @@ useEffect(() => {
       {users.map((user)=>{         
            return ( 			  
             <>    
-              <CardUsers key = {user.id}> Nome:{user.name} Email:{user.email} Setor:{user.sector}
+              <CardUsers key={user.id}> Nome:{user.name} Email:{user.email} Setor:{user.sector}
               <BtnsUsers>
               <button onClick={()=>deleteUsers(user.id)}>Deletar colaborador</button>
               <button>Editar colaborador</button> 

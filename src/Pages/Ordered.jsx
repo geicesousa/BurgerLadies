@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import  { Button, CategoryMenu, DivMenu, FormClient, SectionItens, DivButtons }  from "../styles/Ordered.styles";
+import  { Button, CategoryMenu, DivMenu, FormClient, SectionItens, DivButtons, SpanSize }  from "../styles/Ordered.styles";
 import { getProduct } from "../services/api";
-import ButtonContador from "../Components/ButtonContador";
+import Cards from '../Components/Cards'
 
 
-const Ordered = ()=>{
+const Ordered = ({handleClick})=>{
   const [products, setProducts] = useState([]);
   const [clientName , setClientName] = useState (' ')
   const [tableNumber, setTableNumber] = useState (' ')
@@ -43,6 +43,11 @@ const filteredTypes = selectedType
 
   return( 
   <>    
+     {/* <Link>
+        <TiShoppingCart color="black" size={52}/>
+          <SpanSize>{cart.length}</SpanSize>
+
+      </Link> */}
     <DivMenu>
     <DivButtons>
         <Button onClick={() => filterType('café da manhã')}>Café da manhã</Button>
@@ -50,16 +55,9 @@ const filteredTypes = selectedType
         </DivButtons>
     <CategoryMenu> 
     {showTypes && 
-      filteredTypes.map((item)=>(
-      
-            <SectionItens>
-              <ul key = {item.id}>        
-              <li> {item.name} </li> 
-              <li>R${item.price},00</li>   
-              </ul>           
-              <ButtonContador></ButtonContador>           
-              </SectionItens>     
-        ))}
+      filteredTypes.map((item)=>(        
+        <Cards item={item} key = {item.id} handleClick={handleClick}> </Cards>
+      ))}
             
     </CategoryMenu> 
 

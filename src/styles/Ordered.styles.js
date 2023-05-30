@@ -84,3 +84,23 @@ export const Button = styled.button `
     text-transform: uppercase;
     cursor: pointer;
 `
+export const SpanSize = styled.span `
+color: red;
+width: 50px
+
+`
+
+export const WarningMsg = styled.p `
+    height: 40px;
+    width: 250px;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    background-color: rgb(210, 91, 91);
+    font-size: 1.1rem;
+    color: white;
+    font-family: cursive;
+    padding: 5px;
+    border-radius: 5px;
+
+`
