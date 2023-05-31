@@ -11,13 +11,13 @@ import Kitchen from './Pages/Kitchen';
 import ListUsers from './Pages/ListUsers';
 import TesteOrdered from './Components/TesteOrdered';
 import Cart from './Components/Cart';
-import Header from './Components/Header';
+
 //não pode usar o useState dentro do Router
 function Router() {
   return (
 	<BrowserRouter>
 		<ToastContainer autoClose={2000} />
-		<Header/>	 
+ 
 		<Routes>
 			<Route path="*" element={<NotFound/>} />
 			<Route path="/" element={<Login/>} />

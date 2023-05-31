@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const CardsItens = styled.div`
   padding: 1rem;
-  border: 1rem solid #863c08;
+  border: .1rem solid #8c0000;
   background-color: #863c08;
   border-radius: 15px;
-  color: #e1cf7d;
+  color: #DDD9CE;
   width: 250px;
   height: 350px;
-  margin: auto;
-  justify-content: baseline;
+  margin: auto; 
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -18,8 +17,8 @@ export const CardsItens = styled.div`
 export const CardInfo = styled.section`
   text-align: center;
   margin: auto;
-  justify-content: baseline;
   display: flex;
+  align-items: center;
   flex-direction: column;
 
   h3 {
@@ -31,6 +30,7 @@ export const CardInfo = styled.section`
   p {
     width: auto;
     text-align: center;
+    margin-top: .5rem;
   }
 
   img {
@@ -46,9 +46,10 @@ export const Button = styled.button`
   font-size: 1.2rem;
   border: none;
   font-weight: bold;
-  background-color: #e1cf7d;
+  background-color: transparent;
   outline: none;
   border-radius: 50%;
+  cursor: pointer;
 `;
 
 export const CardPrice = styled.div`

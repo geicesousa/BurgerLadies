@@ -70,7 +70,7 @@ export const ButtonForm = styled.button`
   margin: auto;
   border: none;
   font-size: 1rem;
-  background-color: #03300b;
+  background-color: #8c0000;
   color: #e1cf7d;
   text-transform: uppercase;
   font-weight: bold;

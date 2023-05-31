@@ -3,15 +3,19 @@ import styled from "styled-components";
 export const Article = styled.article`
   width: 90vw;
   margin: auto;
-  margin-top: 7rem;
+  margin-top: 3rem;
+  background-color: #863c08;
+  color: #DDD9CE;
+  padding: 2rem;
+  border-radius: 10px;
 `;
 export const CartBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
   border-bottom: 2px solid skyblue;
-  padding-bottom: 5px;
+  padding: .5rem;
+  
 `;
 
 export const CartImg = styled.div`
@@ -19,9 +23,9 @@ export const CartImg = styled.div`
   width: 400px;
   gap: 1.5rem;
   align-items: center;
+ 
 
   p {
-    color: black;
     font-weight: bold;
     margin-left: 10px;
   }
@@ -44,20 +48,22 @@ export const DivTest = styled.div`
     border: none;
     font-weight: bold;
     background-color: #8c0000;
-    color: white;
+    color: #DDD9CE;
+    cursor: pointer;
   }
   span {
     padding: 0.3rem;
   }
 `;
 export const DivButton = styled.div`
-  background-color: white;
+  background-color: #DDD9CE;;
   border-radius: 15px;
 
   button {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
+    cursor: pointer;
   }
 `;
 export const Total = styled.div`
@@ -77,15 +83,17 @@ export const Total = styled.div`
   }
 `;
 
-export const FinalizeOrder = styled.div`
+export const FinalizeOrder = styled.button`
   background-color: #8c0000;
   width: 10rem;
   height: auto;
-  color: white;
+  color: #DDD9CE;
   border-radius: 10px;
   margin-top: 1rem;
   text-align: center;
   padding: 0.5rem;
+  cursor: pointer;
+  border: none;
 `;
 
 export const ContainerFooterOrder = styled.section`

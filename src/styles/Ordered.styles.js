@@ -14,6 +14,7 @@ export const DivMenu = styled.div`
   justify-content: center;
   background-color: #963c08;
 
+
   h4 {
     text-transform: uppercase;
     text-align: center;
@@ -22,18 +23,31 @@ export const DivMenu = styled.div`
 `;
 export const FormClient = styled.form`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  width:90vw;
+  margin:  2rem auto;
   gap: 1rem;
 
-  input,
-  select {
-    width: 12rem;
+
+  input {
+    width: 17rem;
     border-radius: 10px;
     padding: 0.5rem;
     background-color: #e1cf7d;
     margin-right: 1rem;
+    border: none;
+  }
+
+  select {
+    width: auto;
+    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: #e1cf7d;
+    margin-right: 1rem;
+    border: none;
   }
 
   span {
@@ -45,19 +59,24 @@ export const SectionItens = styled.section`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin: 0.4rem;
+  margin: 0.4rem; 
 `;
 
 export const DivButtons = styled.div`
+  background-color: #963c08;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 90vw;
+  margin: auto;
+  border-radius: 15px;
+ 
 `;
 
 export const Button = styled.button`
-  width: auto;
+  width: 20rem;
   margin-bottom: 2rem;
-  background-color: #f0b04e;
+  background-color: #8c0000;
   gap: 2rem;
   padding: 0.5rem;
   margin: 0.5rem;
@@ -67,7 +86,9 @@ export const Button = styled.button`
   font-size: 0.8rem;
   font-weight: bold;
   text-transform: uppercase;
+  color: #DDD9CE;
   cursor: pointer;
+  margin-top: 1rem;
 `;
 export const SpanSize = styled.span`
   color: red;
@@ -80,7 +101,7 @@ export const WarningMsg = styled.p`
   position: fixed;
   right: 0;
   top: 5%;
-  background-color: white;
+  background-color: #DDD9CE;;
   color: red;
   font-size: 1rem;
   font-family: cursive;

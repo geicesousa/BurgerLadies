@@ -45,23 +45,7 @@ const Ordered = ({ handleClick }) => {
 
   return (
     <>
-      <DivButtons>
-        <Button onClick={() => filterType("café da manhã")}>
-          Café da manhã
-        </Button>
-        <Button onClick={() => filterType("menu principal")}>
-          Menu pricipal
-        </Button>
-      </DivButtons>
-      <DivMenu>
-        {showTypes &&
-          filteredTypes.map((item) => (
-            <Cards item={item} key={item.id} handleClick={handleClick}>
-              {" "}
-            </Cards>
-          ))}
-      </DivMenu>
-      <FormClient>
+     <FormClient>
         <label>
           <span>Nome do cliente:</span>
           <input
@@ -88,6 +72,23 @@ const Ordered = ({ handleClick }) => {
           </select>
         </label>
       </FormClient>
+      <DivButtons>
+        <Button onClick={() => filterType("café da manhã")}>
+          Café da manhã
+        </Button>
+        <Button onClick={() => filterType("menu principal")}>
+          Menu pricipal
+        </Button>
+      </DivButtons>
+      <DivMenu>
+        {showTypes &&
+          filteredTypes.map((item) => (
+            <Cards item={item} key={item.id} handleClick={handleClick}>
+              {" "}
+            </Cards>
+          ))}
+      </DivMenu>
+     
     </>
   );
 };

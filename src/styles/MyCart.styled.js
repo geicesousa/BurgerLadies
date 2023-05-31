@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const ContainerCart = styled.section`
-  width: 90vw;
+  width: 80vw;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: #ddd9ce;
   margin: auto;
 
   button {
@@ -16,7 +16,14 @@ export const ContainerCart = styled.section`
 
 export const SizeCart = styled.span`
   background-color: #8c0000;
-  color: white;
+  position: absolute;
+  color: #ddd9ce;
   border-radius: 50%;
   padding: 0.3rem;
+`;
+
+export const Retunr = styled.div`
+  width: 80vw;
+  margin: auto;
+  margin-top: 2rem;
 `;

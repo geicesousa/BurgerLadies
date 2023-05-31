@@ -33,7 +33,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
 
   return (
     <Article>
-      {cart?.map((item) => (
+       {cart?.map((item) => (
         <CartBox key={item.id}>
           <CartImg>
             <img src={burguer} alt="Image" />
@@ -53,7 +53,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
       ))}
       <ContainerFooterOrder>
         <FinalizeOrder>
-          <p>Finalizar Pedido</p>
+          Finalizar Pedido
         </FinalizeOrder>
         <Total>
           <span>Total</span>
