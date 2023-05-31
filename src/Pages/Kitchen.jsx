@@ -1,17 +1,15 @@
-import React from 'react'
-import { ButtonContainer } from '../styles/Button.styled'
-import  Button  from '../Components/Button'
-
+import React from "react";
+import { ButtonContainer } from "../styles/Button.styled";
+import Button from "../Components/Button";
 
 function Kitchen() {
   return (
-	<ButtonContainer >
+    <ButtonContainer>
       <Button>Pedidos pendentes</Button>
       <Button>Pedidos prontos</Button>
-      <Button>Pedidos entregues</Button>      
-  </ButtonContainer>
-  
-  )
+      <Button>Pedidos entregues</Button>
+    </ButtonContainer>
+  );
 }
 
-export default Kitchen
+export default Kitchen;

@@ -1,13 +1,12 @@
-import burguerLogo from '../assets/ladies.png'
-import { HeaderContainer } from '../styles/Header.styles'
+import burguerLogo from "../assets/ladies.png";
+import { HeaderContainer } from "../styles/Header.styles";
 
 const Header = () => {
-  return(
+  return (
     <HeaderContainer>
-       <img src={burguerLogo} />     
+      <img src={burguerLogo} />
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;
