@@ -44,7 +44,7 @@ const Ordered = ({ handleClick }) => {
     : products;
 
   return (
-    <>
+    <main>
      <FormClient>
         <label>
           <span>Nome do cliente:</span>
@@ -88,7 +88,7 @@ const Ordered = ({ handleClick }) => {
           ))}
       </DivMenu>
      
-    </>
+    </main>
   );
 };
 
