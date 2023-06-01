@@ -6,6 +6,7 @@ import {
   H3,
   UsersContainer,
 } from "../styles/ListUers.styled";
+import Header from "../Components/Header";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
@@ -27,7 +28,7 @@ const ListUsers = () => {
         return response.json();
       })
       .then((data) => {
-        const token = localStorage.setItem("accessToken", data.accessToken);
+        const token = localStorage.setItem("accessToken", data.accessToken);        
         if (!token) {
           throw new Error("erroooo");
         }
@@ -40,14 +41,14 @@ const ListUsers = () => {
 
   return (
     <>
+     <Header/>
       <H3>Lista de colaboradores</H3>
       <UsersContainer>
         {users.map((user) => {
           return (
             <>
               <CardUsers key={user.id}>
-                {" "}
-                Nome:{user.name} Email:{user.email} Setor:{user.sector}
+                 Nome:{user.name} Email:{user.email} Setor:{user.role}
                 <BtnsUsers>
                   <button onClick={() => deleteUsers(user.id)}>
                     Deletar colaborador

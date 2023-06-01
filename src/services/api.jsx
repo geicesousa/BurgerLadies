@@ -39,7 +39,7 @@ export async function getProduct() {
 	  method: "GET",
 	  headers: {
 		'Content-Type': 'application/json',
-		Authorization: `Bearer ${getToken}` 
+		Authorization: `Bearer ${localStorage.getItem('accessToken')}` 
 	  },
 	});
   };
@@ -49,7 +49,7 @@ export async function getProduct() {
 		method: 'GET',
 		headers: {
 			'Content-type': 'application/json',
-			Authorization: `Bearer ${getToken}`,
+			Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 		},
 	});
   };
@@ -60,12 +60,8 @@ export async function deleteUsersId(id){
 		method: 'DELETE',
 		headers: {
 			'Content-type': 'application/json',
-			Authorization: `Bearer ${getToken}`,
+			Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 		}
 	})
 	
 }
-  
-
-  
-

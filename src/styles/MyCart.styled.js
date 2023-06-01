@@ -6,7 +6,6 @@ export const ContainerCart = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ddd9ce;
   margin: auto;
 
   button {
@@ -22,8 +21,17 @@ export const SizeCart = styled.span`
   padding: 0.3rem;
 `;
 
-export const Retunr = styled.div`
-  width: 80vw;
-  margin: auto;
-  margin-top: 2rem;
+export const Return = styled.div`
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ cursor: pointer;
 `;
+
+export const SignOutDiv = styled.div `
+display: flex;
+ flex-direction: column;
+ align-items: center;   
+ cursor: pointer;
+
+`

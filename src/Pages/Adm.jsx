@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { ButtonContainer } from "../styles/Button.styled";
 import Button from "../Components/Button";
+import Header from "../Components/Header";
 
-const Admin = () => {
+const Adm = () => {
   return (
     <>
+     <Header />
       <ButtonContainer>
         <Link to="/register">
           <Button>Adcionar novo colaborador</Button>
@@ -18,4 +20,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Adm;

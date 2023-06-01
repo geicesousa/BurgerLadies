@@ -1,6 +1,22 @@
-import { ButtonGlobal } from "../styles/Button.styled";
+import React from 'react';
+import { ButtonGlobal } from '../styles/Button.styled';
 
-const Button = (props) => {
-  return <ButtonGlobal type="submit">{props.children}</ButtonGlobal>;
-};
-export default Button;
+const Botao = ({
+  type,
+  text,
+  onClick,
+  disabled,
+}) => {
+  return ( 
+    <ButtonGlobal
+      type={type}
+      text={text}
+      onClick={onClick}
+      disabled={disabled}
+      >
+        {text}
+    </ButtonGlobal>
+   );
+}
+ 
+export default Botao;

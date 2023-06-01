@@ -84,8 +84,7 @@ const Ordered = ({ handleClick }) => {
         {showTypes &&
           filteredTypes.map((item) => (
             <Cards item={item} key={item.id} handleClick={handleClick}>
-              {" "}
-            </Cards>
+             </Cards>
           ))}
       </DivMenu>
      

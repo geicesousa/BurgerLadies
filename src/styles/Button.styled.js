@@ -17,7 +17,7 @@ export const ButtonGlobal = styled.button`
   border-radius: 10px;
   margin-top: 2rem;
   background-color: #963c08;
-  color: #e1cf7d;
+  color: white;
   text-transform: uppercase;
   border: none;
   font-weight: bold;

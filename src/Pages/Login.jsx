@@ -4,10 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { loginUser } from "../services/api";
 import { ButtonForm, Form, MainForm } from "../styles/Form.styled";
 import { toast } from "react-toastify";
+import Input from "../Components/Input";
+import HeaderLogin from "../Components/HeaderLogin";
+
+export const logout = () => {
+  localStorage.removeItem('accessToken');
+  setIsLoggedin(false);
+ }
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedin, setIsLoggedin] = useState(false);
+ 
 
   const navigate = useNavigate();
 
@@ -25,55 +35,64 @@ function Login() {
         }
       })
       .then((data) => {
-        if (!data.code) {
+        if (!data) return 
           console.log(localStorage);
-          localStorage.setItem("sector", data.sector);
+          localStorage.setItem("role", data.role);
           localStorage.setItem("accessToken", data.accessToken);
-          localStorage.setItem("refreshToken", data.refreshToken);
           toast.success("Login efetuado!");
-          if (data.user.sector === "atendente") {
+          setIsLoggedin(true);
+          setEmail('');
+          setPassword('');
+          if (data.user.role === "atendente") {
             navigate("/attendance");
-          } else if (data.user.sector === "cozinha") {
+          } else if (data.user.role === "cozinha") {
             navigate("/kitchen");
-          } else {
-            navigate("/admin");
+          } else if (data.user.role === "administração"){
+            navigate("/adm");
           }
-        }
+        
       })
       .catch(() =>
         toast.error("Algo deu errado, confira os dados e tente novamente!")
       );
-  }
+  }  
+ 
 
-  return (
-    <MainForm>
-      <Form onSubmit={logIn}>
-        <h2>Faça seu login</h2>
-        <label>
-          <span>Digite seu email</span>
-          <input
-            type="email"
-            value={email}
-            name="email"
-            placeholder="Digite seu Email"
-            onChange={handleEmail}
-          />
-        </label>
-        <label>
-          <span>Digite sua senha</span>
-          <input
-            type="password"
-            value={password}
-            name="password"
-            placeholder="Digite sua senha"
-            onChange={handlePassword}
-          />
-        </label>
-        <ButtonForm onClick={logIn} type="button">
-          Login
-        </ButtonForm>
-      </Form>
-    </MainForm>
+
+
+
+    return (
+    <>
+      <HeaderLogin />
+      <MainForm>        
+        <Form onSubmit={logIn}>
+          <h2>Faça seu login</h2>
+          <label>
+            <span>Digite seu email</span>
+            <Input
+              type="email"
+              value={email}
+              name="email"
+              placeholder="Digite seu Email"
+              onChange={handleEmail}
+            />
+          </label>
+          <label>
+            <span>Digite sua senha</span>
+            <Input  
+              type="password"
+              value={password}
+              name="password"
+              placeholder="Digite sua senha"
+              onChange={handlePassword}
+            />
+          </label>
+          <ButtonForm onClick={logIn} type="button">
+            Login
+          </ButtonForm>
+        </Form>
+      </MainForm>
+    </>
   );
 }
 export default Login;
