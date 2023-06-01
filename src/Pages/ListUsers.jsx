@@ -6,6 +6,7 @@ import {
   H3,
   UsersContainer,
 } from "../styles/ListUsers.styled";
+import Header from "../Components/Header";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
