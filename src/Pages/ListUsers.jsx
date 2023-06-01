@@ -5,7 +5,7 @@ import {
   CardUsers,
   H3,
   UsersContainer,
-} from "../styles/ListUers.styled";
+} from "../styles/ListUsers.styled";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
