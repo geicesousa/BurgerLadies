@@ -12,12 +12,10 @@ export const logout = () => {
   setIsLoggedin(false);
  }
 
-
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedin, setIsLoggedin] = useState(false);
- 
+  const [isLoggedin, setIsLoggedin] = useState(false); 
 
   const navigate = useNavigate();
 
@@ -56,10 +54,6 @@ function Login() {
         toast.error("Algo deu errado, confira os dados e tente novamente!")
       );
   }  
- 
-
-
-
 
     return (
     <>

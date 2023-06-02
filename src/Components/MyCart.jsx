@@ -7,41 +7,36 @@ import burguerLogo from "../assets/ladies.png";
 import { ArrowFatLineLeft, SignOut } from "phosphor-react";
 import { logout } from "../Pages/Login";
 
-
 const MyCart = ({ size, setShow }) => {
-  
-  const navigate = useNavigate()
-	function sair(){
-		logout()
-		navigate("/")
-	}
-	 
+  const navigate = useNavigate();
+  function sair() {
+    logout();
+    navigate("/");
+  }
+
   return (
     <>
       <ContainerCart>
         <img src={burguerLogo} width={"270px"} />
-         <Return>
-           <ArrowFatLineLeft
+        <Return>
+          <ArrowFatLineLeft
             size={32}
             weight="bold"
             color={"black"}
             onClick={() => setShow(true)}
           />
           <span>Voltar para Menu</span>
-        </Return>  
+        </Return>
         <Link onClick={() => sair()}>
-         
-          <SignOut/>
+          <SignOut />
           <span>Sair</span>
-      
-        </Link> 
+        </Link>
 
         <Link onClick={() => setShow(false)}>
           <BsCartPlus size={40} weight="bold" color="black" />
           <SizeCart>{size}</SizeCart>
-        </Link>       
+        </Link>
       </ContainerCart>
-    
     </>
   );
 };

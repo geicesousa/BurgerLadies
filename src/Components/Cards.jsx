@@ -10,6 +10,8 @@ import { BsCartPlus } from "react-icons/bs";
 
 const Cards = ({ item, handleClick }) => {
   const { name, price, description } = item;
+
+  
   return (
     <CardsItens>
       <CardInfo>

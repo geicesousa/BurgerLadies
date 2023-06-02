@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  Article,
   CartBox,
   Total,
   CartImg,
@@ -8,13 +7,29 @@ import {
   DivButton,
   FinalizeOrder,
   ContainerFooterOrder,
+  Main,
 } from "../styles/Cart.styled";
 import burguer from "../assets/hamburguer.png";
-import { ShoppingCart } from "phosphor-react";
+import  { FormClient } from '../styles/Cart.styled'
+import { postOrder } from '../services/api'
+import { toast } from "react-toastify";
 
-const Cart = ({ cart, setCart, handleChange }) => {
+const Cart = ({ cart, setCart, handleChange}) => {
   const [price, setPrice] = useState(0);
+  const [clientName, setClientName] = useState(" ");
+  const [tableNumber, setTableNumber] = useState(" ");
+  
+  const handleClientName = (e) => setClientName(e.target.value);
+  const handleTableNumber = (e) => setTableNumber(e.target.value);
 
+   // função para remover o item do carrinho
+   const handleRemove = (id) => {
+    const arr = cart.filter((item) => item.id !== id);
+    setCart(arr);
+   
+  };
+
+  // função para atualizar o preço
   const handlePrice = () => {
     let quantityProducts = 0;
     cart.map((item) => {
@@ -23,19 +38,63 @@ const Cart = ({ cart, setCart, handleChange }) => {
     setPrice(quantityProducts);
     };
 
-  const handleRemove = (id) => {
-    const arr = cart.filter((item) => item.id !== id);
-    setCart(arr);
-  };
+    // aqui atualiza o preço quando o produto é removido do carrinho
+  useEffect(()=>{
+    handlePrice()
+  })
 
-  useEffect(() => {
-    handlePrice();
-  });
+
+
+  //a partir daqui tentativas de enviar pedido para a cozinha
+ 
+  const sendKitchen = (e)=> {  
+    const orderCheck = {
+    clientName,
+    tableNumber,
+    total: price,
+    pedidos:cart
+   }
+   postOrder(orderCheck)
+   toast.success("pedido enviado com sucesso")  
+  //aqui criar uma regra para limpar o carrinho
+ 
+  }
+
 
   return (
   
-    <Article>
-       {cart?.map((item) => (
+    <Main>
+       <FormClient>
+        <label>
+          <span>Nome do cliente:</span>
+          <input
+            type="text"
+            value={clientName}
+            name="text"
+            placeholder="Digite o nome do cliente"           
+            // ref={clientName}
+            onChange={handleClientName}
+          />
+        </label>
+        <label>
+          <span>N da mesa:</span>
+          <select
+            value={tableNumber}
+            // ref={tableNumber}          
+            placeholder="Número da mesa"
+            onChange={handleTableNumber}
+          >
+            <option hidden>Numero da mesa</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+      </FormClient>
+      { 
+      cart.map((item) => (
         <CartBox key={item.id}>
           <CartImg>
             <img src={burguer} alt="Image" />
@@ -50,12 +109,11 @@ const Cart = ({ cart, setCart, handleChange }) => {
             </DivButton>
             <span> R$:{item.amount * item.price},00</span>
             <button onClick={() => handleRemove(item.id)}>Remover</button>
-            <ShoppingCart size={64} />
-          </DivTest>
+           </DivTest>
         </CartBox>
       ))}
       <ContainerFooterOrder>
-        <FinalizeOrder>
+        <FinalizeOrder onClick={()=> sendKitchen()}>
           Finalizar Pedido
         </FinalizeOrder>
         <Total>
@@ -63,8 +121,9 @@ const Cart = ({ cart, setCart, handleChange }) => {
           <span> R${price},00</span>
         </Total>
       </ContainerFooterOrder>
-    </Article>
+      
+    </Main>
   );
 };
 
-export default Cart;
+export default Cart

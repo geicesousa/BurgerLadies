@@ -17,7 +17,7 @@ import PrivateRoute from "./privateRoute";
 const Router = () => {
     return (
       <BrowserRouter>
-        <ToastContainer autoClose={2000} />
+        <ToastContainer autoClose={500} />
 
         <Routes>
           {/* Rotas publicas */}

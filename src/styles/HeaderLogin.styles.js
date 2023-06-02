@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerHeaderLogin = styled.header`
+export const ContainerHeaderLogin = styled.section`
   width: 95vw;
   display: flex;
   align-items: center;

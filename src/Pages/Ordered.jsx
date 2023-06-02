@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {
   Button,
-  FormClient,
   DivButtons,
   DivMenu,
 } from "../styles/Ordered.styles";
@@ -10,13 +9,13 @@ import Cards from "../Components/Cards";
 
 const Ordered = ({ handleClick }) => {
   const [products, setProducts] = useState([]);
-  const [clientName, setClientName] = useState(" ");
-  const [tableNumber, setTableNumber] = useState(" ");
+  // const clientName = useRef();
+  // const tableNumber  = useRef();
+ 
   const [selectedType, setSelectedType] = useState("");
   const [showTypes, setShowTypes] = useState(false);
 
-  const handleClientName = (e) => setClientName(e.target.value);
-  const handleTableNumber = (e) => setTableNumber(e.target.value);
+
 
   // renderiza os produtos dinamicamente
   const apiGet = async () => {
@@ -43,35 +42,10 @@ const Ordered = ({ handleClick }) => {
     ? products.filter((product) => product.type === selectedType)
     : products;
 
-  return (
-    <main>
-     <FormClient>
-        <label>
-          <span>Nome do cliente:</span>
-          <input
-            type="text"
-            value={clientName}
-            name="text"
-            placeholder="Digite o nome do cliente"
-            onChange={handleClientName}
-          />
-        </label>
-        <label>
-          <span>N da mesa:</span>
-          <select
-            value={tableNumber}
-            placeholder="Número da mesa"
-            onChange={handleTableNumber}
-          >
-            <option hidden>Numero da mesa</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </label>
-      </FormClient>
+    //enviar pedidos
+
+     return (
+    <main>    
       <DivButtons>
         <Button onClick={() => filterType("café da manhã")}>
           Café da manhã
@@ -83,8 +57,9 @@ const Ordered = ({ handleClick }) => {
       <DivMenu>
         {showTypes &&
           filteredTypes.map((item) => (
-            <Cards item={item} key={item.id} handleClick={handleClick}>
-             </Cards>
+            <Cards item={item} key={item.id} handleClick={handleClick} /> 
+             
+            //  handleclik é uma props a função está vindo do componente testeOrdered
           ))}
       </DivMenu>
      
