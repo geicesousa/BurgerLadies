@@ -16,7 +16,6 @@ const Ordered = ({ handleClick }) => {
   const [showTypes, setShowTypes] = useState(false);
 
 
-
   // renderiza os produtos dinamicamente
   const apiGet = async () => {
     try {
@@ -57,12 +56,10 @@ const Ordered = ({ handleClick }) => {
       <DivMenu>
         {showTypes &&
           filteredTypes.map((item) => (
-            <Cards item={item} key={item.id} handleClick={handleClick} /> 
-             
+            <Cards item={item} key={item.id} handleClick={handleClick} />              
             //  handleclik é uma props a função está vindo do componente testeOrdered
           ))}
       </DivMenu>
-     
     </main>
   );
 };
