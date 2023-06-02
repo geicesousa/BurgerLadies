@@ -18,6 +18,9 @@ const Ordered = ({ handleClick }) => {
   const handleClientName = (e) => setClientName(e.target.value);
   const handleTableNumber = (e) => setTableNumber(e.target.value);
 
+  console.log(setClientName)
+  console.log(clientName)
+
   // renderiza os produtos dinamicamente
   const apiGet = async () => {
     try {
@@ -45,7 +48,7 @@ const Ordered = ({ handleClick }) => {
 
   return (
     <main>
-     <FormClient>
+      <FormClient>
         <label>
           <span>Nome do cliente:</span>
           <input
@@ -84,10 +87,9 @@ const Ordered = ({ handleClick }) => {
         {showTypes &&
           filteredTypes.map((item) => (
             <Cards item={item} key={item.id} handleClick={handleClick}>
-             </Cards>
+            </Cards>
           ))}
       </DivMenu>
-     
     </main>
   );
 };

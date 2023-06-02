@@ -56,10 +56,6 @@ function Login() {
         toast.error("Algo deu errado, confira os dados e tente novamente!")
       );
   }  
- 
-
-
-
 
     return (
     <>

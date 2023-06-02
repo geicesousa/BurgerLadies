@@ -39,6 +39,7 @@ function Register() {
         toast.error("Algo deu errado, confira os dados e tente novamente!")
       );
   }
+  
   return (
     <>
       <Header/>

@@ -35,7 +35,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
   return (
   
     <Article>
-       {cart?.map((item) => (
+      {cart?.map((item) => (
         <CartBox key={item.id}>
           <CartImg>
             <img src={burguer} alt="Image" />
