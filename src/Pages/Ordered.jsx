@@ -9,24 +9,17 @@ import Cards from "../Components/Cards";
 
 const Ordered = ({ handleClick }) => {
   const [products, setProducts] = useState([]);
-  // const clientName = useRef();
-  // const tableNumber  = useRef();
- 
-  const [selectedType, setSelectedType] = useState("");
+   const [selectedType, setSelectedType] = useState("");
   const [showTypes, setShowTypes] = useState(false);
 
-
-  // renderiza os produtos dinamicamente
   const apiGet = async () => {
-    try {
-      const response = await getProduct();
-      if (response.ok) {
-        const data = await response.json();
-        setProducts(data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    getProduct()
+    .then((response) => response.json())
+    .then((data) => {
+      setProducts(data);
+    }).catch((error) => {
+      console.log(error)
+    }) 
   };
   useEffect(() => {
     apiGet();

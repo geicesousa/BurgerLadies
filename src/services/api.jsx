@@ -1,20 +1,22 @@
 const API = "http://localhost:8080";
 const getToken = localStorage.getItem("accessToken");
 
-export async function createUser(name, email, password, sector) {
+export async function createUser(name, email, password, role) {
   const dataUser = {
     name,
     email,
     password,
-    sector,
+    role,
   };
-  return await fetch(`${API}/users`, {
+  const response =  await fetch(`${API}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dataUser),
   });
+  const data = await response.json()
+  return data
 }
 
 export async function loginUser(email, password) {
@@ -22,13 +24,15 @@ export async function loginUser(email, password) {
     email,
     password,
   };
-  return await fetch(`${API}/login`, {
+  const resposta =  await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dataLogin),
   });
+  const dados = await resposta.json()
+  return dados
 }
 
 export async function getProduct() {
@@ -42,13 +46,7 @@ export async function getProduct() {
 }
 
 export async function postOrder(parametro) {
-  // const orderCheck = {
-  //   clientName,
-  //   tableNumber,
-  //   total: price,
-  //   pedidos: cart,
-  // };
-  return await fetch(`${API}/orders`, {
+    return await fetch(`${API}/orders`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,6 +55,31 @@ export async function postOrder(parametro) {
     body: JSON.stringify(parametro),
   });
 }
+
+export async function getOrders(){
+  return await fetch (`${API}/orders`,{
+    method: "GET",
+    headers: {
+     "contet-type": "application/json",
+     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+    }
+  })
+}
+
+export async function patchOrders({id, newStatus}){
+  const response = await fetch (`${API}/orders/${id}`,{
+    method: "PATCH",
+    headers: {
+     "contet-type": "application/json",
+     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+    },
+    body: JSON.stringify({newStatus}),
+ 
+ })
+ const data = await response.json()
+ return data
+}
+
 export async function listOfUsers() {
   return await fetch(`${API}/users`, {
     method: "GET",
@@ -67,8 +90,10 @@ export async function listOfUsers() {
   });
 }
 
-export async function deleteUsersId(id) {
-  return await fetch(`${API}/users/${id}`, {
+
+
+export async function deleteUsersId(id) {  
+  return await fetch(`${API}/users/${id}` , {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",

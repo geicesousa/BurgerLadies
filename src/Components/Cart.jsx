@@ -18,6 +18,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
   const [price, setPrice] = useState(0);
   const [clientName, setClientName] = useState(" ");
   const [tableNumber, setTableNumber] = useState(" ");
+  const [status, setStatus ] = useState ("aberto")
   
   const handleClientName = (e) => setClientName(e.target.value);
   const handleTableNumber = (e) => setTableNumber(e.target.value);
@@ -49,9 +50,10 @@ const Cart = ({ cart, setCart, handleChange}) => {
  
   const sendKitchen = (e)=> {  
     const orderCheck = {
-    clientName,
-    tableNumber,
+    name:clientName,
+    table:tableNumber,
     total: price,
+    status,
     pedidos:cart
    }
    postOrder(orderCheck)
