@@ -10,15 +10,12 @@ import HeaderLogin from "../Components/HeaderLogin";
 export const logout = () => {
   localStorage.removeItem('accessToken');
   setIsLoggedin(false);
-}
+ }
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedin, setIsLoggedin] = useState(false); 
-
-  const [isLoggedin, setIsLoggedin] = useState(false);
-
 
   const navigate = useNavigate();
 
@@ -28,7 +25,7 @@ function Login() {
   function logIn(e) {
     e.preventDefault();
     loginUser(email, password)
-    .then((data) => {
+     .then((data) => {
         if (!data) return 
           console.log(localStorage);
           localStorage.setItem("role", data.role);
@@ -44,6 +41,7 @@ function Login() {
           } else if (data.user.role === "administração"){
             navigate("/adm");
           }
+        
       })
       .catch(() =>
         toast.error("Algo deu errado, confira os dados e tente novamente!")

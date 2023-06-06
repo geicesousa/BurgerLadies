@@ -36,10 +36,8 @@ const Ordered = ({ handleClick }) => {
 
     //enviar pedidos
 
-     return (
+    return (
     <main>    
-  return (
-    <main>
       <DivButtons>
         <Button onClick={() => filterType("café da manhã")}>
           Café da manhã
