@@ -60,24 +60,24 @@ export async function getOrders(){
   return await fetch (`${API}/orders`,{
     method: "GET",
     headers: {
-     "contet-type": "application/json",
-     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      "contet-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     }
   })
 }
 
 export async function patchOrders({id, newStatus}){
-  const response = await fetch (`${API}/orders/${id}`,{
+  const response = await fetch (`${API}/orders/${id}`, {
     method: "PATCH",
     headers: {
-     "contet-type": "application/json",
-     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      "contet-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     },
     body: JSON.stringify({newStatus}),
- 
- })
- const data = await response.json()
- return data
+  })
+  
+  const data = await response.json()
+  return data
 }
 
 export async function listOfUsers() {
