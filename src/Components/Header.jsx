@@ -15,9 +15,9 @@ function Header() {
 	 
   return (
 	<ContainerHeader>
-	   <div>
+	   <>
       <img src={burguerLogo} />
-      </div> 
+      </> 
 	<IconesMenu>
 	  <Return>
 		  <ArrowFatLineLeft><Link></Link></ArrowFatLineLeft>

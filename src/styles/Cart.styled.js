@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Article = styled.article`
+export const Main = styled.article`
   width: 90vw;
   margin: auto;
   margin-top: 3rem;
@@ -8,6 +8,7 @@ export const Article = styled.article`
   color: #DDD9CE;
   padding: 2rem;
   border-radius: 10px;
+  
 `;
 export const CartBox = styled.div`
   display: flex;
@@ -99,4 +100,36 @@ export const FinalizeOrder = styled.button`
 export const ContainerFooterOrder = styled.section`
   display: flex;
   justify-content: space-between;
+`;
+
+export const FormClient = styled.form`
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin:  2rem auto;
+  gap: 1rem;
+
+
+  input {
+    width: 17rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: #e1cf7d;
+    margin-right: 1rem;
+    border: none;
+  }
+
+  select {
+    width: auto;
+    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: #e1cf7d;
+    margin-right: 1rem;
+    border: none;
+  }
+
+  span {
+    font-weight: bold;
+  }
 `;

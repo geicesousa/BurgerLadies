@@ -12,10 +12,11 @@ export const logout = () => {
   setIsLoggedin(false);
 }
 
-
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedin, setIsLoggedin] = useState(false); 
+
   const [isLoggedin, setIsLoggedin] = useState(false);
 
 
@@ -27,14 +28,7 @@ function Login() {
   function logIn(e) {
     e.preventDefault();
     loginUser(email, password)
-      .then((response) => {
-        if (response.status <= 299) {
-          return response.json();
-        } else {
-          toast.error("error!");
-        }
-      })
-      .then((data) => {
+    .then((data) => {
         if (!data) return 
           console.log(localStorage);
           localStorage.setItem("role", data.role);

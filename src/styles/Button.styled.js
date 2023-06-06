@@ -7,7 +7,7 @@ export const ButtonContainer = styled.main`
   width: 90vw;
 `;
 
-export const ButtonGlobal = styled.button`
+export const Button = styled.button`
   margin: auto;
   display: flex;
   width: 50%;

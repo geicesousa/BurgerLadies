@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import {
   Button,
-  FormClient,
   DivButtons,
   DivMenu,
 } from "../styles/Ordered.styles";
@@ -10,28 +9,17 @@ import Cards from "../Components/Cards";
 
 const Ordered = ({ handleClick }) => {
   const [products, setProducts] = useState([]);
-  const [clientName, setClientName] = useState(" ");
-  const [tableNumber, setTableNumber] = useState(" ");
   const [selectedType, setSelectedType] = useState("");
   const [showTypes, setShowTypes] = useState(false);
 
-  const handleClientName = (e) => setClientName(e.target.value);
-  const handleTableNumber = (e) => setTableNumber(e.target.value);
-
-  console.log(setClientName)
-  console.log(clientName)
-
-  // renderiza os produtos dinamicamente
   const apiGet = async () => {
-    try {
-      const response = await getProduct();
-      if (response.ok) {
-        const data = await response.json();
-        setProducts(data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    getProduct()
+    .then((response) => response.json())
+    .then((data) => {
+      setProducts(data);
+    }).catch((error) => {
+      console.log(error)
+    }) 
   };
   useEffect(() => {
     apiGet();
@@ -46,6 +34,10 @@ const Ordered = ({ handleClick }) => {
     ? products.filter((product) => product.type === selectedType)
     : products;
 
+    //enviar pedidos
+
+     return (
+    <main>    
   return (
     <main>
       <DivButtons>
@@ -59,8 +51,8 @@ const Ordered = ({ handleClick }) => {
       <DivMenu>
         {showTypes &&
           filteredTypes.map((item) => (
-            <Cards item={item} key={item.id} handleClick={handleClick}>
-            </Cards>
+            <Cards item={item} key={item.id} handleClick={handleClick} />              
+            //  handleclik é uma props a função está vindo do componente testeOrdered
           ))}
       </DivMenu>
     </main>

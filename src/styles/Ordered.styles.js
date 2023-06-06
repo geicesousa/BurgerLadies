@@ -21,39 +21,7 @@ export const DivMenu = styled.div`
     margin-bottom: 1rem;
   }
 `;
-export const FormClient = styled.form`
-  display: flex;
-  justify-content: end;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-  width:90vw;
-  margin:  2rem auto;
-  gap: 1rem;
 
-
-  input {
-    width: 17rem;
-    border-radius: 10px;
-    padding: 0.5rem;
-    background-color: #e1cf7d;
-    margin-right: 1rem;
-    border: none;
-  }
-
-  select {
-    width: auto;
-    border-radius: 10px;
-    padding: 0.5rem;
-    background-color: #e1cf7d;
-    margin-right: 1rem;
-    border: none;
-  }
-
-  span {
-    font-weight: bold;
-  }
-`;
 
 export const SectionItens = styled.section`
   display: flex;
