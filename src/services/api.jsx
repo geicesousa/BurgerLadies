@@ -36,13 +36,13 @@ export async function loginUser(email, password){
 
 export async function getProduct() {
 	return await fetch(`${API}/products`, {
-	  method: "GET",
-	  headers: {
+		method: "GET",
+		headers: {
 		'Content-Type': 'application/json',
 		Authorization: `Bearer ${localStorage.getItem('accessToken')}` 
-	  },
+		},
 	});
-  };
+};
 
   export async function listOfUsers(){
 	return await fetch(`${API}/users`, {
@@ -52,7 +52,7 @@ export async function getProduct() {
 			Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 		},
 	});
-  };
+};
 	
   
 export async function deleteUsersId(id){
@@ -63,5 +63,4 @@ export async function deleteUsersId(id){
 			Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
 		}
 	})
-	
 }

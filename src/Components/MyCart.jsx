@@ -15,13 +15,13 @@ const MyCart = ({ size, setShow }) => {
 		logout()
 		navigate("/")
 	}
-	 
+	
   return (
     <>
       <ContainerCart>
         <img src={burguerLogo} width={"270px"} />
-         <Return>
-           <ArrowFatLineLeft
+        <Return>
+          <ArrowFatLineLeft
             size={32}
             weight="bold"
             color={"black"}
@@ -30,10 +30,8 @@ const MyCart = ({ size, setShow }) => {
           <span>Voltar para Menu</span>
         </Return>  
         <Link onClick={() => sair()}>
-         
           <SignOut/>
           <span>Sair</span>
-      
         </Link> 
 
         <Link onClick={() => setShow(false)}>

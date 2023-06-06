@@ -20,7 +20,7 @@ const Cards = ({ item, handleClick }) => {
       <CardPrice>
         <p>R$ {price},00</p>
         <Button onClick={() => handleClick(item)}>
-         <BsCartPlus size={27} weight="bold" color="#DDD9CE" />
+        <BsCartPlus size={27} weight="bold" color="#DDD9CE" />
         </Button>
       </CardPrice>
     </CardsItens>
