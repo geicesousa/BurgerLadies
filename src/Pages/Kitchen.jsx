@@ -6,17 +6,14 @@ import { CardUsers, UsersContainer } from "../styles/ListUsers.styled";
 
 const Kitchen = () => {
   const [orders, setOrders] = useState([]);
-  const [selectedStatus, setSelectedStatus] = useState("");
-  const [showStatus, setShowStatus] = useState(false);
+  // const [selectedStatus, setSelectedStatus] = useState("");
+  // const [showStatus, setShowStatus] = useState(false);
   const [status, setStatus ] = useState([])
 
   const apiOrders = async () => {
     getOrders()
-      .then((response) => response.json()
-      )
+      .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         setOrders(data);
       })
       .catch((error) => {
@@ -34,7 +31,7 @@ const Kitchen = () => {
   //   setShowStatus(true);
   // };
 
-  // const statusFiltered = selectedStatus
+  // const filteredStatus = selectedStatus
   //   ? orders.filter((order) => order.status === selectedStatus)
   //   : orders;
 
@@ -42,15 +39,19 @@ const Kitchen = () => {
   console.log(item.status);
   item.status = "execução"
   patchOrders({id:item["id"], status:item["status"]})
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response  );
+      })
       .then((data) => {
         setStatus(data)
-      
+       
       });
   console.log(item.status);
   }
 
-return (
+ 
+
+ return (
     <>
       <Header />
       {/* <ButtonContainer>
@@ -64,52 +65,16 @@ return (
         </Button>
       </ButtonContainer> */}
       <UsersContainer>
-      {// showStatus &&
-      orders.map((item) => ( 
-          item.status === "aberto" &&
-          
+        {orders.map((item) => (
           <CardUsers key={item.id}>
-            <p>Cliente: {item.name}</p>
-            <p> Mesa:{item.table}</p>
-            <p>Status:{item.status}</p>
-            <p>Pedidos:{item.pedidos.length}</p>
-
-            {/* {item.pedidos.map((opcao)=>(
-              console.log(opcao)           
-            ))} */}
-            <button onClick={() => apiOrderspatch(item)}>
-              {item.status}
-            </button>
-          </CardUsers>
-      ))}
-
-        {orders.map((item) => ( 
-          item.status === "pending" &&
-          <CardUsers key={item.id}>
-            <p>Cliente: {item.client}</p>
-            <p>Mesa:{item.table}</p>
-            <p>Status:{item.status}</p>
-            <p>Pedido realizado: {item.products[1].product.dateEntry}</p>
-              
+            Cliente: {item.name} <br />
+            Mesa:{item.table} <br />
+            Status:{item.status}
             <button onClick={() => apiOrderspatch(item)}>
               {item.status}
             </button>
           </CardUsers>
         ))}
-
-        <h5>Entregues</h5>
-        {orders.map((item) => ( 
-          item.status === "delivered" &&
-          <CardUsers key={item.id}>
-          <p>Cliente: {item.client}</p>
-          <p>Mesa:{item.table}</p>
-          <p>Status:{item.status}</p>
-
-          <button onClick={() => apiOrderspatch(item)}>
-            {item.status}
-          </button>
-        </CardUsers>
-        ))} 
       </UsersContainer>
     </>
   );

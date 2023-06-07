@@ -32,6 +32,7 @@ const ListUsers = () => {
         if (!token) {
           throw new Error("erroooo");
         }
+        setUsers((prevState)=>prevState.filter((user)=> user.id !== data.id))
       })
       .catch((error) => {
         console.error(error);
