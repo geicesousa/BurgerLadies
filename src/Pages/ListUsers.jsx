@@ -54,7 +54,7 @@ const ListUsers = () => {
         {users.map((user) => {
           return (
             <>
-              <CardUsers key={user.id}>
+              <CardUsers   key={user.id} >
               Nome:{user.name} Email:{user.email} Setor:{user.role} <br />
                 <BtnsUsers>
                   <button onClick={() => deleteUsers(user)}>
