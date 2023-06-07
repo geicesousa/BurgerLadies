@@ -1,6 +1,7 @@
 const API = "http://localhost:8080";
 const getToken = localStorage.getItem("accessToken");
 
+//REGISTRO DE COLABORADOR
 export async function createUser(name, email, password, role) {
   const dataUser = {
     name,
@@ -19,22 +20,59 @@ export async function createUser(name, email, password, role) {
   return data
 }
 
+//LOGIN DE COLABORADOR
 export async function loginUser(email, password) {
   const dataLogin = {
     email,
     password,
   };
-  const resposta =  await fetch(`${API}/login`, {
+  return await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dataLogin),
   });
-  const dados = await resposta.json()
-  return dados
+  // const dados = await resposta.json()
+  // return dados
 }
 
+//LISTA DE COLABORADORES
+export async function listUsers() {
+  return await fetch(`${API}/users`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
+}
+
+//DELETAR COLABORADOR
+export async function deleteUsersId(id) {  
+  return await fetch(`${API}/users/${id}` , {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
+}
+
+//EDITAR COLABORADOR
+export async function pathUsers(id, editar) {  
+  return await fetch(`${API}/users/${id}` , {
+    method: "PATCH",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+    body: JSON.stringify(editar),
+  })
+}
+
+
+//LISTAR PRODUTOS - CARDÁPIO
 export async function getProduct() {
   return await fetch(`${API}/products`, {
     method: "GET",
@@ -45,6 +83,7 @@ export async function getProduct() {
   });
 }
 
+//ENVIAR PEDIDOS PARA A API
 export async function postOrder(parametro) {
     return await fetch(`${API}/orders`, {
     method: "POST",
@@ -56,48 +95,32 @@ export async function postOrder(parametro) {
   });
 }
 
+// RENDERIZAR NA TELA OS PEDIDOS DA API
 export async function getOrders(){
   return await fetch (`${API}/orders`,{
     method: "GET",
     headers: {
-     "contet-type": "application/json",
+     "content-type": "application/json",
      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     }
   })
 }
 
-export async function patchOrders({id, newStatus}){
-  const response = await fetch (`${API}/orders/${id}`,{
+//EDITAR PEDIDOS
+export async function patchOrders(item){
+ console.log(item);
+ console.log(JSON.stringify({status:item["status"]}));
+  return await fetch (`${API}/orders/${item.id}`,{
     method: "PATCH",
     headers: {
-     "contet-type": "application/json",
+     "content-type": "application/json",
      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     },
-    body: JSON.stringify({newStatus}),
+    body: JSON.stringify({status:item["status"]}),
+
  
  })
- const data = await response.json()
- return data
+
 }
 
-export async function listOfUsers() {
-  return await fetch(`${API}/users`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  });
-}
-
-
-
-export async function deleteUsersId(id) {  
-  return await fetch(`${API}/users/${id}` , {
-    method: "DELETE",
-    headers: {
-      "Content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    },
-  });
-}
+status

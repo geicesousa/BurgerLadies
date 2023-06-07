@@ -5,12 +5,16 @@ export const ButtonContainer = styled.main`
   padding: 5rem;
   margin-top: 1rem;
   width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+ 
 `;
 
 export const Button = styled.button`
   margin: auto;
   display: flex;
-  width: 50%;
+  width: 20%;
   align-items: center;
   justify-content: center;
   padding: 2rem;
@@ -22,6 +26,7 @@ export const Button = styled.button`
   border: none;
   font-weight: bold;
   cursor: pointer;
+  font-size: .8rem;
 
   a {
     color: #e1cf7d;

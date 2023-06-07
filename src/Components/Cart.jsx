@@ -99,7 +99,6 @@ const Cart = ({ cart, setCart, handleChange}) => {
       cart.map((item) => (
         <CartBox key={item.id}>
           <CartImg>
-            <img src={burguer} alt="Image" />
             <p>{item.name}</p>
             <p>R$:{item.price},00</p>
           </CartImg>
