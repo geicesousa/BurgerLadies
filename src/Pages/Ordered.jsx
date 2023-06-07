@@ -12,7 +12,7 @@ const Ordered = ({ handleClick }) => {
   const [selectedType, setSelectedType] = useState("");
   const [showTypes, setShowTypes] = useState(false);
 
-  const apiGet = async () => {
+  const apiOrdered = async () => {
     getProduct()
     .then((response) => response.json())
     .then((data) => {
@@ -22,7 +22,7 @@ const Ordered = ({ handleClick }) => {
     }) 
   };
   useEffect(() => {
-    apiGet();
+    apiOrdered();
   }, []);
 
   const filterType = (type) => {
