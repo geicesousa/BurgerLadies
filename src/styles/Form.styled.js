@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MainForm = styled.main`
   width: 100vw;  
 `;
+
 export const Form = styled.form`
   background-color: #963c08;  
   width: 80vw;
@@ -43,8 +44,6 @@ export const Form = styled.form`
     }
   }
 
-
-
   label {
     font-size: 1.5rem;
     color: #e1cf7d;
@@ -58,20 +57,5 @@ export const Form = styled.form`
     }
   }
 `;
-export const ButtonForm = styled.button`
-  width: 50%;
-  margin: auto;
-  border: none;
-  font-size: 1rem;
-  background-color: #03300b;
-  color: #e1cf7d;
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 0.5rem;
-  border-radius: 10px;
-  cursor: pointer;
 
-  :hover {
-    background-color: #3a6332;
-  }
-`;
+

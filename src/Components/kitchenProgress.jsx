@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ButtonContainer, Button } from "../styles/Button.styled";
-import Header from "../Components/Header";
+import { ButtonContainer, ButtonProgress, ButtonStatus } from "../styles/Button.styled";
 import { getOrders, patchOrders } from "../services/api";
-import { CardUsers, UsersContainer } from "../styles/ListUsers.styled";
+import { UsersContainer } from "../styles/ListUsers.styled";
+import { CardOrder } from "../styles/KitchenProgress.styles";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -59,26 +59,26 @@ const KitchenProgress = () => {
   return (
     <>
       <ButtonContainer>
-        <Button onClick={() => filterStatus("aberto")}>Pedidos abertos</Button>
-        <Button onClick={() => filterStatus("execução")}>
+        <ButtonProgress onClick={() => filterStatus("aberto")}>Pedidos abertos</ButtonProgress>
+        <ButtonProgress onClick={() => filterStatus("execução")}>
           Pedidos em execução
-        </Button>
-        <Button onClick={() => filterStatus("pronto")}>Pedidos prontos</Button>
-        <Button onClick={() => filterStatus("entregue")}>
+        </ButtonProgress>
+        <ButtonProgress onClick={() => filterStatus("pronto")}>Pedidos prontos</ButtonProgress>
+        <ButtonProgress onClick={() => filterStatus("entregue")}>
           Pedidos entregues
-        </Button>
+        </ButtonProgress>
       </ButtonContainer>
       <UsersContainer>
         {showStatus &&
           statusFiltered.map((item) => (
-            <CardUsers key={item.id}>
-              Cliente: {item.name} <br />
-              Mesa:{item.table} <br />
-              Status:{item.status}
-              <button onClick={() => changeStatus(item)}>
+            <CardOrder key={item.id}>
+              <p>Cliente: {item.name}</p>
+              <p>Mesa:{item.table}</p>
+              <p>Status:{item.status}</p>
+              <ButtonStatus onClick={() => changeStatus(item)}>
                 Alterar status do pedido
-              </button>
-            </CardUsers>
+              </ButtonStatus>
+            </CardOrder>
           ))}
       </UsersContainer>
     </>

@@ -22,16 +22,16 @@ export const SizeCart = styled.span`
 `;
 
 export const Return = styled.div`
- display: flex;
- flex-direction: column;
- align-items: center;
- cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export const SignOutDiv = styled.div `
-display: flex;
- flex-direction: column;
- align-items: center;   
- cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  cursor: pointer;
 
 `

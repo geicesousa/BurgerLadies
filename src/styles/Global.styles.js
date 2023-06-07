@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;   
-       
   }
 
   body {
@@ -13,14 +12,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arial, Helvetica, sans-serif
   }
 
- a {
+  a {
     text-decoration: none;
   }
-  
   
   li{
     list-style:none;
   }
- 
 `;
 

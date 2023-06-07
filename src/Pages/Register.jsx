@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createUser } from "../services/api";
-import { ButtonForm, Form, MainForm } from "../styles/Form.styled";
+import { Form, MainForm } from "../styles/Form.styled";
+import { ButtonForm } from "../styles/Button.styled"
 import { toast } from "react-toastify";
 import Input from "../Components/Input";
 import Header from "../Components/Header";

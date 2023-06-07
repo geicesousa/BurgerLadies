@@ -21,6 +21,6 @@ export const Error = styled.section`
     text-transform: uppercase;
   }
   img {
-   text-align: center;
+    text-align: center;
   }
 `;

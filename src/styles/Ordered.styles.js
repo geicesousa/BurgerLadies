@@ -38,7 +38,7 @@ export const DivButtons = styled.div`
   width: 90vw;
   margin: auto;
   border-radius: 15px;
- 
+
 `;
 
 export const Button = styled.button`
