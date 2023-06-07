@@ -9,7 +9,7 @@ import Cards from "../Components/Cards";
 
 const Ordered = ({ handleClick }) => {
   const [products, setProducts] = useState([]);
-   const [selectedType, setSelectedType] = useState("");
+  const [selectedType, setSelectedType] = useState("");
   const [showTypes, setShowTypes] = useState(false);
 
   const apiOrdered = async () => {
@@ -36,7 +36,7 @@ const Ordered = ({ handleClick }) => {
 
     //enviar pedidos
 
-     return (
+    return (
     <main>    
       <DivButtons>
         <Button onClick={() => filterType("café da manhã")}>

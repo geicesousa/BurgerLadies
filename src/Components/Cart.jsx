@@ -47,7 +47,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
 
 
   //a partir daqui tentativas de enviar pedido para a cozinha
- 
+
   const sendKitchen = (e)=> {  
     const orderCheck = {
     name:clientName,
@@ -55,18 +55,29 @@ const Cart = ({ cart, setCart, handleChange}) => {
     total: price,
     status,
     pedidos:cart
-   }
-   postOrder(orderCheck)
-   toast.success("pedido enviado com sucesso")  
-  //aqui criar uma regra para limpar o carrinho
- 
+    }
+    postOrder(orderCheck)
+    toast.success("pedido enviado com sucesso")  
+  //aqui cria uma regra para limpar o carrinho
+
   }
 
+
+  // const sendKitchen = ()=> {
+  //   const pedidoPronto = { 
+  //     nomeCLiente,
+  //     mesa,
+  //     precoTotal,
+  //     pedidos: [ {
+
+  //     }]
+  //   }
+  // }
 
   return (
   
     <Main>
-       <FormClient>
+      <FormClient>
         <label>
           <span>Nome do cliente:</span>
           <input
@@ -110,7 +121,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
             </DivButton>
             <span> R$:{item.amount * item.price},00</span>
             <button onClick={() => handleRemove(item.id)}>Remover</button>
-           </DivTest>
+          </DivTest>
         </CartBox>
       ))}
       <ContainerFooterOrder>
