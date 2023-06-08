@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { deleteProductId, getProduct } from "../services/api";
 import {
   BtnsUsers,
@@ -11,7 +11,6 @@ import {
 import Header from "../Components/Header";
 import { toast } from "react-toastify";
 import { Main } from "../styles/listProducts.styled";
-
 
 
 const ListProducts = () => {

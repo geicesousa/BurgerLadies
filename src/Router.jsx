@@ -11,7 +11,7 @@ import ListUsers from "./Pages/ListUsers";
 import TesteOrdered from "./Pages/TesteOrdered";
 import Cart from "./Pages/Cart";
 import PrivateRoute from "./privateRoute";
-import ListProducts from "./Pages/listProducts";
+import ListProducts from "./Pages/ListProducts";
 import AdcProducts from "./Pages/AdcProducts";
 
 const Router = () => {

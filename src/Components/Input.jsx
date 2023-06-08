@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomInput} from '../styles/Input.styled'
+import { CustomInput} from '../styles/Input.styled';
 
 const Input = ({
   type,
@@ -8,7 +8,6 @@ const Input = ({
   placeholder,
   onChange,
 
- 
 }) => {
   return ( 
     <CustomInput
@@ -17,9 +16,8 @@ const Input = ({
       name={name}
       placeholder={placeholder}
       onChange={onChange}   
-     
     />
-   );
+  );
 }
  
 export default Input;
