@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Input from "../Components/Input";
 import Header from "../Components/Header";
 
-function AdicionarProdutos() {
+function AdcProducts() {
   const [name, setName] = useState(" ");
   const [img, setImg] = useState(" ");
   const [description, setDescription] = useState(" ");
@@ -55,6 +55,7 @@ function AdicionarProdutos() {
               onChange={handleName}
             />
           </label>
+
           <label>
             <span>img</span>
             <Input
@@ -65,6 +66,7 @@ function AdicionarProdutos() {
               onChange={handleImg}
               />
           </label>
+
           <label>
             <span>Descrição</span>
             <Input
@@ -75,7 +77,8 @@ function AdicionarProdutos() {
               onChange={handleDescription}
             />
           </label>
-		  <label>
+
+		      <label>
             <span>Preço</span>
             <Input
               type="number"
@@ -85,7 +88,8 @@ function AdicionarProdutos() {
               onChange={handlePrice}
             />
           </label>
-		  <label>
+
+		      <label>
             <span>Amount</span>
             <Input
               type="text"
@@ -95,15 +99,17 @@ function AdicionarProdutos() {
               onChange={handleAmount}
             />
           </label>
+
           <label>
             <span>Selecione o tipo</span>
             <select value={type} placeholder="tipo" onChange={handleType}>
               <option hidden>Tipo</option>
               <option value="café da manhã">Café da manhça</option>
               <option value="menu pricipal">Menu Principal</option>
-           </select>
+            </select>
           </label>
-		  <label>
+
+		      <label>
             <span>Selecione a categoria</span>
             <select value={category} placeholder="Categoria" onChange={handleCategory}>
               <option hidden>categoria</option>
@@ -113,6 +119,7 @@ function AdicionarProdutos() {
               <option value="acompanhamentos">Acompanhamentos</option>
             </select>
           </label>
+          
           <ButtonForm type="submit">Adicionar ìtem ao cardápio</ButtonForm>
         </Form>
         {cadastrado && toast.success("Cadastro realizado com sucesso!")}
@@ -121,4 +128,4 @@ function AdicionarProdutos() {
   );
 }
 
-export default AdicionarProdutos
+export default AdcProducts

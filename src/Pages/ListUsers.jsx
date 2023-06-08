@@ -8,7 +8,7 @@ import {
 } from "../styles/ListUsers.styled";
 import Header from "../Components/Header";
 import { toast } from "react-toastify";
-import editarUsuario from "../Components/editarUsuario";
+import EditUser from "../Components/EditUser";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
@@ -60,7 +60,7 @@ const ListUsers = () => {
                   <button onClick={() => deleteUsers(user)}>
                     Deletar colaborador
                   </button>
-                  <button onClick={()=> editarUsuario()} >Editar colaborador</button>
+                  <button onClick={()=> EditUser()} >Editar colaborador</button>
                 </BtnsUsers>
               </CardUsers>
             </>

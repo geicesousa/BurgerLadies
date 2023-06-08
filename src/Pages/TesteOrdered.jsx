@@ -1,10 +1,10 @@
 import React from "react";
-import Ordered from "../Pages/Ordered";
+import Ordered from "./Ordered";
 import { useState } from "react";
 import Cart from "./Cart";
 import { WarningMsg } from "../styles/Ordered.stylesd";
 import { toast } from "react-toastify";
-import MyCart from "./MyCart";
+import MyCart from "../Components/MyCart";
 
 const TesteOrdered = () => {
   const [cart, setCart] = useState([]);

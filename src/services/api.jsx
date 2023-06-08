@@ -1,5 +1,5 @@
 const API = "http://localhost:8080";
-const getToken = localStorage.getItem("accessToken");
+// const getToken = localStorage.getItem("accessToken");
 
 //---------------USUARIOS-----------------------
 
@@ -15,6 +15,8 @@ export async function createUser(name, email, password, role) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+
     },
     body: JSON.stringify(dataUser),
   });
@@ -32,6 +34,8 @@ export async function loginUser(email, password) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+
     },
     body: JSON.stringify(dataLogin),
   });
@@ -129,8 +133,8 @@ export async function getOrders(){
   return await fetch (`${API}/orders`,{
     method: "GET",
     headers: {
-     "content-type": "application/json",
-     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      "Content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     }
   })
 }
@@ -140,31 +144,24 @@ export async function getOrders(){
 export async function patchOrders(item){
   console.log(item);
   console.log(JSON.stringify({status:item["status"]}));
-   return await fetch (`${API}/orders/${item.id}`,{
-     method: "PATCH",
-     headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-     },
-     body: JSON.stringify({status:item["status"]}),
- 
+  return await fetch (`${API}/orders/${item.id}`,{
+    method: "PATCH",
+    headers: {
+    "content-type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+    },
+    body: JSON.stringify({status:item["status"]}),
   
   })
- 
- }
+}
 
  //DELETAR PEDIDOS
- export async function deleteOrdersId(id){
-   return await fetch (`${API}/orders/${id}`,{
-     method: "DELETE",
-     headers: {
-      "content-type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-     }, 
-  })
- 
- }
-
-
- 
-
+  export async function deleteOrdersId(id){
+    return await fetch (`${API}/orders/${id}`,{
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      }, 
+    })
+  }
