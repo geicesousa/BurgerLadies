@@ -63,17 +63,6 @@ const Cart = ({ cart, setCart, handleChange}) => {
   }
 
 
-  // const sendKitchen = ()=> {
-  //   const pedidoPronto = { 
-  //     nomeCLiente,
-  //     mesa,
-  //     precoTotal,
-  //     pedidos: [ {
-
-  //     }]
-  //   }
-  // }
-
   return (
   
     <Main>

@@ -6,8 +6,9 @@ import {
 } from "../styles/Button.styled";
 import { deleteOrdersId, getOrders, patchOrders } from "../services/api";
 import { UsersContainer } from "../styles/ListUsers.styled";
-import { CardOrder } from "../styles/KitchenProgress.styled";
+import { CardOrder} from "../styles/KitchenProgress.styled";
 import { toast } from "react-toastify";
+import { Check } from "phosphor-react";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -100,14 +101,15 @@ const KitchenProgress = () => {
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
               <>
-                <p>Cliente: {item.name}</p>
-                <p>Mesa:{item.table}</p>
-                <p>Status:{item.status}</p>
+                <p><strong>Cliente:</strong> {item.name}</p>
+                <p><strong>Mesa:</strong> {item.table}</p>
+                <p><strong>Status:</strong> {item.status}</p>
+                <p><strong>Preço:</strong> {item.total},00</p>
                 <p>
-                  Pedidos:
+                 <strong> Detalhes do pedido:</strong>
                   {item.pedidos.map((item) => (
                     <span key={item.id}>
-                      <span>-{item.name}</span>
+                      <span><br/><Check size={15} color="#03300b" weight="bold" />{item.name}</span>
                     </span>
                   ))}
                 </p>

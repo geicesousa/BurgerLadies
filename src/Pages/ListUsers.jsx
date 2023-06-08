@@ -55,7 +55,7 @@ const ListUsers = () => {
           return (
             <>
               <CardUsers   key={user.id} >
-              Nome:{user.name} Email:{user.email} Setor:{user.role} <br />
+              <strong>Nome: </strong>{user.name} <br /><strong>Email: </strong>{user.email} <br /><strong> Setor: </strong>{user.role} <br />
                 <BtnsUsers>
                   <button onClick={() => deleteUsers(user)}>
                     Deletar colaborador

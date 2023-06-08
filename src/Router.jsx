@@ -12,6 +12,7 @@ import TesteOrdered from "./Components/TesteOrdered";
 import Cart from "./Components/Cart";
 import PrivateRoute from "./privateRoute";
 import AdicionarProdutos from "./Pages/AdcionarProdutos";
+import ListProducts from "./Pages/listProducts";
 
 
 
@@ -87,6 +88,14 @@ const Router = () => {
             element={
               <PrivateRoute redirectTo="/">
                 <AdicionarProdutos />
+              </PrivateRoute>
+            }
+          />
+           <Route
+            path="/listproducts"
+            element={
+              <PrivateRoute redirectTo="/">
+                <ListProducts />
               </PrivateRoute>
             }
           />

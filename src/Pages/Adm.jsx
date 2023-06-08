@@ -16,7 +16,9 @@ const Adm = () => {
         <Link to="/adicionarprodutos">
           <Button>Adicionar ítem ao cardápio</Button>
         </Link>
-        <Button>Lista de Produtos</Button>
+        <Link to="/listproducts">
+          <Button>Lista de produtos</Button>
+        </Link>
       </ButtonContainer>
     </>
   );

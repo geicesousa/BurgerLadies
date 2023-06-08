@@ -9,14 +9,14 @@ export const UsersContainer = styled.ul`
 `;
 
 export const CardUsers = styled.li`
-  width: 20rem;
+  width: 15rem;
   height: auto;
   border-radius: 15px;
-  font-size: 1.2rem;
+  font-size: .9rem;
   background-color: #e1cf7d;
-  border: 0.5rem solid #963c08;
+  border: 0.3rem solid #963c08;
   margin: 1rem;
-  padding: 2rem;
+  padding: .8rem;
   align-items: center;
 `;
 
@@ -27,17 +27,19 @@ export const H3 = styled.h3`
 `;
 
 export const BtnsUsers = styled.div`
-  display: inline-flex;
+  display: flex;
   gap: 0.5rem;
+  justify-content: center;
 
   button {
     border-radius: 10px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border: none;
     background-color: #963c08;
     color: #e1cf7d;
-    padding: 0.1rem;
+    padding: 0.5rem;
     cursor: pointer;
+    font-size: .5rem;
 
     :hover {
       background-color: #763c09;

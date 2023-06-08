@@ -30,16 +30,17 @@ const TesteOrdered = () => {
       setCart([...cart, item]);
     };
 
-    const handleChange = (item, d) => {
+    const handleChange = (item, value) => {
       let ind = -1;
       cart.forEach((data, index) => {
         if (data.id === item.id) ind = index;
       });
-      const tempArray = cart;
-      tempArray[ind].amount += d;
+   
+      cart[ind].amount += value;
 
-      if (tempArray[ind].amount === 0) tempArray[ind].amount = 1;
-      setCart([...tempArray]);
+      if (cart[ind].amount === 0) cart[ind].amount = 1;
+      setCart([...cart]);
+     
     };
 
     return (

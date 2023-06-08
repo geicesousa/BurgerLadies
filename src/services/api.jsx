@@ -110,6 +110,17 @@ export async function getProduct() {
   });
 }
 
+export async function deleteProductId(id){
+  return await fetch (`${API}/products/${id}`,{
+    method: "DELETE",
+    headers: {
+     "content-type": "application/json",
+     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+    }, 
+ })
+
+}
+
 //---------------PEDIDOS-----------------------
 
 //ENVIAR PEDIDOS PARA A API

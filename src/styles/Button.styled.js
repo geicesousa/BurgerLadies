@@ -3,18 +3,19 @@ import styled from "styled-components";
 export const ButtonContainer = styled.main`
   margin: auto;
   padding: 5rem;
-  margin-top: 1rem;
   width: 90vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap:wrap;
   text-align: center;
- 
+  gap: 2rem;
+  align-items:center; 
 `;
 
 export const Button = styled.button`
   margin: auto;
   display: flex;
-  width: 50%;
+  width: 10rem;
   align-items: center;
   justify-content: center;
   padding: 2rem;
@@ -26,7 +27,7 @@ export const Button = styled.button`
   border: none;
   font-weight: bold;
   cursor: pointer;
-  font-size: .8rem;
+  font-size: .7rem;
 
   a {
     color: #e1cf7d;
@@ -63,6 +64,7 @@ export const ButtonStatus = styled.button`
   border: #03300b;
   margin: auto;
   display: flex;
+  border-radius: 5px;
 `
 export const ButtonForm = styled.button`
   width: 50%;

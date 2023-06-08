@@ -6,7 +6,7 @@ export const CardOrder = styled.li`
   border-radius: 15px;
   font-size: .9rem;
   background-color: white;
-  border: .4rem solid #963c08;
+  border: .3rem solid #963c08;
   margin: .5rem;
   padding: 1rem;
   align-items: center;
@@ -15,7 +15,6 @@ export const CardOrder = styled.li`
   justify-content: space-between;
   align-items: start;
   gap: .5rem;
-  
-
 
 `;
+
