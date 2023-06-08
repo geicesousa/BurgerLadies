@@ -13,6 +13,9 @@ const Adm = () => {
         <Link to="/listusers">
           <Button> Lista de colaboradores</Button>
         </Link>
+        <Link to="/adicionarprodutos">
+          <Button>Adicionar ítem ao cardápio</Button>
+        </Link>
         <Button>Lista de Produtos</Button>
       </ButtonContainer>
     </>

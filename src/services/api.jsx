@@ -1,6 +1,8 @@
 const API = "http://localhost:8080";
 const getToken = localStorage.getItem("accessToken");
 
+//---------------USUARIOS-----------------------
+
 //REGISTRO DE COLABORADOR
 export async function createUser(name, email, password, role) {
   const dataUser = {
@@ -71,6 +73,31 @@ export async function pathUsers(id, editar) {
   })
 }
 
+//---------------CARDÁPIO-----------------------
+
+//CADASTRAR UM NOVO ÍTEM  PARA O CARDAPIO
+export async function createProducts(name, img, description, price, type, category, amount ) {
+  const dataProducts = {
+    name,
+    img,
+    description,
+    price,
+    type,
+    category,
+    amount,
+
+  };
+  const response =  await fetch(`${API}/products`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+    body: JSON.stringify(dataProducts),
+  });
+  const data = await response.json()
+  return data
+}
 
 //LISTAR PRODUTOS - CARDÁPIO
 export async function getProduct() {
@@ -82,6 +109,8 @@ export async function getProduct() {
     },
   });
 }
+
+//---------------PEDIDOS-----------------------
 
 //ENVIAR PEDIDOS PARA A API
 export async function postOrder(parametro) {
