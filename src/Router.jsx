@@ -8,13 +8,11 @@ import NotFound from "./Pages/NotFound";
 import Adm from "./Pages/Adm";
 import Kitchen from "./Pages/Kitchen";
 import ListUsers from "./Pages/ListUsers";
-import TesteOrdered from "./Components/TesteOrdered";
-import Cart from "./Components/Cart";
+import TesteOrdered from "./Pages/TesteOrdered";
+import Cart from "./Pages/Cart";
 import PrivateRoute from "./privateRoute";
-import AdicionarProdutos from "./Pages/AdcionarProdutos";
 import ListProducts from "./Pages/listProducts";
-
-
+import AdcProducts from "./Pages/AdcProducts";
 
 const Router = () => {
     return (
@@ -84,10 +82,10 @@ const Router = () => {
             }
           />
            <Route
-            path="/adicionarprodutos"
+            path="/adcproducts"
             element={
               <PrivateRoute redirectTo="/">
-                <AdicionarProdutos />
+                <AdcProducts />
               </PrivateRoute>
             }
           />

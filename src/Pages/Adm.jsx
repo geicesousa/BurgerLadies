@@ -5,7 +5,7 @@ import Header from "../Components/Header";
 const Adm = () => {
   return (
     <>
-     <Header />
+    <Header />
       <ButtonContainer>
         <Link to="/register">
           <Button>Adcionar novo colaborador</Button>

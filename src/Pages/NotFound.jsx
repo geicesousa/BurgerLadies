@@ -1,12 +1,9 @@
 import { Error } from "../styles/NotFound.styled";
 import imgError from "../assets/error.svg";
-import Header from "../Components/Header";
 
 const NotFound = () => {
-  // tirar o header daqui
   return (
     <>
-      <Header />
       <Error>
         <img src={imgError} alt="imagem de erro" />
         <p></p>

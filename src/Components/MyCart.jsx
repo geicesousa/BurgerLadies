@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Return, SizeCart } from "../styles/MyCart.styled";
 import { BsCartPlus } from "react-icons/bs";
-// import { BiArrowBack } from "react-icons/bi";
 import { ContainerCart } from "../styles/MyCart.styled";
 import burguerLogo from "../assets/ladies.png";
 import { ArrowFatLineLeft, SignOut } from "phosphor-react";
