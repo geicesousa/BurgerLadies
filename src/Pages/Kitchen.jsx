@@ -1,14 +1,13 @@
-import React from 'react'
-import Header from '../Components/Header'
-import KitchenProgress from '../Components/kitchenProgress'
+import Header from "../Components/Header";
+import KitchenProgress from "../Components/kitchenProgress";
 
 const Kitchen = () => {
   return (
-	<>
-	<Header/>
-	<KitchenProgress/>
-	</>
-  )
-}
+    <>
+      <Header />
+      <KitchenProgress />
+    </>
+  );
+};
 
-export default Kitchen
+export default Kitchen;

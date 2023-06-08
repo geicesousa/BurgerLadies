@@ -3,7 +3,7 @@ import {
   Button,
   DivButtons,
   DivMenu,
-} from "../styles/Ordered.styles";
+} from "../styles/Ordered.stylesd";
 import { getProduct } from "../services/api";
 import Cards from "../Components/Cards";
 

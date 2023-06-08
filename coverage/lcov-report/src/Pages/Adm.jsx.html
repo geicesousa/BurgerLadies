@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/Pages/Attendance.jsx</title>
+    <title>Code coverage report for src/Pages/Adm.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/Pages</a> Attendance.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/Pages</a> Adm.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -81,8 +81,11 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -99,24 +102,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Link } from "react-router-dom";
-import { Button } from "../styles/Button.styled";
-import KitchenProgress from "../Components/kitchenProgress";
+import { ButtonContainer,Button } from "../styles/Button.styled";
 import Header from "../Components/Header";
 &nbsp;
-const Attendance = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+const Adm = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
-    &lt;Header/&gt;
-      &lt;Link to="/ordered"&gt;
-        &lt;Button&gt; Novo Pedido&lt;/Button&gt;
-      &lt;/Link&gt;
-      &lt;KitchenProgress/&gt;  
+     &lt;Header /&gt;
+      &lt;ButtonContainer&gt;
+        &lt;Link to="/register"&gt;
+          &lt;Button&gt;Adcionar novo colaborador&lt;/Button&gt;
+        &lt;/Link&gt;
+        &lt;Link to="/listusers"&gt;
+          &lt;Button&gt; Lista de colaboradores&lt;/Button&gt;
+        &lt;/Link&gt;
+        &lt;Button&gt;Lista de Produtos&lt;/Button&gt;
+      &lt;/ButtonContainer&gt;
     &lt;/&gt;
   );
 };
 &nbsp;
-export default Attendance;
+export default Adm;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

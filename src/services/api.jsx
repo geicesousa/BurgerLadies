@@ -106,21 +106,36 @@ export async function getOrders(){
   })
 }
 
+
 //EDITAR PEDIDOS
 export async function patchOrders(item){
- console.log(item);
- console.log(JSON.stringify({status:item["status"]}));
-  return await fetch (`${API}/orders/${item.id}`,{
-    method: "PATCH",
-    headers: {
-     "content-type": "application/json",
-     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-    },
-    body: JSON.stringify({status:item["status"]}),
+  console.log(item);
+  console.log(JSON.stringify({status:item["status"]}));
+   return await fetch (`${API}/orders/${item.id}`,{
+     method: "PATCH",
+     headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+     },
+     body: JSON.stringify({status:item["status"]}),
+ 
+  
+  })
+ 
+ }
+
+ //DELETAR PEDIDOS
+ export async function deleteOrdersId(id){
+   return await fetch (`${API}/orders/${id}`,{
+     method: "DELETE",
+     headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+     }, 
+  })
+ 
+ }
+
 
  
- })
 
-}
-
-status

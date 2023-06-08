@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { ButtonContainer, ButtonProgress, ButtonStatus } from "../styles/Button.styled";
-import { getOrders, patchOrders } from "../services/api";
+import { useEffect, useState } from "react";
+import {
+  ButtonContainer,
+  ButtonProgress,
+  ButtonStatus,
+} from "../styles/Button.styled";
+import { deleteOrdersId, getOrders, patchOrders } from "../services/api";
 import { UsersContainer } from "../styles/ListUsers.styled";
-import { CardOrder } from "../styles/KitchenProgress.styles";
+import { CardOrder } from "../styles/KitchenProgress.styled";
+import { toast } from "react-toastify";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("");
   const [showStatus, setShowStatus] = useState(false);
   const [status, setStatus] = useState([]);
-  
+
   const apiOrders = async () => {
     getOrders()
       .then((response) => response.json())
@@ -35,16 +40,17 @@ const KitchenProgress = () => {
     : orders;
 
   const changeStatus = async (item) => {
-    if (item.status === "aberto") {
-      return (item.status = "execução");
+    switch (item.status) {
+      case "aberto":
+        item.status = "execução";
+        break;
+      case "execução":
+        item.status = "pronto";
+        break;
+      case "pronto":
+        item.status = "entregue";
+        break;
     }
-    if (item.status === "execução") {
-      return (item.status = "pronto");
-    }
-    if (item.status === "pronto") {
-      return (item.status = "entregue");
-    }
-
     patchOrders({ id: item["id"], status: item["status"] })
       .then((response) => response.json())
       .then((data) => {
@@ -56,14 +62,35 @@ const KitchenProgress = () => {
     console.log(item.status);
   };
 
+  async function deleteOrders(order) {
+    deleteOrdersId(order.id)
+      .then((response) => {
+        if (response.ok) {
+          toast.success("Pedido excluído com sucesso!");
+        }
+      })
+      .then((data) => {
+        setOrders ((prevState) => prevState.filter(item => item.id !== order.id));      
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(orders);
+  }
+
   return (
     <>
       <ButtonContainer>
-        <ButtonProgress onClick={() => filterStatus("aberto")}>Pedidos abertos</ButtonProgress>
+        <ButtonProgress onClick={() => filterStatus("aberto")}>
+          Pedidos abertos
+        </ButtonProgress>
         <ButtonProgress onClick={() => filterStatus("execução")}>
           Pedidos em execução
         </ButtonProgress>
-        <ButtonProgress onClick={() => filterStatus("pronto")}>Pedidos prontos</ButtonProgress>
+        <ButtonProgress onClick={() => filterStatus("pronto")}>
+          Pedidos prontos
+        </ButtonProgress>
         <ButtonProgress onClick={() => filterStatus("entregue")}>
           Pedidos entregues
         </ButtonProgress>
@@ -72,12 +99,29 @@ const KitchenProgress = () => {
         {showStatus &&
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
-              <p>Cliente: {item.name}</p>
-              <p>Mesa:{item.table}</p>
-              <p>Status:{item.status}</p>
-              <ButtonStatus onClick={() => changeStatus(item)}>
-                Alterar status do pedido
-              </ButtonStatus>
+              <>
+                <p>Cliente: {item.name}</p>
+                <p>Mesa:{item.table}</p>
+                <p>Status:{item.status}</p>
+                <p>
+                  Pedidos:
+                  {item.pedidos.map((item) => (
+                    <span key={item.id}>
+                      <span>-{item.name}</span>
+                    </span>
+                  ))}
+                </p>
+              </>
+              <>
+                <ButtonStatus onClick={() => changeStatus(item)}>
+                  Alterar status do pedido
+                </ButtonStatus>
+              </>
+              <>
+                <ButtonStatus onClick={() => deleteOrders(item)}>
+                 Deletar pedido
+                </ButtonStatus>
+              </>
             </CardOrder>
           ))}
       </UsersContainer>

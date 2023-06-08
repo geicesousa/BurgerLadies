@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/styles/Form.styled.js</title>
+    <title>Code coverage report for src/styles/Cards.styled.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/styles</a> Form.styled.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/styles</a> Cards.styled.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -126,11 +126,7 @@
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -144,7 +140,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,6 +166,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,6 +176,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,65 +187,65 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from "styled-components";
 &nbsp;
-export const MainForm = styled.main`
-  width: 100vw;  
-`;
-&nbsp;
-export const Form = styled.form`
-  background-color: #963c08;  
-  width: 80vw;
-  height: auto;
-  margin: auto;
-  margin-top: 2rem;
-  gap: 1.5rem;
-  border-radius: 20px;
-  padding: 3rem;
+export const CardsItens = styled.div`
+  padding: 1rem;
+  border: .1rem solid #8c0000;
+  background-color: #863c08;
+  border-radius: 15px;
+  color: #DDD9CE;
+  width: 250px;
+  height: 350px;
+  margin: auto; 
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  gap: 1rem;
+`;
+&nbsp;
+export const CardInfo = styled.section`
+  text-align: center;
+  margin: auto;
+  display: flex;
   align-items: center;
+  flex-direction: column;
 &nbsp;
-  @media (min-width: 1200px) {
-    width: 30vw;
-  }
-&nbsp;
-  h2 {
-    margin-bottom: 1rem;
-    color: #e1cf7d;
+  h3 {
     text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
   }
 &nbsp;
-  select {
-    width: 70vw;
-    padding: 1rem;
+  p {
+    width: auto;
+    text-align: center;
+    margin-top: .5rem;
+  }
+&nbsp;
+  img {
+    width: 185px;
+    height: auto;
     border-radius: 10px;
-    background-color: #e1cf7d;
-    border: none;
-    font-size: 1.3rem;
-    display: grid;
-&nbsp;
-    @media (min-width: 1200px) {
-      width: 25vw;
-      padding: 0.2rem;
-      font-size: 1rem;
-    }
-  }
-&nbsp;
-  label {
-    font-size: 1.5rem;
-    color: #e1cf7d;
-&nbsp;
-    @media (min-width: 1200px) {
-      font-size: 1rem;
-    }
-&nbsp;
-    span {
-      margin-left: 0.4rem;
-    }
   }
 `;
 &nbsp;
+export const Button = styled.button`
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  border: none;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+`;
 &nbsp;
+export const CardPrice = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+`;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

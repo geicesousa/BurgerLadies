@@ -1,12 +1,10 @@
 import burguerLogo from "../assets/ladies.png";
-import { ContainerHeaderLogin } from "../styles/HeaderLogin.styles";
+import { ContainerHeaderLogin } from "../styles/HeaderLogin.styled";
 
 const HeaderLogin = () => {
   return (
     <ContainerHeaderLogin>
-
-        <img src={burguerLogo} />
-
+      <img src={burguerLogo} />
     </ContainerHeaderLogin>
   );
 };

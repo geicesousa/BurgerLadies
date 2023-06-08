@@ -1,4 +1,4 @@
-import { Error } from "../styles/NotFound.styles";
+import { Error } from "../styles/NotFound.styled";
 import imgError from "../assets/error.svg";
 import Header from "../Components/Header";
 
