@@ -29,7 +29,7 @@ export async function loginUser(email, password) {
     email,
     password,
   };
-  const response = await fetch(`${API}/login`, {
+  return await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -38,8 +38,7 @@ export async function loginUser(email, password) {
     },
     body: JSON.stringify(dataLogin),
   });
-  const dados = await response.json()
-  return dados
+
 }
 
 
