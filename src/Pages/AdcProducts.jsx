@@ -31,16 +31,16 @@ function AdcProducts() {
   function addProdutos(e) {
     e.preventDefault();
   
-	createProducts(name, img, description, price, type, category, amount)
-      .then((response) => {
-        if (response.status <= 299) {
-          setCadastrado(true);
-          return response.json();
-        }
-      })
-      .catch(() =>
-        toast.error("Algo deu errado, confira os dados e tente novamente!")
-      );
+    createProducts(name, img, description, price, type, category, amount)
+    .then((response) => {
+      if (response.status <= 299) {
+        setCadastrado(true);
+        return response.json();
+      }
+    })
+    .catch(() =>
+      toast.error("Algo deu errado, confira os dados e tente novamente!")
+    );
   }
   
   return (
@@ -84,7 +84,8 @@ function AdcProducts() {
           onChange={handlePrice}
         ></Formulary>
         <Formulary
-          type="text"
+          text="Quantidade"
+          type="number"
           value={amount}
           name="amount"
           placeholder="Digite a quantidade"
@@ -92,54 +93,30 @@ function AdcProducts() {
         ></Formulary>
 
         <Select
-          
           text="Tipo"     
-          value={type} placeholder="tipo" onChange={handleType}>
-                    
-<option hidden>Tipo</option>
-              <option value="café da manhã">Café da manhça</option>
-              <option value="menu pricipal">Menu Principal</option> 
+          value={type} placeholder="Tipo"
+          value1="Café da manhã"
+          value2="Menu Principal" 
+          onChange={handleType}>
         </Select>
 
         <Select
-          text="Categoria"            
-
+          text="Categoria"
           value={category} 
-          placeholder="Categoria" 
-          onChange={handleCategory}>
-          <option hidden>categoria</option>
-          <option value="lanches">Lanches</option>
-          <option value="bebidas">Bebidas</option>
-          <option value="hambúrgueres">Hamburgueres</option>
-          <option value="acompanhamentos">Acompanhamentos
-          </option></Select>
-      </Form>
-      
-      <ButtonForm type="submit">Adicionar item ao cardápio</ButtonForm>
+          value1="Lanches"
+          value2="Bebidas"
+          value3="Hambúrgueres"
+          value4="Acompanhamentos"
+          name={category} 
+          placeholder="Selecione a categoria do produto"
+          onChange={handleCategory}
+        ></Select>
+     
+        <ButtonForm type="submit">Adicionar item ao cardápio</ButtonForm>
         
-        {cadastrado && toast.success("Cadastro realizado com sucesso!")}
+        {cadastrado && toast.success("Cadastro realizado com sucesso!")} 
+      </Form>
     </MainForm>
-      {/* <MainForm>
-      
-
-          <label>
-            <span>Selecione o tipo</span>
-            <select 
-            </select>
-          </label>
-
-		      <label>
-            <span>Selecione a categoria</span>
-            <select value={category} placeholder="Categoria" onChange={handleCategory}>
-              <option hidden>categoria</option>
-              <option value="lanches">Lanches</option>
-              <option value="bebidas">Bebidas</option>
-              <option value="hambúrgueres">Hamburgueres</option>
-              <option value="acompanhamentos">Acompanhamentos</option>
-            </select>
-          </label>
-          
-       */}
     </>
   );
 }

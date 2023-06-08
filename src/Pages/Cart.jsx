@@ -24,10 +24,9 @@ const Cart = ({ cart, setCart, handleChange}) => {
   const handleTableNumber = (e) => setTableNumber(e.target.value);
 
    // função para remover o item do carrinho
-   const handleRemove = (id) => {
+  const handleRemove = (id) => {
     const arr = cart.filter((item) => item.id !== id);
     setCart(arr);
-   
   };
 
   // função para atualizar o preço
@@ -42,9 +41,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
     // aqui atualiza o preço quando o produto é removido do carrinho
   useEffect(()=>{
     handlePrice()
-  })
-
-
+  });
 
   //a partir daqui tentativas de enviar pedido para a cozinha
 
@@ -59,12 +56,9 @@ const Cart = ({ cart, setCart, handleChange}) => {
     postOrder(orderCheck)
     toast.success("pedido enviado com sucesso")  
   //aqui cria uma regra para limpar o carrinho
-
   }
 
-
   return (
-  
     <Main>
       <FormClient>
         <label>
@@ -122,7 +116,6 @@ const Cart = ({ cart, setCart, handleChange}) => {
           <span> R${price},00</span>
         </Total>
       </ContainerFooterOrder>
-      
     </Main>
   );
 };
