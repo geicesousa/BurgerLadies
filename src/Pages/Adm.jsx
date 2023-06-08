@@ -13,7 +13,7 @@ const Adm = () => {
         <Link to="/listusers">
           <Button> Lista de colaboradores</Button>
         </Link>
-        <Link to="/adicionarprodutos">
+        <Link to="/adcproducts">
           <Button>Adicionar ítem ao cardápio</Button>
         </Link>
         <Link to="/listproducts">

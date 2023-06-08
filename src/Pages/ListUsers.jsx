@@ -32,7 +32,7 @@ const ListUsers = () => {
     deleteUsersId(user.id)
       .then((response) => {
         if (response.ok) {
-          toast.success("colaborador Excluido com sucesso");
+          toast.success("colaborador deletado com sucesso");
         }
       })
       .then((data) => {

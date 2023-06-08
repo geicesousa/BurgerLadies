@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Table } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { deleteProductId, getProduct } from "../services/api";
 import {
   BtnsUsers,
@@ -8,7 +10,8 @@ import {
 } from "../styles/ListUsers.styled";
 import Header from "../Components/Header";
 import { toast } from "react-toastify";
-import { Table } from "react-bootstrap";
+import { Main } from "../styles/listProducts.styled";
+
 
 
 const ListProducts = () => {
@@ -33,12 +36,12 @@ const ListProducts = () => {
     deleteProductId(product.id)
       .then((response) => {
         if (response.ok) {
-          toast.success("colaborador Excluido com sucesso");
+          toast.success("ìtem deletado com sucesso");
         }
       })
       .then((data) => {
         // const teste = users.filter( item => item.id !== user.id)
-        setUsers((prevState) =>
+        setProducts((prevState) =>
           prevState.filter((item) => item.id !== product.id)
         );
         console.log(data);
@@ -46,12 +49,13 @@ const ListProducts = () => {
       .catch((error) => {
         console.log(error);
       });
-    console.log(user);
+    console.log(product);
   }
 
   return (
     <>
       <Header />
+      <Main>
       <H3>Lista de Ítens do cardápio</H3>
       <Table striped bordered hover>
         <thead>
@@ -61,6 +65,7 @@ const ListProducts = () => {
             <th>Tipo</th>
             <th>Categoria</th>
             <th>Preço</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -81,7 +86,9 @@ const ListProducts = () => {
 		  ))}
         </tbody>
       </Table>
-    </>
+      </Main>
+      </>
+    
   );
 };
 
