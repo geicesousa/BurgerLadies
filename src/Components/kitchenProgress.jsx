@@ -4,7 +4,7 @@ import {
   ButtonProgress,
   ButtonStatus,
 } from "../styles/Button.styled";
-import { deleteOrdersId, getOrders, patchOrders } from "../services/api";
+import { deleteApi, getApi, patchOrders } from "../services/api";
 import { UsersContainer } from "../styles/ListUsers.styled";
 import { CardOrder} from "../styles/KitchenProgress.styled";
 import { toast } from "react-toastify";
@@ -16,8 +16,8 @@ const KitchenProgress = () => {
   const [showStatus, setShowStatus] = useState(false);
   const [status, setStatus] = useState([]);
 
-  const apiOrders = async () => {
-    getOrders()
+  const getOrders = async () => {
+    getApi(`orders/`)
       .then((response) => response.json())
       .then((data) => {
         setOrders(data);
@@ -28,7 +28,7 @@ const KitchenProgress = () => {
   };
 
   useEffect(() => {
-    apiOrders();
+    getOrders();
   }, []);
 
   const filterStatus = (status) => {
@@ -64,7 +64,7 @@ const KitchenProgress = () => {
   };
 
   async function deleteOrders(order) {
-    deleteOrdersId(order.id)
+    deleteApi(`orders/${order.id}`)
       .then((response) => {
         if (response.ok) {
           toast.success("Pedido excluído com sucesso!");

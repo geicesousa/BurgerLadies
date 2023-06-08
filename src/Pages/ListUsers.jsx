@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { listUsers, deleteUsersId } from "../services/api";
+import { getApi, deleteApi } from "../services/api";
 import {
   BtnsUsers,
   CardUsers,
@@ -13,8 +13,8 @@ import EditUser from "../Components/EditUser";
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
 
-  const apiUsers = async () => {
-    listUsers()
+  const getUsers = async () => {
+    getApi(`users/`)
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);
@@ -25,11 +25,11 @@ const ListUsers = () => {
   };
 
   useEffect(() => {
-    apiUsers();
+    getUsers();
   }, []);
 
   async function deleteUsers(user) {
-    deleteUsersId(user.id)
+    deleteApi(`users/${user.id}`)
       .then((response) => {
         if (response.ok) {
           toast.success("colaborador deletado com sucesso");
@@ -37,13 +37,15 @@ const ListUsers = () => {
       })
       .then((data) => {
         // const teste = users.filter( item => item.id !== user.id)
-        setUsers ((prevState) => prevState.filter(item => item.id !== user.id));      
+        setUsers((prevState) =>
+          prevState.filter((item) => item.id !== user.id)
+        );
         console.log(data);
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log(user);
+    console.log(user.id);
   }
 
   return (
@@ -54,13 +56,18 @@ const ListUsers = () => {
         {users.map((user) => {
           return (
             <>
-              <CardUsers   key={user.id} >
-              <strong>Nome: </strong>{user.name} <br /><strong>Email: </strong>{user.email} <br /><strong> Setor: </strong>{user.role} <br />
+              <CardUsers key={user.id}>
+                <strong>Nome: </strong>
+                {user.name} <br />
+                <strong>Email: </strong>
+                {user.email} <br />
+                <strong> Setor: </strong>
+                {user.role} <br />
                 <BtnsUsers>
                   <button onClick={() => deleteUsers(user)}>
                     Deletar colaborador
                   </button>
-                  <button onClick={()=> EditUser()} >Editar colaborador</button>
+                  <button onClick={() => EditUser()}>Editar colaborador</button>
                 </BtnsUsers>
               </CardUsers>
             </>

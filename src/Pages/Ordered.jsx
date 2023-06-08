@@ -4,7 +4,7 @@ import {
   DivButtons,
   DivMenu,
 } from "../styles/Ordered.stylesd";
-import { getProduct } from "../services/api";
+import { getApi } from "../services/api";
 import Cards from "../Components/Cards";
 
 const Ordered = ({ handleClick }) => {
@@ -12,8 +12,8 @@ const Ordered = ({ handleClick }) => {
   const [selectedType, setSelectedType] = useState("");
   const [showTypes, setShowTypes] = useState(false);
 
-  const apiOrdered = async () => {
-    getProduct()
+  const getOrdered = async () => {
+    getApi(`products/`)
     .then((response) => response.json())
     .then((data) => {
       setProducts(data);
@@ -22,7 +22,7 @@ const Ordered = ({ handleClick }) => {
     }) 
   };
   useEffect(() => {
-    apiOrdered();
+    getOrdered();
   }, []);
 
   const filterType = (type) => {
