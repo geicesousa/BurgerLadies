@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import { deleteProductId, getProduct } from "../services/api";
-
-import {
-  BtnsUsers,
-  CardUsers,
-  H3,
-  UsersContainer,
-} from "../styles/ListUsers.styled";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { deleteApi, getApi } from "../services/api";
+import { BtnsUsers, H3 } from "../styles/ListUsers.styled";
 import Header from "../Components/Header";
 import { toast } from "react-toastify";
 import { Main } from "../styles/listProducts.styled";
