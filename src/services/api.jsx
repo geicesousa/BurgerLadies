@@ -13,8 +13,8 @@ export async function createUser(name, email, password, role) {
   const response =  await fetch(`${API}/users`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      "Content-Type": "application/json"
+      // Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
 
     },
     body: JSON.stringify(dataUser),
@@ -29,17 +29,17 @@ export async function loginUser(email, password) {
     email,
     password,
   };
-  return await fetch(`${API}/login`, {
+  const response = await fetch(`${API}/login`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      "Content-Type": "application/json"
+      // Authorization: `Bearer ${localStorage.getItem("accessToken")}`
 
     },
     body: JSON.stringify(dataLogin),
   });
-  // const dados = await resposta.json()
-  // return dados
+  const dados = await response.json()
+  return dados
 }
 
 

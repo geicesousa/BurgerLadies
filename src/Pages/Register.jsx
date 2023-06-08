@@ -3,7 +3,8 @@ import { createUser } from "../services/api";
 import { Form, MainForm } from "../styles/Form.styled";
 import { ButtonForm } from "../styles/Button.styled"
 import { toast } from "react-toastify";
-import Input from "../Components/Input";
+import Formulary from "../Components/Formulary";
+import Select from "../Components/Select";
 import Header from "../Components/Header";
 
 function Register() {
@@ -42,55 +43,53 @@ function Register() {
   }
   
   return (
-    <>
-      <Header/>
-      <MainForm>
-        <Form onSubmit={registerUser}>
-          <h2>Cadastro de colaboradores</h2>
-          <label>
-            <span>Nome do colaborador</span>
-            <Input
-              type="text"
-              value={name}
-              name="name"
-              placeholder="Digite o nome do colaborador"
-              onChange={handleName}
-            />
-          </label>
-          <label>
-            <span>E-mail do colaborador</span>
-            <Input
-              type="text"
-              value={email}
-              name="email"
-              placeholder="Digite o e-mail do colaborador"
-              onChange={handleEmail}
-              />
-          </label>
-          <label>
-            <span>Digite uma senha</span>
-            <Input
-              type="text"
-              value={password}
-              name="password"
-              placeholder="Digite uma senha"
-              onChange={handlePassword}
-            />
-          </label>
-          <label>
-            <span>Selecione o cargo</span>
-            <select value={role} placeholder="Cargo" onChange={handleRole}>
-              <option hidden>Setor</option>
-              <option value="atendente">Atendimento</option>
-              <option value="cozinha">Cozinha</option>
-              <option value="administração">Administração</option>
-            </select>
-          </label>
-          <ButtonForm type="submit">Efetuar cadastro</ButtonForm>
-        </Form>
-        {cadastrado && toast.success("Cadastro realizado com sucesso!")}
-      </MainForm>
-    </>
+  <>
+    <Header/>
+    <MainForm>
+      <Form onSubmit={registerUser}>
+        <h2>Cadastro de colaboradores</h2>
+        <Formulary
+          text="Nome do colaborador"
+          type="text"
+          value={name}
+          name="name"
+          placeholder="Digite o nome do colaborador"
+          onChange={handleName}
+        ></Formulary>
+
+        <Formulary
+          text="E-mail do colaborador"
+          type="text"
+          value={email}
+          name="email"
+          placeholder="Digite o e-mail do colaborador"
+          onChange={handleEmail}
+        ></Formulary>
+
+        <Formulary
+          text="Senha"
+          type="text"
+          value={password}
+          name="password"
+          placeholder="Digite uma senha"
+          onChange={handlePassword}
+        ></Formulary>
+
+        <Select
+          text="Selecione o cargo"
+          value={role} 
+          value1="Atendente"
+          value2="Cozinha"
+          value3="Administração"
+          placeholder="Cargo" 
+          onChange={handleRole}
+        ></Select>
+        
+        <ButtonForm type="submit">Efetuar cadastro</ButtonForm>
+      </Form>
+      {cadastrado && toast.success("Cadastro realizado com sucesso!")}
+    </MainForm>
+  </>
   );
 }
 

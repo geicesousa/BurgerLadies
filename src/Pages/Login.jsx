@@ -5,8 +5,8 @@ import { loginUser } from "../services/api";
 import { Form, MainForm } from "../styles/Form.styled";
 import { ButtonForm } from "../styles/Button.styled";
 import { toast } from "react-toastify";
-import Input from "../Components/Input";
 import HeaderLogin from "../Components/HeaderLogin";
+import Formulary from "../Components/Formulary"
 
 export const logout = () => {
   localStorage.removeItem('accessToken');
@@ -61,30 +61,27 @@ function Login() {
       <MainForm>        
         <Form onSubmit={logIn}>
           <h2>Faça seu login</h2>
-          <label>
-            <span>Digite seu email</span>
-            <Input
-              type="email"
-              value={email}
-              name="email"
-              placeholder="Digite seu Email"
-              onChange={handleEmail}
-            />
-          </label>
-          <label>
-            <span>Digite sua senha</span>
-            <Input  
-              type="password"
-              value={password}
-              name="password"
-              placeholder="Digite sua senha"
-              onChange={handlePassword}
-            />
-          </label>
+          <Formulary
+            text="Email"
+            type="email"
+            value={email}
+            name="email"
+            placeholder="Digite seu Email"
+            onChange={handleEmail}
+          ></Formulary>     
+          
+          <Formulary
+            text="Senha"
+            type="password"
+            value={password}
+            name="password"
+            placeholder="Digite sua senha"
+            onChange={handlePassword}
+          ></Formulary>     
           <ButtonForm onClick={logIn} type="button">
             Login
           </ButtonForm>
-        </Form>
+        </Form> 
       </MainForm>
     </>
   );

@@ -35,12 +35,11 @@ const TesteOrdered = () => {
       cart.forEach((data, index) => {
         if (data.id === item.id) ind = index;
       });
-   
+
       cart[ind].amount += value;
 
       if (cart[ind].amount === 0) cart[ind].amount = 1;
       setCart([...cart]);
-     
     };
 
     return (

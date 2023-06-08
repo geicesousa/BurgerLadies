@@ -47,15 +47,31 @@ export const Form = styled.form`
   label {
     font-size: 1.5rem;
     color: #e1cf7d;
-
+/* 
     @media (min-width: 1200px) {
       font-size: 1rem;
-    }
+    }  já tá 1rem pra tudo*/ 
 
     span {
       margin-left: 0.4rem;
     }
   }
 `;
+
+export const Select = styled.select`
+  width: 70vw;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #e1cf7d;
+  border: none;
+  font-size: 1.3rem;
+  display: grid;
+
+  @media (min-width: 1200px) {
+    width: 25vw;
+    padding: 0.2rem;
+    font-size: 1rem;
+  }
+`
 
 

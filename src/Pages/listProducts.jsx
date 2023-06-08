@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { deleteApi, getApi } from "../services/api";
+
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { deleteProductId, getProduct } from "../services/api";
+
 import {
   BtnsUsers,
   CardUsers,
