@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { pathUsers } from "../services/api";
 import { toast } from "react-toastify";
 
-const editarUsuario = () => {
+const EditUser = () => {
   const [nameUser, setNameUser] = useState("");
   const [emailUser, setEmailUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
@@ -20,10 +20,10 @@ const editarUsuario = () => {
     e.preventDefault();
 
     const editar = {
-      name,
-      email,
-      password,
-      role,
+      nameUser,
+      emailUser,
+      passwordUser,
+      roleUser,
     };
     pathUsers(item.id, editar)
       .then((response) => {
@@ -37,6 +37,7 @@ const editarUsuario = () => {
       .catch((error) => {
         console.log(error);
       });
+      console.log(item);
   }
 
   return (
@@ -73,4 +74,4 @@ const editarUsuario = () => {
   );
 };
 
-export default editarUsuario;
+export default EditUser;

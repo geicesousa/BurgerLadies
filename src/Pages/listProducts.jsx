@@ -7,6 +7,7 @@ import Header from "../Components/Header";
 import { toast } from "react-toastify";
 import { Main } from "../styles/listProducts.styled";
 
+
 const ListProducts = () => {
   const [products, setProducts] = useState([]);
 

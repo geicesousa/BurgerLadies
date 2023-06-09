@@ -1,42 +1,93 @@
-import { useState } from "react";
-import Modal from "react-modal";
-
-const ModalPedidos = () => {
-	const [modalIsOpen, setIsOpen] = useState(false);
-
-	function openModal() {
-	  setIsOpen(true);
-	}
+import {
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalFooter,
+	ModalBody,
+	ModalCloseButton,
+	Button,
+	FormControl,
+	FormLabel,
+	Input,
+	Box,
+  } from "@chakra-ui/react";
+  import { useState } from "react";
   
-	function closeModal() {
-	  setIsOpen(false);
-	}
+  const ModalComp = ({ data, setData, dataEdit, isOpen, onClose }) => {
+	const [name, setName] = useState(dataEdit.name || "");
+	const [email, setEmail] = useState(dataEdit.email || "");
+  
+	const handleSave = () => {
+	  if (!name || !email) return;
+  
+	  if (emailAlreadyExists()) {
+		return alert("E-mail já cadastrado!");
+	  }
+  
+	  if (Object.keys(dataEdit).length) {
+		data[dataEdit.index] = { name, email };
+	  }
+  
+	  const newDataArray = !Object.keys(dataEdit).length
+		? [...(data ? data : []), { name, email }]
+		: [...(data ? data : [])];
+  
+	  localStorage.setItem("cad_cliente", JSON.stringify(newDataArray));
+  
+	  setData(newDataArray);
+  
+	  onClose();
+	};
+  
+	const emailAlreadyExists = () => {
+	  if (dataEdit.email !== email && data?.length) {
+		return data.find((item) => item.email === email);
+	  }
+  
+	  return false;
+	};
   
 	return (
-	  <div className="Container">
-		<button onClick={openModal}>Open Modal</button>
-		<Modal
-		  isOpen={modalIsOpen}
-		  onRequestClose={closeModal}
-		  contentLabel="Example Modal"
-		  overlayClassName="modal-overlay"
-		  className="modal-content"
-		>
-		  <h2>Hello - I am a modal!</h2>
-		  <hr />
-		  <p>
-			We maintain that accessibility is a key component of any modern web
-			application. As such, we have created this modal in such a way that it
-			fulfills the accessibility requirements of the modern web. We seek to
-			keep the focus on accessibility while providing a functional, capable
-			modal component for general use.
-		  </p>
-		  <button onClick={closeModal}>Close</button>
+	  <>
+		<Modal isOpen={isOpen} onClose={onClose}>
+		  <ModalOverlay />
+		  <ModalContent>
+			<ModalHeader>Cadastro de Clientes</ModalHeader>
+			<ModalCloseButton />
+			<ModalBody>
+			  <FormControl display="flex" flexDir="column" gap={4}>
+				<Box>
+				  <FormLabel>Nome</FormLabel>
+				  <Input
+					type="text"
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+				  />
+				</Box>
+				<Box>
+				  <FormLabel>E-mail</FormLabel>
+				  <Input
+					type="email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+				  />
+				</Box>
+			  </FormControl>
+			</ModalBody>
+  
+			<ModalFooter justifyContent="start">
+			  <Button colorScheme="green" mr={3} onClick={handleSave}>
+				SALVAR
+			  </Button>
+			  <Button colorScheme="red" onClick={onClose}>
+				CANCELAR
+			  </Button>
+			</ModalFooter>
+		  </ModalContent>
 		</Modal>
-	  </div>
+	  </>
 	);
-}
-
-export default ModalPedidos
-
-
+  };
+  
+  export default ModalComp;

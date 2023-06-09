@@ -11,8 +11,9 @@ import ListUsers from "./Pages/ListUsers";
 import TesteOrdered from "./Pages/TesteOrdered";
 import Cart from "./Pages/Cart";
 import PrivateRoute from "./privateRoute";
-import ListProducts from "./Pages/ListProducts";
 import AdcProducts from "./Pages/AdcProducts";
+
+import ListProducts from "./Pages/listProducts";
 
 const Router = () => {
     return (
@@ -23,6 +24,7 @@ const Router = () => {
           {/* Rotas publicas */}
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
+         
 
           {/* Rotas privadas */}
           <Route

@@ -64,9 +64,7 @@ const ListUsers = () => {
                 <strong> Setor: </strong>
                 {user.role} <br />
                 <BtnsUsers>
-                  <button onClick={() => deleteUsers(user)}>
-                    Deletar colaborador
-                  </button>
+                  <button onClick={() => deleteUsers(user)}>Deletar colaborador</button>
                   <button onClick={() => EditUser()}>Editar colaborador</button>
                 </BtnsUsers>
               </CardUsers>
