@@ -23,14 +23,14 @@ export const Form = styled.form`
   }
 
   h2 {
-    margin-bottom: 1rem;
+    margin-bottom: .3rem;
     color: #e1cf7d;
     text-align: center;
   }
 
   select {
     width: 70vw;
-    padding: 1rem;
+    padding: .6rem;
     border-radius: 10px;
     background-color: #e1cf7d;
     border: none;
@@ -45,12 +45,12 @@ export const Form = styled.form`
   }
 
   label {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #e1cf7d;
-/* 
+
     @media (min-width: 1200px) {
       font-size: 1rem;
-    }  já tá 1rem pra tudo*/ 
+    }  
 
     span {
       margin-left: 0.4rem;

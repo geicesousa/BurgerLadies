@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { pathUsers } from "../services/api";
 import { toast } from "react-toastify";
+import Formulary from "./Formulary";
+import { MainForm, Form } from "../styles/Form.styled";
 
 const EditUser = () => {
   const [nameUser, setNameUser] = useState("");
@@ -15,15 +17,15 @@ const EditUser = () => {
   const handlePassword = (e) => setPasswordUser(e.target.value);
   const handleRole = (e) => setRoleUser(e.target.value);
 
-  async function editarUsers(e, item) {
+  async function editUser(e, item) {
     console.log(item);
     e.preventDefault();
 
     const editar = {
-      nameUser,
-      emailUser,
-      passwordUser,
-      roleUser,
+      name: nameUser,
+      email: emailUser,
+      password: passwordUser,
+      role: roleUser,
     };
     pathUsers(item.id, editar)
       .then((response) => {
@@ -41,9 +43,43 @@ const EditUser = () => {
   }
 
   return (
-    <div>
-      <h2>Editar Usuario</h2>
-      <form onSubmit={editarUsers}>
+    <MainForm>
+      {/* <h2>Editar Usuario</h2>
+      <Form onSubmit={editUser}>
+        <Formulary
+          text="Nome"
+          type="text" 
+          name="name" 
+          value={nameUser} 
+          onChange={handleName} 
+        ></Formulary>
+        <Formulary
+          text="E-mail"   
+          type="email"
+          name="email"
+          value={emailUser}
+          onChange={handleEmail}     
+        ></Formulary>
+        <Formulary
+          text="Senha"
+          type="password"
+          name="password"
+          value={passwordUser}
+          onChange={handlePassword}
+        ></Formulary>
+        <Select
+          text="Setor"
+          value={roleUser} 
+          value1="Atendimento"
+          value2="Cozinha"
+          value3="Administração"
+          placeholder="Cargo" onChange={handleRole}
+        ></Select>
+        <ButtonForm type="submit">Salvar</ButtonForm>
+      </Form> */}
+
+
+      <form onSubmit={editUser}>
         <input 
           type="text" 
           name="name" 
@@ -70,7 +106,7 @@ const EditUser = () => {
         </select>
         <button type="submit">Salvar</button>
       </form>
-    </div>
+    </MainForm>
   );
 };
 

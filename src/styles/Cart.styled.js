@@ -16,7 +16,6 @@ export const CartBox = styled.div`
   justify-content: space-between;
   border-bottom: 2px solid skyblue;
   padding: .5rem;
-  
 `;
 
 export const CartImg = styled.div`
@@ -24,7 +23,6 @@ export const CartImg = styled.div`
   width: 400px;
   gap: 1.5rem;
   align-items: center;
- 
 
   p {
     font-weight: bold;
@@ -57,14 +55,19 @@ export const DivTest = styled.div`
   }
 `;
 export const DivButton = styled.div`
-  background-color: #DDD9CE;;
+  background-color: #DDD9CE;
+  text-align: center;
   border-radius: 15px;
-
+  
   button {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
     cursor: pointer;
+  }
+  span{
+    color: #000;
+    font-weight: bold;
   }
 `;
 export const Total = styled.div`

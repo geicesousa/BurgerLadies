@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { getApi, deleteApi } from "../services/api";
 import {
   BtnsUsers,
@@ -46,6 +48,14 @@ const ListUsers = () => {
         console.log(error);
       });
     console.log(user.id);
+  };
+
+  const edit = ()=>{
+    console.log("edit")
+    const navigate = useNavigate();
+    navigate("/editUser");
+    EditUser()
+
   }
 
   return (

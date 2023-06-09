@@ -111,7 +111,6 @@ export async function pathUsers(id, editar) {
   })
 }
 
-
 //EDITAR PEDIDOS
 export async function patchOrders(item){
   return await fetch (`${API}/orders/${item.id}`,{
@@ -124,6 +123,3 @@ export async function patchOrders(item){
   
   })
 }
-
- //DELETAR PEDIDOS
- 

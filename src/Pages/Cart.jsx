@@ -9,7 +9,6 @@ import {
   ContainerFooterOrder,
   Main,
 } from "../styles/Cart.styled";
-import burguer from "../assets/hamburguer.png";
 import  { FormClient } from '../styles/Cart.styled'
 import { postOrder } from '../services/api'
 import { toast } from "react-toastify";
@@ -54,15 +53,19 @@ const Cart = ({ cart, setCart, handleChange}) => {
     pedidos:cart
     }
     postOrder(orderCheck)
-    toast.success("pedido enviado com sucesso")  
+    toast.success("pedido enviado com sucesso"); 
   //aqui cria uma regra para limpar o carrinho
+    setClientName("");
+    setTableNumber("");
+    setPrice("");
+    // falta limpar os valores de amount e preço dos itens 
   }
 
   return (
     <Main>
       <FormClient>
         <label>
-          <span>Nome do cliente:</span>
+          <span>Nome do cliente: </span>
           <input
             type="text"
             value={clientName}
@@ -73,14 +76,14 @@ const Cart = ({ cart, setCart, handleChange}) => {
           />
         </label>
         <label>
-          <span>N da mesa:</span>
+          <span>Nº da mesa: </span>
           <select
             value={tableNumber}
             // ref={tableNumber}          
             placeholder="Número da mesa"
             onChange={handleTableNumber}
           >
-            <option hidden>Numero da mesa</option>
+            <option hidden>Número da mesa</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
