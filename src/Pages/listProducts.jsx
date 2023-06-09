@@ -5,7 +5,7 @@ import { deleteApi, getApi } from "../services/api";
 import { BtnsUsers, H3 } from "../styles/ListUsers.styled";
 import Header from "../Components/Header";
 import { toast } from "react-toastify";
-import { Main } from "../styles/listProducts.styled";
+import { Main } from "../styles/ListProducts.styled";
 
 
 const ListProducts = () => {
@@ -50,7 +50,7 @@ const ListProducts = () => {
     <>
       <Header />
       <Main>
-        <H3>Lista de Ítens do cardápio</H3>
+        <H3>Lista de itens do cardápio</H3>
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -74,7 +74,7 @@ const ListProducts = () => {
                   <button onClick={() => deleteProducts(product)}>
                     Deletar ítem
                   </button>
-                  <button>Editar ítem</button>
+                  <button>Editar item</button>
                 </BtnsUsers>
               </tr>
             ))}
