@@ -106,10 +106,10 @@ const KitchenProgress = () => {
                 <p><strong>Status:</strong> {item.status}</p>
                 <p><strong>Preço:</strong> {item.total},00</p>
                 <p>
-                 <strong> Detalhes do pedido:</strong>
+                <strong> Detalhes do pedido:</strong>
                   {item.pedidos.map((item) => (
                     <span key={item.id}>
-                      <span><br/><Check size={15} color="#03300b" weight="bold" />{item.name}</span>
+                      <span><br/><Check size={15} color="#03300b" weight="bold" /> {item.name}</span>
                     </span>
                   ))}
                 </p>
@@ -121,7 +121,7 @@ const KitchenProgress = () => {
               </>
               <>
                 <ButtonStatus onClick={() => deleteOrders(item)}>
-                 Deletar pedido
+                Deletar pedido
                 </ButtonStatus>
               </>
             </CardOrder>

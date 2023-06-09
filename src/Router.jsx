@@ -81,7 +81,7 @@ const Router = () => {
               </PrivateRoute>
             }
           />
-           <Route
+          <Route
             path="/adcproducts"
             element={
               <PrivateRoute redirectTo="/">
@@ -89,7 +89,7 @@ const Router = () => {
               </PrivateRoute>
             }
           />
-           <Route
+          <Route
             path="/listproducts"
             element={
               <PrivateRoute redirectTo="/">

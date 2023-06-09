@@ -66,7 +66,7 @@ function Login() {
             type="email"
             value={email}
             name="email"
-            placeholder="Digite seu Email"
+            placeholder="Digite seu email"
             onChange={handleEmail}
           ></Formulary>     
           

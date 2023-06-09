@@ -19,8 +19,7 @@ function AdcProducts() {
   const [amount, setAmount] = useState(" ");
   const [cadastrado, setCadastrado] = useState(false);
 
-  const handleName = (e) => {
-    setName(e.target.value); console.log(name)};
+  const handleName = (e) => {setName(e.target.value)};
   const handleImg = (e) => setImg(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handlePrice = (e) => setPrice(e.target.value);
@@ -37,6 +36,13 @@ function AdcProducts() {
         setCadastrado(true);
         return response.json();
       }
+      setName("");
+      setDescription("");
+      setImg("");
+      setPrice("");
+      setType("");
+      setCategory("");
+      setAmount("");
     })
     .catch(() =>
       toast.error("Algo deu errado, confira os dados e tente novamente!")
@@ -94,7 +100,9 @@ function AdcProducts() {
 
         <Select
           text="Tipo"     
-          value={type} placeholder="Tipo"
+          name={type} 
+          value={type} 
+          placeholder="Selecione o tipo"
           value1="Café da manhã"
           value2="Menu Principal" 
           onChange={handleType}>
@@ -111,7 +119,7 @@ function AdcProducts() {
           placeholder="Selecione a categoria do produto"
           onChange={handleCategory}
         ></Select>
-     
+  
         <ButtonForm type="submit">Adicionar item ao cardápio</ButtonForm>
         
         {cadastrado && toast.success("Cadastro realizado com sucesso!")} 

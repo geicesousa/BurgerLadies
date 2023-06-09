@@ -111,7 +111,6 @@ export async function pathUsers(id, editar) {
   })
 }
 
-
 //EDITAR PEDIDOS
 export async function patchOrders(item){
   console.log(item);
@@ -126,6 +125,3 @@ export async function patchOrders(item){
   
   })
 }
-
- //DELETAR PEDIDOS
- 
