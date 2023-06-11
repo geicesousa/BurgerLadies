@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 import { getApi, deleteApi } from "../services/api";
 import {
   BtnsUsers,
@@ -14,6 +12,7 @@ import EditUser from "../Components/EditUser";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
+  const [show, setShow] = useState(false);
 
   const getUsers = async () => {
     getApi(`users/`)
@@ -50,14 +49,6 @@ const ListUsers = () => {
     console.log(user.id);
   };
 
-  const edit = ()=>{
-    console.log("edit")
-    const navigate = useNavigate();
-    navigate("/editUser");
-    EditUser()
-
-  }
-
   return (
     <>
       <Header />
@@ -71,17 +62,25 @@ const ListUsers = () => {
                 {user.name} <br />
                 <strong>Email: </strong>
                 {user.email} <br />
-                <strong> Setor: </strong>
+                <strong>Setor: </strong>
                 {user.role} <br />
                 <BtnsUsers>
                   <button onClick={() => deleteUsers(user)}>Deletar colaborador</button>
-                  <button onClick={() => EditUser()}>Editar colaborador</button>
+                  <button onClick={() => setShow(true)}>Editar colaborador</button>
                 </BtnsUsers>
               </CardUsers>
             </>
           );
         })}
       </UsersContainer>
+      {users.forEach((user) => show &&
+        <EditUser 
+          name= {user.name}
+          email= {user.email}
+          password= {user.password}
+          role= {user.role}
+        />
+      )}
     </>
   );
 };
