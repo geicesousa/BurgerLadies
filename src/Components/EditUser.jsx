@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { pathUsers } from "../services/api";
 import { toast } from "react-toastify";
+import Formulary from "./Formulary";
+import Select from "./Select";
 import { MainForm, Form } from "../styles/Form.styled";
+import { ButtonForm } from "../styles/Button.styled";
+
 
 const EditUser = (props) => {
-  const [nameUser, setNameUser] = useState();
-  const [emailUser, setEmailUser] = useState("");
-  const [passwordUser, setPasswordUser] = useState("");
-  const [roleUser, setRoleUser] = useState("");
-  const [users, setUsers] = useState("");
+  const [nameUser, setNameUser] = useState(props.name);
+  const [emailUser, setEmailUser] = useState(props.email);
+  const [passwordUser, setPasswordUser] = useState(props.password);
+  const [roleUser, setRoleUser] = useState(props.roleUser);
+  const [users, setUsers] = useState(props.users);
   console.log(users);
 
   const handleName = (e) => setNameUser(e.target.value);
@@ -43,7 +47,7 @@ const EditUser = (props) => {
 
   return (
     <MainForm>
-      <h2>Editar Usuario</h2>
+    <h2>Editar Usuario</h2>
       <Form onSubmit={editUser}>
         <Formulary
           text="Nome"
@@ -75,16 +79,17 @@ const EditUser = (props) => {
           placeholder="Cargo" onChange={handleRole}
         ></Select>
         <ButtonForm type="submit">Salvar</ButtonForm>
-      </Form>
+      </Form> 
 
-{/* 
-      <form onSubmit={editUsers}>
+
+      {/* <form onSubmit={editUser}>
         <input 
+          text={user}
           type="text" 
           name="name" 
           value={nameUser} 
           onChange={handleName} 
-        />
+        >user</input>
         <input
           type="email"
           value={emailUser}
@@ -102,8 +107,8 @@ const EditUser = (props) => {
           <option value="cozinha">Cozinha</option>
           <option value="administração">Administração</option>
         </select>
-        <button type="submit">Salvar</button>
-      </form> */}
+        <button type="submit">Salvar</button> 
+      </form>*/}
     </MainForm>
   );
 };
