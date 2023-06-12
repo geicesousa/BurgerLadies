@@ -14,6 +14,7 @@ import EditUser from "../Components/EditUser";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
+  const [show, setShow] = useState(false)
 
   const getUsers = async () => {
     getApi(`users/`)
@@ -50,13 +51,13 @@ const ListUsers = () => {
     console.log(user.id);
   };
 
-  const edit = ()=>{
-    console.log("edit")
-    const navigate = useNavigate();
-    navigate("/editUser");
-    EditUser()
+  // const edit = ()=>{
+  //   console.log("edit")
+  //   const navigate = useNavigate();
+  //   navigate("/editUser");
+  //   EditUser()
 
-  }
+  // }
 
   return (
     <>
@@ -75,12 +76,16 @@ const ListUsers = () => {
                 {user.role} <br />
                 <BtnsUsers>
                   <button onClick={() => deleteUsers(user)}>Deletar colaborador</button>
-                  <button onClick={() => EditUser()}>Editar colaborador</button>
+                  <button onClick={() => setShow(true)}>Editar colaborador</button>
                 </BtnsUsers>
-              </CardUsers>
+              </CardUsers>            
+             
             </>
           );
         })}
+         {show &&
+              <EditUser /> 
+              }
       </UsersContainer>
     </>
   );

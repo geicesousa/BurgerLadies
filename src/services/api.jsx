@@ -78,6 +78,7 @@ export async function postOrder(parametro) {
 });
 }
 
+
 //-----------DELETE----------------------
 export async function deleteApi(parametro) {  
   return await fetch(`${API}/${parametro}` , {
@@ -123,3 +124,17 @@ export async function patchOrders(item){
   
   })
 }
+
+export async function patcProducts(product){
+  return await fetch (`${API}/products/${product.id}`, {
+    method: "PATCH",
+    headers: {
+    "content-type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+    },
+    body: JSON.stringify(product),
+  
+  })
+}
+
+

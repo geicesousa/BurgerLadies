@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { pathUsers } from "../services/api";
 import { toast } from "react-toastify";
-import Formulary from "./Formulary";
 import { MainForm, Form } from "../styles/Form.styled";
 
-const EditUser = () => {
-  const [nameUser, setNameUser] = useState("");
+const EditUser = (props) => {
+  const [nameUser, setNameUser] = useState();
   const [emailUser, setEmailUser] = useState("");
   const [passwordUser, setPasswordUser] = useState("");
   const [roleUser, setRoleUser] = useState("");
@@ -17,7 +16,7 @@ const EditUser = () => {
   const handlePassword = (e) => setPasswordUser(e.target.value);
   const handleRole = (e) => setRoleUser(e.target.value);
 
-  async function editUser(e, item) {
+  async function editUsers(e, item) {
     console.log(item);
     e.preventDefault();
 
@@ -44,29 +43,29 @@ const EditUser = () => {
 
   return (
     <MainForm>
-      {/* <h2>Editar Usuario</h2>
+      <h2>Editar Usuario</h2>
       <Form onSubmit={editUser}>
         <Formulary
           text="Nome"
           type="text" 
-          name="name" 
           value={nameUser} 
           onChange={handleName} 
         ></Formulary>
         <Formulary
           text="E-mail"   
           type="email"
-          name="email"
           value={emailUser}
           onChange={handleEmail}     
         ></Formulary>
         <Formulary
           text="Senha"
           type="password"
-          name="password"
           value={passwordUser}
-          onChange={handlePassword}
-        ></Formulary>
+          onChange={handlePassword}          
+        >
+          {props.name}
+
+        </Formulary>
         <Select
           text="Setor"
           value={roleUser} 
@@ -76,10 +75,10 @@ const EditUser = () => {
           placeholder="Cargo" onChange={handleRole}
         ></Select>
         <ButtonForm type="submit">Salvar</ButtonForm>
-      </Form> */}
+      </Form>
 
-
-      <form onSubmit={editUser}>
+{/* 
+      <form onSubmit={editUsers}>
         <input 
           type="text" 
           name="name" 
@@ -88,7 +87,6 @@ const EditUser = () => {
         />
         <input
           type="email"
-          name="email"
           value={emailUser}
           onChange={handleEmail}
         />
@@ -105,7 +103,7 @@ const EditUser = () => {
           <option value="administração">Administração</option>
         </select>
         <button type="submit">Salvar</button>
-      </form>
+      </form> */}
     </MainForm>
   );
 };

@@ -7,18 +7,17 @@ import Formulary from "../Components/Formulary";
 import { MainForm, Form } from "../styles/Form.styled";
 import Select from "../Components/Select";
 
-
-
 function AdcProducts() {
-  const [name, setName] = useState(" ");
-  const [img, setImg] = useState(" ");
-  const [description, setDescription] = useState(" ");
-  const [price, setPrice] = useState(" ");
-  const [type, setType] = useState(" ");
-  const [category, setCategory] = useState(" ");
-  const [amount, setAmount] = useState(" ");
+  const [products, setPdoducts] = useState ([])
+  const [name, setName] = useState("");
+  const [img, setImg] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState("");  
   const [cadastrado, setCadastrado] = useState(false);
-
+  
   const handleName = (e) => {setName(e.target.value)};
   const handleImg = (e) => setImg(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);

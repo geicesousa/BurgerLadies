@@ -15,6 +15,9 @@ import AdcProducts from "./Pages/AdcProducts";
 
 import ListProducts from "./Pages/listProducts";
 
+
+
+
 const Router = () => {
     return (
       <BrowserRouter>
@@ -24,6 +27,7 @@ const Router = () => {
           {/* Rotas publicas */}
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
+       
          
 
           {/* Rotas privadas */}
@@ -99,6 +103,9 @@ const Router = () => {
               </PrivateRoute>
             }
           />
+          
+
+
         </Routes>
       </BrowserRouter>
     )
