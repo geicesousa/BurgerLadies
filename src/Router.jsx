@@ -24,7 +24,6 @@ const Router = () => {
           {/* Rotas publicas */}
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
-         
 
           {/* Rotas privadas */}
           <Route

@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Login from '../Components/Login.jsx';
+import Login from '../Pages/Login.jsx';
 import { render} from "@testing-library/react";
 
 

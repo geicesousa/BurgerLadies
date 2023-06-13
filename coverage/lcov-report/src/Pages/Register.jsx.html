@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">41.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/24</span>
+                <span class='fraction'>10/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>10/20</span>
             </div>
         
             
@@ -158,8 +158,7 @@
 <a name='L93'></a><a href='#L93'>93</a>
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,36 +167,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,6 +201,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -260,20 +258,21 @@ import { createUser } from "../services/api";
 import { Form, MainForm } from "../styles/Form.styled";
 import { ButtonForm } from "../styles/Button.styled"
 import { toast } from "react-toastify";
-import Input from "../Components/Input";
+import Formulary from "../Components/Formulary";
+import Select from "../Components/Select";
 import Header from "../Components/Header";
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Register(</span>) {
-  const [name, setName] = <span class="cstat-no" title="statement not covered" >useState(" ");</span>
-  const [email, setEmail] = <span class="cstat-no" title="statement not covered" >useState(" ");</span>
-  const [password, setPassword] = <span class="cstat-no" title="statement not covered" >useState(" ");</span>
-  const [role, setRole] = <span class="cstat-no" title="statement not covered" >useState(" ");</span>
-  const [cadastrado, setCadastrado] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+function Register() {
+  const [name, setName] = useState(" ");
+  const [email, setEmail] = useState(" ");
+  const [password, setPassword] = useState(" ");
+  const [role, setRole] = useState(" ");
+  const [cadastrado, setCadastrado] = useState(false);
 &nbsp;
-  const handleName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setName(e.target.value);</span></span>
-  const handleEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setEmail(e.target.value);</span></span>
-  const handlePassword = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setPassword(e.target.value);</span></span>
-  const handleRole = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setRole(e.target.value);</span></span>
+  const handleName = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setName(e.target.value);</span>
+  const handleEmail = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setEmail(e.target.value);</span>
+  const handlePassword = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setPassword(e.target.value);</span>
+  const handleRole = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setRole(e.target.value);</span>
 &nbsp;
   function <span class="fstat-no" title="function not covered" >registerUser(</span>e) {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
@@ -298,56 +297,54 @@ function <span class="fstat-no" title="function not covered" >Register(</span>) 
       );
   }
   
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;&gt;
-      &lt;Header/&gt;
-      &lt;MainForm&gt;
-        &lt;Form onSubmit={registerUser}&gt;
-          &lt;h2&gt;Cadastro de colaboradores&lt;/h2&gt;
-          &lt;label&gt;
-            &lt;span&gt;Nome do colaborador&lt;/span&gt;
-            &lt;Input
-              type="text"
-              value={name}
-              name="name"
-              placeholder="Digite o nome do colaborador"
-              onChange={handleName}
-            /&gt;
-          &lt;/label&gt;
-          &lt;label&gt;
-            &lt;span&gt;E-mail do colaborador&lt;/span&gt;
-            &lt;Input
-              type="text"
-              value={email}
-              name="email"
-              placeholder="Digite o e-mail do colaborador"
-              onChange={handleEmail}
-              /&gt;
-          &lt;/label&gt;
-          &lt;label&gt;
-            &lt;span&gt;Digite uma senha&lt;/span&gt;
-            &lt;Input
-              type="text"
-              value={password}
-              name="password"
-              placeholder="Digite uma senha"
-              onChange={handlePassword}
-            /&gt;
-          &lt;/label&gt;
-          &lt;label&gt;
-            &lt;span&gt;Selecione o cargo&lt;/span&gt;
-            &lt;select value={role} placeholder="Cargo" onChange={handleRole}&gt;
-              &lt;option hidden&gt;Setor&lt;/option&gt;
-              &lt;option value="atendente"&gt;Atendimento&lt;/option&gt;
-              &lt;option value="cozinha"&gt;Cozinha&lt;/option&gt;
-              &lt;option value="administração"&gt;Administração&lt;/option&gt;
-            &lt;/select&gt;
-          &lt;/label&gt;
-          &lt;ButtonForm type="submit"&gt;Efetuar cadastro&lt;/ButtonForm&gt;
-        &lt;/Form&gt;
-        {cadastrado &amp;&amp; toast.success("Cadastro realizado com sucesso!")}
-      &lt;/MainForm&gt;
-    &lt;/&gt;
+  return (
+  &lt;&gt;
+    &lt;Header/&gt;
+    &lt;MainForm&gt;
+      &lt;Form onSubmit={registerUser}&gt;
+        &lt;h2&gt;Cadastro de colaboradores&lt;/h2&gt;
+        &lt;Formulary
+          text="Nome do colaborador"
+          type="text"
+          value={name}
+          name="name"
+          placeholder="Digite o nome do colaborador"
+          onChange={handleName}
+        &gt;&lt;/Formulary&gt;
+&nbsp;
+        &lt;Formulary
+          text="E-mail do colaborador"
+          type="text"
+          value={email}
+          name="email"
+          placeholder="Digite o e-mail do colaborador"
+          onChange={handleEmail}
+        &gt;&lt;/Formulary&gt;
+&nbsp;
+        &lt;Formulary
+          text="Senha"
+          type="text"
+          value={password}
+          name="password"
+          placeholder="Digite uma senha"
+          onChange={handlePassword}
+        &gt;&lt;/Formulary&gt;
+&nbsp;
+        &lt;Select
+          text="Selecione o cargo"
+          value={role} 
+          value1="Atendente"
+          value2="Cozinha"
+          value3="Administração"
+          placeholder="Cargo" 
+          onChange={handleRole}
+        &gt;&lt;/Select&gt;
+        
+        &lt;ButtonForm type="submit"&gt;Efetuar cadastro&lt;/ButtonForm&gt;
+      &lt;/Form&gt;
+      {cadastrado &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >toast.success("Cadastro realizado com sucesso!")}</span>
+    &lt;/MainForm&gt;
+  &lt;/&gt;
   );
 }
 &nbsp;
@@ -358,7 +355,7 @@ export default Register;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-07T16:46:13.036Z
+                at 2023-06-13T01:57:34.547Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
