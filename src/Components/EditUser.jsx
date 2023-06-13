@@ -20,7 +20,7 @@ const EditUser = (props) => {
   const handlePassword = (e) => setPasswordUser(e.target.value);
   const handleRole = (e) => setRoleUser(e.target.value);
 
-  async function editUser(e, item) {
+  async function editUsers(e, item) {
     console.log(item);
     e.preventDefault();
 
@@ -52,24 +52,24 @@ const EditUser = (props) => {
         <Formulary
           text="Nome"
           type="text" 
-          name="name" 
           value={nameUser} 
           onChange={handleName} 
         ></Formulary>
         <Formulary
           text="E-mail"   
           type="email"
-          name="email"
           value={emailUser}
           onChange={handleEmail}     
         ></Formulary>
         <Formulary
           text="Senha"
           type="password"
-          name="password"
           value={passwordUser}
-          onChange={handlePassword}
-        ></Formulary>
+          onChange={handlePassword}          
+        >
+          {props.name}
+
+        </Formulary>
         <Select
           text="Setor"
           value={roleUser} 
@@ -92,7 +92,6 @@ const EditUser = (props) => {
         >user</input>
         <input
           type="email"
-          name="email"
           value={emailUser}
           onChange={handleEmail}
         />

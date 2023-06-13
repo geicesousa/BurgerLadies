@@ -49,6 +49,14 @@ const ListUsers = () => {
     console.log(user.id);
   };
 
+  // const edit = ()=>{
+  //   console.log("edit")
+  //   const navigate = useNavigate();
+  //   navigate("/editUser");
+  //   EditUser()
+
+  // }
+
   return (
     <>
       <Header />
@@ -68,10 +76,14 @@ const ListUsers = () => {
                   <button onClick={() => deleteUsers(user)}>Deletar colaborador</button>
                   <button onClick={() => setShow(true)}>Editar colaborador</button>
                 </BtnsUsers>
-              </CardUsers>
+              </CardUsers>            
+             
             </>
           );
         })}
+         {show &&
+              <EditUser /> 
+              }
       </UsersContainer>
       {users.forEach((user) => show &&
         <EditUser 
