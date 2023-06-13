@@ -18,13 +18,12 @@ const KitchenProgress = () => {
 
   const getOrders = async () => {
     getApi(`orders/`)
-      .then((response) => response.json())
-      .then((data) => {
-        setOrders(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((data) => {
+      setOrders(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   useEffect(() => {

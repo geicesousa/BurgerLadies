@@ -14,7 +14,6 @@ const Ordered = ({ handleClick }) => {
 
   const getOrdered = async () => {
     getApi(`products/`)
-    .then((response) => response.json())
     .then((data) => {
       setProducts(data);
     }).catch((error) => {
@@ -43,7 +42,7 @@ const Ordered = ({ handleClick }) => {
           Café da manhã
         </Button>
         <Button onClick={() => filterType("menu principal")}>
-          Menu pricipal
+          Menu principal
         </Button>
       </DivButtons>
       <DivMenu>

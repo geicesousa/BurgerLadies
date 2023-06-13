@@ -16,13 +16,12 @@ const ListProducts = () => {
 
   const getProducts = async () => {
     getApi(`products/`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((data) => {
+      setProducts(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   useEffect(() => {

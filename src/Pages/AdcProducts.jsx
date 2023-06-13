@@ -33,7 +33,7 @@ function AdcProducts() {
     .then((response) => {
       if (response.status <= 299) {
         setCadastrado(true);
-        return response.json();
+        return response.json(); // deve retornar só o response?
       }
       setName("");
       setDescription("");

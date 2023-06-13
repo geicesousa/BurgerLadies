@@ -3,7 +3,7 @@ import { Form, MainForm } from "../styles/Form.styled";
 import Formulary from "./Formulary";
 import Select from "./Select";
 import { ButtonForm } from "../styles/Button.styled";
-import { patcProducts } from "../services/api";
+import { patchProducts } from "../services/api";
 import { toast } from "react-toastify";
 import { Return } from "../styles/MyCart.styled";
 
@@ -37,19 +37,17 @@ const EditProduct = ({ product }) => {
       category: product["category"],
       amount: product["amount"],
     };
-    patcProducts({ id: product["id"]}, updateProducts)
-      .then((response) => response.json())
-      .then((data) => {
-        setEdit ((prevState) => prevState.filter(item => item.id !== product.id));      
-        console.log(data);
-      })
+    patchProducts({ id: product["id"]}, updateProducts)
+    .then((data) => {
+      setEdit ((prevState) => prevState.filter(item => item.id !== product.id));      
+      console.log(data);
+    })
 
-      .catch((error) => {
-        console.log(error);
-      });
-        
-        
-      console.log(product.id);
+    .catch((error) => {
+      console.log(error);
+    });
+      
+    console.log(product.id);
   }
 
   return (
