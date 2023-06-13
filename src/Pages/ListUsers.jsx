@@ -75,6 +75,7 @@ const ListUsers = () => {
       </UsersContainer>
       {users.forEach((user) => show &&
         <EditUser 
+          key={user.id}
           name= {user.name}
           email= {user.email}
           password= {user.password}
