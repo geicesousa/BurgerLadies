@@ -127,7 +127,8 @@ export async function patchOrders(item){
   })
 }
 
-export async function patcProducts(product){
+export async function patcProducts(product ){
+  console.log(product.id);
   return await fetch (`${API}/products/${product.id}`, {
     method: "PATCH",
     headers: {
