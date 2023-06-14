@@ -7,7 +7,7 @@ import { patchProducts } from "../services/api";
 import { toast } from "react-toastify";
 import { Return } from "../styles/MyCart.styled";
 
-const EditProduct = ({ product }) => {
+const EditProduct = ( {product} ) => {
   const [edit, setEdit] = useState([]);
   const [name, setName] = useState(product.name);
   const [img, setImg] = useState(product.img);
@@ -17,7 +17,10 @@ const EditProduct = ({ product }) => {
   const [category, setCategory] = useState(product.category);
   const [amount, setAmount] = useState(product.amount);
 
-  const handleName = (e) => setName(e.target.value);
+  const handleName = (e) => { 
+    console.log(e.target.value);
+    setName(e.target.value)
+  }
   const handleImg = (e) => setImg(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handlePrice = (e) => setPrice(e.target.value);
@@ -25,10 +28,11 @@ const EditProduct = ({ product }) => {
   const handleCategory = (e) => setCategory(e.target.value);
   const handleAmount = (e) => setAmount(e.target.value);
 
-  async function handleUpdate(product) {
-    console.log(edit);
+  async function handleUpdate(product, editar) {
+    console.log(product);
 
     const updateProducts = {
+      id: product["id"],
       name: product["name"],
       img: product["img"],
       description: product["description"],
@@ -133,7 +137,7 @@ const EditProduct = ({ product }) => {
           />
         </td>
       </tr>
-      <button onClick={() => handleUpdate(product)}>ok</button>
+      <button onClick={() => handleUpdate({ id: product["id"]})}>ok</button>
     </>
   );
 };
