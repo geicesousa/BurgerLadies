@@ -1,5 +1,5 @@
 import Ordered from '../Pages/Ordered'
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import	userEvent	from	'@testing-library/user-event';
 import	{getApi}	from	'../services/api';
 
@@ -30,7 +30,7 @@ const menu =  [{
 	"category": "hambúrgueres",
 	"amount": 1,
 	"id": 30
-}]
+}];
 const cafe = [
 	{
 		"name": "Tapioca Sertaneja",
@@ -58,48 +58,38 @@ const cafe = [
 		"category": "lanches",
 		"amount": 1,
 		"id": 36
-	},
+	}
 ]
 
-getApi.mockResolvedValue([...cafe, ...menu]) //pega só conteudo
+getApi.mockResolvedValue([...cafe, ...menu]) // o spread operator pega só conteudo
+const handleClick = jest.fn() // mock do onclick
+// falta teste: renderização de ars na tela
 
 describe('Ordered', () => {
+	describe('buttons', () => {
+		it('should show button behavior', () => {
+			render(<Ordered />)
+			
+			const button = screen.getByText('Café da manhã');
+			const button2 = screen.getByText('Menu principal');
 
-	it('should display buttonCafé', () => {
-		render(<Ordered />)
+			expect(button).toBeEnabled();
+			expect(button2).toBeEnabled();
+			expect(getApi).toHaveBeenCalledTimes(1);
+			expect(getApi).toBeCalledWith('products/');
+			// expect(getApi).toHaveBeenCalledWith('products/');
+		});
 		
-		const button = screen.getByText('Café da manhã')
-		const button2 = screen.getByText('Menu principal')
-
-		expect(button).toBeEnabled();
-		expect(button2).toBeEnabled();
-
+		it('should respond to click', () => {
+			render(<Ordered />)
+			// responde ao click do mouse
+			fireEvent(screen.getByText('Café da manhã'), new MouseEvent('click'))
+			fireEvent(screen.getByText('Menu principal'), new MouseEvent('click'))
+		});	
 	});
 
-	it('should display button', () => {
-		render(<Ordered />)
-		const onClick = jest.fn()
-
-
-		const button = screen.getAllByRole('button')
-
-		expect(button).toBeInTheDocument() // espero que os botões estejam no documento e que onclick seja chamada 2x
-		expect(onClick).toBeCalledTimes(2)		
-	});
-
-
-	it('should display button2', () => {
-		render(<Ordered />)
-		
-		const buttonMenu = screen.getByRole('button', {name: 'Menu principal'})
-		// com getAllByRole não pega os 2 buttons
-		
-
-
-
-		expect(buttonMenu).toBeEnabled();
-		expect(buttonMenu).toMatchSnapshot();
-	});
-
-	
+	// describe('display cards', () => {
+	// });
 });
+
+	// toHaveBeenCalledWith(expect.anything())
