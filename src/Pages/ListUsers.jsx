@@ -16,13 +16,12 @@ const ListUsers = () => {
 
   const getUsers = async () => {
     getApi(`users/`)
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((data) => {
+      setUsers(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   useEffect(() => {
@@ -77,16 +76,16 @@ const ListUsers = () => {
                   <button onClick={() => setShow(true)}>Editar colaborador</button>
                 </BtnsUsers>
               </CardUsers>            
-             
             </>
           );
         })}
-         {show &&
-              <EditUser /> 
-              }
+        {show &&
+          <EditUser /> 
+        }
       </UsersContainer>
       {users.forEach((user) => show &&
         <EditUser 
+          key={user.id}
           name= {user.name}
           email= {user.email}
           password= {user.password}

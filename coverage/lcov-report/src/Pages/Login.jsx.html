@@ -152,33 +152,30 @@
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a>
-<a name='L93'></a><a href='#L93'>93</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L90'></a><a href='#L90'>90</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -212,10 +209,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -254,8 +248,8 @@ import { loginUser } from "../services/api";
 import { Form, MainForm } from "../styles/Form.styled";
 import { ButtonForm } from "../styles/Button.styled";
 import { toast } from "react-toastify";
-import Input from "../Components/Input";
 import HeaderLogin from "../Components/HeaderLogin";
+import Formulary from "../Components/Formulary"
 &nbsp;
 export const logout = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
 <span class="cstat-no" title="statement not covered" >  localStorage.removeItem('accessToken');</span>
@@ -310,30 +304,27 @@ function Login() {
       &lt;MainForm&gt;        
         &lt;Form onSubmit={logIn}&gt;
           &lt;h2&gt;Faça seu login&lt;/h2&gt;
-          &lt;label&gt;
-            &lt;span&gt;Digite seu email&lt;/span&gt;
-            &lt;Input
-              type="email"
-              value={email}
-              name="email"
-              placeholder="Digite seu Email"
-              onChange={handleEmail}
-            /&gt;
-          &lt;/label&gt;
-          &lt;label&gt;
-            &lt;span&gt;Digite sua senha&lt;/span&gt;
-            &lt;Input  
-              type="password"
-              value={password}
-              name="password"
-              placeholder="Digite sua senha"
-              onChange={handlePassword}
-            /&gt;
-          &lt;/label&gt;
+          &lt;Formulary
+            text="Email"
+            type="email"
+            value={email}
+            name="email"
+            placeholder="Digite seu email"
+            onChange={handleEmail}
+          &gt;&lt;/Formulary&gt;     
+          
+          &lt;Formulary
+            text="Senha"
+            type="password"
+            value={password}
+            name="password"
+            placeholder="Digite sua senha"
+            onChange={handlePassword}
+          &gt;&lt;/Formulary&gt;     
           &lt;ButtonForm onClick={logIn} type="button"&gt;
             Login
           &lt;/ButtonForm&gt;
-        &lt;/Form&gt;
+        &lt;/Form&gt; 
       &lt;/MainForm&gt;
     &lt;/&gt;
   );
@@ -346,7 +337,7 @@ export default Login;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-07T16:46:13.036Z
+                at 2023-06-13T01:57:34.547Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

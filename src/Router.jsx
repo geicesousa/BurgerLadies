@@ -12,11 +12,7 @@ import TesteOrdered from "./Pages/TesteOrdered";
 import Cart from "./Pages/Cart";
 import PrivateRoute from "./privateRoute";
 import AdcProducts from "./Pages/AdcProducts";
-
 import ListProducts from "./Pages/listProducts";
-
-
-
 
 const Router = () => {
     return (
@@ -27,9 +23,7 @@ const Router = () => {
           {/* Rotas publicas */}
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Login />} />
-       
-         
-
+      
           {/* Rotas privadas */}
           <Route
             path="/register"
@@ -103,9 +97,6 @@ const Router = () => {
               </PrivateRoute>
             }
           />
-          
-
-
         </Routes>
       </BrowserRouter>
     )

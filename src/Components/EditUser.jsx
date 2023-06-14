@@ -31,12 +31,13 @@ const EditUser = (props) => {
       role: roleUser,
     };
     pathUsers(item.id, editar)
-      .then((response) => {
-        if (response.ok) {
-          toast.success("deu certo");
-        }
-      })
+      // .then((response) => {
+      //   if (response.ok) {
+          
+      //   }
+      // })
       .then((data) => {
+        toast.success("deu certo");
         setUsers(data);
       })
       .catch((error) => {

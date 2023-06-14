@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/20</span>
+                <span class='fraction'>12/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">36.36% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>4/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/20</span>
+                <span class='fraction'>12/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -132,36 +132,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -189,39 +189,39 @@ import {
   DivButtons,
   DivMenu,
 } from "../styles/Ordered.stylesd";
-import { getProduct } from "../services/api";
+import { getApi } from "../services/api";
 import Cards from "../Components/Cards";
 &nbsp;
-const Ordered = <span class="fstat-no" title="function not covered" >({</span> handleClick }) =&gt; {
-  const [products, setProducts] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
-  const [selectedType, setSelectedType] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-  const [showTypes, setShowTypes] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
+const Ordered = ({ handleClick }) =&gt; {
+  const [products, setProducts] = useState([]);
+  const [selectedType, setSelectedType] = useState("");
+  const [showTypes, setShowTypes] = useState(false);
 &nbsp;
-  const apiOrdered = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    getProduct()</span>
+  const getOrdered = async () =&gt; {
+    getApi(`products/`)
     .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; <span class="cstat-no" title="statement not covered" >response.json())</span>
     .then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
 <span class="cstat-no" title="statement not covered" >      setProducts(data);</span>
-    }).catch(<span class="fstat-no" title="function not covered" >(e</span>rror) =&gt; {
-<span class="cstat-no" title="statement not covered" >      console.log(error)</span>
+    }).catch((error) =&gt; {
+      console.log(error)
     }) 
   };
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    apiOrdered();</span>
+  useEffect(() =&gt; {
+    getOrdered();
   }, []);
 &nbsp;
-  const filterType = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>ype) =&gt; {</span>
+  const filterType = <span class="fstat-no" title="function not covered" >(t</span>ype) =&gt; {
 <span class="cstat-no" title="statement not covered" >    setSelectedType(type);</span>
 <span class="cstat-no" title="statement not covered" >    setShowTypes(true);</span>
   };
 &nbsp;
-  const filteredTypes = <span class="cstat-no" title="statement not covered" >selectedType</span>
-    ? products.filter(<span class="fstat-no" title="function not covered" >(p</span>roduct) =&gt; <span class="cstat-no" title="statement not covered" >product.type === selectedType)</span>
+  const filteredTypes = selectedType
+    ? <span class="branch-0 cbranch-no" title="branch not covered" >products.filter(<span class="fstat-no" title="function not covered" >(p</span>roduct) =&gt; <span class="cstat-no" title="statement not covered" >product.type === selectedType)</span></span>
     : products;
 &nbsp;
     //enviar pedidos
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
     &lt;main&gt;    
       &lt;DivButtons&gt;
         &lt;Button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >filterType("café da manhã")}</span>&gt;
@@ -233,7 +233,7 @@ const Ordered = <span class="fstat-no" title="function not covered" >({</span> h
       &lt;/DivButtons&gt;
       &lt;DivMenu&gt;
         {showTypes &amp;&amp;
-          filteredTypes.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (
+<span class="branch-1 cbranch-no" title="branch not covered" >          filteredTypes.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (</span>
 <span class="cstat-no" title="statement not covered" >            &lt;Cards item={item} key={item.id} handleClick={handleClick} /&gt;              </span>
             //  handleclik é uma props a função está vindo do componente testeOrdered
           ))}
@@ -250,7 +250,7 @@ export default Ordered;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-07T16:46:13.036Z
+                at 2023-06-13T01:57:34.547Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -10,7 +10,8 @@ export async function createUser(name, email, password, role) {
     password,
     role,
   };
-  const response =  await fetch(`${API}/users`, {
+  // const response =  
+  await fetch(`${API}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -19,8 +20,8 @@ export async function createUser(name, email, password, role) {
     },
     body: JSON.stringify(dataUser),
   });
-  const data = await response.json()
-  return data
+  // const data = await response.json();
+  // return data
 }
 
 //LOGIN DE COLABORADOR
@@ -29,7 +30,8 @@ export async function loginUser(email, password) {
     email,
     password,
   };
-  return await fetch(`${API}/login`, {
+  // const response = 
+  await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -38,9 +40,9 @@ export async function loginUser(email, password) {
     },
     body: JSON.stringify(dataLogin),
   });
-
+  // const data = await response.json();
+  // return data
 }
-
 
 //CADASTRAR UM NOVO ÍTEM  PARA O CARDAPIO
 export async function createProducts(name, img, description, price, type, category, amount ) {
@@ -54,7 +56,8 @@ export async function createProducts(name, img, description, price, type, catego
     amount,
 
   };
-  const response =  await fetch(`${API}/products`, {
+  // const response =  
+  await fetch(`${API}/products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -62,13 +65,13 @@ export async function createProducts(name, img, description, price, type, catego
     },
     body: JSON.stringify(dataProducts),
   });
-  const data = await response.json()
-  return data
+  // const data = await response.json();
+  // return data
 }
 
 //ENVIAR PEDIDOS PARA A API
 export async function postOrder(parametro) {
-  return await fetch(`${API}/orders`, {
+  const response = await fetch(`${API}/orders`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -76,33 +79,41 @@ export async function postOrder(parametro) {
   },
   body: JSON.stringify(parametro),
 });
+  const data = await response.json();
+  return data
 }
 
 
 //-----------DELETE----------------------
 export async function deleteApi(parametro) {  
-  return await fetch(`${API}/${parametro}` , {
+  // const response = 
+  await fetch(`${API}/${parametro}` , {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
+  // const data = await response.json();
+  // return data
 }
 //------------------ GET ------------------
 export async function getApi(parametro) {
-  return await fetch(`${API}/${parametro}`, {
+  const response = await fetch(`${API}/${parametro}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
   });
+  // colocar parametro para metodo e colocar
+  const data = await response.json();
+  return data
 }
 
 //EDITAR COLABORADOR
 export async function pathUsers(id, editar) {  
-  return await fetch(`${API}/users/${id}` , {
+  const response = await fetch(`${API}/users/${id}` , {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
@@ -110,34 +121,51 @@ export async function pathUsers(id, editar) {
     },
     body: JSON.stringify(editar),
   })
+  const data = await response.json();
+  return data
 }
 
 //EDITAR PEDIDOS
 export async function patchOrders(item){
   console.log(item);
   console.log(JSON.stringify({status:item["status"]}));
-  return await fetch (`${API}/orders/${item.id}`,{
+  const response = await fetch (`${API}/orders/${item.id}`,{
     method: "PATCH",
     headers: {
     "content-type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     },
     body: JSON.stringify({status:item["status"]}),
-  
-  })
+  });
+  const data = await response.json();
+  return data
 }
 
-export async function patcProducts(product ){
-  console.log(product.id);
-  return await fetch (`${API}/products/${product.id}`, {
+export async function patchProducts(product){
+  const response = await fetch (`${API}/products/${product.id}`, {
     method: "PATCH",
     headers: {
     "content-type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     },
     body: JSON.stringify(product),
-  
-  })
+  });
+  const data = await response.json();
+  return data
 }
 
+// FUNÇÃO GERAL PARA USAR EM TODAS AS REQUISIÇÕES, as que tem body devem ser diferentes
+
+export async function requestApi(caminho, metodo = 'GET'){
+  const response = await fetch(`${API}/${caminho}`, {
+    method: metodo,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
+  // colocar parametro para metodo e colocar
+  const data = await response.json();
+  return data
+}
 
