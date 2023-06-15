@@ -1,8 +1,11 @@
 import AdcProducts from '../Pages/AdcProducts.jsx'
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe('Adiciona produtos a api', () => {
 	it('should display elements', () => {
-		render(<AdcProducts></AdcProducts>)
-	})
-})
+		render(<AdcProducts />);
+
+		const btn = screen.getByText('Adicionar item ao cardápio');
+		expect(btn).toBeEnabled();
+	});
+});

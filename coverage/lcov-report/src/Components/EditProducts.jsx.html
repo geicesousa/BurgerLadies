@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">2.94% </span>
+                <span class="strong">2.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/34</span>
+                <span class='fraction'>1/35</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4% </span>
+                <span class="strong">3.7% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/25</span>
+                <span class='fraction'>1/27</span>
             </div>
         
             
@@ -204,7 +204,11 @@
 <a name='L139'></a><a href='#L139'>139</a>
 <a name='L140'></a><a href='#L140'>140</a>
 <a name='L141'></a><a href='#L141'>141</a>
-<a name='L142'></a><a href='#L142'>142</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -226,6 +230,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -235,6 +242,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -354,7 +362,7 @@ import { patchProducts } from "../services/api";
 import { toast } from "react-toastify";
 import { Return } from "../styles/MyCart.styled";
 &nbsp;
-const EditProduct = <span class="fstat-no" title="function not covered" >({</span> product }) =&gt; {
+const EditProduct = <span class="fstat-no" title="function not covered" >( </span>{product} ) =&gt; {
   const [edit, setEdit] = <span class="cstat-no" title="statement not covered" >useState([]);</span>
   const [name, setName] = <span class="cstat-no" title="statement not covered" >useState(product.name);</span>
   const [img, setImg] = <span class="cstat-no" title="statement not covered" >useState(product.img);</span>
@@ -364,7 +372,10 @@ const EditProduct = <span class="fstat-no" title="function not covered" >({</spa
   const [category, setCategory] = <span class="cstat-no" title="statement not covered" >useState(product.category);</span>
   const [amount, setAmount] = <span class="cstat-no" title="statement not covered" >useState(product.amount);</span>
 &nbsp;
-  const handleName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setName(e.target.value);</span></span>
+  const handleName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; { </span>
+<span class="cstat-no" title="statement not covered" >    console.log(e.target.value);</span>
+<span class="cstat-no" title="statement not covered" >    setName(e.target.value)</span>
+  }
   const handleImg = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setImg(e.target.value);</span></span>
   const handleDescription = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setDescription(e.target.value);</span></span>
   const handlePrice = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setPrice(e.target.value);</span></span>
@@ -372,10 +383,11 @@ const EditProduct = <span class="fstat-no" title="function not covered" >({</spa
   const handleCategory = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setCategory(e.target.value);</span></span>
   const handleAmount = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setAmount(e.target.value);</span></span>
 &nbsp;
-  async function <span class="fstat-no" title="function not covered" >handleUpdate(</span>product) {
-<span class="cstat-no" title="statement not covered" >    console.log(edit);</span>
+  async function <span class="fstat-no" title="function not covered" >handleUpdate(</span>product, editar) {
+<span class="cstat-no" title="statement not covered" >    console.log(product);</span>
 &nbsp;
     const updateProducts = <span class="cstat-no" title="statement not covered" >{</span>
+      id: product["id"],
       name: product["name"],
       img: product["img"],
       description: product["description"],
@@ -480,7 +492,7 @@ const EditProduct = <span class="fstat-no" title="function not covered" >({</spa
           /&gt;
         &lt;/td&gt;
       &lt;/tr&gt;
-      &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleUpdate(product)}</span>&gt;ok&lt;/button&gt;
+      &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >handleUpdate({ id: product["id"]})}</span>&gt;ok&lt;/button&gt;
     &lt;/&gt;
   );
 };
@@ -493,7 +505,7 @@ export default EditProduct;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-14T05:27:07.482Z
+                at 2023-06-15T18:56:00.243Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
