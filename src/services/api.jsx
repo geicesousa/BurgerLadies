@@ -31,7 +31,7 @@ export async function loginUser(email, password) {
     password,
   };
   // const response = 
-  await fetch(`${API}/login`, {
+   return await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -45,7 +45,7 @@ export async function loginUser(email, password) {
 }
 
 //CADASTRAR UM NOVO ÍTEM  PARA O CARDAPIO
-export async function createProducts(name, img, description, price, type, category, amount ) {
+export async function createProducts(name, img, description, price, type, category, amount) {
   const dataProducts = {
     name,
     img,
@@ -54,6 +54,7 @@ export async function createProducts(name, img, description, price, type, catego
     type,
     category,
     amount,
+  
 
   };
   // const response =  
@@ -87,7 +88,7 @@ export async function postOrder(parametro) {
 //-----------DELETE----------------------
 export async function deleteApi(parametro) {  
   // const response = 
-  await fetch(`${API}/${parametro}` , {
+  return await fetch(`${API}/${parametro}` , {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",

@@ -9,6 +9,7 @@ import { UsersContainer } from "../styles/ListUsers.styled";
 import { CardOrder} from "../styles/KitchenProgress.styled";
 import { toast } from "react-toastify";
 import { Check } from "phosphor-react";
+import { differenceInMinutes, parseISO } from "date-fns";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -52,13 +53,12 @@ const KitchenProgress = () => {
         break;
     }
     patchOrders({ id: item["id"], status: item["status"] })
-      .then((response) => response.json())
-      .then((data) => {
-        return setStatus(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((data) => {
+      return setStatus(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
     console.log(item.status);
   };
 
@@ -78,6 +78,9 @@ const KitchenProgress = () => {
       });
     console.log(orders);
   }
+
+  const date = new Date();
+  const parsedDate = parseISO(date);
 
   return (
     <>
@@ -100,6 +103,7 @@ const KitchenProgress = () => {
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
               <>
+                <p>{item.data}</p>
                 <p><strong>Cliente:</strong> {item.name}</p>
                 <p><strong>Mesa:</strong> {item.table}</p>
                 <p><strong>Status:</strong> {item.status}</p>
@@ -113,6 +117,10 @@ const KitchenProgress = () => {
                   ))}
                 </p>
               </>
+            
+               <p>Este pedido ficou pronto as {differenceInMinutes (parsedDate, new Date(item.data))} </p>
+              
+               
               <>
                 <ButtonStatus onClick={() => changeStatus(item)}>
                   Alterar status do pedido
@@ -125,6 +133,7 @@ const KitchenProgress = () => {
               </>
             </CardOrder>
           ))}
+       
       </UsersContainer>
     </>
   );

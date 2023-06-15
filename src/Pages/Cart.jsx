@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { parseISO } from "date-fns"
+
 import {
   CartBox,
   Total,
@@ -17,7 +20,8 @@ const Cart = ({ cart, setCart, handleChange}) => {
   const [price, setPrice] = useState(0);
   const [clientName, setClientName] = useState(" ");
   const [tableNumber, setTableNumber] = useState(" ");
-  const [status, setStatus ] = useState ("aberto")
+  const [status, setStatus ] = useState ("aberto");
+  const navigate = useNavigate();
   
   const handleClientName = (e) => setClientName(e.target.value);
   const handleTableNumber = (e) => setTableNumber(e.target.value);
@@ -35,7 +39,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
       quantityProducts += item.amount * item.price;
     });
     setPrice(quantityProducts);
-    };
+  };
 
     // aqui atualiza o preço quando o produto é removido do carrinho
   useEffect(()=>{
@@ -45,20 +49,22 @@ const Cart = ({ cart, setCart, handleChange}) => {
   //a partir daqui tentativas de enviar pedido para a cozinha
 
   const sendKitchen = (e)=> {  
+    const date = new Date();
+    const parsedDate = parseISO(date);
+
     const orderCheck = {
-    name:clientName,
-    table:tableNumber,
-    total: price,
-    status,
-    pedidos:cart
+      name:clientName,
+      table:tableNumber,
+      total: price,
+      status,
+      data: parsedDate, 
+      pedidos:cart
     }
+
     postOrder(orderCheck)
     toast.success("pedido enviado com sucesso"); 
-  //aqui cria uma regra para limpar o carrinho
-    setClientName("");
-    setTableNumber("");
-    setPrice("");
-    // falta limpar os valores de amount e preço dos itens 
+
+    navigate('/attendance');
   }
 
   return (
@@ -71,7 +77,6 @@ const Cart = ({ cart, setCart, handleChange}) => {
             value={clientName}
             name="text"
             placeholder="Digite o nome do cliente"           
-            // ref={clientName}
             onChange={handleClientName}
           />
         </label>
@@ -79,7 +84,6 @@ const Cart = ({ cart, setCart, handleChange}) => {
           <span>Nº da mesa: </span>
           <select
             value={tableNumber}
-            // ref={tableNumber}          
             placeholder="Número da mesa"
             onChange={handleTableNumber}
           >
@@ -123,4 +127,4 @@ const Cart = ({ cart, setCart, handleChange}) => {
   );
 };
 
-export default Cart
+export default Cart;
