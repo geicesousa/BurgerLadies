@@ -67,10 +67,7 @@ const EditUser = (props) => {
           type="password"
           value={passwordUser}
           onChange={handlePassword}          
-        >
-          {props.name}
-
-        </Formulary>
+        ></Formulary>
         <Select
           text="Setor"
           value={roleUser} 

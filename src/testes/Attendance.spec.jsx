@@ -1,9 +1,16 @@
 import Attendance from '../Pages/Attendance.jsx'
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 
 describe('Attendance', () => {
 	it('should display elements', () => {
-		render(<Attendance></Attendance>)
+		// const {getByText} = render(<Attendance />)
+		render(<Attendance />);
+
+		const btn = screen.getByRole('button', {"name": "Novo Pedido"});
+
+		// expect(btn).toBeEnabled();
+		expect(btn).toBeInTheDocument();
+		// expect(getByText('Novo Pedido')).toBeInTheDocument();
 	})
 })

@@ -31,15 +31,15 @@ function Register() {
     }
 
     createUser(name, email, password, role)
-      .then((response) => {
-        if (response.status <= 299) {
-          setCadastrado(true);
-          return response.json();
-        }
-      })
-      .catch(() =>
-        toast.error("Algo deu errado, confira os dados e tente novamente!")
-      );
+    .then((response) => {
+      if (response.status <= 299) {
+        setCadastrado(true);
+        return response.json();
+      }
+    })
+    .catch(() =>
+      toast.error("Algo deu errado, confira os dados e tente novamente!")
+    );
   }
   
   return (

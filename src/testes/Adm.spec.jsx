@@ -1,9 +1,14 @@
 import Adm from "../Pages/Adm.jsx";
-import { render } from "@testing-library/react";
-
+import { getByText, render, screen } from "@testing-library/react";
 
 describe('Adm', () => {
 	it('should display elements', () => {
-		render(<Adm></Adm>)
+		render(<Adm />)
+
+		const btn = screen.getByRole('link')
+
+		expect(getByText('Adicionar novo colaborador')).toBeInTheDocument();
+		expect(btn).toBeInTheDocument();
+		expect(btn).toBeValid();
 	})
 })

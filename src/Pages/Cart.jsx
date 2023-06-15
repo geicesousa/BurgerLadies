@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { parseISO } from "date-fns"
 
 import {
   CartBox,
@@ -57,7 +56,8 @@ const Cart = ({ cart, setCart, handleChange}) => {
       table:tableNumber,
       total: price,
       status,
-      data: parsedDate, 
+      realizado: new Date().toLocaleString(), 
+      data: new Date(), 
       pedidos:cart
     }
 

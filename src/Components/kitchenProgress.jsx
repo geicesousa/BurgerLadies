@@ -9,7 +9,7 @@ import { UsersContainer } from "../styles/ListUsers.styled";
 import { CardOrder} from "../styles/KitchenProgress.styled";
 import { toast } from "react-toastify";
 import { Check } from "phosphor-react";
-import { differenceInMinutes, parseISO } from "date-fns";
+import { differenceInMinutes } from 'date-fns'
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -40,7 +40,8 @@ const KitchenProgress = () => {
     ? orders.filter((order) => order.status === selectedStatus)
     : orders;
 
-  const changeStatus = async (item) => {
+  const changeStatus = async (item, e) => {
+    console.log(e.target);
     switch (item.status) {
       case "aberto":
         item.status = "execução";
@@ -64,23 +65,22 @@ const KitchenProgress = () => {
 
   async function deleteOrders(order) {
     deleteApi(`orders/${order.id}`)
-      .then((response) => {
-        if (response.ok) {
-          toast.success("Pedido excluído com sucesso!");
-        }
-      })
-      .then((data) => {
-        setOrders ((prevState) => prevState.filter(item => item.id !== order.id));      
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((response) => {
+      if (response.ok) {
+        toast.success("Pedido excluído com sucesso!");
+      }
+    })
+    .then((data) => {
+      setOrders ((prevState) => prevState.filter(item => item.id !== order.id));      
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
     console.log(orders);
   }
 
-  const date = new Date();
-  const parsedDate = parseISO(date);
+  const data = new Date();
 
   return (
     <>
@@ -103,7 +103,7 @@ const KitchenProgress = () => {
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
               <>
-                <p>{item.data}</p>
+                <p>{item.realizado}</p> 
                 <p><strong>Cliente:</strong> {item.name}</p>
                 <p><strong>Mesa:</strong> {item.table}</p>
                 <p><strong>Status:</strong> {item.status}</p>
@@ -117,16 +117,16 @@ const KitchenProgress = () => {
                   ))}
                 </p>
               </>
-            
-               <p>Este pedido ficou pronto as {differenceInMinutes (parsedDate, new Date(item.data))} </p>
-              
-               
+              {statusFiltered.map((item)=>(
+                item.status === 'pronto' &&
+                <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(data, new Date(item.data))} minutos</strong></p>
+              ))
+              }
               <>
                 <ButtonStatus onClick={() => changeStatus(item)}>
                   Alterar status do pedido
                 </ButtonStatus>
-              </>
-              <>
+              
                 <ButtonStatus onClick={() => deleteOrders(item)}>
                 Deletar pedido
                 </ButtonStatus>

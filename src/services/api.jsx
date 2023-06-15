@@ -11,7 +11,7 @@ export async function createUser(name, email, password, role) {
     role,
   };
   // const response =  
-  await fetch(`${API}/users`, {
+  return await fetch(`${API}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -31,7 +31,7 @@ export async function loginUser(email, password) {
     password,
   };
   // const response = 
-   return await fetch(`${API}/login`, {
+  return await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -58,7 +58,7 @@ export async function createProducts(name, img, description, price, type, catego
 
   };
   // const response =  
-  await fetch(`${API}/products`, {
+  return await fetch(`${API}/products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -128,7 +128,6 @@ export async function pathUsers(id, editar) {
 
 //EDITAR PEDIDOS
 export async function patchOrders(item){
-  console.log(item);
   console.log(JSON.stringify({status:item["status"]}));
   const response = await fetch (`${API}/orders/${item.id}`,{
     method: "PATCH",

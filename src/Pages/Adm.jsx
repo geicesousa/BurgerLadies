@@ -4,23 +4,23 @@ import Header from "../Components/Header";
 
 const Adm = () => {
   return (
-    <>
+  <>
     <Header />
-      <ButtonContainer>
-        <Link to="/register">
-          <Button>Adcionar novo colaborador</Button>
-        </Link>
-        <Link to="/listusers">
-          <Button> Lista de colaboradores</Button>
-        </Link>
-        <Link to="/adcproducts">
-          <Button>Adicionar ítem ao cardápio</Button>
-        </Link>
-        <Link to="/listproducts">
-          <Button>Lista de produtos</Button>
-        </Link>
-      </ButtonContainer>
-    </>
+    <ButtonContainer>
+      <Link to="/register">
+        <Button>Adicionar novo colaborador</Button>
+      </Link>
+      <Link to="/listusers">
+        <Button>Lista de colaboradores</Button>
+      </Link>
+      <Link to="/adcproducts">
+        <Button>Adicionar ítem ao cardápio</Button>
+      </Link>
+      <Link to="/listproducts">
+        <Button>Lista de produtos</Button>
+      </Link>
+    </ButtonContainer>
+  </>
   );
 };
 

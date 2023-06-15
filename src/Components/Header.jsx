@@ -29,7 +29,7 @@ function Header() {
 		  <span>Voltar</span>
 		</Return>
 		<Link onClick={() => sair()}>
-         <SignOutDiv>
+        <SignOutDiv>
           <SignOut/>
           <span>Sair</span>
         </SignOutDiv>

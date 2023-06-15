@@ -70,15 +70,14 @@ const handleUpdateProduct = (id, updatedProduct) => {
     setShowModal(false)
   }
 
-
   return (
     <>
       <Header />
       <Main>
         <H3>Lista de itens do cardápio</H3>
         {showModal && (
-                  <EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/>
-                )}
+          <EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/>
+        )}
         <Table striped bordered hover>
           <thead>
             <tr>
@@ -98,20 +97,15 @@ const handleUpdateProduct = (id, updatedProduct) => {
                 <td>{product.type}</td>
                 <td>{product.category} </td>
                 <td>{product.price},00 </td>  
-             
-                  <td><button onClick={() => deleteProducts(product)}>
-                    Deletar ítem
-                  </button></td>
-                  <td><button onClick={()=> openModal(product)}> Editar item</button>
-                         
-                         </td>
-                         </tr>
-                  
+                <td><button onClick={() => deleteProducts(product)}>
+                  Deletar item
+                </button></td>
+                <td>
+                  <button onClick={()=> openModal(product)}> Editar item</button>
+                </td>
+              </tr>
             ))}
-              </tbody>
-            
-              
-        
+          </tbody>
         </Table>
       </Main>
     </>
