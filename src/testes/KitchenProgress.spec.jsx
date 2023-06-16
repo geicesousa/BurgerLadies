@@ -99,3 +99,5 @@ describe('kitchenProgress', ()=>{
     });	
   });
 });
+
+// waitForElementToBeRemoved para remover o pedido qndo clicar no botão

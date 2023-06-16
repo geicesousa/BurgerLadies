@@ -7,8 +7,12 @@ const Attendance = () => {
   return (
     <>
     <Header/>
+      {/* <Button><Link to="/ordered">
+        Novo Pedido
+      </Link></Button> */}
+
       <Link to="/ordered">
-        <Button>Novo Pedido</Button>
+        <Button>Novo Pedido</Button> 
       </Link>
       <KitchenProgress/>  
     </>

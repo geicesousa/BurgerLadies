@@ -32,9 +32,9 @@ function Register() {
 
     createUser(name, email, password, role)
     .then((response) => {
-      if (response.status <= 299) {
+      if (response.ok) {
+        // console.log(response.ok)
         setCadastrado(true);
-        return response.json();
       }
     })
     .catch(() =>

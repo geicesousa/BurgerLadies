@@ -2,7 +2,6 @@ import React from 'react'
 
 const Select = ({
   text, 
-  // options, 
   value, 
   value1, 
   value2, 
@@ -21,11 +20,11 @@ const Select = ({
       name={value}
       onChange={onChange}
     >
-    <option hidden>{placeholder}</option>
-    <option value={value1}>{value1}</option>
-    <option value={value2}>{value2}</option>
-    <option value={value3}>{value3}</option>
-    <option value={value4}>{value4}</option>
+      <option hidden>{placeholder}</option>
+      <option value={value1}>{value1}</option>
+      <option value={value2}>{value2}</option>
+      <option value={value3}>{value3}</option>
+      <option value={value4}>{value4}</option>
     </select>
   </div>
   )

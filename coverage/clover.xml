@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686855360892" clover="3.2.0">
-  <project timestamp="1686855360892" name="All files">
-    <metrics statements="408" coveredstatements="177" conditionals="62" coveredconditionals="10" methods="167" coveredmethods="28" elements="637" coveredelements="215" complexity="0" loc="408" ncloc="408" packages="6" files="39" classes="39"/>
+<coverage generated="1686922638356" clover="3.2.0">
+  <project timestamp="1686922638356" name="All files">
+    <metrics statements="407" coveredstatements="172" conditionals="64" coveredconditionals="10" methods="166" coveredmethods="28" elements="637" coveredelements="210" complexity="0" loc="407" ncloc="407" packages="6" files="39" classes="39"/>
     <package name=".jest.mocks">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="fileMock.js" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\.jest\mocks\fileMock.js">
@@ -28,7 +28,7 @@
       </file>
     </package>
     <package name="src.Components">
-      <metrics statements="114" coveredstatements="39" conditionals="9" coveredconditionals="2" methods="60" coveredmethods="11"/>
+      <metrics statements="115" coveredstatements="40" conditionals="11" coveredconditionals="2" methods="59" coveredmethods="11"/>
       <file name="Cards.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Components\Cards.jsx">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="11" count="4" type="stmt"/>
@@ -98,7 +98,7 @@
         <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="16" count="30" type="stmt"/>
+        <line num="16" count="32" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
       </file>
       <file name="HeaderLogin.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Components\HeaderLogin.jsx">
@@ -107,52 +107,53 @@
         <line num="5" count="2" type="stmt"/>
       </file>
       <file name="KitchenProgress.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Components\KitchenProgress.jsx">
-        <metrics statements="45" coveredstatements="14" conditionals="9" coveredconditionals="2" methods="25" coveredmethods="4"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="14" count="7" type="stmt"/>
-        <line num="15" count="6" type="stmt"/>
-        <line num="16" count="6" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="6" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="33" count="6" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <metrics statements="46" coveredstatements="15" conditionals="11" coveredconditionals="2" methods="24" coveredmethods="4"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="9" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="8" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="34" count="8" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="38" count="6" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="6" type="stmt"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="3"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="8" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="68" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="70" count="0" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="82" count="6" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="8" type="stmt"/>
+        <line num="85" count="8" type="stmt"/>
         <line num="88" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="117" count="0" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
       </file>
       <file name="MyCart.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Components\MyCart.jsx">
         <metrics statements="8" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
@@ -172,7 +173,7 @@
       </file>
     </package>
     <package name="src.Pages">
-      <metrics statements="217" coveredstatements="90" conditionals="50" coveredconditionals="8" methods="94" coveredmethods="15"/>
+      <metrics statements="216" coveredstatements="84" conditionals="50" coveredconditionals="8" methods="94" coveredmethods="15"/>
       <file name="AdcProducts.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Pages\AdcProducts.jsx">
         <metrics statements="30" coveredstatements="17" conditionals="4" coveredconditionals="1" methods="11" coveredmethods="1"/>
         <line num="11" count="3" type="stmt"/>
@@ -214,40 +215,39 @@
       <file name="Attendance.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Pages\Attendance.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
       </file>
       <file name="Cart.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Pages\Cart.jsx">
-        <metrics statements="30" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="1"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
+        <metrics statements="29" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="14" coveredmethods="1"/>
+        <line num="18" count="3" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
         <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
         <line num="22" count="4" type="stmt"/>
         <line num="23" count="4" type="stmt"/>
-        <line num="26" count="4" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="41" count="4" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="47" count="4" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="64" count="4" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
-        <line num="109" count="0" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
       </file>
       <file name="Kitchen.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\Pages\Kitchen.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -428,9 +428,9 @@
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="28" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="0"/>
+      <metrics statements="27" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="0"/>
       <file name="api.jsx" path="C:\Users\geice\Desktop\LAB - SAP009\burger-ladies\src\services\api.jsx">
-        <metrics statements="28" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <metrics statements="27" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <line num="1" count="15" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
@@ -450,15 +450,14 @@
         <line num="125" count="0" type="stmt"/>
         <line num="130" count="0" type="stmt"/>
         <line num="131" count="0" type="stmt"/>
-        <line num="132" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
         <line num="140" count="0" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="145" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
         <line num="153" count="0" type="stmt"/>
-        <line num="154" count="0" type="stmt"/>
-        <line num="160" count="0" type="stmt"/>
+        <line num="159" count="0" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
         <line num="168" count="0" type="stmt"/>
-        <line num="169" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.styles">
