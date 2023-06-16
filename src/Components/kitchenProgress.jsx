@@ -117,10 +117,8 @@ const KitchenProgress = () => {
                   ))}
                 </p>
               </>
-              {statusFiltered.map((item)=>(
-                item.status === 'pronto' &&
-                <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(data, new Date(item.data))} minutos</strong></p>
-              ))
+              {item.status === 'pronto' ?
+                <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(data, new Date(item.data))} minutos</strong></p> : null
               }
               <>
                 <ButtonStatus onClick={() => changeStatus(item)}>
