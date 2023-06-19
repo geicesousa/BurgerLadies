@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { pathUsers } from "../services/api";
+import { pathUsers } from "../../services/api";
 import { toast } from "react-toastify";
-import Formulary from "./Formulary";
-import Select from "./Select";
-import { MainForm, Form } from "../styles/Form.styled";
-import { ButtonForm } from "../styles/Button.styled";
+// import Formulary from "../Formulary";
+import Select from "../../Components/select/Select";
+import { MainForm } from "../../Components/formulary/Form.styled";
+// import { ButtonForm } from "../styles/Button.styled";
 
 const EditUser = ({ user }) => {
   const [edit, setEdit] = useState([]);

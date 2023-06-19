@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Return, SizeCart } from "../styles/MyCart.styled";
-import { BsCartPlus } from "react-icons/bs";
-import { ContainerCart } from "../styles/MyCart.styled";
-import burguerLogo from "../assets/ladies.png";
 import { ArrowFatLineLeft, SignOut } from "phosphor-react";
-import { logout } from "../Pages/Login";
+import { BsCartPlus } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
+import { Return, SizeCart } from "./MyCart.styled";
+import { ContainerCart } from "./MyCart.styled";
+import burguerLogo from "../../assets/ladies.png";
+import { logout } from "../../Pages/login/Login";
 
 const MyCart = ({ size, setShow }) => {
   const navigate = useNavigate();

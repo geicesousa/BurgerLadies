@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { createUser } from "../services/api";
-import { Form, MainForm } from "../styles/Form.styled";
-import { ButtonForm } from "../styles/Button.styled"
 import { toast } from "react-toastify";
-import Formulary from "../Components/Formulary";
-import Select from "../Components/Select";
-import Header from "../Components/Header";
+import { createUser } from "../../services/api";
+import { Form, MainForm } from "../../Components/formulary/Form.styled";
+import { ButtonForm } from "../../styles/Button.styled"
+import Formulary from "../../Components/formulary/Formulary";
+import Select from "../../Components/select/Select";
+import Header from "../../Components/header/Header";
 
 function Register() {
   const [name, setName] = useState(" ");

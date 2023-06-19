@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { ButtonContainer,Button } from "../styles/Button.styled";
-import Header from "../Components/Header";
+import { ButtonContainer,Button } from "../../styles/Button.styled";
+import Header from "../../Components/header/Header";
 
 const Adm = () => {
   return (

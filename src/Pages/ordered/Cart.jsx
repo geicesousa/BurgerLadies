@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import {
   CartBox,
   Total,
@@ -10,10 +10,10 @@ import {
   FinalizeOrder,
   ContainerFooterOrder,
   Main,
-} from "../styles/Cart.styled";
-import  { FormClient } from '../styles/Cart.styled'
-import { postOrder } from '../services/api'
-import { toast } from "react-toastify";
+} from "./Cart.styled";
+import  { FormClient } from './Cart.styled'
+import { postOrder } from '../../services/api'
+
 
 const Cart = ({ cart, setCart, handleChange}) => {
   const [price, setPrice] = useState(0);

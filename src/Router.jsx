@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import Register from "./Pages/Register";
-import Login from "./Pages/Login";
-import Attendance from "./Pages/Attendance";
-import NotFound from "./Pages/NotFound";
-import Adm from "./Pages/Adm";
-import Kitchen from "./Pages/Kitchen";
-import ListUsers from "./Pages/ListUsers";
-import TesteOrdered from "./Pages/TesteOrdered";
-import Cart from "./Pages/Cart";
+import Register from "./Pages/adm/Register";
+import Login from "./Pages/login/Login";
+import Attendance from "./Pages/attendance/Attendance";
+import NotFound from "./Pages/notfound/NotFound";
+import Adm from "./Pages/adm/Adm";
+import Kitchen from "./Pages/kitchen/Kitchen";
+import ListUsers from "./Pages/users/ListUsers";
+import OrderedProgress from "./Pages/ordered/OrderedProgress";
+import Cart from "./Pages/ordered/Cart";
 import PrivateRoute from "./privateRoute";
-import AdcProducts from "./Pages/AdcProducts";
-import ListProducts from "./Pages/listProducts";
+import AdcProducts from "./Pages/products/AdcProducts";
+import ListProducts from "./Pages/products/listProducts";
 
 const Router = () => {
     return (
@@ -53,7 +53,7 @@ const Router = () => {
             path="/ordered"
             element={
               <PrivateRoute redirectTo="/">
-                <TesteOrdered />
+                <OrderedProgress />
               </PrivateRoute>
             }
           />

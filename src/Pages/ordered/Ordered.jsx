@@ -3,9 +3,9 @@ import {
   Button,
   DivButtons,
   DivMenu,
-} from "../styles/Ordered.stylesd";
-import { getApi } from "../services/api";
-import Cards from "../Components/Cards";
+} from "./Ordered.styled";
+import { getApi } from "../../services/api";
+import Cards from "../../Components/cards/Cards";
 
 const Ordered = ({ handleClick }) => {
   const [products, setProducts] = useState([]);

@@ -1,10 +1,9 @@
-import React from 'react'
-import { ContainerHeader, IconesMenu } from '../styles/Header.styled'
-import { Return, SignOutDiv } from '../styles/MyCart.styled'
 import { ArrowFatLineLeft, SignOut } from 'phosphor-react'
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from '../Pages/Login'
-import burguerLogo from "../assets/ladies.png";
+import { ContainerHeader, IconesMenu } from './Header.styled'
+import { Return, SignOutDiv } from '../../Pages/ordered/MyCart.styled'
+import { logout } from '../../Pages/login/Login'
+import burguerLogo from "../../assets/ladies.png";
 
 function Header() {
 	

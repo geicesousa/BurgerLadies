@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { getApi, deleteApi } from "../services/api";
+import { toast } from "react-toastify";
+import { getApi, deleteApi } from "../../services/api";
 import {
   BtnsUsers,
   CardUsers,
   H3,
   UsersContainer,
-} from "../styles/ListUsers.styled";
-import Header from "../Components/Header";
-import { toast } from "react-toastify";
-import EditUser from "../Components/EditUser";
+} from "./ListUsers.styled";
+import Header from "../../Components/header/Header";
+import EditUser from "./EditUser";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);

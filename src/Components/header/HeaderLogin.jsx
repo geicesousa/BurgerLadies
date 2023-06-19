@@ -1,5 +1,5 @@
-import burguerLogo from "../assets/ladies.png";
-import { ContainerHeaderLogin } from "../styles/HeaderLogin.styled";
+import burguerLogo from "../../assets/ladies.png";
+import { ContainerHeaderLogin } from "./HeaderLogin.styled";
 
 const HeaderLogin = () => {
   return (

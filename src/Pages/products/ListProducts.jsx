@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { deleteApi, getApi } from "../services/api";
-import { BtnsUsers, H3 } from "../styles/ListUsers.styled";
-import Header from "../Components/Header";
-import { toast } from "react-toastify";
-import { Main } from "../styles/ListProducts.styled";
-import EditProduct from "../Components/EditProducts";
+import { deleteApi, getApi } from "../../services/api";
+import { H3 } from "../../Pages/users/ListUsers.styled";
+import Header from "../../Components/header/Header";
+import { Main } from "./ListProducts.styled";
+import EditProduct from "./EditProducts";
 
 
 const ListProducts = () => {

@@ -1,12 +1,12 @@
-import React from "react";
+import { BsCartPlus } from "react-icons/bs";
 import {
   Button,
   CardInfo,
   CardPrice,
   CardsItens,
-} from "../styles/Cards.styled";
-import burguer from "../assets/hamburguer.png";
-import { BsCartPlus } from "react-icons/bs";
+} from "./Cards.styled";
+import burguer from "../../assets/hamburguer.png";
+
 
 const Cards = ({ item, handleClick }) => {
   const { name, price, description } = item;

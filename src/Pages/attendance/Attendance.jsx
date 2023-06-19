@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
-import { Button } from "../styles/Button.styled";
-import KitchenProgress from "../Components/KitchenProgress";
-import Header from "../Components/Header";
+import { Button } from "../../styles/Button.styled";
+import KitchenProgress from "../../Pages/kitchen/kitchenProgress";
+import Header from "../../Components/header/Header";
 
 const Attendance = () => {
   return (
     <>
     <Header/>
-      {/* <Button><Link to="/ordered">
-        Novo Pedido
-      </Link></Button> */}
-
       <Link to="/ordered">
         <Button>Novo Pedido</Button> 
       </Link>

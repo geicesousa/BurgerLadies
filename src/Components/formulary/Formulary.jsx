@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomInput } from "../styles/Input.styled";
+import { CustomInput } from "./Input.styled";
 
 const Formulary = ({ text, type, value, placeholder, onChange }) => {
   return (

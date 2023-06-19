@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { createProducts } from "../services/api";
-import { ButtonForm } from "../styles/Button.styled"
 import { toast } from "react-toastify";
-import Header from "../Components/Header";
-import Formulary from "../Components/Formulary";
-import { MainForm, Form } from "../styles/Form.styled";
-import Select from "../Components/Select";
+import { createProducts } from "../../services/api";
+import { ButtonForm } from "../../styles/Button.styled";
+import Header from "../../Components/header/Header";
+import Formulary from "../../Components/formulary/Formulary";
+import { MainForm, Form } from "../../Components/formulary/Form.styled";
+import Select from "../../Components/select/Select";
 
 function AdcProducts() {
   const [products, setPdoducts] = useState ([])

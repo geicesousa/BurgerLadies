@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../services/api";
-import { Form, MainForm } from "../styles/Form.styled";
-import { ButtonForm } from "../styles/Button.styled";
 import { toast } from "react-toastify";
-import HeaderLogin from "../Components/HeaderLogin";
-import Formulary from "../Components/Formulary"
+import { loginUser } from "../../services/api";
+import { Form, MainForm } from "../../Components/formulary/Form.styled";
+import { ButtonForm } from "../../styles/Button.styled";
+import HeaderLogin from "../../Components/header/HeaderLogin";
+import Formulary from "../../Components/formulary/Formulary"
 
 export const logout = () => {
   localStorage.removeItem('accessToken');

@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  ButtonContainer,
-  ButtonProgress,
-  ButtonStatus,
-} from "../styles/Button.styled";
-import { deleteApi, getApi, patchOrders } from "../services/api";
-import { UsersContainer } from "../styles/ListUsers.styled";
-import { CardOrder} from "../styles/KitchenProgress.styled";
 import { toast } from "react-toastify";
 import { Check } from "phosphor-react";
 import { differenceInMinutes } from 'date-fns'
+import { UsersContainer } from "../../Pages/users/ListUsers.styled";
+import { CardOrder} from "./KitchenProgress.styled";
+import { ButtonContainer, ButtonProgress, ButtonStatus } from "../../styles/Button.styled";
+import { deleteApi, getApi, patchOrders } from "../../services/api";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);

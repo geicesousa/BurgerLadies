@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Form, MainForm } from "../styles/Form.styled";
-import Formulary from "./Formulary";
-import Select from "./Select";
-import { ButtonForm } from "../styles/Button.styled";
-import { patchProducts } from "../services/api";
-import { toast } from "react-toastify";
-import { Return } from "../styles/MyCart.styled";
+import { useEffect, useState } from "react";
+// import { toast } from "react-toastify";
+// import { Form, MainForm } from "../styles/Form.styled";
+// import Formulary from "./Formulary";
+import Select from "../../Components/select/Select";
+// import { ButtonForm } from "../styles/Button.styled";
+import { patchProducts } from "../../services/api";
+// import { Return } from "../styles/MyCart.styled";
 
 const EditProduct = ({ product }) => {
   const [edit, setEdit] = useState([]);
