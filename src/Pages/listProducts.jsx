@@ -27,6 +27,7 @@ const ListProducts = () => {
   useEffect(() => {
     getProducts();
   }, []);
+ 
 
   async function deleteProducts(product) {
     deleteApi(`products/${product.id}`)
@@ -36,7 +37,7 @@ const ListProducts = () => {
         }
       })
       .then((data) => {
-        // const teste = users.filter( item => item.id !== user.id)
+        // const teste = products.filter( item => item.id !== product.id)
         setProducts((prevState) =>
           prevState.filter((item) => item.id !== product.id)
         );

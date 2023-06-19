@@ -40,20 +40,25 @@ const KitchenProgress = () => {
     ? orders.filter((order) => order.status === selectedStatus)
     : orders;
 
-  const changeStatus = async (item, e) => {
-    console.log(e.target);
+  const changeStatus = async (item) => {
+
+    if(item.status === "execução"){
+      item.datapronto = new Date()   
+    }
+     
     switch (item.status) {
       case "aberto":
         item.status = "execução";
         break;
       case "execução":
         item.status = "pronto";
+
         break;
       case "pronto":
         item.status = "entregue";
         break;
     }
-    patchOrders({ id: item["id"], status: item["status"] })
+    patchOrders({ id: item["id"], status: item["status"], datapronto: item["datapronto"]})
     .then((data) => {
       return setStatus(data);
     })
@@ -80,7 +85,7 @@ const KitchenProgress = () => {
     console.log(orders);
   }
 
-  const data = new Date();
+
 
   return (
     <>
@@ -103,7 +108,7 @@ const KitchenProgress = () => {
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
               <>
-                <p>{item.realizado}</p> 
+                <p><strong>Data:</strong> {item.realizado}</p> 
                 <p><strong>Cliente:</strong> {item.name}</p>
                 <p><strong>Mesa:</strong> {item.table}</p>
                 <p><strong>Status:</strong> {item.status}</p>
@@ -117,10 +122,11 @@ const KitchenProgress = () => {
                   ))}
                 </p>
               </>
-              {statusFiltered.map((item)=>(
-                item.status === 'pronto' &&
-                <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(data, new Date(item.data))} minutos</strong></p>
-              ))
+             {
+                item.status === "pronto" ? <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos </strong></p> : null
+              }
+               {
+                item.status === "entregue" ? <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos ás {new Date(item.datapronto).toLocaleTimeString()}</strong></p> : null
               }
               <>
                 <ButtonStatus onClick={() => changeStatus(item)}>

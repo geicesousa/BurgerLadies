@@ -54,6 +54,7 @@ export async function createProducts(name, img, description, price, type, catego
     type,
     category,
     amount,
+
   
 
   };
@@ -113,14 +114,14 @@ export async function getApi(parametro) {
 }
 
 //EDITAR COLABORADOR
-export async function pathUsers(id, editar) {  
-  const response = await fetch(`${API}/users/${id}` , {
+export async function pathUsers(item) {  
+  const response = await fetch(`${API}/users/${item.id}` , {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
     },
-    body: JSON.stringify(editar),
+    body: JSON.stringify(item),
   })
   const data = await response.json();
   return data
@@ -128,14 +129,14 @@ export async function pathUsers(id, editar) {
 
 //EDITAR PEDIDOS
 export async function patchOrders(item){
-  console.log(JSON.stringify({status:item["status"]}));
+
   const response = await fetch (`${API}/orders/${item.id}`,{
     method: "PATCH",
     headers: {
     "content-type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     },
-    body: JSON.stringify({status:item["status"]}),
+    body: JSON.stringify(item),
   });
   const data = await response.json();
   return data

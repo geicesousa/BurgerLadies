@@ -6,79 +6,66 @@ import Select from "./Select";
 import { MainForm, Form } from "../styles/Form.styled";
 import { ButtonForm } from "../styles/Button.styled";
 
+const EditUser = ({ user }) => {
+  const [edit, setEdit] = useState([]);
+  const [id, setId] = useState(user.id);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+  const [role, setRole] = useState(user.role);
 
-const EditUser = (props) => {
-  const [nameUser, setNameUser] = useState(props.name);
-  const [emailUser, setEmailUser] = useState(props.email);
-  const [passwordUser, setPasswordUser] = useState(props.password);
-  const [roleUser, setRoleUser] = useState(props.roleUser);
-  const [users, setUsers] = useState(props.users);
-  console.log(users);
+  const handleName = (e) => setName(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handleRole = (e) => setRole(e.target.value);
 
-  const handleName = (e) => setNameUser(e.target.value);
-  const handleEmail = (e) => setEmailUser(e.target.value);
-  const handlePassword = (e) => setPasswordUser(e.target.value);
-  const handleRole = (e) => setRoleUser(e.target.value);
-
-  async function editUsers(e, item) {
-    console.log(item);
-    e.preventDefault();
-
-    const editar = {
-      name: nameUser,
-      email: emailUser,
-      password: passwordUser,
-      role: roleUser,
-    };
-    pathUsers(item.id, editar)
-      // .then((response) => {
-      //   if (response.ok) {
-          
-      //   }
-      // })
+  async function handleUpdate(user) {
+    pathUsers({ id: id, name: name, email: email, role: role })
       .then((data) => {
         toast.success("deu certo");
-        setUsers(data);
+        setEdit(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
       });
-      console.log(item);
+    console.log(user);
   }
 
   return (
     <MainForm>
-    <h2>Editar Usuario</h2>
-      <Form onSubmit={editUser}>
-        <Formulary
-          text="Nome"
-          type="text" 
-          value={nameUser} 
-          onChange={handleName} 
-        ></Formulary>
-        <Formulary
-          text="E-mail"   
-          type="email"
-          value={emailUser}
-          onChange={handleEmail}     
-        ></Formulary>
-        <Formulary
-          text="Senha"
-          type="password"
-          value={passwordUser}
-          onChange={handlePassword}          
-        ></Formulary>
-        <Select
-          text="Setor"
-          value={roleUser} 
-          value1="Atendimento"
-          value2="Cozinha"
-          value3="Administração"
-          placeholder="Cargo" onChange={handleRole}
-        ></Select>
-        <ButtonForm type="submit">Salvar</ButtonForm>
-      </Form> 
-
+      <h2>Editar Usuario</h2>
+      <td>
+          <input
+            text="Nome"
+            type="text"
+            value={name}
+            name="name"
+            onChange={handleName}
+          />
+        </td>
+        <td>
+          <input
+            text="Nome"
+            type="text"
+            value={email}
+            name="name"
+            onChange={handleEmail}
+          />
+        </td>
+        <td>
+          <Select
+            text="Tipo"
+            name={role}
+            value={role}
+            placeholder="Selecione o tipo"
+            value1="Atendente"
+            value2="Cozinha"
+            value3="Administração"
+            onChange={handleRole}
+          />
+        </td>
+      <button onClick={() => handleUpdate({ id: user["id"] })}>
+        ok
+      </button>
 
       {/* <form onSubmit={editUser}>
         <input 

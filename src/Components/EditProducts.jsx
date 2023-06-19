@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, MainForm } from "../styles/Form.styled";
 import Formulary from "./Formulary";
 import Select from "./Select";
@@ -7,8 +7,9 @@ import { patchProducts } from "../services/api";
 import { toast } from "react-toastify";
 import { Return } from "../styles/MyCart.styled";
 
-const EditProduct = ( {product} ) => {
+const EditProduct = ({ product }) => {
   const [edit, setEdit] = useState([]);
+  const [id, setId] = useState(product.id);
   const [name, setName] = useState(product.name);
   const [img, setImg] = useState(product.img);
   const [description, setDescription] = useState(product.description);
@@ -17,10 +18,7 @@ const EditProduct = ( {product} ) => {
   const [category, setCategory] = useState(product.category);
   const [amount, setAmount] = useState(product.amount);
 
-  const handleName = (e) => { 
-    console.log(e.target.value);
-    setName(e.target.value)
-  }
+  const handleName = (e) => setName(e.target.value);  
   const handleImg = (e) => setImg(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handlePrice = (e) => setPrice(e.target.value);
@@ -28,30 +26,25 @@ const EditProduct = ( {product} ) => {
   const handleCategory = (e) => setCategory(e.target.value);
   const handleAmount = (e) => setAmount(e.target.value);
 
-  async function handleUpdate(product, editar) {
-    console.log(product);
-
-    const updateProducts = {
-      id: product["id"],
-      name: product["name"],
-      img: product["img"],
-      description: product["description"],
-      price: product["price"],
-      type: product["type"],
-      category: product["category"],
-      amount: product["amount"],
-    };
-    patchProducts({ id: product["id"]}, updateProducts)
-    .then((data) => {
-      setEdit ((prevState) => prevState.filter(item => item.id !== product.id));      
-      console.log(data);
+  async function handleUpdate(product) {
+    patchProducts({
+      id: id,
+      name: name,
+      img: img,
+      description: description,
+      price: price,
+      type: type,
+      category: category,
+      amount: amount
     })
-
-    .catch((error) => {
-      console.log(error);
-    });
-      
-    console.log(product.id);
+      .then((data) => {
+        setEdit(data)    
+        window.location.reload()   
+      }) 
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(product);
   }
 
   return (
@@ -64,7 +57,6 @@ const EditProduct = ( {product} ) => {
             type="text"
             value={name}
             name="name"
-            placeholder="Digite o nome do colaborador"
             onChange={handleName}
           />
         </td>
@@ -74,7 +66,6 @@ const EditProduct = ( {product} ) => {
             type="img"
             value={img}
             name="img"
-            placeholder="Adicione uma imagem"
             onChange={handleImg}
           />
         </td>
@@ -85,7 +76,6 @@ const EditProduct = ( {product} ) => {
             type="text"
             value={description}
             name="descrição"
-            placeholder="Descrição do ítem"
             onChange={handleDescription}
           />
         </td>
@@ -95,7 +85,6 @@ const EditProduct = ( {product} ) => {
             type="number"
             value={price}
             name="price"
-            placeholder="Digite o preço"
             onChange={handlePrice}
           />
         </td>
@@ -137,7 +126,7 @@ const EditProduct = ( {product} ) => {
           />
         </td>
       </tr>
-      <button onClick={() => handleUpdate({ id: product["id"]})}>ok</button>
+      <button onClick={() => handleUpdate({ id: product["id"] })}>ok</button>
     </>
   );
 };

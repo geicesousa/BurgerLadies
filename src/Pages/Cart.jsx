@@ -48,8 +48,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
   //a partir daqui tentativas de enviar pedido para a cozinha
 
   const sendKitchen = (e)=> {  
-    const date = new Date();
-    const parsedDate = parseISO(date);
+  
 
     const orderCheck = {
       name:clientName,
@@ -58,8 +57,8 @@ const Cart = ({ cart, setCart, handleChange}) => {
       status,
       realizado: new Date().toLocaleString(), 
       data: new Date(), 
-      pedidos:cart
-    }
+      pedidos:cart,
+   }
 
     postOrder(orderCheck)
     toast.success("pedido enviado com sucesso"); 
