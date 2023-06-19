@@ -8,10 +8,10 @@ import Select from "../../Components/select/Select";
 import Header from "../../Components/header/Header";
 
 function Register() {
-  const [name, setName] = useState(" ");
-  const [email, setEmail] = useState(" ");
-  const [password, setPassword] = useState(" ");
-  const [role, setRole] = useState(" ");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
   const [cadastrado, setCadastrado] = useState(false);
 
   const handleName = (e) => setName(e.target.value);
@@ -21,6 +21,7 @@ function Register() {
 
   function registerUser(e) {
     e.preventDefault();
+    console.log(email, name, password)
     if (!/\S+@\S+\.\S+/.test(email)) {
       return toast.error("email no formato errado");
     }
@@ -33,8 +34,10 @@ function Register() {
     createUser(name, email, password, role)
     .then((response) => {
       if (response.ok) {
-        // console.log(response.ok)
+        console.log(response.ok)
+        toast.success("Cadastro realizado com sucesso!")
         setCadastrado(true);
+
       }
     })
     .catch(() =>
@@ -87,7 +90,6 @@ function Register() {
         
         <ButtonForm type="submit">Efetuar cadastro</ButtonForm>
       </Form>
-      {cadastrado && toast.success("Cadastro realizado com sucesso!")}
     </MainForm>
   </>
   );

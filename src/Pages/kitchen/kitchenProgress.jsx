@@ -41,7 +41,7 @@ const KitchenProgress = () => {
     if(item.status === "execução"){
       item.datapronto = new Date()   
     }
-     
+    
     switch (item.status) {
       case "aberto":
         item.status = "execução";

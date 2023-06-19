@@ -1,6 +1,7 @@
-import Cart from '../Pages/Cart.jsx';
+import Cart from '../../src/Pages/ordered/Cart.jsx';
 import { render,screen } from "@testing-library/react";
 
+jest.mock('react-router-dom');
 // falta o teste do form e da renderização dos cards
 describe('Cart', ()=>{
   it('should display elements',()=>{

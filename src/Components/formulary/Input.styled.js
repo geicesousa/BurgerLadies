@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const CustomInput = styled.input `
-	  width: 70vw;
-    padding: .6rem;
-    border-radius: 10px;
-    background-color: #e1cf7d;
-    border: none;
-    font-size: 1.3rem;   
-
+  width: 70vw;
+  padding: .6rem;
+  border-radius: 10px;
+  background-color: #e1cf7d;
+  border: none;
+  font-size: 1.3rem;   
 
 	@media (min-width: 1200px) {
       width: 25vw;

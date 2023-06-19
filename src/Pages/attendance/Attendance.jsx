@@ -8,7 +8,7 @@ const Attendance = () => {
     <>
     <Header/>
       <Link to="/ordered">
-        <Button>Novo Pedido</Button> 
+        Novo Pedido
       </Link>
       <KitchenProgress/>  
     </>

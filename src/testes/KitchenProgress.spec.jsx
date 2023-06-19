@@ -1,7 +1,9 @@
 import	{	render, fireEvent, screen	}	from	'@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import KitchenProgress from '../Components/KitchenProgress';
 import { getApi, deleteApi } from '../services/api';
 
+jest.mock('react-router-dom');
 jest.mock('../services/api');
 const order = [
 {
@@ -96,6 +98,10 @@ describe('kitchenProgress', ()=>{
       fireEvent(screen.getByText('Pedidos em execução'), new MouseEvent('click'));
       fireEvent(screen.getByText('Pedidos prontos'), new MouseEvent('click'));
       fireEvent( screen.getByText('Pedidos entregues'), new MouseEvent('click'));
+
+      // substituir por userEvent
+
+
     });	
   });
 });

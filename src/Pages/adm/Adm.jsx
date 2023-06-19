@@ -8,16 +8,19 @@ const Adm = () => {
     <Header />
     <ButtonContainer>
       <Link to="/register">
-        <Button>Adicionar novo colaborador</Button>
+        Adicionar novo colaborador
       </Link>
+
       <Link to="/listusers">
-        <Button>Lista de colaboradores</Button>
+        Lista de colaboradores
       </Link>
+
       <Link to="/adcproducts">
-        <Button>Adicionar ítem ao cardápio</Button>
+        Adicionar ítem ao cardápio
       </Link>
+
       <Link to="/listproducts">
-        <Button>Lista de produtos</Button>
+        Lista de produtos
       </Link>
     </ButtonContainer>
   </>
