@@ -33,7 +33,7 @@ const ListProducts = () => {
     deleteApi(`products/${product.id}`)
       .then((response) => {
         if (response.ok) {
-          toast.success("ìtem deletado com sucesso");
+          toast.success("ìtem excluído com sucesso");
         }
       })
       .then((data) => {

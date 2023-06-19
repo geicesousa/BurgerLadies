@@ -8,7 +8,6 @@ import { MainForm, Form } from "../../Components/formulary/Form.styled";
 import Select from "../../Components/select/Select";
 
 function AdcProducts() {
-  const [products, setPdoducts] = useState ([])
   const [name, setName] = useState("");
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
@@ -16,7 +15,6 @@ function AdcProducts() {
   const [type, setType] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");  
-  const [cadastrado, setCadastrado] = useState(false);
   
   const handleName = (e) => {setName(e.target.value)};
   const handleImg = (e) => setImg(e.target.value);
@@ -31,9 +29,9 @@ function AdcProducts() {
   
     createProducts(name, img, description, price, type, category, amount)
     .then((response) => {
-      if (response.status <= 299) {
-        setCadastrado(true);
-        return response.json(); // deve retornar só o response?
+      if (response.ok) {
+        toast.success("Cadastro realizado com sucesso!")
+        
       }
       setName("");
       setDescription("");
@@ -42,6 +40,7 @@ function AdcProducts() {
       setType("");
       setCategory("");
       setAmount("");
+     
     })
     .catch(() =>
       toast.error("Algo deu errado, confira os dados e tente novamente!")
@@ -121,7 +120,7 @@ function AdcProducts() {
   
         <ButtonForm type="submit">Adicionar item ao cardápio</ButtonForm>
         
-        {cadastrado && toast.success("Cadastro realizado com sucesso!")} 
+
       </Form>
     </MainForm>
     </>

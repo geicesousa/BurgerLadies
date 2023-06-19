@@ -33,7 +33,7 @@ const ListUsers = () => {
     deleteApi(`users/${user.id}`)
       .then((response) => {
         if (response.ok) {
-          toast.success("colaborador deletado com sucesso");
+          toast.success("colaborador excluído com sucesso");
         }
       })
       .then((data) => {

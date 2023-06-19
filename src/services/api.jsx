@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const API = "http://localhost:8080";
 
 //-------------POST-------------------------
@@ -54,9 +56,6 @@ export async function createProducts(name, img, description, price, type, catego
     type,
     category,
     amount,
-
-  
-
   };
   // const response =  
   return await fetch(`${API}/products`, {
@@ -82,6 +81,9 @@ export async function postOrder(parametro) {
   body: JSON.stringify(parametro),
 });
   const data = await response.json();
+  if(response.status === 401){
+    return toast.error("Por favor, faça login novamente!")  
+  }
   return data
 }
 
@@ -110,6 +112,9 @@ export async function getApi(parametro) {
   });
   // colocar parametro para metodo e colocar
   const data = await response.json();
+  if(response.status === 401){
+    return toast.error("Por favor, faça login novamente!")  
+  }
   return data
 }
 
@@ -124,6 +129,9 @@ export async function pathUsers(item) {
     body: JSON.stringify(item),
   })
   const data = await response.json();
+  if(response.status === 401){
+    return toast.error("Por favor, faça login novamente!")  
+  }
   return data
 }
 
@@ -139,6 +147,9 @@ export async function patchOrders(item){
     body: JSON.stringify(item),
   });
   const data = await response.json();
+  if(response.status === 401){
+    return toast.error("Por favor, faça login novamente!")  
+  }
   return data
 }
 
@@ -152,6 +163,9 @@ export async function patchProducts(product){
     body: JSON.stringify(product),
   });
   const data = await response.json();
+  if(response.status === 401){
+    return toast.error("Por favor, faça login novamente!")  
+  }
   return data
 }
 
@@ -167,6 +181,9 @@ export async function requestApi(caminho, metodo = 'GET'){
   });
   // colocar parametro para metodo e colocar
   const data = await response.json();
+  if(response.status === 401){
+    return toast.error("Por favor, faça login novamente!")  
+  }
   return data
 }
 
