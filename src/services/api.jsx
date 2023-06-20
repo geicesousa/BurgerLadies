@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const API = "https://burger-queen-api-mock-tau.vercel.app/";
+const API = "https://burger-queen-api-mock-tau.vercel.app";
 
 //-------------POST-------------------------
 
