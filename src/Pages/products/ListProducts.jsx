@@ -73,7 +73,7 @@ const handleUpdateProduct = (id, updatedProduct) => {
   return (
     <>
       <Header />     
-        <H3>Lista de ìtens do menu</H3>       
+        <H3>Lista de ítens do menu</H3>       
         {showModal && (
           <EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/>
         )}
