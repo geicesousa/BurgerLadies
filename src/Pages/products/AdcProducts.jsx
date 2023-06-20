@@ -40,7 +40,6 @@ function AdcProducts() {
       setType("");
       setCategory("");
       setAmount("");
-     
     })
     .catch(() =>
       toast.error("Algo deu errado, confira os dados e tente novamente!")

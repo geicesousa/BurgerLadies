@@ -63,7 +63,7 @@ const cafe = [
 
 getApi.mockResolvedValue([...cafe, ...menu]) // o spread operator pega só conteudo
 const handleClick = jest.fn() // mock do onclick
-// falta teste: renderização de ars na tela
+// falta teste: renderização de cards na tela
 
 describe('Ordered', () => {
 	describe('buttons', () => {

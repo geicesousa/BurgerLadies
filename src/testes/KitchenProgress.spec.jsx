@@ -1,6 +1,6 @@
 import	{	render, fireEvent, screen	}	from	'@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import KitchenProgress from '../../src/Pages/kitchen/kitchenProgress';
+import KitchenProgress from '../../src/Pages/kitchen/KitchenProgress';
 import { getApi, deleteApi } from '../../src/services/api';
 
 jest.mock('react-router-dom');

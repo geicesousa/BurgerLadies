@@ -12,11 +12,12 @@ const MyCart = ({ size, setShow }) => {
     logout();
     navigate("/");
   }
-
+// header do orderedProgress
   return (
     <>
       <ContainerCart>
         <img src={burguerLogo} width={"270px"} />
+
         <Return>
           <ArrowFatLineLeft
             size={32}
@@ -26,6 +27,7 @@ const MyCart = ({ size, setShow }) => {
           />
           <span>Voltar para Menu</span>
         </Return>
+
         <Link onClick={() => sair()}>
           <SignOut />
           <span>Sair</span>

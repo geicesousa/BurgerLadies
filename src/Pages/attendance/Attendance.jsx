@@ -1,7 +1,6 @@
-import KitchenProgress from "../../Pages/kitchen/kitchenProgress";
+import KitchenProgress from "../kitchen/KitchenProgress";
 import Header from "../../Components/header/Header";
 import { AttendanceLink } from "../../styles/Button.styled";
-
 
 const Attendance = () => {
   return (

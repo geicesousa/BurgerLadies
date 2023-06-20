@@ -21,6 +21,16 @@ describe('Adm', () => {
 		expect(link[1]).toHaveTextContent('Lista de colaboradores');
 		expect(link[2]).toHaveTextContent('Adicionar item ao cardápio');
 		expect(link[3]).toHaveTextContent('Lista de produtos');
+	});
+
+	it('should click in elements', () => {
+		render(<Adm />)
+
+		const link = screen.getAllByTestId('link');
+
 		userEvent.click(link[0]);
+		userEvent.click(link[1]);
+		userEvent.click(link[2]);
+		userEvent.click(link[3]);
 	});
 });

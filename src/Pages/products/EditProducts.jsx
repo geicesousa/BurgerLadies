@@ -72,7 +72,6 @@ const EditProduct = ({ product }) => {
             <th>Tipo</th>
             <th>Categoria</th>
             <th>Salvar</th>
-         
           </tr>
         </thead>
 
@@ -135,7 +134,6 @@ const EditProduct = ({ product }) => {
                 Salvar
               </ButtonUpdate>
             </td>
-            
           </tr>
         </tbody>
       </Table>

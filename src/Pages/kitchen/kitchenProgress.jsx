@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Check } from "phosphor-react";
 import { differenceInMinutes } from 'date-fns'
-import { UsersContainer } from "../../Pages/users/ListUsers.styled";
+import { UsersContainer } from "../users/ListUsers.styled";
 import { CardOrder} from "./KitchenProgress.styled";
 import { ButtonContainer, ButtonStatus, ProgressLink } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
@@ -19,7 +19,7 @@ const KitchenProgress = () => {
       setOrders(data);
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
     });
   };
 

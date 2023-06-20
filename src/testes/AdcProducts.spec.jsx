@@ -42,7 +42,9 @@ describe('<AdcProducts />', () => {
     const qntd = screen.getByLabelText('Quantidade');
     const selectType = screen.getByText('Tipo');
     const selectCategory = screen.getByText('Categoria');
-		const btn = screen.getByRole('button');
+		// const btn = screen.getAllByRole('button');
+		// const btn = screen.getByRole('button');
+		const btn = screen.getByText('Adicionar item ao cardápio');
 
 		userEvent.type(name, 'Cuscuz Nordestino');
 		userEvent.type(description, 'Cuscuz com carne de sertão e queijo coalho');
