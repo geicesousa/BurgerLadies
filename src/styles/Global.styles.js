@@ -38,12 +38,15 @@ export const ContainerCards = styled.ul`
   list-style: none;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  padding-left: 0;
 `;
 
 export const SectionCards = styled.section`
   display: flex;
   gap: 0.8rem;
   justify-content: center;
+  align-items: center;
   margin: 1rem;
 `;
 

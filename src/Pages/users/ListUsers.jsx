@@ -76,8 +76,7 @@ const ListUsers = () => {
           <EditUser user={editingUser} onUpdate={handleUpdateUser}/>
         )}
       <ContainerCards>
-        {users.map((user) => (
-         
+        {users.map((user) => (        
             <>
               <Cards key={user.id}>
                 <strong>Nome: </strong>
