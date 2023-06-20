@@ -11,21 +11,20 @@ import {
   ContainerFooterOrder,
   Main,
 } from "./Cart.styled";
-import  { FormClient } from './Cart.styled'
-import { postOrder } from '../../services/api'
+import { FormClient } from "./Cart.styled";
+import { postOrder } from "../../services/api";
 
-
-const Cart = ({ cart, setCart, handleChange}) => {
+const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
   const [clientName, setClientName] = useState(" ");
   const [tableNumber, setTableNumber] = useState(" ");
-  const [status, setStatus ] = useState ("aberto");
+  const [status, setStatus] = useState("aberto");
   const navigate = useNavigate();
-  
+
   const handleClientName = (e) => setClientName(e.target.value);
   const handleTableNumber = (e) => setTableNumber(e.target.value);
 
-   // função para remover o item do carrinho
+  // função para remover o item do carrinho
   const handleRemove = (id) => {
     const arr = cart.filter((item) => item.id !== id);
     setCart(arr);
@@ -40,31 +39,27 @@ const Cart = ({ cart, setCart, handleChange}) => {
     setPrice(quantityProducts);
   };
 
-    // aqui atualiza o preço quando o produto é removido do carrinho
-  useEffect(()=>{
-    handlePrice()
+  // aqui atualiza o preço quando o produto é removido do carrinho
+  useEffect(() => {
+    handlePrice();
   });
 
-  //a partir daqui tentativas de enviar pedido para a cozinha
-
-  const sendKitchen = (e)=> {  
-  
-
+  const sendKitchen = (e) => {
     const orderCheck = {
-      name:clientName,
-      table:tableNumber,
+      name: clientName,
+      table: tableNumber,
       total: price,
       status,
-      realizado: new Date().toLocaleString(), 
-      data: new Date(), 
-      pedidos:cart,
-   }
+      realizado: new Date().toLocaleString(),
+      data: new Date(),
+      pedidos: cart,
+    };
 
-    postOrder(orderCheck)
-    toast.success("pedido enviado com sucesso"); 
+    postOrder(orderCheck);
+    toast.success("pedido enviado com sucesso");
 
-    navigate('/attendance');
-  }
+    navigate("/attendance");
+  };
 
   return (
     <Main>
@@ -75,7 +70,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
             type="text"
             value={clientName}
             name="text"
-            placeholder="Digite o nome do cliente"           
+            placeholder="Digite o nome do cliente"
             onChange={handleClientName}
           />
         </label>
@@ -95,8 +90,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
           </select>
         </label>
       </FormClient>
-      { 
-      cart.map((item) => (
+      {cart.map((item) => (
         <CartBox key={item.id}>
           <CartImg>
             <p>{item.name}</p>
@@ -114,7 +108,7 @@ const Cart = ({ cart, setCart, handleChange}) => {
         </CartBox>
       ))}
       <ContainerFooterOrder>
-        <FinalizeOrder onClick={()=> sendKitchen()}>
+        <FinalizeOrder onClick={() => sendKitchen()}>
           Finalizar Pedido
         </FinalizeOrder>
         <Total>

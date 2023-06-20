@@ -5,6 +5,7 @@ import { Return, SizeCart } from "./MyCart.styled";
 import { ContainerCart } from "./MyCart.styled";
 import burguerLogo from "../../assets/ladies.png";
 import { logout } from "../../Pages/login/Login";
+import { ButtonVoltar, Buttonsair } from "../../styles/Button.styled";
 
 const MyCart = ({ size, setShow }) => {
   const navigate = useNavigate();
@@ -18,18 +19,22 @@ const MyCart = ({ size, setShow }) => {
       <ContainerCart>
         <img src={burguerLogo} width={"270px"} />
         <Return>
-          <ArrowFatLineLeft
-            size={32}
-            weight="bold"
-            color={"black"}
-            onClick={() => setShow(true)}
-          />
-          <span>Voltar para Menu</span>
+          <ButtonVoltar onClick={() => setShow(true)}>Menu
+         </ButtonVoltar>
         </Return>
-        <Link onClick={() => sair()}>
-          <SignOut />
-          <span>Sair</span>
-        </Link>
+
+        <Return>
+        <ButtonVoltar onClick={() => navigate(-1)}>Voltar</ButtonVoltar>
+        </Return>
+
+        <Buttonsair
+          onClick={() => {
+            logout();
+            navigate("/");
+          }}
+        >
+          Sair
+        </Buttonsair>
 
         <Link onClick={() => setShow(false)}>
           <BsCartPlus size={40} weight="bold" color="black" />

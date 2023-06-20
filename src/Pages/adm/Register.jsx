@@ -38,7 +38,6 @@ function Register() {
       .then((response) => {
         if (response.status === 400) {
           return toast.error("Este email já possui cadastro");
-        
         } else if (response.ok) {
           toast.success("Cadastro realizado com sucesso!");
           navigate("/adm");

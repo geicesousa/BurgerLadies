@@ -7,7 +7,7 @@ export const ButtonContainer = styled.main`
   width: 90vw;
   display: flex;
   justify-content: center;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   text-align: center;
   gap: 2rem;
   align-items:center; 
@@ -57,21 +57,20 @@ export const AdmLink = styled(Link)`
 `
 export const ProgressLink = styled(Link)`
   margin: auto;
-  width: 20%;
-  height: 10%;
   display: flex;
-  gap: .5rem;
+  width: 10rem;
   align-items: center;
-  justify-content: space-around;
-  padding: .5rem;
+  justify-content: center;
+  padding: 2rem;
   border-radius: 10px;
+  margin-top: 2rem;
   background-color: #963c08;
-  color: white;
   text-transform: uppercase;
   border: none;
   font-weight: bold;
   cursor: pointer;
-  font-size: .8rem;
+  font-size: .7rem;
+  color: white;
 `
 
 export const ButtonStatus = styled.button`
@@ -107,23 +106,46 @@ width: 5rem;
 height: 2rem;
 color: #e1cf7d;
 border-radius: 5px;
+border: none;
 
 `
 
 export const ButtonToEdit = styled.button `
-background-color: blue;
+background-color: #03300b;
 width: 5rem;
 height: 2rem;
 color: #e1cf7d;
 border-radius: 5px;
+border: none;
 
 `
 
 export const ButtonUpdate = styled.button `
-background-color: blue;
+background-color: #03300b;
 width: 5rem;
 height: 2rem;
 color: #e1cf7d;
 margin: .2rem;
 border-radius: 5px;
+border: none;
+`
+
+export const ButtonVoltar = styled.button `
+width: 5rem;
+height: 2rem;
+background-color: #03300b;
+color: white;
+border-radius: 5px;
+border: none;
+
+`
+
+export const Buttonsair = styled.button `
+background-color: #03300b;
+width: 5rem;
+height: 2rem;
+color: white;
+border-radius: 5px;
+border: none;
+
 `

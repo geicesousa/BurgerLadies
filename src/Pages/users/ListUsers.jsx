@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { getApi, deleteApi } from "../../services/api";
-import {
-  BtnsUsers,
-  CardUsers,
-  H3,
-  UsersContainer,
-} from "./ListUsers.styled";
 import Header from "../../Components/header/Header";
 import EditUser from "./EditUser";
+import { ButtonDelete, ButtonToEdit } from "../../styles/Button.styled";
+import { Cards, ContainerCards, H3, SectionCards } from "../../styles/Global.styles";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
@@ -79,26 +75,26 @@ const ListUsers = () => {
       {showModal && (
           <EditUser user={editingUser} onUpdate={handleUpdateUser}/>
         )}
-      <UsersContainer>
-        {users.map((user) => {
-          return (
+      <ContainerCards>
+        {users.map((user) => (
+         
             <>
-              <CardUsers key={user.id}>
+              <Cards key={user.id}>
                 <strong>Nome: </strong>
                 {user.name} <br />
                 <strong>Email: </strong>
                 {user.email} <br />
                 <strong>Setor: </strong>
                 {user.role} <br />
-                <BtnsUsers>
-                  <button onClick={() => deleteUsers(user)}>Deletar colaborador</button>
-                  <button onClick={()=> openModal(user)}> Editar colabordor</button>
-                </BtnsUsers>
-              </CardUsers>            
+                <SectionCards>
+                  <ButtonDelete onClick={() => deleteUsers(user)}>Excluir</ButtonDelete>
+                  <ButtonToEdit onClick={()=> openModal(user)}> Editar</ButtonToEdit>
+                </SectionCards>
+              </Cards>            
             </>
-          );
-        })}
-       </UsersContainer>
+         
+        ))}
+       </ContainerCards>
       
     </>
   );

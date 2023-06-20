@@ -7,12 +7,15 @@ export const ContainerCart = styled.header`
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  flex-wrap: wrap;
+  gap: 5rem;
+  padding: 2rem;
 
-  button {
-    border: none;
+  @media (min-width: 300px) and (max-width: 772px) {
+    justify-content: center;
   }
-`;
 
+ `
 export const SizeCart = styled.span`
   background-color: #8c0000;
   position: absolute;
@@ -28,10 +31,9 @@ export const Return = styled.div`
   cursor: pointer;
 `;
 
-export const SignOutDiv = styled.div `
+export const SignOutDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;   
+  align-items: center;
   cursor: pointer;
-
-`
+`;
