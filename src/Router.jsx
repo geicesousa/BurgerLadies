@@ -18,93 +18,92 @@ const PrivateRoute = ({ children, redirectTo }) => {
   return isAuth ? children : <Navigate to={redirectTo} />;
 };
 
-
 const Router = () => {
-    return (
-      <BrowserRouter>
-        <ToastContainer autoClose={500} />
+  return (
+    <BrowserRouter>
+      <ToastContainer autoClose={500} />
 
-        <Routes>
-          {/* Rotas publicas */}
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Login />} />
-      
-          {/* Rotas privadas */}
-          <Route
-            path="/register"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Register />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/attendance"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Attendance />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/adm"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Adm />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/ordered"
-            element={
-              <PrivateRoute redirectTo="/">
-                <OrderedProgress />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/kitchen"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Kitchen />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/listusers"
-            element={
-              <PrivateRoute redirectTo="/">
-                <ListUsers />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <PrivateRoute redirectTo="/">
-                <Cart />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/adcproducts"
-            element={
-              <PrivateRoute redirectTo="/">
-                <AdcProducts />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/listproducts"
-            element={
-              <PrivateRoute redirectTo="/">
-                <ListProducts />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    )
+      <Routes>
+        {/* Rotas publicas */}
+        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Login />} />
+
+        {/* Rotas privadas */}
+        <Route
+          path="/register"
+          element={
+            <PrivateRoute redirectTo="/">
+              <Register />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/attendance"
+          element={
+            <PrivateRoute redirectTo="/">
+              <Attendance />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/adm"
+          element={
+            <PrivateRoute redirectTo="/">
+              <Adm />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/ordered"
+          element={
+            <PrivateRoute redirectTo="/">
+              <OrderedProgress />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/kitchen"
+          element={
+            <PrivateRoute redirectTo="/">
+              <Kitchen />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/listusers"
+          element={
+            <PrivateRoute redirectTo="/">
+              <ListUsers />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute redirectTo="/">
+              <Cart />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/adcproducts"
+          element={
+            <PrivateRoute redirectTo="/">
+              <AdcProducts />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/listproducts"
+          element={
+            <PrivateRoute redirectTo="/">
+              <ListProducts />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
-export default Router
+export default Router;
