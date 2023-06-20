@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState, useRef } from "react";
 // import { toast } from "react-toastify";
 // import { Form, MainForm } from "../styles/Form.styled";
 // import Formulary from "./Formulary";
@@ -13,6 +13,8 @@ import {
   InputNumber,
 } from "./Products.styled";
 import { Table } from "react-bootstrap";
+import { useEffect } from "react";
+
 // import { Return } from "../styles/MyCart.styled";
 
 const EditProduct = ({ product }) => {
@@ -25,6 +27,7 @@ const EditProduct = ({ product }) => {
   const [type, setType] = useState(product.type);
   const [category, setCategory] = useState(product.category);
   const [amount, setAmount] = useState(product.amount);
+  const inputRef = useRef(null);
 
   const handleName = (e) => setName(e.target.value);
   const handleImg = (e) => setImg(e.target.value);
@@ -33,6 +36,10 @@ const EditProduct = ({ product }) => {
   const handleType = (e) => setType(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
   const handleAmount = (e) => setAmount(e.target.value);
+
+  useEffect(()=>{
+    inputRef.current.focus();
+  }, [])
 
   async function handleUpdate(product) {
     patchProducts({
@@ -78,6 +85,7 @@ const EditProduct = ({ product }) => {
                 value={name}
                 name="name"
                 onChange={handleName}
+                ref={inputRef}
               />
             </td>         
 

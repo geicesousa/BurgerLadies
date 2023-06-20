@@ -10,7 +10,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-wrap: wrap;
-margin: auto;
+margin: 2px;
 position: sticky;
 top: 0;
 background-color: #8c0000;
