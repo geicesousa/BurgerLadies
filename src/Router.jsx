@@ -50,7 +50,7 @@ const Router = () => {
             }
           />
           <Route
-            path="/orderedprogress"
+            path="/ordered"
             element={
               <PrivateRoute redirectTo="/">
                 <OrderedProgress />
