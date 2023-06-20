@@ -51,5 +51,7 @@ export const H3 = styled.h3`
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 1rem;
+  justify-content: center;
+  display: flex;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 `;
