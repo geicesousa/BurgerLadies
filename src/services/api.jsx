@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const API = "https://burger-queen-api-mock-tau.vercel.app";
+const API = "https://burger-queen-api-mock-tau.vercel.app/";
 
 //-------------POST-------------------------
 
@@ -13,7 +13,7 @@ export async function createUser(name, email, password, role) {
     role,
   };
   // const response =  
-  return await fetch(`${API}/users`, {
+  return await fetch(`${API}users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export async function loginUser(email, password) {
     password,
   };
   // const response = 
-  return await fetch(`${API}/login`, {
+  return await fetch(`${API}login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -58,7 +58,7 @@ export async function createProducts(name, img, description, price, type, catego
     amount,
   };
   // const response =  
-  return await fetch(`${API}/products`, {
+  return await fetch(`${API}products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
