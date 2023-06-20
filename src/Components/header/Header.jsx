@@ -1,41 +1,40 @@
-import { ArrowFatLineLeft, SignOut } from 'phosphor-react'
+import { ArrowFatLineLeft, SignOut } from "phosphor-react";
 import { Link, useNavigate } from "react-router-dom";
-import { ContainerHeader, IconesMenu } from './Header.styled'
-import { Return, SignOutDiv } from '../../Pages/ordered/MyCart.styled'
-import { logout } from '../../Pages/login/Login'
+import { ContainerHeader, IconesMenu } from "./Header.styled";
+import { Return, SignOutDiv } from "../../Pages/ordered/MyCart.styled";
+import { logout } from "../../Pages/login/Login";
 import burguerLogo from "../../assets/ladies.png";
 
 function Header() {
-	
-	function sair(){
-		logout()
-		useNavigate("/")
-	}
+  const navigate = useNavigate();
 
   return (
-	<ContainerHeader>
-	  <>
-      <img src={burguerLogo} />
-      </> 
-	<IconesMenu>
-	<Return>
-		<ArrowFatLineLeft><Link></Link></ArrowFatLineLeft>
-			{/* // size={32}
-			// weight="bold"
-			// color={"black"}
-			// onClick={() => setShow(true)}
-		  /> */}
-		  <span>Voltar</span>
-		</Return>
-		<Link onClick={() => sair()}>
-        <SignOutDiv>
-          <SignOut/>
-          <span>Sair</span>
-        </SignOutDiv>
+    <ContainerHeader>
+      <>
+        <img src={burguerLogo} />
+      </>
+      <IconesMenu>
+
+        <Return>
+          <button onClick={() => navigate(-1)}>
+            <ArrowFatLineLeft />
+          </button>
+          <span>Voltar</span>
+        </Return>
+
+        <Link
+          onClick={() => {logout();
+            navigate("/");
+          }}
+        >
+          <SignOutDiv>
+            <SignOut />
+            <span>Sair</span>
+          </SignOutDiv>
         </Link>
-	  </IconesMenu>
-  </ContainerHeader>
-  )
+      </IconesMenu>
+    </ContainerHeader>
+  );
 }
 
-export default Header
+export default Header;

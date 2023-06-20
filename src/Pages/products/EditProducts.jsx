@@ -5,6 +5,14 @@ import { useEffect, useState } from "react";
 import Select from "../../Components/select/Select";
 // import { ButtonForm } from "../styles/Button.styled";
 import { patchProducts } from "../../services/api";
+import { ButtonUpdate } from "../../styles/Button.styled";
+import {
+  ContainerEdit,
+  Input,
+  InputDescription,
+  InputNumber,
+} from "./Products.styled";
+import { Table } from "react-bootstrap";
 // import { Return } from "../styles/MyCart.styled";
 
 const EditProduct = ({ product }) => {
@@ -18,7 +26,7 @@ const EditProduct = ({ product }) => {
   const [category, setCategory] = useState(product.category);
   const [amount, setAmount] = useState(product.amount);
 
-  const handleName = (e) => setName(e.target.value);  
+  const handleName = (e) => setName(e.target.value);
   const handleImg = (e) => setImg(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handlePrice = (e) => setPrice(e.target.value);
@@ -30,17 +38,16 @@ const EditProduct = ({ product }) => {
     patchProducts({
       id: id,
       name: name,
-      img: img,
       description: description,
       price: price,
       type: type,
       category: category,
-      amount: amount
+      amount: amount,
     })
       .then((data) => {
-        setEdit(data)    
-        window.location.reload()   
-      }) 
+        setEdit(data);
+        window.location.reload();
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -48,86 +55,83 @@ const EditProduct = ({ product }) => {
   }
 
   return (
-    <>
-      <h2>Adicionar item ao cardápio</h2>
-      <tr>
-        <td>
-          <input
-            text="Nome"
-            type="text"
-            value={name}
-            name="name"
-            onChange={handleName}
-          />
-        </td>
-        <td>
-          <input
-            text="Imagem"
-            type="img"
-            value={img}
-            name="img"
-            onChange={handleImg}
-          />
-        </td>
+    <ContainerEdit>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Tipo</th>
+            <th>Categoria</th>
+            <th>Salvar</th>
+         
+          </tr>
+        </thead>
 
-        <td>
-          <input
-            text="Descrição"
-            type="text"
-            value={description}
-            name="descrição"
-            onChange={handleDescription}
-          />
-        </td>
-        <td>
-          <input
-            text="Preço"
-            type="number"
-            value={price}
-            name="price"
-            onChange={handlePrice}
-          />
-        </td>
+        <tbody>
+          <tr>
+            <td>
+              <Input
+                text="Nome"
+                type="text"
+                value={name}
+                name="name"
+                onChange={handleName}
+              />
+            </td>         
 
-        <td>
-          <input
-            text="Quantidade"
-            type="number"
-            value={amount}
-            name="amount"
-            placeholder="Digite a quantidade"
-            onChange={handleAmount}
-          />
-        </td>
+            <td>
+              <InputDescription
+                text="Descrição"
+                type="text"
+                value={description}
+                name="descrição"
+                onChange={handleDescription}
+              />
+            </td>
 
-        <td>
-          <Select
-            text="Tipo"
-            name={type}
-            value={type}
-            placeholder="Selecione o tipo"
-            value1="Café da manhã"
-            value2="Menu Principal"
-            onChange={handleType}
-          />
-        </td>
+            <td>
+              <InputNumber
+                text="Preço"
+                type="text"
+                value={price}
+                name="price"
+                onChange={handlePrice}
+              />
+            </td>
 
-        <td>
-          <Select
-            text="Categoria"
-            value={category}
-            value1="Lanches"
-            value2="Bebidas"
-            value3="Hambúrgueres"
-            value4="Acompanhamentos"
-            name={category}
-            placeholder="Selecione a categoria do produto"
-            onChange={handleCategory}
-          />
-        </td>
-      </tr>
-      <button onClick={() => handleUpdate({ id: product["id"] })}>ok</button>
-    </>
+            <td>
+              <Select
+                name={type}
+                value={type}
+                value1="Café da manhã"
+                value2="Menu Principal"
+                onChange={handleType}
+              />
+            </td>
+
+            <td>
+              <Select
+                value={category}
+                value1="Lanches"
+                value2="Bebidas"
+                value3="Hambúrgueres"
+                value4="Acompanhamentos"
+                name={category}
+                onChange={handleCategory}
+              />
+            </td>     
+            <td>
+              <ButtonUpdate onClick={() => handleUpdate({ id: product["id"] })}>
+                Salvar
+              </ButtonUpdate>
+            </td>
+            
+          </tr>
+        </tbody>
+      </Table>
+    </ContainerEdit>
   );
 };
 

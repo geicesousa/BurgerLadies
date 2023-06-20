@@ -4,7 +4,7 @@ import { Check } from "phosphor-react";
 import { differenceInMinutes } from 'date-fns'
 import { UsersContainer } from "../../Pages/users/ListUsers.styled";
 import { CardOrder} from "./KitchenProgress.styled";
-import { ButtonContainer, ButtonProgress, ButtonStatus } from "../../styles/Button.styled";
+import { ButtonContainer, ButtonStatus, ProgressLink } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
 
 const KitchenProgress = () => {
@@ -86,18 +86,18 @@ const KitchenProgress = () => {
   return (
     <>
       <ButtonContainer>
-        <ButtonProgress onClick={() => filterStatus("aberto")}>
+        <ProgressLink onClick={() => filterStatus("aberto")}>
           Pedidos abertos
-        </ButtonProgress>
-        <ButtonProgress onClick={() => filterStatus("execução")}>
+        </ProgressLink>
+        <ProgressLink onClick={() => filterStatus("execução")}>
           Pedidos em execução
-        </ButtonProgress>
-        <ButtonProgress onClick={() => filterStatus("pronto")}>
+        </ProgressLink>
+        <ProgressLink onClick={() => filterStatus("pronto")}>
           Pedidos prontos
-        </ButtonProgress>
-        <ButtonProgress onClick={() => filterStatus("entregue")}>
+        </ProgressLink>
+        <ProgressLink onClick={() => filterStatus("entregue")}>
           Pedidos entregues
-        </ButtonProgress>
+        </ProgressLink>
       </ButtonContainer>
       <UsersContainer>
         {showStatus &&

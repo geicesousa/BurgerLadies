@@ -1,26 +1,17 @@
-import { Link } from "react-router-dom";
-import { ButtonContainer,Button } from "../../styles/Button.styled";
+import { AdmLink, ButtonContainer } from "../../styles/Button.styled";
 import Header from "../../Components/header/Header";
 
 const Adm = () => {
   return (
-  <>
-    <Header />
-    <ButtonContainer>
-      <Link to="/register">
-        <Button>Adicionar novo colaborador</Button>
-      </Link>
-      <Link to="/listusers">
-        <Button>Lista de colaboradores</Button>
-      </Link>
-      <Link to="/adcproducts">
-        <Button>Adicionar ítem ao cardápio</Button>
-      </Link>
-      <Link to="/listproducts">
-        <Button>Lista de produtos</Button>
-      </Link>
-    </ButtonContainer>
-  </>
+    <>
+      <Header />
+      <ButtonContainer>
+        <AdmLink to="/register">Adicionar novo colaborador</AdmLink>
+        <AdmLink to="/listusers">Lista de colaboradores</AdmLink>
+        <AdmLink to="/adcproducts">Adicionar ítem ao cardápio</AdmLink>
+        <AdmLink to="/listproducts">Lista de produtos</AdmLink>
+      </ButtonContainer>
+    </>
   );
 };
 

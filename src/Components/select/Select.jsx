@@ -1,3 +1,5 @@
+import { StyledSelect } from "../../Pages/products/Products.styled"
+
 const Select = ({
   text, 
   value, 
@@ -10,9 +12,9 @@ const Select = ({
   onChange
 }) => {
   return (
-  <div>
+  <>
     <label htmlFor={name}>{text}</label>
-    <select  
+    <StyledSelect 
       text={text}
       value={value} 
       name={value}
@@ -23,8 +25,8 @@ const Select = ({
       <option value={value2}>{value2}</option>
       <option value={value3}>{value3}</option>
       <option value={value4}>{value4}</option>
-    </select>
-  </div>
+    </StyledSelect>
+  </>
   )
 }
 

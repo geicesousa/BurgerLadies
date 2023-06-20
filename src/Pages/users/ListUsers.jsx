@@ -75,6 +75,7 @@ const ListUsers = () => {
     <>
       <Header />
       <H3>Lista de colaboradores</H3>
+      
       {showModal && (
           <EditUser user={editingUser} onUpdate={handleUpdateUser}/>
         )}

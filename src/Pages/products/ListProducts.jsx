@@ -5,8 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { deleteApi, getApi } from "../../services/api";
 import { H3 } from "../../Pages/users/ListUsers.styled";
 import Header from "../../Components/header/Header";
-import { Main } from "./ListProducts.styled";
+import { Main } from "./Products.styled";
 import EditProduct from "./EditProducts";
+import { ButtonDelete, ButtonToEdit } from "../../styles/Button.styled";
 
 
 const ListProducts = () => {
@@ -76,6 +77,7 @@ const handleUpdateProduct = (id, updatedProduct) => {
       <Header />
       <Main>
         <H3>Lista de itens do cardápio</H3>
+       
         {showModal && (
           <EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/>
         )}
@@ -87,7 +89,8 @@ const handleUpdateProduct = (id, updatedProduct) => {
               <th>Tipo</th>
               <th>Categoria</th>
               <th>Preço</th>
-              <th>Ações</th>
+              <th>Deletar</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -95,14 +98,15 @@ const handleUpdateProduct = (id, updatedProduct) => {
               <tr key={product.id}>
                 <td>{product.name} </td>
                 <td>{product.description}</td>
-                <td>{product.type}</td>
-                <td>{product.category} </td>
-                <td>{product.price},00 </td>  
-                <td><button onClick={() => deleteProducts(product)}>
-                  Deletar item
-                </button></td>
+                <td>{product.price},00</td>
+                <td>{product.type} </td>
+                <td>{product.category}</td>               
                 <td>
-                  <button onClick={()=> openModal(product)}> Editar item</button>
+                  <ButtonDelete onClick={() => deleteProducts(product)}>
+                  Deletar
+                </ButtonDelete></td>
+                <td>
+                  <ButtonToEdit onClick={()=> openModal(product)}> Editar</ButtonToEdit>
                 </td>
               </tr>
             ))}
