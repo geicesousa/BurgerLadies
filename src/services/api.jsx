@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
-const API = "https://burger-queen-api-mock-tau.vercel.app/";
-
+const API = "https://burger-queen-api-mock-tau.vercel.app";
 //-------------POST-------------------------
 
 //REGISTRO DE COLABORADOR
@@ -13,7 +12,7 @@ export async function createUser(name, email, password, role) {
     role,
   };
   // const response =  
-  return await fetch(`${API}users`, {
+  return await fetch(`${API}/users`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -33,7 +32,7 @@ export async function loginUser(email, password) {
     password,
   };
   // const response = 
-  return await fetch(`${API}login`, {
+  return await fetch(`${API}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -58,7 +57,7 @@ export async function createProducts(name, img, description, price, type, catego
     amount,
   };
   // const response =  
-  return await fetch(`${API}products`, {
+  return await fetch(`${API}/products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -72,7 +71,7 @@ export async function createProducts(name, img, description, price, type, catego
 
 //ENVIAR PEDIDOS PARA A API
 export async function postOrder(parametro) {
-  const response = await fetch(`${API}orders`, {
+  const response = await fetch(`${API}/orders`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -91,7 +90,7 @@ export async function postOrder(parametro) {
 //-----------DELETE----------------------
 export async function deleteApi(parametro) {  
   // const response = 
-  return await fetch(`${API}${parametro}` , {
+  return await fetch(`${API}/${parametro}` , {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
@@ -103,7 +102,7 @@ export async function deleteApi(parametro) {
 }
 //------------------ GET ------------------
 export async function getApi(parametro) {
-  const response = await fetch(`${API}${parametro}`, {
+  const response = await fetch(`${API}/${parametro}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -120,7 +119,7 @@ export async function getApi(parametro) {
 
 //EDITAR COLABORADOR
 export async function pathUsers(item) {  
-  const response = await fetch(`${API}users/${item.id}` , {
+  const response = await fetch(`${API}/users/${item.id}` , {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
@@ -138,7 +137,7 @@ export async function pathUsers(item) {
 //EDITAR PEDIDOS
 export async function patchOrders(item){
 
-  const response = await fetch (`${API}orders/${item.id}`,{
+  const response = await fetch (`${API}/orders/${item.id}`,{
     method: "PATCH",
     headers: {
     "content-type": "application/json",
@@ -154,7 +153,9 @@ export async function patchOrders(item){
 }
 
 export async function patchProducts(product){
-  const response = await fetch (`${API}products/${product.id}`, {
+  console.log((`${API}/products/${product.id}`))
+  const response = await fetch (`${API}/products/${product.id}`, {
+  
     method: "PATCH",
     headers: {
     "content-type": "application/json",
@@ -172,7 +173,7 @@ export async function patchProducts(product){
 // FUNÇÃO GERAL PARA USAR EM TODAS AS REQUISIÇÕES, as que tem body devem ser diferentes
 
 export async function requestApi(caminho, metodo = 'GET'){
-  const response = await fetch(`${API}${caminho}`, {
+  const response = await fetch(`${API}/${caminho}`, {
     method: metodo,
     headers: {
       "Content-Type": "application/json",
