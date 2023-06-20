@@ -51,7 +51,7 @@ function Login() {
           }
       })
       .catch(() =>
-        toast.error("Algo deu errado, confira os dados e tente novamente!")
+        toast.error("Usuário não encontrado, verifique os dados e tente novamente!")
       );
   }  
 
