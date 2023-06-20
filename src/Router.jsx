@@ -10,9 +10,14 @@ import Kitchen from "./Pages/kitchen/Kitchen";
 import ListUsers from "./Pages/users/ListUsers";
 import OrderedProgress from "./Pages/ordered/OrderedProgress";
 import Cart from "./Pages/ordered/Cart";
-import PrivateRoute from "./privateRoute";
 import AdcProducts from "./Pages/products/AdcProducts";
 import ListProducts from "./Pages/products/listProducts";
+
+const PrivateRoute = ({ children, redirectTo }) => {
+  const isAuth = localStorage.getItem("accessToken") !== null;
+  return isAuth ? children : <Navigate to={redirectTo} />;
+};
+
 
 const Router = () => {
     return (
