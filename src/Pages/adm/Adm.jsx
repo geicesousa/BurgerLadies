@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ButtonContainer,Button } from "../../styles/Button.styled";
+import { ButtonContainer, Button } from "../../styles/Button.styled";
 import Header from "../../Components/header/Header";
 
 const Adm = () => {
@@ -7,21 +7,13 @@ const Adm = () => {
   <>
     <Header />
     <ButtonContainer>
-      <Link to="/register">
-        Adicionar novo colaborador
-      </Link>
+      <Link to="/register">Adicionar novo colaborador</Link>
 
-      <Link to="/listusers">
-        Lista de colaboradores
-      </Link>
+      <Link to="/listusers">Lista de colaboradores</Link>
 
-      <Link to="/adcproducts">
-        Adicionar ítem ao cardápio
-      </Link>
+      <Link to="/adcproducts">Adicionar item ao cardápio</Link>
 
-      <Link to="/listproducts">
-        Lista de produtos
-      </Link>
+      <Link to="/listproducts">Lista de produtos</Link>
     </ButtonContainer>
   </>
   );

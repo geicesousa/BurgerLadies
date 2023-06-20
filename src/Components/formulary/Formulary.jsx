@@ -6,7 +6,7 @@ const Formulary = ({ text, type, value, placeholder, onChange }) => {
     <div>
       <label>{text}
         <CustomInput
-          data-testid={text}
+          text={text}
           type={type}
           value={value}
           placeholder={placeholder}

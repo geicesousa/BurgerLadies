@@ -45,13 +45,12 @@ describe("Register", () => {
 
     createUser.mockResolvedValue({ ok: true }); // resposta com response.ook
 
-    const colaborador = screen.getByTestId("Nome do colaborador");
-    const email = screen.getByTestId("E-mail do colaborador");
-    const senha = screen.getByTestId("Senha");
+    const colaborador = screen.getByLabelText("Nome do colaborador");
+    const email = screen.getByLabelText("E-mail do colaborador");
+    const senha = screen.getByLabelText("Senha");
     const select = screen.getByRole("combobox");
     const cadastra = screen.getByText("Efetuar cadastro");
 
-		email.value = "geice2@mail.com"
     userEvent.type(colaborador, "Geice Sousa");
     userEvent.type(email, "geice@gmail.com");
     userEvent.type(senha, "123456");

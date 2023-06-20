@@ -8,7 +8,7 @@ import { patchProducts } from "../../services/api";
 // import { Return } from "../styles/MyCart.styled";
 
 const EditProduct = ({ product }) => {
-  const [edit, setEdit] = useState([]);
+  // const [edit, setEdit] = useState([]);
   const [id, setId] = useState(product.id);
   const [name, setName] = useState(product.name);
   const [img, setImg] = useState(product.img);
@@ -50,7 +50,7 @@ const EditProduct = ({ product }) => {
   return (
     <>
       <h2>Adicionar item ao cardápio</h2>
-      <tr>
+      <tr key={key.id}>
         <td>
           <input
             text="Nome"

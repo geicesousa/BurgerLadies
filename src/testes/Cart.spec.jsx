@@ -8,7 +8,7 @@ describe('Cart', ()=>{
     render(<Cart cart="cart" setCart="setcart" handleChange="handlechange" />)
 
     const endOrder = screen.getByText('Finalizar Pedido');
-
+    // getByRole('img')
     expect(endOrder).toBeInTheDocument();
     expect(endOrder).toBeEnabled();
   });
