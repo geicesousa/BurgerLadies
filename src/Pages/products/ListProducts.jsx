@@ -28,7 +28,6 @@ const ListProducts = () => {
   useEffect(() => {
     getProducts();
   }, []);
- 
 
   async function deleteProducts(product) {
     deleteApi(`products/${product.id}`)
@@ -50,21 +49,20 @@ const ListProducts = () => {
     console.log(product);
   }
 
-const handleUpdateProduct = (id, updatedProduct) => {
-  const updatedProducts = products.map(product => {
-    if(product.id === id) {
-      return {...product, product: updatedProduct}
-    }
-    return product
-  })
-  setProducts(updatedProducts)
-  closeModal()
-}
-
+  const handleUpdateProduct = (id, updatedProduct) => {
+    const updatedProducts = products.map(product => {
+      if(product.id === id) {
+        return {...product, product: updatedProduct}
+      }
+      return product
+    })
+    setProducts(updatedProducts);
+    closeModal();
+  }
 
   const openModal = (product) => {
-    setEditingProduct(product)
-    setShowModal(true)
+    setEditingProduct(product);
+    setShowModal(true);
   }
 
   const closeModal = () => {

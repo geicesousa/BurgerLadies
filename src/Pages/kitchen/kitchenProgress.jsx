@@ -41,7 +41,7 @@ const KitchenProgress = () => {
     if(item.status === "execução"){
       item.datapronto = new Date()   
     }
-     
+    
     switch (item.status) {
       case "aberto":
         item.status = "execução";
@@ -118,10 +118,10 @@ const KitchenProgress = () => {
                   ))}
                 </p>
               </>
-             {
+            {
                 item.status === "pronto" ? <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos </strong></p> : null
               }
-               {
+              {
                 item.status === "entregue" ? <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos ás {new Date(item.datapronto).toLocaleTimeString()}</strong></p> : null
               }
               <>

@@ -18,7 +18,7 @@ import { useEffect } from "react";
 // import { Return } from "../styles/MyCart.styled";
 
 const EditProduct = ({ product }) => {
-  const [edit, setEdit] = useState([]);
+  // const [edit, setEdit] = useState([]);
   const [id, setId] = useState(product.id);
   const [name, setName] = useState(product.name);
   const [img, setImg] = useState(product.img);

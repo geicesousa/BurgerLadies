@@ -8,8 +8,4 @@ describe ('jest' , () => {
 	it('should display elements', () => {
 		render(<App/>)
 	});
-
-	// expect(
-	// 	screen.getByRole('heading', { name: /vite \+ react/i })
-	//   ).toBeInTheDocument()
 });

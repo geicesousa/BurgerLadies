@@ -22,6 +22,7 @@ function Register() {
 
   function registerUser(e) {
     e.preventDefault();
+    console.log(email, name, password)
     if (!/\S+@\S+\.\S+/.test(email)) {
       return toast.error("email no formato errado");
     }

@@ -1,5 +1,7 @@
-import Attendance from '../Pages/Attendance.jsx'
+import Attendance from '../../src/Pages/attendance/Attendance'
 import { render, screen } from "@testing-library/react";
+
+jest.mock('react-router-dom');
 
 describe('Attendance', () => {
 	it('should display elements', () => {

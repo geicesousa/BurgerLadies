@@ -10,7 +10,7 @@ const TesteOrdered = () => {
   const [show, setShow] = useState(true);
   const [warning, setWarning] = useState(false);
 
-  // função para dicionar itens ao carrinho
+  // função para adicionar itens ao carrinho
   const handleClick = (item) => {
       let isPresent = false;
       cart.forEach((product) => {

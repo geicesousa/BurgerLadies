@@ -26,33 +26,33 @@ function Login() {
   function logIn(e) {
     e.preventDefault();
     loginUser(email, password)
-      .then((response) => {
-        if (response.status <= 299) {
-          return response.json();
-        } else {
-          toast.error("error!");
+    .then((response) => {
+      if (response.status <= 299) {
+        return response.json();
+      } else {
+        toast.error("error!");
+      }
+    })
+    .then((data) => {
+      if (!data) return 
+        console.log(localStorage);
+        localStorage.setItem("role", data.role);
+        localStorage.setItem("accessToken", data.accessToken);
+        toast.success("Login efetuado!");
+        setIsLoggedin(true);
+        setEmail('');
+        setPassword('');
+        if (data.user.role === "atendente") {
+          navigate("/attendance");
+        } else if (data.user.role === "cozinha") {
+          navigate("/kitchen");
+        } else if (data.user.role === "administração"){
+          navigate("/adm");
         }
-      })
-      .then((data) => {
-        if (!data) return 
-          console.log(localStorage);
-          localStorage.setItem("role", data.role);
-          localStorage.setItem("accessToken", data.accessToken);
-          toast.success("Login efetuado!");
-          setIsLoggedin(true);
-          setEmail('');
-          setPassword('');
-          if (data.user.role === "atendente") {
-            navigate("/attendance");
-          } else if (data.user.role === "cozinha") {
-            navigate("/kitchen");
-          } else if (data.user.role === "administração"){
-            navigate("/adm");
-          }
-      })
-      .catch(() =>
-        toast.error("Algo deu errado, confira os dados e tente novamente!")
-      );
+    })
+    .catch(() =>
+      toast.error("Algo deu errado, confira os dados e tente novamente!")
+    );
   }  
 
     return (
