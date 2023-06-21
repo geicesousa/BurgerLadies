@@ -87,7 +87,7 @@ const ListProducts = () => {
                   <ButtonDelete onClick={() => deleteProducts(product)}>
                   Excluir
                 </ButtonDelete>                
-                  <ButtonToEdit onClick={()=> openModal(product)}> Editar</ButtonToEdit>
+                  <ButtonToEdit onClick={()=> openModal(product)}>Editar</ButtonToEdit>
               </ SectionCards>
               </Cards>   
             ))}

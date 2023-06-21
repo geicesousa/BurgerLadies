@@ -114,14 +114,16 @@ const KitchenProgress = () => {
               <li><strong>Mesa: </strong> {item.table} </li>
               <li><strong>Status: </strong> {item.status} </li>
               <li><strong>Preço: </strong> {item.total},00 </li>
-              <li><strong> Detalhes do pedido:</strong>{item.pedidos.map((item) => (
-                    <li key={item.id}>
-                      <li>
-                         <Check size={15} color="#03300b" weight="bold" />
-                        {item.name} 
-                      </li>
-                    </li>
-                  ))}  </li>       
+
+              <><strong> Detalhes do pedido:</strong>{item.pedidos.map((item) => (
+              <li key={item.id}>
+              <li>
+              <Check size={15} color="#03300b" weight="bold" />
+              {item.name} 
+              </li>
+              </li>
+                  ))}  
+              </>       
             <br />
               {item.status === "pronto" ? (
                 <p key={item.id}>

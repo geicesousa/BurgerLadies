@@ -1,3 +1,4 @@
+import { Navigate } from "react-router";
 
 const PrivateRoute = ({ children, redirectTo }) => {
 	const isAuth = localStorage.getItem("accessToken") !== null;
