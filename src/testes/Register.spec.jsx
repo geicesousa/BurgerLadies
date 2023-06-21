@@ -7,7 +7,11 @@ import { error } from "console";
 
 // afterEach(cleanup)
 jest.mock("../services/api.jsx");
-jest.mock("react-router-dom");
+jest.mock('react-router-dom', ()=>{
+	return { 
+    useNavigate: jest.fn()
+	}
+});
 jest.mock("react-toastify", () => {
   return { toast: { success: jest.fn(), 
 		error: jest.fn((error)=>{
@@ -59,11 +63,12 @@ describe("Register", () => {
 		cadastra.click()
 
     await waitFor(() => {
-			expect(toast.success).toHaveBeenCalledTimes(1)
-			
-			expect(createUser).toHaveBeenCalledTimes(1);
-			expect(createUser).toHaveBeenCalledWith(colaborador, email, senha, select);
+			expect(toast.success).toHaveBeenCalledTimes(1);
 		});
-
+    await waitFor(() => {
+			expect(screen.getByText('Cadastro realizado com sucesso!')).toBeInTheDocument();
+		});
+    expect(createUser).toHaveBeenCalledTimes(1);
+    expect(createUser).toHaveBeenCalledWith(colaborador, email, senha, select);
   });
 });

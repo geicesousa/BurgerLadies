@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">17.24% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>5/29</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/24</span>
+                <span class='fraction'>5/25</span>
             </div>
         
             
@@ -176,11 +176,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -191,13 +191,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,7 +206,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -277,12 +277,12 @@ import Select from "../../Components/select/Select";
 import Header from "../../Components/header/Header";
 import { useNavigate } from "react-router";
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Register(</span>) {
-  const [name, setName] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-  const [email, setEmail] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-  const [password, setPassword] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-  const [role, setRole] = <span class="cstat-no" title="statement not covered" >useState("");</span>
-  const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
+function Register() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const navigate = useNavigate();
 &nbsp;
   const handleName = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setName(e.target.value);</span></span>
   const handleEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >setEmail(e.target.value);</span></span>
@@ -291,6 +291,7 @@ function <span class="fstat-no" title="function not covered" >Register(</span>) 
 &nbsp;
   function <span class="fstat-no" title="function not covered" >registerUser(</span>e) {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >    console.log(email, name, password)</span>
 <span class="cstat-no" title="statement not covered" >    if (!/\S+@\S+\.\S+/.test(email)) {</span>
 <span class="cstat-no" title="statement not covered" >      return toast.error("email no formato errado");</span>
     }
@@ -307,7 +308,6 @@ function <span class="fstat-no" title="function not covered" >Register(</span>) 
       .then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
 <span class="cstat-no" title="statement not covered" >        if (response.status === 400) {</span>
 <span class="cstat-no" title="statement not covered" >          return toast.error("Este email já possui cadastro");</span>
-        
         } else <span class="cstat-no" title="statement not covered" >if (response.ok) {</span>
 <span class="cstat-no" title="statement not covered" >          toast.success("Cadastro realizado com sucesso!");</span>
 <span class="cstat-no" title="statement not covered" >          navigate("/adm");</span>
@@ -376,7 +376,7 @@ export default Register;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-20T19:13:16.383Z
+                at 2023-06-21T04:41:47.301Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/5</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -167,12 +167,8 @@
 <a name='L102'></a><a href='#L102'>102</a>
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
-<a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a>
-<a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L105'></a><a href='#L105'>105</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,13 +184,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,120 +274,115 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import Register from "./Pages/adm/Register";
-import Login from "./Pages/login/Login";
-import Attendance from "./Pages/attendance/Attendance";
 import NotFound from "./Pages/notfound/NotFound";
+import Login from "./Pages/login/Login";
+import PrivateRoute from "./services/PrivateRoute";
+import Register from "./Pages/adm/Register";
+import Attendance from "./Pages/attendance/Attendance";
 import Adm from "./Pages/adm/Adm";
+import OrderedProgress from "./Pages/ordered/OrderedProgress";
 import Kitchen from "./Pages/kitchen/Kitchen";
 import ListUsers from "./Pages/users/ListUsers";
-import OrderedProgress from "./Pages/ordered/OrderedProgress";
 import Cart from "./Pages/ordered/Cart";
 import AdcProducts from "./Pages/products/AdcProducts";
-import ListProducts from "./Pages/products/listProducts";
-&nbsp;
-const PrivateRoute = <span class="fstat-no" title="function not covered" >({</span> children, redirectTo }) =&gt; {
-  const isAuth = <span class="cstat-no" title="statement not covered" >localStorage.getItem("accessToken") !== null;</span>
-<span class="cstat-no" title="statement not covered" >  return isAuth ? children : &lt;Navigate to={redirectTo} /&gt;;</span>
-};
+import ListProducts from "./Pages/products/ListProducts";
 &nbsp;
 const Router = () =&gt; {
-  return (
-    &lt;BrowserRouter&gt;
-      &lt;ToastContainer autoClose={500} /&gt;
+    return (
+      &lt;BrowserRouter&gt;
+        &lt;ToastContainer autoClose={500} /&gt;
 &nbsp;
-      &lt;Routes&gt;
-        {/* Rotas publicas */}
-        &lt;Route path="*" element={&lt;NotFound /&gt;} /&gt;
-        &lt;Route path="/" element={&lt;Login /&gt;} /&gt;
-&nbsp;
-        {/* Rotas privadas */}
-        &lt;Route
-          path="/register"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;Register /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/attendance"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;Attendance /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/adm"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;Adm /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/ordered"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;OrderedProgress /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/kitchen"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;Kitchen /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/listusers"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;ListUsers /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/cart"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;Cart /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/adcproducts"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;AdcProducts /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-        &lt;Route
-          path="/listproducts"
-          element={
-            &lt;PrivateRoute redirectTo="/"&gt;
-              &lt;ListProducts /&gt;
-            &lt;/PrivateRoute&gt;
-          }
-        /&gt;
-      &lt;/Routes&gt;
-    &lt;/BrowserRouter&gt;
-  );
+        &lt;Routes&gt;
+          {/* Rotas publicas */}
+          &lt;Route path="*" element={&lt;NotFound /&gt;} /&gt;
+          &lt;Route path="/" element={&lt;Login /&gt;} /&gt;
+      
+          {/* Rotas privadas */}
+          &lt;Route
+            path="/register"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;Register /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/attendance"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;Attendance /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/adm"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;Adm /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/ordered"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;OrderedProgress /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/kitchen"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;Kitchen /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/listusers"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;ListUsers /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/cart"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;Cart /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/adcproducts"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;AdcProducts /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+          &lt;Route
+            path="/listproducts"
+            element={
+              &lt;PrivateRoute redirectTo="/"&gt;
+                &lt;ListProducts /&gt;
+              &lt;/PrivateRoute&gt;
+            }
+          /&gt;
+        &lt;/Routes&gt;
+      &lt;/BrowserRouter&gt;
+    )
 };
 &nbsp;
-export default Router;
-&nbsp;</pre></td></tr></table></pre>
+export default Router</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-20T19:13:16.383Z
+                at 2023-06-21T04:41:47.301Z
             </div>
         <script src="../prettify.js"></script>
         <script>
