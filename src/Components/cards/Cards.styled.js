@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const CardsItens = styled.div`
   padding: 1rem;
-  border: .1rem solid #8c0000;
+  border: 0.1rem solid #8c0000;
   background-color: #863c08;
   border-radius: 15px;
-  color: #DDD9CE;
+  color: #ddd9ce;
   width: 250px;
   height: 350px;
-  margin: auto; 
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -30,7 +30,7 @@ export const CardInfo = styled.section`
   p {
     width: auto;
     text-align: center;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 
   img {

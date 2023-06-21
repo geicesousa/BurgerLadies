@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Button,
-  DivButtons,
-  DivMenu,
-} from "./Ordered.styled";
+import { Button, DivButtons, DivMenu } from "./Ordered.styled";
 import { getApi } from "../../services/api";
 import Cards from "../../Components/cards/Cards";
 
@@ -14,11 +10,12 @@ const Ordered = ({ handleClick }) => {
 
   const getOrdered = async () => {
     getApi(`products/`)
-    .then((data) => {
-      setProducts(data);
-    }).catch((error) => {
-      console.log(error)
-    }) 
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   useEffect(() => {
     getOrdered();
@@ -33,10 +30,10 @@ const Ordered = ({ handleClick }) => {
     ? products.filter((product) => product.type === selectedType)
     : products;
 
-    //enviar pedidos
+  //enviar pedidos
 
-    return (
-    <main>    
+  return (
+    <main>
       <DivButtons>
         <Button onClick={() => filterType("café da manhã")}>
           Café da manhã
@@ -48,7 +45,7 @@ const Ordered = ({ handleClick }) => {
       <DivMenu>
         {showTypes &&
           filteredTypes.map((item) => (
-            <Cards item={item} key={item.id} handleClick={handleClick} />              
+            <Cards item={item} key={item.id} handleClick={handleClick} />
             //  handleclik é uma props a função está vindo do componente testeOrdered
           ))}
       </DivMenu>

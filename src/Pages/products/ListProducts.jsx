@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { deleteApi, getApi } from "../../services/api";
-import { H3 } from "../../Pages/users/ListUsers.styled";
 import Header from "../../Components/header/Header";
-import { Main } from "./Products.styled";
 import EditProduct from "./EditProducts";
+import { Cards, ContainerCards, H3, SectionCards } from "../../styles/Global.styles";
 import { ButtonDelete, ButtonToEdit } from "../../styles/Button.styled";
 
 
@@ -72,45 +70,34 @@ const ListProducts = () => {
 
   return (
     <>
-      <Header />
-      <Main>
-        <H3>Lista de itens do cardápio</H3>
-       
+      <Header />     
+        <H3>Lista de ítens do menu</H3>       
         {showModal && (
           <EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/>
         )}
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Descrição</th>
-              <th>Tipo</th>
-              <th>Categoria</th>
-              <th>Preço</th>
-              <th>Deletar</th>
-              <th>Editar</th>
-            </tr>
-          </thead>
-          <tbody>
+       <ContainerCards>
             {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.name} </td>
-                <td>{product.description}</td>
-                <td>{product.price},00</td>
-                <td>{product.type} </td>
-                <td>{product.category}</td>               
-                <td>
+              <Cards key={product.id}>
+              <strong>Nome: </strong>
+              {product.name} <br />
+              <strong>Descrição: </strong>
+              {product.description} <br />
+              <strong>Tipo: </strong>
+              {product.type} <br />
+              <strong>Preço: </strong>
+              {product.price} <br />
+              <strong>categoria: </strong>
+              {product.category} <br />
+              <SectionCards>
                   <ButtonDelete onClick={() => deleteProducts(product)}>
-                  Deletar
-                </ButtonDelete></td>
-                <td>
+                  Excluir
+                </ButtonDelete>                
                   <ButtonToEdit onClick={()=> openModal(product)}> Editar</ButtonToEdit>
-                </td>
-              </tr>
+              </ SectionCards>
+              </Cards>   
             ))}
-          </tbody>
-        </Table>
-      </Main>
+       
+       </ContainerCards>
     </>
   );
 };

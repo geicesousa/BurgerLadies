@@ -5,17 +5,16 @@ export const Main = styled.article`
   margin: auto;
   margin-top: 3rem;
   background-color: #863c08;
-  color: #DDD9CE;
+  color: #ddd9ce;
   padding: 2rem;
   border-radius: 10px;
-  
 `;
 export const CartBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid skyblue;
-  padding: .5rem;
+  padding: 0.5rem;
 `;
 
 export const CartImg = styled.div`
@@ -47,7 +46,7 @@ export const DivTest = styled.div`
     border: none;
     font-weight: bold;
     background-color: #8c0000;
-    color: #DDD9CE;
+    color: #ddd9ce;
     cursor: pointer;
   }
   span {
@@ -55,17 +54,17 @@ export const DivTest = styled.div`
   }
 `;
 export const DivButton = styled.div`
-  background-color: #DDD9CE;
+  background-color: #ddd9ce;
   text-align: center;
   border-radius: 15px;
-  
+
   button {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
     cursor: pointer;
   }
-  span{
+  span {
     color: #000;
     font-weight: bold;
   }
@@ -91,7 +90,7 @@ export const FinalizeOrder = styled.button`
   background-color: #8c0000;
   width: 10rem;
   height: auto;
-  color: #DDD9CE;
+  color: #ddd9ce;
   border-radius: 10px;
   margin-top: 1rem;
   text-align: center;
@@ -110,9 +109,8 @@ export const FormClient = styled.form`
   justify-content: end;
   flex-wrap: wrap;
   width: 80vw;
-  margin:  2rem auto;
+  margin: 2rem auto;
   gap: 1rem;
-
 
   input {
     width: 17rem;

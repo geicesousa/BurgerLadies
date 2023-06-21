@@ -8,7 +8,6 @@ export const ContainerHeaderLogin = styled.section`
   margin: auto;
 
   img {
-    width: 300px;   
+    width: 300px;
   }
 `;
-

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import {useRef, useState } from "react";
 import { pathUsers } from "../../services/api";
 import { toast } from "react-toastify";
-// import Formulary from "../Formulary";
 import Select from "../../Components/select/Select";
-import { MainForm } from "../../Components/formulary/Form.styled";
-// import { ButtonForm } from "../styles/Button.styled";
+import { ContainerEdit, Input, MainEdit, SectionButton } from "../products/Products.styled";
+import { ButtonUpdate } from "../../styles/Button.styled";
+import { useEffect } from "react";
+
 
 const EditUser = ({ user }) => {
   const [edit, setEdit] = useState([]);
@@ -12,10 +13,15 @@ const EditUser = ({ user }) => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [role, setRole] = useState(user.role);
+  const inputRef = useRef(null);
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handleRole = (e) => setRole(e.target.value);
+
+  useEffect(()=>{
+    inputRef.current.focus();
+  }, [])
 
   async function handleUpdate(user) {
     pathUsers({ id: id, name: name, email: email, role: role })
@@ -31,29 +37,26 @@ const EditUser = ({ user }) => {
   }
 
   return (
-    <MainForm>
-      <h2>Editar Usuario</h2>
-      <td>
-          <input
+    <MainEdit>
+    <ContainerEdit>  
+          <Input
             text="Nome"
             type="text"
             value={name}
             name="name"
             onChange={handleName}
+            ref={inputRef}
           />
-        </td>
-        <td>
-          <input
+      
+          <Input
             text="Nome"
             type="text"
             value={email}
             name="name"
             onChange={handleEmail}
           />
-        </td>
-        <td>
+      
           <Select
-            text="Tipo"
             name={role}
             value={role}
             placeholder="Selecione o tipo"
@@ -62,39 +65,16 @@ const EditUser = ({ user }) => {
             value3="Administração"
             onChange={handleRole}
           />
-        </td>
-      <button onClick={() => handleUpdate({ id: user["id"] })}>
-        ok
-      </button>
+           </ContainerEdit>
+              <SectionButton>
 
-      {/* <form onSubmit={editUser}>
-        <input 
-          text={user}
-          type="text" 
-          name="name" 
-          value={nameUser} 
-          onChange={handleName} 
-        >user</input>
-        <input
-          type="email"
-          value={emailUser}
-          onChange={handleEmail}
-        />
-        <input
-          type="password"
-          name="password"
-          value={passwordUser}
-          onChange={handlePassword}
-        />
-        <select value={roleUser} placeholder="Cargo" onChange={handleRole}>
-          <option hidden>Setor</option>
-          <option value="atendente">Atendimento</option>
-          <option value="cozinha">Cozinha</option>
-          <option value="administração">Administração</option>
-        </select>
-        <button type="submit">Salvar</button> 
-      </form>*/}
-    </MainForm>
+            <ButtonUpdate onClick={() => handleUpdate({ id: user["id"] })}>
+        Salvar
+      </ButtonUpdate>
+      </SectionButton>
+
+     
+    </MainEdit>
   );
 };
 

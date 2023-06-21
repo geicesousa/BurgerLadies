@@ -5,20 +5,23 @@ export const ContainerHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: auto;
+  gap: 5rem;
+  padding: 2rem;
+
+  @media (min-width: 300px) and (max-width: 772px) {
+    justify-content: center;
+  }
 
   img {
     width: 250px;
-
-    @media (min-width: 700px) {
-      width: 200px;
-    }
   }
 `;
 
 export const IconesMenu = styled.section`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   gap: 4rem;
 `;

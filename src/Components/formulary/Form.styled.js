@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const MainForm = styled.main`
-  width: 100vw;  
+  width: 100vw;
 `;
 
 export const Form = styled.form`
-  background-color: #963c08;  
+  background-color: #963c08;
   width: 80vw;
   height: auto;
   margin: auto;
@@ -23,14 +23,14 @@ export const Form = styled.form`
   }
 
   h2 {
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
     color: #e1cf7d;
     text-align: center;
   }
 
   select {
     width: 70vw;
-    padding: .6rem;
+    padding: 0.6rem;
     border-radius: 10px;
     background-color: #e1cf7d;
     border: none;
@@ -50,7 +50,7 @@ export const Form = styled.form`
 
     @media (min-width: 1200px) {
       font-size: 1rem;
-    }  
+    }
 
     span {
       margin-left: 0.4rem;
@@ -72,6 +72,4 @@ export const Select = styled.select`
     padding: 0.2rem;
     font-size: 1rem;
   }
-`
-
-
+`;

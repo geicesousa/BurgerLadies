@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 
-const API = "http://localhost:8080";
-
+const API = "https://burger-queen-api-mock-tau.vercel.app";
 //-------------POST-------------------------
 
 //REGISTRO DE COLABORADOR
@@ -154,7 +153,9 @@ export async function patchOrders(item){
 }
 
 export async function patchProducts(product){
+  console.log((`${API}/products/${product.id}`))
   const response = await fetch (`${API}/products/${product.id}`, {
+  
     method: "PATCH",
     headers: {
     "content-type": "application/json",

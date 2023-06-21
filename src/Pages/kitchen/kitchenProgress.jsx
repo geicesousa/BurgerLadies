@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Check } from "phosphor-react";
-import { differenceInMinutes } from 'date-fns'
-import { UsersContainer } from "../users/ListUsers.styled";
-import { CardOrder} from "./KitchenProgress.styled";
-import { ButtonContainer, ButtonStatus, ProgressLink } from "../../styles/Button.styled";
+import { differenceInMinutes } from "date-fns";
+import {
+  ButtonContainer,
+  ButtonStatus,
+  ProgressLink,
+} from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
+import { ContainerCards } from "../../styles/Global.styles";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -37,51 +40,52 @@ const KitchenProgress = () => {
     : orders;
 
   const changeStatus = async (item) => {
-
-    if(item.status === "execução"){
-      item.datapronto = new Date()   
+    if (item.status === "execução") {
+      item.datapronto = new Date();
     }
-    
     switch (item.status) {
       case "aberto":
         item.status = "execução";
         break;
       case "execução":
         item.status = "pronto";
-
         break;
       case "pronto":
         item.status = "entregue";
         break;
     }
-    patchOrders({ id: item["id"], status: item["status"], datapronto: item["datapronto"]})
-    .then((data) => {
-      return setStatus(data);
+    patchOrders({
+      id: item["id"],
+      status: item["status"],
+      datapronto: item["datapronto"],
     })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((data) => {
+        return setStatus(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     console.log(item.status);
   };
 
   async function deleteOrders(order) {
     deleteApi(`orders/${order.id}`)
-    .then((response) => {
-      if (response.ok) {
-        toast.success("Pedido excluído com sucesso!");
-      }
-    })
-    .then((data) => {
-      setOrders ((prevState) => prevState.filter(item => item.id !== order.id));      
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => {
+        if (response.ok) {
+          toast.success("Pedido excluído com sucesso!");
+        }
+      })
+      .then((data) => {
+        setOrders((prevState) =>
+          prevState.filter((item) => item.id !== order.id)
+        );
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     console.log(orders);
   }
-
-
 
   return (
     <>
@@ -99,44 +103,75 @@ const KitchenProgress = () => {
           Pedidos entregues
         </ProgressLink>
       </ButtonContainer>
-      <UsersContainer>
+      <ContainerCards>
         {showStatus &&
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
               <>
-                <p><strong>Data:</strong> {item.realizado}</p> 
-                <p><strong>Cliente:</strong> {item.name}</p>
-                <p><strong>Mesa:</strong> {item.table}</p>
-                <p><strong>Status:</strong> {item.status}</p>
-                <p><strong>Preço:</strong> {item.total},00</p>
                 <p>
-                <strong> Detalhes do pedido:</strong>
+                  <strong>Data:</strong> {item.realizado}
+                </p>
+                <p>
+                  <strong>Cliente:</strong> {item.name}
+                </p>
+                <p>
+                  <strong>Mesa:</strong> {item.table}
+                </p>
+                <p>
+                  <strong>Status:</strong> {item.status}
+                </p>
+                <p>
+                  <strong>Preço:</strong> {item.total},00
+                </p>
+                <p>
+                  <strong> Detalhes do pedido:</strong>
                   {item.pedidos.map((item) => (
                     <span key={item.id}>
-                      <span><br/><Check size={15} color="#03300b" weight="bold" /> {item.name}</span>
+                      <span>
+                        <br />
+                        <Check size={15} color="#03300b" weight="bold" />
+                        {item.name}
+                      </span>
                     </span>
                   ))}
                 </p>
               </>
-            {
-                item.status === "pronto" ? <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos </strong></p> : null
-              }
-              {
-                item.status === "entregue" ? <p key={item.id}><strong>Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos ás {new Date(item.datapronto).toLocaleTimeString()}</strong></p> : null
-              }
+              {item.status === "pronto" ? (
+                <p key={item.id}>
+                  <strong>
+                    Este pedido ficou pronto em
+                    {differenceInMinutes(
+                      new Date(item.datapronto),
+                      new Date(item.data)
+                    )}
+                    minutos
+                  </strong>
+                </p>
+              ) : null}
+              {item.status === "entregue" ? (
+                <p key={item.id}>
+                  <strong>
+                    Este pedido ficou pronto em
+                    {differenceInMinutes(
+                      new Date(item.datapronto),
+                      new Date(item.data)
+                    )}
+                    minutos às {new Date(item.datapronto).toLocaleTimeString()}
+                  </strong>
+                </p>
+              ) : null}
               <>
                 <ButtonStatus onClick={() => changeStatus(item)}>
                   Alterar status do pedido
                 </ButtonStatus>
-              
+
                 <ButtonStatus onClick={() => deleteOrders(item)}>
-                Deletar pedido
+                  Deletar pedido
                 </ButtonStatus>
               </>
             </CardOrder>
           ))}
-       
-      </UsersContainer>
+      </ContainerCards>
     </>
   );
 };

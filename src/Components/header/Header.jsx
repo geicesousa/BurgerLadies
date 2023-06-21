@@ -4,9 +4,9 @@ import { ContainerHeader, IconesMenu } from "./Header.styled";
 import { Return, SignOutDiv } from "../../Pages/ordered/MyCart.styled";
 import { logout } from "../../Pages/login/Login";
 import burguerLogo from "../../assets/ladies.png";
+import { ButtonVoltar, Buttonsair } from "../../styles/Button.styled";
 
 function Header() {
-  
   const navigate = useNavigate();
 
   return (
@@ -15,24 +15,18 @@ function Header() {
         <img src={burguerLogo} />
       </>
       <IconesMenu>
-
         <Return>
-          <button onClick={() => navigate(-1)}>
-            <ArrowFatLineLeft />
-          </button>
-          <span>Voltar</span>
+          <ButtonVoltar onClick={() => navigate(-1)}>Voltar</ButtonVoltar>
         </Return>
 
-        <Link
-          onClick={() => {logout();
+        <Buttonsair
+          onClick={() => {
+            logout();
             navigate("/");
           }}
         >
-          <SignOutDiv>
-            <SignOut />
-            <span>Sair</span>
-          </SignOutDiv>
-        </Link>
+          Sair
+        </Buttonsair>
       </IconesMenu>
     </ContainerHeader>
   );

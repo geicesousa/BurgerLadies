@@ -1,9 +1,5 @@
 import {useState, useRef } from "react";
-// import { toast } from "react-toastify";
-// import { Form, MainForm } from "../styles/Form.styled";
-// import Formulary from "./Formulary";
 import Select from "../../Components/select/Select";
-// import { ButtonForm } from "../styles/Button.styled";
 import { patchProducts } from "../../services/api";
 import { ButtonUpdate } from "../../styles/Button.styled";
 import {
@@ -11,11 +7,10 @@ import {
   Input,
   InputDescription,
   InputNumber,
+  MainEdit,
+  SectionButton,
 } from "./Products.styled";
-import { Table } from "react-bootstrap";
 import { useEffect } from "react";
-
-// import { Return } from "../styles/MyCart.styled";
 
 const EditProduct = ({ product }) => {
   // const [edit, setEdit] = useState([]);
@@ -62,22 +57,8 @@ const EditProduct = ({ product }) => {
   }
 
   return (
-    <ContainerEdit>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Tipo</th>
-            <th>Categoria</th>
-            <th>Salvar</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>
+    <MainEdit>
+    <ContainerEdit>  
               <Input
                 text="Nome"
                 type="text"
@@ -86,9 +67,7 @@ const EditProduct = ({ product }) => {
                 onChange={handleName}
                 ref={inputRef}
               />
-            </td>         
 
-            <td>
               <InputDescription
                 text="Descrição"
                 type="text"
@@ -96,9 +75,7 @@ const EditProduct = ({ product }) => {
                 name="descrição"
                 onChange={handleDescription}
               />
-            </td>
-
-            <td>
+        
               <InputNumber
                 text="Preço"
                 type="text"
@@ -106,9 +83,7 @@ const EditProduct = ({ product }) => {
                 name="price"
                 onChange={handlePrice}
               />
-            </td>
-
-            <td>
+          
               <Select
                 name={type}
                 value={type}
@@ -116,9 +91,7 @@ const EditProduct = ({ product }) => {
                 value2="Menu Principal"
                 onChange={handleType}
               />
-            </td>
-
-            <td>
+          
               <Select
                 value={category}
                 value1="Lanches"
@@ -128,16 +101,14 @@ const EditProduct = ({ product }) => {
                 name={category}
                 onChange={handleCategory}
               />
-            </td>     
-            <td>
+          </ContainerEdit>
+              <SectionButton>
               <ButtonUpdate onClick={() => handleUpdate({ id: product["id"] })}>
                 Salvar
               </ButtonUpdate>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
-    </ContainerEdit>
+              </SectionButton>
+      </MainEdit>
+    
   );
 };
 

@@ -1,18 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import Register from "./Pages/adm/Register";
-import Login from "./Pages/login/Login";
-import Attendance from "./Pages/attendance/Attendance";
 import NotFound from "./Pages/notfound/NotFound";
+import Login from "./Pages/login/Login";
+import PrivateRoute from "./services/PrivateRoute";
+import Register from "./Pages/adm/Register";
+import Attendance from "./Pages/attendance/Attendance";
 import Adm from "./Pages/adm/Adm";
+import OrderedProgress from "./Pages/ordered/OrderedProgress";
 import Kitchen from "./Pages/kitchen/Kitchen";
 import ListUsers from "./Pages/users/ListUsers";
-import OrderedProgress from "./Pages/ordered/OrderedProgress";
 import Cart from "./Pages/ordered/Cart";
-import PrivateRoute from "./privateRoute";
 import AdcProducts from "./Pages/products/AdcProducts";
-import ListProducts from "./Pages/products/listProducts";
+import ListProducts from "./Pages/products/ListProducts";
 
 const Router = () => {
     return (
