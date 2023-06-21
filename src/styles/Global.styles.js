@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style:none;
   }
 `;
-export const Cards = styled.li`
+export const Cards = styled.p`
   width: 15rem;
   height: auto;
   border-radius: 15px;
@@ -32,7 +32,7 @@ export const Cards = styled.li`
   align-items: center;
 `;
 
-export const ContainerCards = styled.ul`
+export const ContainerCards = styled.section`
   display: flex;
   flex-wrap: wrap;
   list-style: none;

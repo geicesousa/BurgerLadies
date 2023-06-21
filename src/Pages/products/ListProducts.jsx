@@ -86,10 +86,10 @@ const handleUpdateProduct = (id, updatedProduct) => {
               {product.description} <br />
               <strong>Tipo: </strong>
               {product.type} <br />
-              <strong>Preço: </strong>
-              {product.price} <br />
               <strong>categoria: </strong>
               {product.category} <br />
+              <strong>Preço: </strong>
+              {product.price} <br />             
               <SectionCards>
                   <ButtonDelete onClick={() => deleteProducts(product)}>
                   Excluir

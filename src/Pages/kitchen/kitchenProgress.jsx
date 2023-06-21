@@ -9,6 +9,7 @@ import {
 } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
 import { ContainerCards } from "../../styles/Global.styles";
+import { CardOrder } from "./KitchenProgress.styled";
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -110,33 +111,26 @@ const KitchenProgress = () => {
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
               <>
-                <p>
-                  <strong>Data:</strong> {item.realizado}
-                </p>
-                <p>
-                  <strong>Cliente:</strong> {item.name}
-                </p>
-                <p>
-                  <strong>Mesa:</strong> {item.table}
-                </p>
-                <p>
-                  <strong>Status:</strong> {item.status}
-                </p>
-                <p>
-                  <strong>Preço:</strong> {item.total},00
-                </p>
-                <p>
+              <strong>Data: </strong>
+               {item.realizado} <br />
+              <strong>Cliente: </strong>
+              {item.name} <br />
+              <strong>Mesa: </strong>
+              {item.table} <br />
+              <strong>Status: </strong>
+              {item.status} <br />
+              <strong>Preço: </strong>
+              {item.total},00 <br />
                   <strong> Detalhes do pedido:</strong>
                   {item.pedidos.map((item) => (
-                    <span key={item.id}>
-                      <span>
-                        <br />
-                        <Check size={15} color="#03300b" weight="bold" />
+                    <p key={item.id}>
+                      <p>
+                         <Check size={15} color="#03300b" weight="bold" />
                         {item.name}
-                      </span>
-                    </span>
+                      </p>
+                    </p>
                   ))}
-                </p>
+                
               </>
               {item.status === "pronto" ? (
                 <p key={item.id}>
