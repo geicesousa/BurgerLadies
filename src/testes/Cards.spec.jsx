@@ -1,5 +1,5 @@
 import	{	render	}	from	'@testing-library/react';
-import Cards from '../Components/Cards';
+import Cards from '../Components/cards/Cards';
 
 describe('<Cards/>', ()=>{
   it('renders snack cards correctly', ()=>{

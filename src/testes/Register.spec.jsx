@@ -1,75 +1,74 @@
-import Register from '../Pages/Register.jsx';
+import Register from "../../src/Pages/adm/Register";
 import { render, screen, waitFor } from "@testing-library/react";
-import { createUser } from '../services/api.jsx';
+import { createUser } from "../services/api.jsx";
 import { toast } from "react-toastify";
-import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
+import { error } from "console";
 
 // afterEach(cleanup)
-jest.mock('../services/api.jsx');
-jest.mock('react-router-dom');
-jest.mock('react-toastify');
-const user =  {
-	"email": "geice@gmail.com",
-	"password": "$2a$10$AOgwMSHDJlfckHNYe4B4/O4WItZzocsogjkEHwbJKZnpBlLKUo0kG",
-	"name": " Geice Souza",
-	"role": "atendente",
-	"id": 12
+jest.mock("../services/api.jsx");
+jest.mock('react-router-dom', ()=>{
+	return { 
+    useNavigate: jest.fn()
+	}
+});
+jest.mock("react-toastify", () => {
+  return { toast: { success: jest.fn(), 
+		error: jest.fn((error)=>{
+			console.log(error)
+		}) } };
+});
+const user = {
+  email: "geice@gmail.com",
+  password: "$2a$10$AOgwMSHDJlfckHNYe4B4/O4WItZzocsogjkEHwbJKZnpBlLKUo0kG",
+  name: " Geice Souza",
+  role: "atendente",
+  id: 12,
 };
 
-createUser.mockResolvedValue({"ok":true}); // resposta com respnse.ook
-createUser.mockResolvedValue({});
+describe("Register", () => {
+  it("should render a form", () => {
+    render(<Register />);
 
-describe('Register', () => {
-	it('should render a form', () => {
-		render(<Register />);
+    const colaborador = screen.getByLabelText("Nome do colaborador");
+    const email = screen.getByLabelText("E-mail do colaborador");
+    const senha = screen.getByLabelText("Senha");
+    const select = screen.getByText("Selecione o cargo");
+    const btn = screen.getByText("Efetuar cadastro");
 
-		const colaborador = screen.getByLabelText('Nome do colaborador');
-		const btn = screen.getByText('Efetuar cadastro');
+    expect(colaborador).toBeInTheDocument();
+    expect(email).toBeInTheDocument();
+    expect(senha).toBeInTheDocument();
+    expect(select).toBeInTheDocument();
+    expect(btn).toBeInTheDocument();
+    expect(btn).toBeEnabled();
+  });
 
-		expect(colaborador).toBeInTheDocument();
-		expect(btn).toBeInTheDocument();
-	});
+  it("should register employee", async () => {
+    render(<Register />);
 
-	it('should register employee', async()=>{
-		render(<Register />);
+    createUser.mockResolvedValue({ ok: true }); // resposta com response.ook
 
-		createUser.mockResolvedValue({"ok": true}); // resposta com respnse.ook
-		
-		const colaborador = screen.getByLabelText('Nome do colaborador');
-		const email = screen.getByLabelText('E-mail do colaborador');
-		const senha = screen.getByText('Senha');
-		const select = screen.getByText('Selecione o cargo');
-		const cadastra = screen.getByText('Efetuar cadastro');
+    const colaborador = screen.getByLabelText("Nome do colaborador");
+    const email = screen.getByLabelText("E-mail do colaborador");
+    const senha = screen.getByLabelText("Senha");
+    const select = screen.getByRole("combobox");
+    const cadastra = screen.getByText("Efetuar cadastro");
 
-		userEvent.type(colaborador, 'Geice Sousa');
-		userEvent.type(email, 'geice@gmail.com');
-		userEvent.type(senha, '123456');
-		userEvent.selectOptions(select, screen.getByText('Atendente'));
-		// userEvent.selectOptions(select, screen.getByRole("listbox", {value: 'Cozinha'}));
-		// fireEvent.change(select, { target: { value: "Cozinha" } })
-		userEvent.click(cadastra);
-		await waitFor(()=>
-			
-			// expect(toast).toBeCalledTimes(1),
-			expect(screen.getByText('Cadastro realizado com sucesso!')).toBeInTheDocument()
-		)
-		expect(createUser).toBeCalledTimes(1)
-		expect(createUser).toBeCalledWith(colaborador, email, senha, select)	
-	});
-	//substituir fire por userevent
+    userEvent.type(colaborador, "Geice Sousa");
+    userEvent.type(email, "geice@gmail.com");
+    userEvent.type(senha, "123456");
+    userEvent.selectOptions(select, screen.getByText("Atendente"));
+    // userEvent.click(cadastra);
+		cadastra.click()
 
-	it('should show a button', ()=>{
-
-		const { getByText, getByLabelText } = render(<Register />);
-
-		expect(getByText('Efetuar cadastro')).toBeTruthy();
-		expect(getByLabelText('Nome do colaborador')).toBeInTheDocument()
-		expect(getByLabelText('Nome do colaborador')).toBeTruthy()
-	});
-
-	it('teste renderização', ()=>{
-		render(<Register />);
-		screen.getByText('Nome do colaborador')
-		
-	});
+    await waitFor(() => {
+			expect(toast.success).toHaveBeenCalledTimes(1);
+		});
+    await waitFor(() => {
+			expect(screen.getByText('Cadastro realizado com sucesso!')).toBeInTheDocument();
+		});
+    expect(createUser).toHaveBeenCalledTimes(1);
+    expect(createUser).toHaveBeenCalledWith(colaborador, email, senha, select);
+  });
 });

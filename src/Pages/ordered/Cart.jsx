@@ -16,8 +16,8 @@ import { postOrder } from "../../services/api";
 
 const Cart = ({ cart, setCart, handleChange }) => {
   const [price, setPrice] = useState(0);
-  const [clientName, setClientName] = useState(" ");
-  const [tableNumber, setTableNumber] = useState(" ");
+  const [clientName, setClientName] = useState("");
+  const [tableNumber, setTableNumber] = useState("");
   const [status, setStatus] = useState("aberto");
   const navigate = useNavigate();
 
@@ -65,7 +65,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
     <Main>
       <FormClient>
         <label>
-          <span>Nome do cliente: </span>
+          <span>Nome do cliente:</span>
           <input
             type="text"
             value={clientName}
@@ -75,7 +75,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
           />
         </label>
         <label>
-          <span>Nº da mesa: </span>
+          <span>Nº da mesa:</span>
           <select
             value={tableNumber}
             placeholder="Número da mesa"
@@ -112,7 +112,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
           Finalizar Pedido
         </FinalizeOrder>
         <Total>
-          <span>Total</span>
+          <span>Total:</span>
           <span> R${price},00</span>
         </Total>
       </ContainerFooterOrder>

@@ -1,5 +1,5 @@
 import Header from "../../Components/header/Header";
-import KitchenProgress from "./kitchenProgress";
+import KitchenProgress from "./KitchenProgress";
 
 const Kitchen = () => {
   return (

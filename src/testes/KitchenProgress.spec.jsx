@@ -1,7 +1,9 @@
+import KitchenProgress from './Pages/kitchen/KitchenProgress';
 import	{	render, fireEvent, screen	}	from	'@testing-library/react';
-import KitchenProgress from '../Components/KitchenProgress';
-import { getApi, deleteApi } from '../services/api';
+import userEvent from '@testing-library/user-event';
+import { getApi, deleteApi } from '../../src/services/api';
 
+jest.mock('react-router-dom');
 jest.mock('../services/api');
 const order = [
 {
@@ -68,26 +70,23 @@ const order = [
 getApi.mockResolvedValue(...order)
 deleteApi.mockResolvedValue(...order)
 
-
 describe('kitchenProgress', ()=>{
   // falta testes: getdelete e renderização dos cards na tela
   describe('buttons', ()=>{
-
     it('should show component and buttons', ()=>{
       render(<KitchenProgress />)
 
-      const btnAbertos = screen.getByText('Pedidos em execução');
+      const btnAbertos = screen.getByText('Pedidos abertos');
+      const btnExecucao = screen.getByText('Pedidos em execução');
       const btnProntos = screen.getByText('Pedidos prontos');
       const btnEntregues = screen.getByText('Pedidos entregues');
 
       expect(btnAbertos).toBeEnabled();
+      expect(btnExecucao).toBeEnabled();
       expect(btnProntos).toBeEnabled();
       expect(btnEntregues).toBeEnabled();
       expect(getApi).toHaveBeenCalledTimes(1);
       expect(getApi).toHaveBeenCalledWith('orders/');
-      // expect(deleteApi).toHaveBeenCalledTimes(1);
-      // expect(deleteApi).toBeCalledWith(expect.any(String));
-      // expect(deleteApi).toBeCalledWith(`orders/${order.id}`);
     });
 
     it('should respond to click', () => {
@@ -96,7 +95,20 @@ describe('kitchenProgress', ()=>{
       fireEvent(screen.getByText('Pedidos em execução'), new MouseEvent('click'));
       fireEvent(screen.getByText('Pedidos prontos'), new MouseEvent('click'));
       fireEvent( screen.getByText('Pedidos entregues'), new MouseEvent('click'));
+      // substituir por userEvent ou fireevent.click(elemento)
     });	
+
+    it('cards são renderizados na tela após o click nos botões', ()=>{
+      render(<KitchenProgress />)
+
+
+
+
+
+      // expect(deleteApi).toHaveBeenCalledTimes(1);
+      // expect(deleteApi).toHaveBeenCalledWith(expect.any(String));
+      // expect(deleteApi).toHaveBeenCalledWith(`orders/${order.id}`);
+    })
   });
 });
 

@@ -13,7 +13,7 @@ import {
 import { useEffect } from "react";
 
 const EditProduct = ({ product }) => {
-  const [edit, setEdit] = useState([]);
+  // const [edit, setEdit] = useState([]);
   const [id, setId] = useState(product.id);
   const [name, setName] = useState(product.name);
   const [img, setImg] = useState(product.img);
@@ -67,7 +67,6 @@ const EditProduct = ({ product }) => {
                 onChange={handleName}
                 ref={inputRef}
               />
-           
 
               <InputDescription
                 text="Descrição"
@@ -76,7 +75,7 @@ const EditProduct = ({ product }) => {
                 name="descrição"
                 onChange={handleDescription}
               />
-         
+        
               <InputNumber
                 text="Preço"
                 type="text"
@@ -84,7 +83,7 @@ const EditProduct = ({ product }) => {
                 name="price"
                 onChange={handlePrice}
               />
-           
+          
               <Select
                 name={type}
                 value={type}
@@ -92,7 +91,7 @@ const EditProduct = ({ product }) => {
                 value2="Menu Principal"
                 onChange={handleType}
               />
-           
+          
               <Select
                 value={category}
                 value1="Lanches"

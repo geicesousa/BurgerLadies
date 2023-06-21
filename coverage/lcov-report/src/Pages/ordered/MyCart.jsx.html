@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/8</span>
+                <span class='fraction'>1/10</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">12.5% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/8</span>
+                <span class='fraction'>1/10</span>
             </div>
         
             
@@ -106,7 +106,14 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -127,6 +134,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -134,7 +143,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,6 +168,7 @@ import { Return, SizeCart } from "./MyCart.styled";
 import { ContainerCart } from "./MyCart.styled";
 import burguerLogo from "../../assets/ladies.png";
 import { logout } from "../../Pages/login/Login";
+import { ButtonVoltar, Buttonsair } from "../../styles/Button.styled";
 &nbsp;
 const MyCart = <span class="fstat-no" title="function not covered" >({</span> size, setShow }) =&gt; {
   const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
@@ -163,24 +176,29 @@ const MyCart = <span class="fstat-no" title="function not covered" >({</span> si
 <span class="cstat-no" title="statement not covered" >    logout();</span>
 <span class="cstat-no" title="statement not covered" >    navigate("/");</span>
   }
-&nbsp;
+// header do orderedProgress
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
       &lt;ContainerCart&gt;
         &lt;img src={burguerLogo} width={"270px"} /&gt;
+&nbsp;
         &lt;Return&gt;
-          &lt;ArrowFatLineLeft
-            size={32}
-            weight="bold"
-            color={"black"}
-            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(true)}</span>
-          /&gt;
-          &lt;span&gt;Voltar para Menu&lt;/span&gt;
+          &lt;ButtonVoltar onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(true)}</span>&gt;Menu
+        &lt;/ButtonVoltar&gt;
         &lt;/Return&gt;
-        &lt;Link onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >sair()}</span>&gt;
-          &lt;SignOut /&gt;
-          &lt;span&gt;Sair&lt;/span&gt;
-        &lt;/Link&gt;
+&nbsp;
+        &lt;Return&gt;
+        &lt;ButtonVoltar onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate(-1)}</span>&gt;Voltar&lt;/ButtonVoltar&gt;
+        &lt;/Return&gt;
+&nbsp;
+        &lt;Buttonsair
+          onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >            logout();</span>
+<span class="cstat-no" title="statement not covered" >            navigate("/");</span>
+          }}
+        &gt;
+          Sair
+        &lt;/Buttonsair&gt;
 &nbsp;
         &lt;Link onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >setShow(false)}</span>&gt;
           &lt;BsCartPlus size={40} weight="bold" color="black" /&gt;
@@ -199,7 +217,7 @@ export default MyCart;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-20T19:13:16.383Z
+                at 2023-06-21T04:41:47.301Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

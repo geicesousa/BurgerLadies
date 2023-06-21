@@ -168,24 +168,7 @@
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a>
-<a name='L107'></a><a href='#L107'>107</a>
-<a name='L108'></a><a href='#L108'>108</a>
-<a name='L109'></a><a href='#L109'>109</a>
-<a name='L110'></a><a href='#L110'>110</a>
-<a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a>
-<a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L106'></a><a href='#L106'>106</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,7 +198,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -246,7 +228,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -266,9 +247,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -283,16 +262,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -305,13 +275,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { Table } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { deleteApi, getApi } from "../../services/api";
-import { H3 } from "../../Pages/users/ListUsers.styled";
 import Header from "../../Components/header/Header";
-import { Main } from "./Products.styled";
 import EditProduct from "./EditProducts";
+import { Cards, ContainerCards, H3, SectionCards } from "../../styles/Global.styles";
 import { ButtonDelete, ButtonToEdit } from "../../styles/Button.styled";
 &nbsp;
 &nbsp;
@@ -333,7 +301,6 @@ const ListProducts = <span class="fstat-no" title="function not covered" >()</sp
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    getProducts();</span>
   }, []);
- 
 &nbsp;
   async function <span class="fstat-no" title="function not covered" >deleteProducts(</span>product) {
 <span class="cstat-no" title="statement not covered" >    deleteApi(`products/${product.id}`)</span>
@@ -355,21 +322,20 @@ const ListProducts = <span class="fstat-no" title="function not covered" >()</sp
 <span class="cstat-no" title="statement not covered" >    console.log(product);</span>
   }
 &nbsp;
-const handleUpdateProduct = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>d, updatedProduct) =&gt; {</span>
-  const updatedProducts = <span class="cstat-no" title="statement not covered" >products.map(<span class="fstat-no" title="function not covered" >pr</span>oduct =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if(product.id === id) {</span>
-<span class="cstat-no" title="statement not covered" >      return {...product, product: updatedProduct}</span>
-    }
-<span class="cstat-no" title="statement not covered" >    return product</span>
-  })
-<span class="cstat-no" title="statement not covered" >  setProducts(updatedProducts)</span>
-<span class="cstat-no" title="statement not covered" >  closeModal()</span>
-}
-&nbsp;
+  const handleUpdateProduct = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>d, updatedProduct) =&gt; {</span>
+    const updatedProducts = <span class="cstat-no" title="statement not covered" >products.map(<span class="fstat-no" title="function not covered" >pr</span>oduct =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if(product.id === id) {</span>
+<span class="cstat-no" title="statement not covered" >        return {...product, product: updatedProduct}</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return product</span>
+    })
+<span class="cstat-no" title="statement not covered" >    setProducts(updatedProducts);</span>
+<span class="cstat-no" title="statement not covered" >    closeModal();</span>
+  }
 &nbsp;
   const openModal = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>roduct) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    setEditingProduct(product)</span>
-<span class="cstat-no" title="statement not covered" >    setShowModal(true)</span>
+<span class="cstat-no" title="statement not covered" >    setEditingProduct(product);</span>
+<span class="cstat-no" title="statement not covered" >    setShowModal(true);</span>
   }
 &nbsp;
   const closeModal = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
@@ -379,45 +345,34 @@ const handleUpdateProduct = <span class="cstat-no" title="statement not covered"
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;&gt;
-      &lt;Header /&gt;
-      &lt;Main&gt;
-        &lt;H3&gt;Lista de itens do cardápio&lt;/H3&gt;
-       
+      &lt;Header /&gt;     
+        &lt;H3&gt;Lista de ítens do menu&lt;/H3&gt;       
         {showModal &amp;&amp; (
           &lt;EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/&gt;
         )}
-        &lt;Table striped bordered hover&gt;
-          &lt;thead&gt;
-            &lt;tr&gt;
-              &lt;th&gt;Nome&lt;/th&gt;
-              &lt;th&gt;Descrição&lt;/th&gt;
-              &lt;th&gt;Tipo&lt;/th&gt;
-              &lt;th&gt;Categoria&lt;/th&gt;
-              &lt;th&gt;Preço&lt;/th&gt;
-              &lt;th&gt;Deletar&lt;/th&gt;
-              &lt;th&gt;Editar&lt;/th&gt;
-            &lt;/tr&gt;
-          &lt;/thead&gt;
-          &lt;tbody&gt;
+       &lt;ContainerCards&gt;
             {products.map(<span class="fstat-no" title="function not covered" >(p</span>roduct) =&gt; (
-<span class="cstat-no" title="statement not covered" >              &lt;tr key={product.id}&gt;</span>
-                &lt;td&gt;{product.name} &lt;/td&gt;
-                &lt;td&gt;{product.description}&lt;/td&gt;
-                &lt;td&gt;{product.price},00&lt;/td&gt;
-                &lt;td&gt;{product.type} &lt;/td&gt;
-                &lt;td&gt;{product.category}&lt;/td&gt;               
-                &lt;td&gt;
+<span class="cstat-no" title="statement not covered" >              &lt;Cards key={product.id}&gt;</span>
+              &lt;strong&gt;Nome: &lt;/strong&gt;
+              {product.name} &lt;br /&gt;
+              &lt;strong&gt;Descrição: &lt;/strong&gt;
+              {product.description} &lt;br /&gt;
+              &lt;strong&gt;Tipo: &lt;/strong&gt;
+              {product.type} &lt;br /&gt;
+              &lt;strong&gt;Preço: &lt;/strong&gt;
+              {product.price} &lt;br /&gt;
+              &lt;strong&gt;categoria: &lt;/strong&gt;
+              {product.category} &lt;br /&gt;
+              &lt;SectionCards&gt;
                   &lt;ButtonDelete onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >deleteProducts(product)}</span>&gt;
-                  Deletar
-                &lt;/ButtonDelete&gt;&lt;/td&gt;
-                &lt;td&gt;
+                  Excluir
+                &lt;/ButtonDelete&gt;                
                   &lt;ButtonToEdit onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt; <span class="cstat-no" title="statement not covered" >openModal(product)}</span>&gt; Editar&lt;/ButtonToEdit&gt;
-                &lt;/td&gt;
-              &lt;/tr&gt;
+              &lt;/ SectionCards&gt;
+              &lt;/Cards&gt;   
             ))}
-          &lt;/tbody&gt;
-        &lt;/Table&gt;
-      &lt;/Main&gt;
+       
+       &lt;/ContainerCards&gt;
     &lt;/&gt;
   );
 };
@@ -430,7 +385,7 @@ export default ListProducts;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-20T19:13:16.383Z
+                at 2023-06-21T04:41:47.301Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

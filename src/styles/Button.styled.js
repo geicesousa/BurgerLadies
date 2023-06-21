@@ -29,7 +29,7 @@ export const AttendanceLink = styled(Link)`
   cursor: pointer;
   font-size: .7rem;
   color: white;
- 
+
 
   :hover {
     background-color: #763c09;

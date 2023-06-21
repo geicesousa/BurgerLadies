@@ -1,5 +1,5 @@
-import Ordered from '../Pages/Ordered'
-import { render, screen, fireEvent } from "@testing-library/react";
+import Ordered from '../Pages/ordered/Ordered'
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import	userEvent	from	'@testing-library/user-event';
 import	{getApi}	from	'../services/api';
 
@@ -63,7 +63,6 @@ const cafe = [
 
 getApi.mockResolvedValue([...cafe, ...menu]) // o spread operator pega só conteudo
 const handleClick = jest.fn() // mock do onclick
-// falta teste: renderização de ars na tela
 
 describe('Ordered', () => {
 	describe('buttons', () => {
@@ -77,7 +76,6 @@ describe('Ordered', () => {
 			expect(button2).toBeEnabled();
 			expect(getApi).toHaveBeenCalledTimes(1);
 			expect(getApi).toBeCalledWith('products/');
-			// expect(getApi).toHaveBeenCalledWith('products/');
 		});
 		
 		it('should respond to click', () => {
@@ -88,8 +86,32 @@ describe('Ordered', () => {
 		});	
 	});
 
-	// describe('display cards', () => {
-	// });
-});
+	it('should render card on screen when clicking breakfast button', async () => {
+		render(<Ordered />);
 
-	// toHaveBeenCalledWith(expect.anything())
+		const breakfast = screen.getByText('Café da manhã');
+
+		userEvent.click(breakfast);
+
+		await waitFor(()=>{
+			expect(screen.getByText('Cuscuz com ovo')).toBeInTheDocument()
+		});
+		await waitFor(()=>{
+			expect(screen.getByText('Tapioca Sertaneja')).toBeInTheDocument()
+		});
+	});
+	
+	it('should render the card on the screen when clicking on the main menu button', async () => {
+		render(<Ordered />);
+	
+		const menu = screen.getByText('Menu principal');
+	
+			userEvent.click(menu);
+		await waitFor(()=>{
+			expect(screen.getByText('X-tudo')).toBeInTheDocument()
+		});
+		await waitFor(()=>{
+			expect(screen.getByText('Hambúrguer Simples')).toBeInTheDocument()
+		});
+	});
+});

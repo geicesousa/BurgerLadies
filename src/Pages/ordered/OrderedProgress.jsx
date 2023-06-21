@@ -5,60 +5,59 @@ import Cart from "./Cart";
 import { WarningMsg } from "./Ordered.styled";
 import MyCart from "./MyCart";
 
-const TesteOrdered = () => {
+const OrderedProgress = () => {
   const [cart, setCart] = useState([]);
   const [show, setShow] = useState(true);
   const [warning, setWarning] = useState(false);
 
-  // função para dicionar itens ao carrinho
+  // função para adicionar itens ao carrinho
   const handleClick = (item) => {
-      let isPresent = false;
-      cart.forEach((product) => {
-        if (item.id === product.id) isPresent = true;
-      });
-      if (isPresent) {
-        setWarning(true);
-        setTimeout(() => {
-          setWarning(false);
-        }, 2000);
-        return;
-      } else {
-        toast.success("ìtem adicionado ao carrinho!");
-      }
+    let isPresent = false;
+    cart.forEach((product) => {
+      if (item.id === product.id) isPresent = true;
+    });
+    if (isPresent) {
+      setWarning(true);
+      setTimeout(() => {
+        setWarning(false);
+      }, 2000);
+      return;
+    } else {
+      toast.success("ìtem adicionado ao carrinho!");
+    }
+    setCart([...cart, item]);
+  };
 
-      setCart([...cart, item]);
-    };
+  const handleChange = (item, value) => {
+    let ind = -1;
+    cart.forEach((data, index) => {
+      if (data.id === item.id) ind = index;
+    });
 
-    const handleChange = (item, value) => {
-      let ind = -1;
-      cart.forEach((data, index) => {
-        if (data.id === item.id) ind = index;
-      });
+    cart[ind].amount += value;
 
-      cart[ind].amount += value;
+    if (cart[ind].amount === 0) cart[ind].amount = 1;
+    setCart([...cart]);
+  };
 
-      if (cart[ind].amount === 0) cart[ind].amount = 1;
-      setCart([...cart]);
-    };
+  return (
+  <>
+    <MyCart size={cart.length} setShow={setShow} />
 
-    return (
-      <>
-        <MyCart size={cart.length} setShow={setShow} />
+    {show ? (
+      <Ordered handleClick={handleClick} />
+    ) : (
+      <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
+    )}
 
-        {show ? (
-          <Ordered handleClick={handleClick} />
-        ) : (
-          <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
-        )}
-
-        {warning && (
-          <WarningMsg>
-            ⚠ Este ítem já foi adicionado ao carrinho, consulte carrinho para
-            aumentar a quantidade
-          </WarningMsg>
-        )}
-      </>
+    {warning && (
+      <WarningMsg>
+        ⚠ Este item já foi adicionado ao carrinho, consulte o carrinho para
+        aumentar a quantidade
+      </WarningMsg>
+    )}
+  </>
   );
 };
 
-export default TesteOrdered;
+export default OrderedProgress;

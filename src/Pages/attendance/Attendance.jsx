@@ -1,4 +1,4 @@
-import KitchenProgress from "../../Pages/kitchen/kitchenProgress";
+import KitchenProgress from "../kitchen/KitchenProgress";
 import Header from "../../Components/header/Header";
 import { AttendanceLink, ButtonContainer } from "../../styles/Button.styled";
 

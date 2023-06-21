@@ -19,12 +19,12 @@ const KitchenProgress = () => {
 
   const getOrders = async () => {
     getApi(`orders/`)
-      .then((data) => {
-        setOrders(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((data) => {
+      setOrders(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   useEffect(() => {
@@ -44,14 +44,12 @@ const KitchenProgress = () => {
     if (item.status === "execução") {
       item.datapronto = new Date();
     }
-
     switch (item.status) {
       case "aberto":
         item.status = "execução";
         break;
       case "execução":
         item.status = "pronto";
-
         break;
       case "pronto":
         item.status = "entregue";
@@ -152,7 +150,7 @@ const KitchenProgress = () => {
                       new Date(item.datapronto),
                       new Date(item.data)
                     )}
-                    minutos ás {new Date(item.datapronto).toLocaleTimeString()}
+                    minutos às {new Date(item.datapronto).toLocaleTimeString()}
                   </strong>
                 </p>
               ) : null}

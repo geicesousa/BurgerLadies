@@ -13,14 +13,15 @@ const MyCart = ({ size, setShow }) => {
     logout();
     navigate("/");
   }
-
+// header do orderedProgress
   return (
     <>
       <ContainerCart>
         <img src={burguerLogo} width={"270px"} />
+
         <Return>
           <ButtonVoltar onClick={() => setShow(true)}>Menu
-         </ButtonVoltar>
+        </ButtonVoltar>
         </Return>
 
         <Return>
