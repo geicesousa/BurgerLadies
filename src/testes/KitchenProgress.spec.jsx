@@ -1,6 +1,6 @@
+import KitchenProgress from './Pages/kitchen/KitchenProgress';
 import	{	render, fireEvent, screen	}	from	'@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import KitchenProgress from '../../src/Pages/kitchen/KitchenProgress';
 import { getApi, deleteApi } from '../../src/services/api';
 
 jest.mock('react-router-dom');
@@ -73,7 +73,6 @@ deleteApi.mockResolvedValue(...order)
 describe('kitchenProgress', ()=>{
   // falta testes: getdelete e renderização dos cards na tela
   describe('buttons', ()=>{
-
     it('should show component and buttons', ()=>{
       render(<KitchenProgress />)
 
