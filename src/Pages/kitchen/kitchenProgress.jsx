@@ -107,50 +107,32 @@ const KitchenProgress = () => {
       <ContainerCards>
         {showStatus &&
           statusFiltered.map((item) => (
-            <CardOrder key={item.id}>
-              <>
-              <strong>Data: </strong>
-               {item.realizado} <br />
-              <strong>Cliente: </strong>
-              {item.name} <br />
-              <strong>Mesa: </strong>
-              {item.table} <br />
-              <strong>Status: </strong>
-              {item.status} <br />
-              <strong>Preço: </strong>
-              {item.total},00 <br />
-                  <strong> Detalhes do pedido:</strong>
-                  {item.pedidos.map((item) => (
-                    <p key={item.id}>
-                      <p>
+            <CardOrder key={item.id}>                  
+              <li><strong>Data: </strong> {item.realizado}</li> 
+              <li><strong>Cliente: </strong> {item.name}</li> 
+              <li><strong>Mesa: </strong> {item.table} </li>
+              <li><strong>Status: </strong> {item.status} </li>
+              <li><strong>Preço: </strong> {item.total},00 </li>
+              <li><strong> Detalhes do pedido:</strong>{item.pedidos.map((item) => (
+                    <li key={item.id}>
+                      <li>
                          <Check size={15} color="#03300b" weight="bold" />
-                        {item.name}
-                      </p>
-                    </p>
-                  ))}
-                
-              </>
+                        {item.name} 
+                      </li>
+                    </li>
+                  ))}  </li>       
+            <br />
               {item.status === "pronto" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em
-                    {differenceInMinutes(
-                      new Date(item.datapronto),
-                      new Date(item.data)
-                    )}
-                    minutos
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto),new Date(item.data))} minutos
                   </strong>
                 </p>
               ) : null}
               {item.status === "entregue" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em
-                    {differenceInMinutes(
-                      new Date(item.datapronto),
-                      new Date(item.data)
-                    )}
-                    minutos às {new Date(item.datapronto).toLocaleTimeString()}
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos às {new Date(item.datapronto).toLocaleTimeString()}
                   </strong>
                 </p>
               ) : null}

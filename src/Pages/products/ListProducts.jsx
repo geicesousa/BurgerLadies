@@ -78,16 +78,11 @@ const ListProducts = () => {
        <ContainerCards>
             {products.map((product) => (
               <Cards key={product.id}>
-              <strong>Nome: </strong>
-              {product.name} <br />
-              <strong>Descrição: </strong>
-              {product.description} <br />
-              <strong>Tipo: </strong>
-              {product.type} <br />
-              <strong>categoria: </strong>
-              {product.category} <br />
-              <strong>Preço: </strong>
-              {product.price} <br />             
+                <li> <strong>Nome: </strong>{product.name} </li>
+                <li> <strong>Descrição: </strong>{product.description} </li>
+                <li> <strong>Tipo: </strong>{product.type} </li>
+                <li> <strong>categoria: </strong>{product.category}  </li>
+                <li>  <strong>Preço: </strong>{product.price}   </li>                    
               <SectionCards>
                   <ButtonDelete onClick={() => deleteProducts(product)}>
                   Excluir

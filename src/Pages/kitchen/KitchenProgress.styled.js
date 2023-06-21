@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardOrder = styled.p`
+export const CardOrder = styled.ul`
   width: 15rem;
   height: auto;
   border-radius: 15px;
