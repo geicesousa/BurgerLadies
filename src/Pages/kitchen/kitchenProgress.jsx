@@ -9,6 +9,7 @@ import {
 } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
 import { ContainerCards } from "../../styles/Global.styles";
+import { CardOrder } from "./KitchenProgress.styled";
 
 
 const KitchenProgress = () => {
