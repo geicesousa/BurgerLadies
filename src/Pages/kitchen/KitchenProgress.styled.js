@@ -16,3 +16,11 @@ export const CardOrder = styled.ul`
   align-items: start;
   gap: 0.5rem;
 `;
+
+export const Itens = styled.div`
+display: flex;
+justify-content: space-between;
+gap: 3rem;
+
+
+`

@@ -82,7 +82,7 @@ const ListProducts = () => {
                 <li> <strong>Descrição: </strong>{product.description} </li>
                 <li> <strong>Tipo: </strong>{product.type} </li>
                 <li> <strong>categoria: </strong>{product.category}  </li>
-                <li>  <strong>Preço: </strong>{product.price}   </li>                    
+                <li>  <strong>Preço: </strong>{product.price},00   </li>                    
               <SectionCards>
                   <ButtonDelete onClick={() => deleteProducts(product)}>
                   Excluir

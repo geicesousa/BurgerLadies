@@ -17,7 +17,7 @@ import ListProducts from "./Pages/products/ListProducts";
 const Router = () => {
     return (
       <BrowserRouter>
-        <ToastContainer autoClose={500} />
+        <ToastContainer autoClose={1500} />
 
         <Routes>
           {/* Rotas publicas */}
