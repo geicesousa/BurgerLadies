@@ -20,7 +20,17 @@ export const GlobalStyle = createGlobalStyle`
     list-style:none;
   }
 `;
-export const Cards = styled.li`
+
+export const ContainerCards = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding-left: 0;
+`;
+
+export const Cards = styled.ul`
   width: 15rem;
   height: auto;
   border-radius: 15px;
@@ -30,16 +40,6 @@ export const Cards = styled.li`
   margin: 1rem;
   padding: 0.8rem;
   align-items: center;
-`;
-
-export const ContainerCards = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  padding-left: 0;
 `;
 
 export const SectionCards = styled.section`

@@ -23,17 +23,17 @@ const EditUser = ({ user }) => {
     inputRef.current.focus();
   }, [])
 
-  async function handleUpdate(user) {
+  async function handleUpdate() {
     pathUsers({ id: id, name: name, email: email, role: role })
-      .then((data) => {
-        toast.success("deu certo");
+      .then((data) => {       
         setEdit(data);
+        toast.success("Dados atualizados.");
         window.location.reload();
       })
       .catch((error) => {
         console.log(error);
       });
-    console.log(user);
+   
   }
 
   return (

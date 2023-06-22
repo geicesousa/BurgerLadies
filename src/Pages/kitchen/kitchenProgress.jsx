@@ -9,6 +9,8 @@ import {
 } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
 import { ContainerCards } from "../../styles/Global.styles";
+import { CardOrder, Itens } from "./KitchenProgress.styled";
+
 
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
@@ -106,57 +108,36 @@ const KitchenProgress = () => {
       <ContainerCards>
         {showStatus &&
           statusFiltered.map((item) => (
-            <CardOrder key={item.id}>
-              <>
-                <p>
-                  <strong>Data:</strong> {item.realizado}
-                </p>
-                <p>
-                  <strong>Cliente:</strong> {item.name}
-                </p>
-                <p>
-                  <strong>Mesa:</strong> {item.table}
-                </p>
-                <p>
-                  <strong>Status:</strong> {item.status}
-                </p>
-                <p>
-                  <strong>Preço:</strong> {item.total},00
-                </p>
-                <p>
-                  <strong> Detalhes do pedido:</strong>
-                  {item.pedidos.map((item) => (
-                    <span key={item.id}>
-                      <span>
-                        <br />
-                        <Check size={15} color="#03300b" weight="bold" />
-                        {item.name}
-                      </span>
-                    </span>
-                  ))}
-                </p>
-              </>
+            <CardOrder key={item.id}>                  
+              <li><strong>Data: </strong> {item.realizado}</li> 
+              <li><strong>Cliente: </strong> {item.name}</li> 
+              <li><strong>Mesa: </strong> {item.table} </li>
+              <li><strong>Status: </strong> {item.status} </li>
+              <li><strong>Preço: </strong> {item.total},00 </li>
+              <li>
+              <strong> Detalhes do pedido:</strong>{item.pedidos.map((item) => (
+                <>
+              <li key={item.id}> </li>    
+               <Itens>                      
+              <><li><Check size={15} color="#03300b" weight="bold" />{item.name}</li></>
+              <><li> <strong>Qtd:</strong>{item.amount}</li></>
+              </Itens> 
+              </>      
+                  ))}  
+              </li>
+                    
+            <br />
               {item.status === "pronto" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em
-                    {differenceInMinutes(
-                      new Date(item.datapronto),
-                      new Date(item.data)
-                    )}
-                    minutos
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto),new Date(item.data))} minutos
                   </strong>
                 </p>
               ) : null}
               {item.status === "entregue" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em
-                    {differenceInMinutes(
-                      new Date(item.datapronto),
-                      new Date(item.data)
-                    )}
-                    minutos às {new Date(item.datapronto).toLocaleTimeString()}
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos às {new Date(item.datapronto).toLocaleTimeString()}
                   </strong>
                 </p>
               ) : null}

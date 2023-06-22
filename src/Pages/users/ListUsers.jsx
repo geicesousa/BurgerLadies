@@ -79,12 +79,9 @@ const ListUsers = () => {
         {users.map((user) => (        
             <>
               <Cards key={user.id}>
-                <strong>Nome: </strong>
-                {user.name} <br />
-                <strong>Email: </strong>
-                {user.email} <br />
-                <strong>Setor: </strong>
-                {user.role} <br />
+                <li> <strong>Nome: </strong>{user.name} <br /></li>
+                <li> <strong>Email: </strong>{user.email} <br /></li>
+                <li> <strong>Setor: </strong>{user.role} <br /></li>                
                 <SectionCards>
                   <ButtonDelete onClick={() => deleteUsers(user)}>Excluir</ButtonDelete>
                   <ButtonToEdit onClick={()=> openModal(user)}> Editar</ButtonToEdit>

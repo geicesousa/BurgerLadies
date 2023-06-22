@@ -11,9 +11,10 @@ import {
   SectionButton,
 } from "./Products.styled";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const EditProduct = ({ product }) => {
-  // const [edit, setEdit] = useState([]);
+  const [edit, setEdit] = useState([]);
   const [id, setId] = useState(product.id);
   const [name, setName] = useState(product.name);
   const [img, setImg] = useState(product.img);
@@ -36,7 +37,7 @@ const EditProduct = ({ product }) => {
     inputRef.current.focus();
   }, [])
 
-  async function handleUpdate(product) {
+  async function handleUpdate() {
     patchProducts({
       id: id,
       name: name,
@@ -46,14 +47,15 @@ const EditProduct = ({ product }) => {
       category: category,
       amount: amount,
     })
-    .then((data) => {
-      setEdit(data);
-      window.location.reload();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    console.log(product);
+      .then((data) => {      
+        setEdit(data);
+        toast.success("Dados atualizados.");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  
   }
 
   return (
