@@ -1,4 +1,4 @@
-// import { userEvent } from "@testing-library/react";
+// import userEvent from "@testing-library/react";
 // import { render, screen, fireEvent } from '@testing-library/react';
 // import EditProduct from "../Pages/products/EditProducts";
 // import { patchProducts } from "../services/api";
@@ -28,5 +28,7 @@
 // 		expect(selectType).toBeInTheDocument();
 // 		expect(selectCategory).toBeInTheDocument();
 // 		expect(btn).toBeEnabled();
+
+//     userEvent.click(btn)
 //   });
 // });

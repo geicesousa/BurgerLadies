@@ -1,4 +1,4 @@
-import ListProducts from '../Pages/ListProducts.jsx';
+import ListProducts from '../Pages/products/ListProducts.jsx';
 import { render } from "@testing-library/react";
 
 describe('ListProducts', ()=>{

@@ -1,5 +1,5 @@
 import	{	render	}	from	'@testing-library/react';
-import Select from '../Components/Select';
+import Select from '../Components/select/Select';
 
 describe('<Select />', ()=>{
   it('renders a select correctly', ()=>{

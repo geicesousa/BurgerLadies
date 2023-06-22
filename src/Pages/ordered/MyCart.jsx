@@ -6,37 +6,23 @@ import { ContainerCart } from "./MyCart.styled";
 import burguerLogo from "../../assets/ladies.png";
 import { logout } from "../../Pages/login/Login";
 import { ButtonVoltar, Buttonsair } from "../../styles/Button.styled";
+import Header from "../../Components/header/Header";
 
 const MyCart = ({ size, setShow }) => {
-  const navigate = useNavigate();
-  function sair() {
-    logout();
-    navigate("/");
-  }
+  // const navigate = useNavigate();
+
 // header do orderedProgress
   return (
     <>
       <ContainerCart>
-        <img src={burguerLogo} width={"270px"} />
-
+        <Header />
+      
         <Return>
-          <ButtonVoltar onClick={() => setShow(true)}>Menu
-        </ButtonVoltar>
+          <ButtonVoltar onClick={() => setShow(true)}>
+            Menu
+          </ButtonVoltar>
         </Return>
-
-        <Return>
-        <ButtonVoltar onClick={() => navigate(-1)}>Voltar</ButtonVoltar>
-        </Return>
-
-        <Buttonsair
-          onClick={() => {
-            logout();
-            navigate("/");
-          }}
-        >
-          Sair
-        </Buttonsair>
-
+  
         <Link onClick={() => setShow(false)}>
           <BsCartPlus size={40} weight="bold" color="black" />
           <SizeCart>{size}</SizeCart>

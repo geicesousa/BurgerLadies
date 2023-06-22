@@ -1,4 +1,4 @@
-import ListUsers from '../Pages/ListUsers.jsx';
+import ListUsers from '../Pages/users/ListUsers.jsx';
 import { render } from "@testing-library/react";
 
 describe('ListUsers', ()=>{

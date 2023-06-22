@@ -55,7 +55,7 @@ export const AdmLink = styled(Link)`
   font-size: .7rem;
 
 `
-export const ProgressLink = styled(Link)`
+export const ProgressButton = styled.button`
   margin: auto;
   display: flex;
   width: 10rem;

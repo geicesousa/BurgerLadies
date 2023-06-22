@@ -106,7 +106,7 @@ describe('Ordered', () => {
 	
 		const menu = screen.getByText('Menu principal');
 	
-			userEvent.click(menu);
+		userEvent.click(menu);
 		await waitFor(()=>{
 			expect(screen.getByText('X-tudo')).toBeInTheDocument()
 		});

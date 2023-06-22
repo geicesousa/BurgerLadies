@@ -32,7 +32,7 @@ function AdcProducts() {
     createProducts(name, img, description, price, type, category, amount)
       .then((response) => {
         if (response.ok) {
-          toast.success("Cadastro realizado com sucesso!");
+          toast.success("Produto adicionado com sucesso!");
         }
         setName("");
         setDescription("");
@@ -52,7 +52,7 @@ function AdcProducts() {
       <Header />
       <MainForm>
         <Form onSubmit={addProdutos}>
-          <h2>Adicionar item ao cardápio</h2>
+          <h2>Adicionar produto ao cardápio</h2>
           <Formulary
             text="Nome"
             type="text"
@@ -98,14 +98,15 @@ function AdcProducts() {
 
           <Select
             text="Tipo"
-            name={type}
             value={type}
-            placeholder="Selecione o tipo"
             value1="Café da manhã"
             value2="Menu Principal"
+            value3=" "
+            value4=" "
+            name={`${type} || Tipo`}
+            placeholder="Selecione o tipo do produto"
             onChange={handleType}
           ></Select>
-
           <Select
             text="Categoria"
             value={category}
@@ -113,7 +114,7 @@ function AdcProducts() {
             value2="Bebidas"
             value3="Hambúrgueres"
             value4="Acompanhamentos"
-            name={category}
+            name= {`${category} || Categoria`}
             placeholder="Selecione a categoria do produto"
             onChange={handleCategory}
           ></Select>

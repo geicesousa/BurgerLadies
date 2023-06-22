@@ -1,7 +1,7 @@
-import KitchenProgress from './Pages/kitchen/KitchenProgress';
-import	{	render, fireEvent, screen	}	from	'@testing-library/react';
+import	{	render, fireEvent, screen, waitFor, findByText, findAllByText	}	from	'@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getApi, deleteApi } from '../../src/services/api';
+import KitchenProgress from '../Pages/kitchen/KitchenProgress';
 
 jest.mock('react-router-dom');
 jest.mock('../services/api');
@@ -67,8 +67,9 @@ const order = [
       "id": 37
     }]
 }]
-getApi.mockResolvedValue(...order)
-deleteApi.mockResolvedValue(...order)
+// colocar um status de cada pedido
+getApi.mockResolvedValue(order)
+deleteApi.mockResolvedValue(order)
 
 describe('kitchenProgress', ()=>{
   // falta testes: getdelete e renderização dos cards na tela
@@ -92,18 +93,45 @@ describe('kitchenProgress', ()=>{
     it('should respond to click', () => {
       render(<KitchenProgress />)
       // responde ao click do mouse
+      fireEvent(screen.getByText('Pedidos abertos'), new MouseEvent('click'));
       fireEvent(screen.getByText('Pedidos em execução'), new MouseEvent('click'));
       fireEvent(screen.getByText('Pedidos prontos'), new MouseEvent('click'));
       fireEvent( screen.getByText('Pedidos entregues'), new MouseEvent('click'));
       // substituir por userEvent ou fireevent.click(elemento)
     });	
 
-    it('cards são renderizados na tela após o click nos botões', ()=>{
+    it('cards são renderizados na tela após o click nos botões', async ()=>{
       render(<KitchenProgress />)
 
+      const links = screen.getByText('');
 
+      expect(links).toHaveLength(4);
 
+      userEvent.click(links[0]);
+      userEvent.click(links[1]);
+      userEvent.click(links[2]);
+      userEvent.click(links[3]);
 
+      // click(element, eventInit, options) VER USO
+
+     // userEvent.click(links[3], screen.getAllByText('Detalhes do pedido:'));
+     
+      // expect(screen.getAllByText('Detalhes do pedido:')).toBeInTheDocument();
+
+      // await user.click(screen.getAllByText('Detalhes do pedido:'));
+      await waitFor(()=>{
+        expect(screen.getByText('Data:')).toBeInTheDocument()
+      });
+
+      // await waitFor(()=>{
+      //   expect(screen.getByText('Status:')).toBeInTheDocument()
+      // });
+      // const apparence = await screen.findAllByText('Detalhes do pedido:');
+      // expect(apparence).toBeInTheDocument()
+
+      // await waitFor(()=>{
+      //   expect(screen.queryAllByText('Detalhes do pedido:')).toBeInTheDocument([])
+      // });
 
       // expect(deleteApi).toHaveBeenCalledTimes(1);
       // expect(deleteApi).toHaveBeenCalledWith(expect.any(String));

@@ -6,7 +6,24 @@ jest.mock('react-router-dom');
 // falta o teste do form e da renderização dos cards
 describe('Cart', ()=>{
   it('should display elements',()=>{
-    render(<Cart cart="cart" setCart="setcart" handleChange="handlechange" />)
+    const props ={
+      cart: [ 
+        { id: 1,
+          name: "água",
+          price: 2.00,
+          amount: 5,
+        },
+        { id: 2,
+          name: "cuscuz",
+          price: 15.00,
+          amount: 2,
+        }
+      ], 
+      handleChange: jest.fn(),
+      setCart: jest.fn()
+    }
+    
+    render(<Cart { ...props } />)
     
     const client = screen.getByText('Nome do cliente:');
     const table = screen.getByText('Nº da mesa:');
@@ -18,6 +35,8 @@ describe('Cart', ()=>{
     expect(total).toBeInTheDocument();
     expect(endOrder).toBeInTheDocument();
     expect(endOrder).toBeEnabled();
-    userEvent.click(endOrder);
+  
   });
+  // simular um pedido e enviar  
+  // userEvent.click(endOrder);
 });
