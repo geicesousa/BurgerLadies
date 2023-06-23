@@ -8,7 +8,11 @@ import { ButtonVoltar, Buttonsair } from "../../styles/Button.styled";
 
 function Header() {
   const navigate = useNavigate();
-
+  function sair() {
+    logout();
+    navigate("/");
+  }
+  
   return (
     <ContainerHeader>
       <>
@@ -20,13 +24,8 @@ function Header() {
         </Return>
 
         <Buttonsair
-          onClick={() => {
-            logout();
-            navigate("/");
-          }}
-        >
-          Sair
-        </Buttonsair>
+          onClick={sair}
+        >Sair</Buttonsair>
       </IconesMenu>
     </ContainerHeader>
   );

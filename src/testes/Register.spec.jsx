@@ -3,10 +3,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { createUser } from "../services/api.jsx";
 import { toast } from "react-toastify";
 import userEvent from "@testing-library/user-event";
-import { error } from "console";
 
 // afterEach(cleanup)
 jest.mock("../services/api.jsx");
+jest.mock('react-router-dom');
 jest.mock('react-router-dom', ()=>{
 	return { 
     useNavigate: jest.fn()

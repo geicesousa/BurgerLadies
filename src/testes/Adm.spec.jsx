@@ -17,7 +17,7 @@ describe('Adm', () => {
 		const link = screen.getAllByTestId('link');
 
 		expect(link).toHaveLength(4);
-		expect(link[0]).toHaveTextContent('Adicionar novo colaborador');
+		expect(link[0]).toHaveTextContent('Adicionar colaborador');
 		expect(link[1]).toHaveTextContent('Lista de colaboradores');
 		expect(link[2]).toHaveTextContent('Adicionar item ao cardápio');
 		expect(link[3]).toHaveTextContent('Lista de produtos');

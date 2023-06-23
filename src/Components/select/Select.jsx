@@ -14,7 +14,7 @@ const Select = ({
   return (
     <>
       <label htmlFor={name}>{text}</label>
-      <StyledSelect text={text} value={value} name={value} onChange={onChange}>
+      <StyledSelect text={text} value={value} name={name} onChange={onChange}>
         <option hidden>{placeholder}</option>
         <option value={value1}>{value1}</option>
         <option value={value2}>{value2}</option>

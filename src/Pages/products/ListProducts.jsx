@@ -71,11 +71,11 @@ const ListProducts = () => {
   return (
     <>
       <Header />     
-        <H3>Lista de ítens do menu</H3>       
+        <H3>Lista de itens do menu</H3>       
         {showModal && (
           <EditProduct product={editingProduct} onUpdate={handleUpdateProduct}/>
         )}
-       <ContainerCards>
+        <ContainerCards>
             {products.map((product) => (
               <Cards key={product.id}>
                 <li> <strong>Nome: </strong>{product.name} </li>
@@ -91,8 +91,8 @@ const ListProducts = () => {
               </ SectionCards>
               </Cards>   
             ))}
-       
-       </ContainerCards>
+      
+        </ContainerCards>
     </>
   );
 };

@@ -1,7 +1,8 @@
-import MyCart from '../../src/Pages/ordered/Cart.jsx';
+import MyCart from '../../src/Pages/ordered/MyCart.jsx';
 import { render,screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 
+jest.mock('../../src/Components/header/Header.jsx');
 jest.mock('react-router-dom', ()=>{
 	return { 
 		Link: (props)=> <div data-testid="link"> {props.children} </div>,
@@ -13,14 +14,12 @@ describe('<MyCart />', ()=> {
   it('renders MyCart correctly', ()=> {
     render(<MyCart size="size" setShow="setShow" />);
 
-    const back = screen.getByText('Voltar para Menu');
     const logout = screen.getByTestId('link');
-    const img = screen.getByRole('img');
+    const button = screen.getByRole('button');
 
-    expect(img).toBeInTheDocument();
-    expect(back).toBeInTheDocument();
+    expect(button).toBeInTheDocument();
+    userEvent.click(button);
     expect(logout).toBeInTheDocument();
     userEvent.click(logout);
-
   });
 }); 

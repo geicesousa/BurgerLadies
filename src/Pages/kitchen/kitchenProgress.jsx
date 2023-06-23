@@ -5,7 +5,7 @@ import { differenceInMinutes } from "date-fns";
 import {
   ButtonContainer,
   ButtonStatus,
-  ProgressLink,
+  ProgressButton,
 } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
 import { ContainerCards } from "../../styles/Global.styles";
@@ -92,18 +92,18 @@ const KitchenProgress = () => {
   return (
     <>
       <ButtonContainer>
-        <ProgressLink onClick={() => filterStatus("aberto")}>
+        <ProgressButton onClick={() => filterStatus("aberto")}>
           Pedidos abertos
-        </ProgressLink>
-        <ProgressLink onClick={() => filterStatus("execução")}>
+        </ProgressButton>
+        <ProgressButton onClick={() => filterStatus("execução")}>
           Pedidos em execução
-        </ProgressLink>
-        <ProgressLink onClick={() => filterStatus("pronto")}>
+        </ProgressButton>
+        <ProgressButton onClick={() => filterStatus("pronto")}>
           Pedidos prontos
-        </ProgressLink>
-        <ProgressLink onClick={() => filterStatus("entregue")}>
+        </ProgressButton>
+        <ProgressButton onClick={() => filterStatus("entregue")}>
           Pedidos entregues
-        </ProgressLink>
+        </ProgressButton>
       </ButtonContainer>
       <ContainerCards>
         {showStatus &&

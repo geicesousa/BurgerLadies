@@ -1,5 +1,5 @@
 import	{	render	}	from	'@testing-library/react';
-import Formulary from '../Components/Formulary';
+import Formulary from '../Components/formulary/Formulary';
 
 describe('<Formulary />', ()=>{
   it('renders a form correctly', ()=>{
