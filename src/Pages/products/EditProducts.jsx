@@ -55,7 +55,6 @@ const EditProduct = ({ product }) => {
       .catch((error) => {
         console.log(error);
       });
-  
   }
 
   return (

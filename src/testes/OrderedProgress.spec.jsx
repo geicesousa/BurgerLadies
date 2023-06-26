@@ -1,62 +1,37 @@
 import OrderedProgress from "../Pages/ordered/OrderedProgress.jsx";
-import MyCart from "../Pages/ordered/MyCart.jsx";
-import Cart from "../Pages/ordered/Cart.jsx";
-import Ordered from "../Pages/ordered/Ordered.jsx";
-import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { render, screen, waitFor } from "@testing-library/react";
 
 jest.mock('react-router-dom');
-jest.mock('../Pages/ordered/MyCart');
-jest.mock('../Pages/ordered/Cart');
-jest.mock('../Pages/ordered/Ordered');
+jest.mock('../Pages/ordered/MyCart',()=> 
+	()=> <div data-testid = "mycart" />	
+);
+jest.mock('../Pages/ordered/Cart', ()=>
+	()=> <div data-testid = "cart" />	
+);
+jest.mock('../Pages/ordered/Ordered', ()=>
+	()=> <div data-testid = "ordered" />	
+);
 
 describe('OrderedProgress', () => {
-	it('should display elements', () => {
-		const propsCart = {
-      cart: [ 
-        { id: 1,
-          name: "água",
-          price: 2.00,
-          amount: 5,
-        },
-        { id: 2,
-          name: "cuscuz",
-          price: 15.00,
-          amount: 2,
-        }
-      ], 
-      handleChange: jest.fn(),
-			setCart: jest.fn(),
-    };
+	it('should display elements', async() => {
+		render(<OrderedProgress />);
 
-	const propsMyCart = {	
-		cart: [ 
-			{ id: 1,
-				name: "água",
-				price: 2.00,
-				amount: 5,
-			},
-			{ id: 2,
-				name: "cuscuz",
-				price: 15.00,
-				amount: 2,
-			}
-		],
-		setShow: true
-	};
+		const mockMyCart = screen.getByTestId('mycart')
+		const mockCart = screen.getByTestId('cart')
+		const mockOrdered = screen.getByTestId('ordered')
 
-	const propsOrdered = {
-		handleClick: jest.fn(),
-	}
+		expect(mockMyCart).toBeInTheDocument();
+		
+		userEvent.click(mockCart);
+		expect(mockCart).toBeInTheDocument();
+		await	waitFor(()=> 
+			expect(mockCart).toBeInTheDocument()
+		);
 
-	render(<OrderedProgress />);
-
-	const setTrue = true;
-	const setFalse = false
-
-	expect(<MyCart {...propsMyCart} />).toBeTruthy()
-
-
+		userEvent.click(mockOrdered);
+		await	waitFor(()=> 
+			expect(mockOrdered).toBeInTheDocument()
+		);
 	});
-  // fazer mock e ver se esses estão aparecendo na tela ao click
-
-})
+});
