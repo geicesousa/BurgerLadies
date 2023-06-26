@@ -120,7 +120,7 @@ const KitchenProgress = () => {
               <li key={item.id}> </li>    
                <Itens>                      
               <><li><Check size={15} color="#03300b" weight="bold" />{item.name}</li></>
-              <><li> <strong>Qtd:</strong>{item.amount}</li></>
+              <><li> Qtd:{item.amount}</li></>
               </Itens> 
               </>      
                   ))}  

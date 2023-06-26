@@ -56,5 +56,15 @@ export const H3 = styled.h3`
   margin-bottom: 1rem;
   justify-content: center;
   display: flex;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+`
+
+export const Text = styled.p`
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+  justify-content: center;
+  font-size: 1.3rem;
+  display: flex;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-`;
+`

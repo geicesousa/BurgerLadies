@@ -24,13 +24,11 @@ const Cart = ({ cart, setCart, handleChange }) => {
   const handleClientName = (e) => setClientName(e.target.value);
   const handleTableNumber = (e) => setTableNumber(e.target.value);
 
-  // função para remover o item do carrinho
   const handleRemove = (id) => {
     const arr = cart.filter((item) => item.id !== id);
     setCart(arr);
   };
 
-  // função para atualizar o preço
   const handlePrice = () => {
     let quantityProducts = 0;
     cart.map((item) => {
@@ -39,12 +37,14 @@ const Cart = ({ cart, setCart, handleChange }) => {
     setPrice(quantityProducts);
   };
 
-  // aqui atualiza o preço quando o produto é removido do carrinho
   useEffect(() => {
     handlePrice();
   });
 
   const sendKitchen = (e) => {
+    if(clientName === "" || tableNumber === ""){
+      return toast.error("Por favor, preencha o nome do cliente e número da mesa");
+    }
     const orderCheck = {
       name: clientName,
       table: tableNumber,

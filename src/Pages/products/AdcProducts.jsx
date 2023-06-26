@@ -28,11 +28,13 @@ function AdcProducts() {
 
   function addProdutos(e) {
     e.preventDefault();
-
+    if (name === "" || img === "" || description === "" || price === "" || type === "" || category === "" || amount === "" ) {
+      return toast.error("Por favor, preencha todos os dados");
+    }
     createProducts(name, img, description, price, type, category, amount)
       .then((response) => {
         if (response.ok) {
-          toast.success("Produto adicionado com sucesso!");
+        toast.success("Produto adicionado com sucesso!");
         }
         setName("");
         setDescription("");
@@ -81,7 +83,7 @@ function AdcProducts() {
           ></Formulary>
           <Formulary
             text="Preço"
-            type="number"
+            type="text"
             value={price}
             name="price"
             placeholder="Digite o preço"
@@ -89,7 +91,7 @@ function AdcProducts() {
           ></Formulary>
           <Formulary
             text="Quantidade"
-            type="number"
+            type="text"
             value={amount}
             name="amount"
             placeholder="Digite a quantidade"

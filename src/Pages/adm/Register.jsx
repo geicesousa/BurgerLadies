@@ -22,8 +22,7 @@ function Register() {
 
   function registerUser(e) {
     e.preventDefault();
-    console.log(email, name, password)
-    if (!/\S+@\S+\.\S+/.test(email)) {
+      if (!/\S+@\S+\.\S+/.test(email)) {
       return toast.error("email no formato errado");
     }
     if (name === "") {
@@ -41,8 +40,12 @@ function Register() {
           return toast.error("Este email já possui cadastro");
         } else if (response.ok) {
           toast.success("Cadastro realizado com sucesso!");
-          navigate("/adm");
+          setName ("");
+          setEmail("");
+          setPassword("");
+          setRole("");
         }
+        
       })
       .catch(() =>
         toast.error("Algo deu errado, confira os dados e tente novamente!")
@@ -88,7 +91,8 @@ function Register() {
             value1="Atendente"
             value2="Cozinha"
             value3="Administração"
-            placeholder="Cargo"
+            value4=" "
+            placeholder="Selecione o cargo"
             onChange={handleRole}
           ></Select>
 
