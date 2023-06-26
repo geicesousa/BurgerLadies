@@ -10,14 +10,12 @@ import Formulary from "../../Components/formulary/Formulary";
 
 export const logout = () => {
   localStorage.removeItem("accessToken");
-  setIsLoggedin(false);
 };
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedin, setIsLoggedin] = useState(false);
-
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
@@ -47,23 +45,6 @@ function Login() {
         } else if (data.user.role === "cozinha") {
           navigate("/kitchen");
         } else if (data.user.role === "administração"){
-          navigate("/adm");
-        }
-      })
-      .then((data) => {
-        if (!data) return;
-        console.log(localStorage);
-        localStorage.setItem("role", data.role);
-        localStorage.setItem("accessToken", data.accessToken);
-        toast.success("Login efetuado!");
-        setIsLoggedin(true);
-        setEmail("");
-        setPassword("");
-        if (data.user.role === "atendente") {
-          navigate("/attendance");
-        } else if (data.user.role === "cozinha") {
-          navigate("/kitchen");
-        } else if (data.user.role === "administração") {
           navigate("/adm");
         }
       })

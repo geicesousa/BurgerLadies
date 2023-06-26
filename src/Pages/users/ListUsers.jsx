@@ -3,30 +3,63 @@ import { toast } from "react-toastify";
 import { getApi, deleteApi } from "../../services/api";
 import Header from "../../Components/header/Header";
 import EditUser from "./EditUser";
-import { ButtonDelete, ButtonToEdit } from "../../styles/Button.styled";
-import { Cards, ContainerCards, H3, SectionCards } from "../../styles/Global.styles";
+import {
+  ButtonDelete,
+  ButtonToEdit,
+  ButtonsModal,
+  ModalDelete,
+} from "../../styles/Button.styled";
+import {
+  Cards,
+  ContainerCards,
+  H3,
+  SectionCards,
+  Text,
+} from "../../styles/Global.styles";
 
 const ListUsers = () => {
   const [users, setUsers] = useState([]);
-  const [showModal, setShowModal] = useState(false)
-  const [editingUser, setEditingUser] = useState(null)
+  const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showModalDelete, setShowModalDelete] = useState(false);
+  const [editingUser, setEditingUser] = useState(null);
+  const [idDelete, setIdDelete] = useState(null);
 
   const getUsers = async () => {
     getApi(`users/`)
-    .then((data) => {
-      setUsers(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((data) => {
+        setUsers(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
     getUsers();
   }, []);
 
+  const openModalDelete = (user) => {
+    setIdDelete(user);
+    setShowModalDelete(true);
+  };
+
+  const closeModalDelete = () => {
+    setIdDelete(null);
+    setShowModalDelete(false);
+  };
+
+  const openModalEdit = (user) => {
+    setEditingUser(user);
+    setShowModalEdit(true);
+  };
+
+  const closeModalEdit = () => {
+    setEditingUser(null);
+    setShowModalEdit(false);
+  };
+
   async function deleteUsers(user) {
-    deleteApi(`users/${user.id}`)
+    deleteApi(`users/${idDelete.id}`)
       .then((response) => {
         if (response.ok) {
           toast.success("colaborador excluído com sucesso");
@@ -35,63 +68,61 @@ const ListUsers = () => {
       .then((data) => {
         // const teste = users.filter( item => item.id !== user.id)
         setUsers((prevState) =>
-          prevState.filter((item) => item.id !== user.id)
+          prevState.filter((item) => item.id !== idDelete.id)
         );
+        closeModalDelete();
         console.log(data);
       })
       .catch((error) => {
         console.log(error);
       });
     console.log(user.id);
-  };
-
-  const handleUpdateUser = (id, updatedUser) => {
-    const updatedUsers = users.map(user => {
-      if(user.id === id) {
-        return {...user, user: updatedUser}
-      }
-      return user
-    })
-    setUsers(updatedUsers)
-    closeModal()
   }
-  
-  
-    const openModal = (user) => {
-      setEditingUser(user)
-      setShowModal(true)
-    }
-  
-    const closeModal = () => {
-      setEditingProduct(null)
-      setShowModal(false)
-    }
 
   return (
     <>
       <Header />
       <H3>Lista de colaboradores</H3>
-      
-      {showModal && (
-          <EditUser user={editingUser} onUpdate={handleUpdateUser}/>
-        )}
+
+      {showModalEdit && <EditUser user={editingUser} fechar={closeModalEdit} />}
+
+      {showModalDelete && idDelete && (
+        <ModalDelete>
+          <Text>Tem certeza que deseja excluir este colaborador?</Text>
+          <ButtonsModal>
+            <ButtonToEdit onClick={deleteUsers}>Sim</ButtonToEdit>
+            <ButtonDelete onClick={closeModalDelete}>Cancela</ButtonDelete>
+          </ButtonsModal>
+        </ModalDelete>
+      )}
       <ContainerCards>
-        {users.map((user) => (        
-            <>
-              <Cards key={user.id}>
-                <li> <strong>Nome: </strong>{user.name} <br /></li>
-                <li> <strong>Email: </strong>{user.email} <br /></li>
-                <li> <strong>Setor: </strong>{user.role} <br /></li>                
-                <SectionCards>
-                  <ButtonDelete onClick={() => deleteUsers(user)}>Excluir</ButtonDelete>
-                  <ButtonToEdit onClick={()=> openModal(user)}> Editar</ButtonToEdit>
-                </SectionCards>
-              </Cards>            
-            </>
-         
+        {users.map((user) => (
+          <>
+            <Cards key={user.id}>
+              <li>
+                <strong>Nome: </strong>
+                {user.name} <br />
+              </li>
+              <li>
+                <strong>Email: </strong>
+                {user.email} <br />
+              </li>
+              <li>
+                <strong>Setor: </strong>
+                {user.role} <br />
+              </li>
+              <SectionCards>
+                <ButtonDelete onClick={() => openModalDelete(user)}>
+                  Excluir
+                </ButtonDelete>
+                <ButtonToEdit onClick={() => openModalEdit(user)}>
+                    Editar
+                </ButtonToEdit>
+              </SectionCards>
+            </Cards>
+          </>
         ))}
-       </ContainerCards>
-      
+      </ContainerCards>
     </>
   );
 };

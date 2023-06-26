@@ -147,5 +147,26 @@ height: 2rem;
 color: white;
 border-radius: 5px;
 border: none;
-
 `
+
+export const ModalDelete = styled.section`
+width: 20rem;
+height: 20vh;
+position: sticky;
+top: 50vh;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+margin: auto;
+border-radius: 15px;
+background-color: white;
+border: 0.3rem solid #963c08;
+`
+
+export const ButtonsModal = styled.div`
+display: flex;
+gap: .5rem;
+margin-top: 2rem;
+`
+

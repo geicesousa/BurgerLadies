@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/Pages/kitchen/KitchenProgress.jsx</title>
+    <title>Code coverage report for src/Pages/kitchen/kitchenProgress.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/Pages/kitchen</a> KitchenProgress.jsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/Pages/kitchen</a> kitchenProgress.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -223,26 +223,9 @@
 <a name='L158'></a><a href='#L158'>158</a>
 <a name='L159'></a><a href='#L159'>159</a>
 <a name='L160'></a><a href='#L160'>160</a>
-<a name='L161'></a><a href='#L161'>161</a>
-<a name='L162'></a><a href='#L162'>162</a>
-<a name='L163'></a><a href='#L163'>163</a>
-<a name='L164'></a><a href='#L164'>164</a>
-<a name='L165'></a><a href='#L165'>165</a>
-<a name='L166'></a><a href='#L166'>166</a>
-<a name='L167'></a><a href='#L167'>167</a>
-<a name='L168'></a><a href='#L168'>168</a>
-<a name='L169'></a><a href='#L169'>169</a>
-<a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L161'></a><a href='#L161'>161</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -358,28 +341,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -432,6 +394,8 @@ import {
 } from "../../styles/Button.styled";
 import { deleteApi, getApi, patchOrders } from "../../services/api";
 import { ContainerCards } from "../../styles/Global.styles";
+import { CardOrder, Itens } from "./KitchenProgress.styled";
+&nbsp;
 &nbsp;
 const KitchenProgress = () =&gt; {
   const [orders, setOrders] = useState([]);
@@ -529,57 +493,36 @@ const KitchenProgress = () =&gt; {
       &lt;ContainerCards&gt;
         {showStatus &amp;&amp;
 <span class="branch-1 cbranch-no" title="branch not covered" >          statusFiltered.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;CardOrder key={item.id}&gt;</span>
-              &lt;&gt;
-                &lt;p&gt;
-                  &lt;strong&gt;Data:&lt;/strong&gt; {item.realizado}
-                &lt;/p&gt;
-                &lt;p&gt;
-                  &lt;strong&gt;Cliente:&lt;/strong&gt; {item.name}
-                &lt;/p&gt;
-                &lt;p&gt;
-                  &lt;strong&gt;Mesa:&lt;/strong&gt; {item.table}
-                &lt;/p&gt;
-                &lt;p&gt;
-                  &lt;strong&gt;Status:&lt;/strong&gt; {item.status}
-                &lt;/p&gt;
-                &lt;p&gt;
-                  &lt;strong&gt;Preço:&lt;/strong&gt; {item.total},00
-                &lt;/p&gt;
-                &lt;p&gt;
-                  &lt;strong&gt; Detalhes do pedido:&lt;/strong&gt;
-                  {item.pedidos.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (
-<span class="cstat-no" title="statement not covered" >                    &lt;span key={item.id}&gt;</span>
-                      &lt;span&gt;
-                        &lt;br /&gt;
-                        &lt;Check size={15} color="#03300b" weight="bold" /&gt;
-                        {item.name}
-                      &lt;/span&gt;
-                    &lt;/span&gt;
-                  ))}
-                &lt;/p&gt;
-              &lt;/&gt;
+<span class="cstat-no" title="statement not covered" >            &lt;CardOrder key={item.id}&gt;                  </span>
+              &lt;li&gt;&lt;strong&gt;Data: &lt;/strong&gt; {item.realizado}&lt;/li&gt; 
+              &lt;li&gt;&lt;strong&gt;Cliente: &lt;/strong&gt; {item.name}&lt;/li&gt; 
+              &lt;li&gt;&lt;strong&gt;Mesa: &lt;/strong&gt; {item.table} &lt;/li&gt;
+              &lt;li&gt;&lt;strong&gt;Status: &lt;/strong&gt; {item.status} &lt;/li&gt;
+              &lt;li&gt;&lt;strong&gt;Preço: &lt;/strong&gt; {item.total},00 &lt;/li&gt;
+              &lt;li&gt;
+              &lt;strong&gt; Detalhes do pedido:&lt;/strong&gt;{item.pedidos.map(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; (
+<span class="cstat-no" title="statement not covered" >                &lt;&gt;</span>
+              &lt;li key={item.id}&gt; &lt;/li&gt;    
+               &lt;Itens&gt;                      
+              &lt;&gt;&lt;li&gt;&lt;Check size={15} color="#03300b" weight="bold" /&gt;{item.name}&lt;/li&gt;&lt;/&gt;
+              &lt;&gt;&lt;li&gt; Qtd:{item.amount}&lt;/li&gt;&lt;/&gt;
+              &lt;/Itens&gt; 
+              &lt;/&gt;      
+                  ))}  
+              &lt;/li&gt;
+                    
+            &lt;br /&gt;
               {item.status === "pronto" ? (
                 &lt;p key={item.id}&gt;
                   &lt;strong&gt;
-                    Este pedido ficou pronto em
-                    {differenceInMinutes(
-                      new Date(item.datapronto),
-                      new Date(item.data)
-                    )}
-                    minutos
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto),new Date(item.data))} minutos
                   &lt;/strong&gt;
                 &lt;/p&gt;
               ) : null}
               {item.status === "entregue" ? (
                 &lt;p key={item.id}&gt;
                   &lt;strong&gt;
-                    Este pedido ficou pronto em
-                    {differenceInMinutes(
-                      new Date(item.datapronto),
-                      new Date(item.data)
-                    )}
-                    minutos às {new Date(item.datapronto).toLocaleTimeString()}
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos às {new Date(item.datapronto).toLocaleTimeString()}
                   &lt;/strong&gt;
                 &lt;/p&gt;
               ) : null}
@@ -607,7 +550,7 @@ export default KitchenProgress;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-22T19:58:21.642Z
+                at 2023-06-23T02:02:11.807Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
