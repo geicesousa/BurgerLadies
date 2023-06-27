@@ -1,15 +1,14 @@
 import { BsCartPlus } from "react-icons/bs";
 import { Button, CardInfo, CardPrice, CardsItens } from "./Cards.styled";
-import burguer from "../../assets/hamburguer.png";
+import burguerLogo from "../../assets/ladies.png";
 
 const Cards = ({ item, handleClick }) => {
   const { name, price, description } = item;
-
   return (
     <CardsItens>
       <CardInfo>
         <h3>{name}</h3>
-        <img src={burguer} alt="Image" />
+        <img src={burguerLogo} alt="logo"/>
         <p>{description}</p>
       </CardInfo>
       <CardPrice>
