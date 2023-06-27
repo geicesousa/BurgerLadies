@@ -6,14 +6,14 @@ import { ButtonForm } from "../../styles/Button.styled";
 import Formulary from "../../Components/formulary/Formulary";
 import Select from "../../Components/select/Select";
 import Header from "../../Components/header/Header";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
@@ -23,21 +23,21 @@ function Register() {
   function registerUser(e) {
     e.preventDefault();
       if (!/\S+@\S+\.\S+/.test(email)) {
-      return toast.error("email no formato errado");
+      return toast.error("E-mail no formato errado");
     }
     if (name === "") {
-      return toast.error("Por favor Digite o nome");
+      return toast.error("Por favor digite o nome");
     }
     if (password.length < 6) {
       return toast.error(
-        "senha muito curta, favor escolher uma senha com 6 ou mais digitos"
+        "Senha muito curta, por favor favor escolha uma senha com 6 ou mais digitos"
       );
     }
 
     createUser(name, email, password, role)
       .then((response) => {
         if (response.status === 400) {
-          return toast.error("Este email já possui cadastro");
+          return toast.error("Este e-mail já possui cadastro");
         } else if (response.ok) {
           toast.success("Cadastro realizado com sucesso!");
           setName ("");

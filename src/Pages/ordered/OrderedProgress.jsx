@@ -52,7 +52,7 @@ const OrderedProgress = () => {
     {warning && (
       <WarningMsg>
         ⚠ Este item já foi adicionado ao carrinho, consulte o carrinho para
-        aumentar a quantidade
+        aumentar a quantia.
       </WarningMsg>
     )}
   </>

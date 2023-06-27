@@ -92,7 +92,7 @@ const ListProducts = () => {
           <Text>Tem certeza que deseja excluir este produto?</Text>
           <ButtonsModal>
             <ButtonToEdit onClick={deleteProducts}>Sim</ButtonToEdit>
-            <ButtonDelete onClick={closeModalDelete}>Cancela</ButtonDelete>
+            <ButtonDelete onClick={closeModalDelete}>Cancelar</ButtonDelete>
           </ButtonsModal>
         </ModalDelete>
       )}
@@ -113,7 +113,7 @@ const ListProducts = () => {
               {product.type}
             </li>
             <li>         
-              <strong>categoria: </strong>
+              <strong>Categoria: </strong>
               {product.category}
             </li>
             <li>         

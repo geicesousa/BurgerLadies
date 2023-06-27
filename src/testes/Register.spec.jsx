@@ -7,11 +7,11 @@ import userEvent from "@testing-library/user-event";
 // afterEach(cleanup)
 jest.mock("../services/api.jsx");
 jest.mock('react-router-dom');
-jest.mock('react-router-dom', ()=>{
-	return { 
-    useNavigate: jest.fn()
-	}
-});
+// jest.mock('react-router-dom', ()=>{
+// 	return { 
+//     useNavigate: jest.fn()
+// 	}
+// });
 jest.mock("react-toastify", () => {
   return { toast: { success: jest.fn(), 
 		error: jest.fn((error)=>{

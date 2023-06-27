@@ -116,12 +116,12 @@ const KitchenProgress = () => {
               <li><strong>Preço: </strong> {item.total},00 </li>
               <li>
               <strong> Detalhes do pedido:</strong>{item.pedidos.map((item) => (
-                <>
-              <li key={item.id}> </li>    
-               <Itens>                      
-              <><li><Check size={15} color="#03300b" weight="bold" />{item.name}</li></>
-              <><li> Qtd:{item.amount}</li></>
-              </Itens> 
+              <>
+                <li key={item.id}> </li>    
+                <Itens>                      
+                  <><li><Check size={15} color="#03300b" weight="bold" />{item.name}</li></>
+                  <><li> Qtd:{item.amount}</li></>
+                </Itens> 
               </>      
                   ))}  
               </li>
@@ -130,14 +130,14 @@ const KitchenProgress = () => {
               {item.status === "pronto" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto),new Date(item.data))} minutos
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto),new Date(item.data))} minutos.
                   </strong>
                 </p>
               ) : null}
               {item.status === "entregue" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos às {new Date(item.datapronto).toLocaleTimeString()}
+                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos às {new Date(item.datapronto).toLocaleTimeString()}.
                   </strong>
                 </p>
               ) : null}

@@ -59,56 +59,56 @@ const EditProduct = ({ product }) => {
 
   return (
     <MainEdit>
-    <ContainerEdit>  
-      <Input
-        text="Nome"
-        type="text"
-        value={name}
-        name="name"
-        onChange={handleName}
-        ref={inputRef}
-      />
+      <ContainerEdit>  
+        <Input
+          text="Nome"
+          type="text"
+          value={name}
+          name="name"
+          onChange={handleName}
+          ref={inputRef}
+        />
 
-      <InputDescription
-        text="Descrição"
-        type="text"
-        value={description}
-        name="descrição"
-        onChange={handleDescription}
-      />
+        <InputDescription
+          text="Descrição"
+          type="text"
+          value={description}
+          name="descrição"
+          onChange={handleDescription}
+        />
 
-      <InputNumber
-        text="Preço"
-        type="text"
-        value={price}
-        name="price"
-        onChange={handlePrice}
-      />
-  
-      <Select
-        name={type}
-        value={type}
-        value1="Café da manhã"
-        value2="Menu Principal"
-        onChange={handleType}
-      />
-  
-      <Select
-        value={category}
-        value1="Lanches"
-        value2="Bebidas"
-        value3="Hambúrgueres"
-        value4="Acompanhamentos"
-        name={category}
-        onChange={handleCategory}
-      />
-  </ContainerEdit>
-      <SectionButton>
+        <InputNumber
+          text="Preço"
+          type="text"
+          value={price}
+          name="price"
+          onChange={handlePrice}
+        />
+    
+        <Select
+          name={type}
+          value={type}
+          value1="Café da manhã"
+          value2="Menu Principal"
+          onChange={handleType}
+        />
+    
+        <Select
+          value={category}
+          value1="Lanches"
+          value2="Bebidas"
+          value3="Hambúrgueres"
+          value4="Acompanhamentos"
+          name={category}
+          onChange={handleCategory}
+        />
+    </ContainerEdit>
+    <SectionButton>
       <ButtonUpdate onClick={() => handleUpdate({ id: product["id"] })}>
         Salvar
       </ButtonUpdate>
-      </SectionButton>
-      </MainEdit>
+    </SectionButton>
+    </MainEdit>
   );
 };
 
