@@ -1,5 +1,6 @@
 import Header from "../../Components/header/Header";
-import { AttendanceLink, ButtonContainer } from "../../styles/Button.styled";
+import { ButtonContainer } from "../../styles/Button.styled";
+import { AttendanceLink } from "../../styles/Links.styled";
 import KitchenProgress from "../kitchen/kitchenProgress";
 
 const Attendance = () => {

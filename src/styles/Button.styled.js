@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const ButtonContainer = styled.main`
@@ -13,48 +12,6 @@ export const ButtonContainer = styled.main`
   align-items:center; 
 `;
 
-export const AttendanceLink = styled(Link)`
-  margin: auto;
-  display: flex;
-  width: 10rem;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  border-radius: 10px;
-  margin-top: 2rem;
-  background-color: #963c08;
-  text-transform: uppercase;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: .7rem;
-  color: white;
-
-
-  :hover {
-    background-color: #763c09;
-  }
-`;
-
-
-export const AdmLink = styled(Link)`
-	margin: auto;
-  display: flex;
-  width: 10rem;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  border-radius: 10px;
-  margin-top: 2rem;
-  background-color: #963c08;
-  color: white;
-  text-transform: uppercase;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: .7rem;
-
-`
 export const ProgressButton = styled.button`
   margin: auto;
   display: flex;
@@ -71,7 +28,7 @@ export const ProgressButton = styled.button`
   cursor: pointer;
   font-size: .7rem;
   color: white;
-`
+`;
 
 export const ButtonStatus = styled.button`
   padding: 5px;
@@ -98,7 +55,7 @@ export const ButtonForm = styled.button`
   :hover {
     background-color: #3a6332;
   }
-`
+`;
 
 export const ButtonDelete = styled.button `
 background-color: #8c0000;
@@ -107,8 +64,7 @@ height: 2rem;
 color: #e1cf7d;
 border-radius: 5px;
 border: none;
-
-`
+`;
 
 export const ButtonToEdit = styled.button `
 background-color: #03300b;
@@ -117,8 +73,7 @@ height: 2rem;
 color: #e1cf7d;
 border-radius: 5px;
 border: none;
-
-`
+`;
 
 export const ButtonUpdate = styled.button `
 background-color: #03300b;
@@ -137,8 +92,7 @@ background-color: #03300b;
 color: white;
 border-radius: 5px;
 border: none;
-
-`
+`;
 
 export const Buttonsair = styled.button `
 background-color: #03300b;
@@ -147,7 +101,7 @@ height: 2rem;
 color: white;
 border-radius: 5px;
 border: none;
-`
+`;
 
 export const ModalDelete = styled.section`
 width: 20rem;
@@ -162,11 +116,11 @@ margin: auto;
 border-radius: 15px;
 background-color: white;
 border: 0.3rem solid #963c08;
-`
+`;
 
 export const ButtonsModal = styled.div`
 display: flex;
 gap: .5rem;
 margin-top: 2rem;
-`
+`;
 

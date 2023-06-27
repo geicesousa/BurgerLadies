@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const API = "http://localhost:3000";
+const API = "http://localhost:8080";
 //-------------POST-------------------------
 
 //REGISTRO DE COLABORADOR
@@ -187,4 +187,3 @@ export async function requestApi(caminho, metodo = 'GET'){
   }
   return data
 }
-
