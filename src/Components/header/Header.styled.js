@@ -7,7 +7,7 @@ export const ContainerHeader = styled.header`
   justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
-  gap: 5rem;
+  gap: 4rem;
   padding: 2rem;
 
   @media (min-width: 300px) and (max-width: 772px) {
