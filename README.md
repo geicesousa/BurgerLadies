@@ -1,4 +1,9 @@
   <img width= "300px" src= "./src/assets/ladies.png">
+
+  ### Login e senha: <br>
+  Adm = email: adm@gmail.com / senha: 123456 <br>
+  Atendente = email: atendente@gmail.com / senha: 123456 <br>
+  Cozinha = email: cozinha@gmail.com / senha: 123456
  
  ## Resumo do projeto
 O projeto Burger Ladies foi criado para um pequeno restaurante de hambúrgueres que está crescendo e necessita de uma interface em que se possa realizar pedidos utilizando um tablet, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente.
