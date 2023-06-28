@@ -4,7 +4,6 @@ import burguerLadies from "../../assets/ladies.png";
 
 const Cards = ({ item, handleClick }) => {
   const { name, price, description } = item;
-
   return (
     <CardsItens>
       <CardInfo>
