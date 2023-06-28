@@ -1,4 +1,3 @@
-import { ArrowFatLineLeft, SignOut } from "phosphor-react";
 import { useNavigate } from "react-router-dom";
 import { ContainerHeader, IconesMenu } from "./Header.styled";
 import { Return } from "../../Pages/ordered/MyCart.styled";

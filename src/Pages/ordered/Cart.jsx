@@ -56,7 +56,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
     };
 
     postOrder(orderCheck);
-    toast.success("pedido enviado com sucesso");
+    toast.success("Pedido enviado com sucesso");
 
     navigate("/attendance");
   };

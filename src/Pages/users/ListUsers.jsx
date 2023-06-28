@@ -91,7 +91,7 @@ const ListUsers = () => {
           <Text>Tem certeza que deseja excluir este colaborador?</Text>
           <ButtonsModal>
             <ButtonToEdit onClick={deleteUsers}>Sim</ButtonToEdit>
-            <ButtonDelete onClick={closeModalDelete}>Cancela</ButtonDelete>
+            <ButtonDelete onClick={closeModalDelete}>Cancelar</ButtonDelete>
           </ButtonsModal>
         </ModalDelete>
       )}
@@ -116,7 +116,7 @@ const ListUsers = () => {
                   Excluir
                 </ButtonDelete>
                 <ButtonToEdit onClick={() => openModalEdit(user)}>
-                    Editar
+                  Editar
                 </ButtonToEdit>
               </SectionCards>
             </Cards>

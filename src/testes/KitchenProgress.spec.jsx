@@ -103,22 +103,22 @@ describe('kitchenProgress', ()=>{
     it('cards são renderizados na tela após o click nos botões', async ()=>{
       render(<KitchenProgress />)
 
-      const links = screen.getByText('');
+      const abertos = screen.getByText('Pedidos abertos');
+      const links = screen.getAllByRole('button');
 
       expect(links).toHaveLength(4);
 
-      userEvent.click(links[0]);
-      userEvent.click(links[1]);
-      userEvent.click(links[2]);
-      userEvent.click(links[3]);
+      // userEvent.click(links[0]);
+      // userEvent.click(links[1]);
+      // userEvent.click(links[2]);
+      userEvent.click(abertos);
 
       // click(element, eventInit, options) VER USO
 
      // userEvent.click(links[3], screen.getAllByText('Detalhes do pedido:'));
-     
+    
       // expect(screen.getAllByText('Detalhes do pedido:')).toBeInTheDocument();
 
-      // await user.click(screen.getAllByText('Detalhes do pedido:'));
       await waitFor(()=>{
         expect(screen.getByText('Data:')).toBeInTheDocument()
       });

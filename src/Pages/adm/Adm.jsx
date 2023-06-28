@@ -1,4 +1,5 @@
-import { AdmLink, ButtonContainer } from "../../styles/Button.styled";
+import { ButtonContainer } from "../../styles/Button.styled";
+import { AdmLink } from "../../styles/Links.styled";
 import Header from "../../Components/header/Header";
 
 const Adm = () => {
