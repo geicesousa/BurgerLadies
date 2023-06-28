@@ -1,4 +1,4 @@
-  <center><img width= "300px" src= "./src/assets/ladies.png"></center>
+<div align="center"> <img width= "300px" src= "./src/assets/ladies.png"> </div>
 
 ## Resumo do projeto
 O projeto Burger Ladies foi criado para um pequeno restaurante de hambúrgueres que está crescendo e necessita de uma interface em que se possa realizar pedidos utilizando um tablet, e enviá-los para a cozinha para que sejam preparados de forma ordenada e eficiente.
@@ -34,8 +34,7 @@ O cliente nos deu um [link](https://app.swaggerhub.com/apis-docs/ssinuco/BurgerQ
 ***
 
 <br>
-
-![Tela de Login](./src/assets/image-1.png)
+<div align="center"><img width="500px" src="./src/assets/image-1.png" alt="Tela de Login" title="Tela de Login"></div>
 
 ### História do usuário 1
 O garçom deve conseguir fazer login, se o administrador já tiver atribuído credenciais
@@ -54,9 +53,7 @@ Entrar no sistema de pedidos se as credenciais estiverem corretas.<br>
 
 <br>
 
-![Tela Garçon](./src/assets/image-2.png)
-![Tela Garçon Novo Pedido](./src/assets/image-3.png)
-![Tela Garçon Carrinho](./src/assets/image-6.png)
+<div align="center"><img width="500px" src="./src/assets/image-2.png" alt="Tela Garçon" title="Tela Garçon"> <img width="500px" src="./src/assets/image-3.png" alt="Tela Garçon Novo Pedido" title="Tela Garçon Novo Pedido"> <img width="500px" src="./src/assets/image-6.png" alt="Tela Garçon Novo Pedido Carrinho" title="Tela Garçon Novo Pedido Carrinho"></div>
 
 ### História do usuário 2
 O garçom deve ser capaz de anotar o pedido do cliente 
@@ -77,8 +74,7 @@ Funcionar bem em um tablet.
 
 <br>
 
-![Tela Cozinha](./src/assets/image-7.png)
-![Tela Visualização de Pedidos](./src/assets/image-8.png)
+<div align="center"><img width="500px" src="./src/assets/image-7.png" alt="Tela Cozinha" title="Tela Cozinha"> <img width="500px" src="./src/assets/image-8.png" alt="Tela Visualização de Pedidos" title="Tela Visualização de Pedidos"></div>
 
 ### História do usuário 3
 O chef precisa ver os pedidos
@@ -96,7 +92,7 @@ Ver o tempo que levou para preparar o pedido desde a chegada até o momento em q
 
 <br>
 
-![Tela Visualização de Pedidos](./src/assets/image-8.png)
+<div align="center"><img width="500px" src="./src/assets/image-8.png" alt="Tela Visualização de Pedidos" title="Tela Visualização de Pedidos"></div>
 
 ### História do usuário 4
 Os garçons devem ver os pedidos que estão prontos para serem entregues.
@@ -112,9 +108,7 @@ Veja a lista de pedidos prontos para servir.
 
 <br>
 
-![Tela Adm](./src/assets/image-9.png)
-![Tela Adm Registro de Colaboradores](./src/assets/image-10.png)
-![Tela Adm Colaboradores ](./src/assets/image-11.png)
+<div align="center"><img width="500px" src="./src/assets/image-9.png" alt="Tela Adm" title="Tela Adm"> <img width="500px" src="./src/assets/image-10.png" alt="Tela Adm Registro de Colaboradores" title="Tela Adm Registro de Colaboradores"> <img width="500px" src="./src/assets/image-11.png" alt="Tela Adm Colaboradores" title="Tela Adm Colaboradores"></div>
 
 ### História do usuário 5
 O gerente da loja precisa gerenciar seus funcionários
@@ -133,8 +127,8 @@ Atualize os dados do trabalhador.
 
 <br>
 
-![Tela Adm Itens do Menu](./src/assets/image-12.png) 
-![Tela Adm Adicionar Produtos ao Menu](./src/assets/image-13.png)
+<div align="center"><img width="500px" src="./src/assets/image-12.png" alt="Tela Adm Itens do Menu" title="Tela Adm Itens do Menu"> <img width="500px" src="./src/assets/image-13.png" alt="Tela Adm Adicionar Produtos ao Menu" title="Tela Adm Adicionar Produtos ao Menu"></div>
+
 ### História do usuário 6
 O gerente da loja deve gerenciar seus produtos.
 
