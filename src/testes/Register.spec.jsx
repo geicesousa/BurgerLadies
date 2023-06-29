@@ -7,17 +7,9 @@ import userEvent from "@testing-library/user-event";
 // afterEach(cleanup)
 jest.mock("../services/api.jsx");
 jest.mock('react-router-dom');
-// jest.mock('react-router-dom', ()=>{
-// 	return { 
-//     useNavigate: jest.fn()
-// 	}
-// });
-jest.mock("react-toastify", () => {
-  return { toast: { success: jest.fn(), 
-		error: jest.fn((error)=>{
-			console.log(error)
-		}) } };
-});
+jest.mock("react-toastify", () => ({
+  toast: { success: jest.fn(), error: jest.fn() }
+}));
 const user = {
   email: "geice@gmail.com",
   password: "$2a$10$AOgwMSHDJlfckHNYe4B4/O4WItZzocsogjkEHwbJKZnpBlLKUo0kG",
@@ -33,7 +25,7 @@ describe("Register", () => {
     const colaborador = screen.getByLabelText("Nome do colaborador");
     const email = screen.getByLabelText("E-mail do colaborador");
     const senha = screen.getByLabelText("Senha");
-    const select = screen.getByText("Selecione o cargo");
+    const select = screen.getByRole("combobox");
     const btn = screen.getByText("Efetuar cadastro");
 
     expect(colaborador).toBeInTheDocument();
@@ -49,26 +41,130 @@ describe("Register", () => {
 
     createUser.mockResolvedValue({ ok: true }); // resposta com response.ook
 
-    const colaborador = screen.getByLabelText("Nome do colaborador");
-    const email = screen.getByLabelText("E-mail do colaborador");
-    const senha = screen.getByLabelText("Senha");
+    const colaborador = screen.getByPlaceholderText("Digite o nome do colaborador");
+    const email = screen.getByPlaceholderText("Digite o e-mail do colaborador");
+    const senha = screen.getByPlaceholderText("Digite uma senha");
     const select = screen.getByRole("combobox");
     const cadastra = screen.getByText("Efetuar cadastro");
 
-    userEvent.type(colaborador, "Geice Sousa");
-    userEvent.type(email, "geice@gmail.com");
-    userEvent.type(senha, "123456");
-    userEvent.selectOptions(select, screen.getByText("Atendente"));
-    // userEvent.click(cadastra);
-		cadastra.click()
+    const funcionario = {
+      nome: "Geice Sousa",
+      email: "teste@teste.com",
+      senha: "123456",
+      cargo: "Atendente"
+    }
 
-    await waitFor(() => {
-			expect(toast.success).toHaveBeenCalledTimes(1);
-		});
-    await waitFor(() => {
-			expect(screen.getByText('Cadastro realizado com sucesso!')).toBeInTheDocument();
-		});
+    await userEvent.type(colaborador, funcionario.nome);
+    await userEvent.type(email, funcionario.email);
+    await userEvent.type(senha, funcionario.senha);
+    await userEvent.selectOptions(select, screen.getByText(funcionario.cargo));
+    await userEvent.click(cadastra);
+
+    await waitFor(() => 
+			expect(toast.success).toHaveBeenCalledTimes(1) // toast error, msg de erro , creat user not.tohavebeencalled()
+		);
+		expect(toast.success).toHaveBeenCalledWith('Cadastro realizado com sucesso!')
+
     expect(createUser).toHaveBeenCalledTimes(1);
-    expect(createUser).toHaveBeenCalledWith(colaborador, email, senha, select);
+    expect(createUser).toHaveBeenCalledWith(funcionario.nome, funcionario.email, funcionario.senha, funcionario.cargo);
   });
+
+  it("should NOT register employee", async () => {
+    render(<Register />);
+
+    createUser.mockResolvedValue({ ok: true }); // resposta com response.ook
+
+    const colaborador = screen.getByPlaceholderText("Digite o nome do colaborador");
+    const email = screen.getByPlaceholderText("Digite o e-mail do colaborador");
+    const senha = screen.getByPlaceholderText("Digite uma senha");
+    const select = screen.getByRole("combobox");
+    const cadastra = screen.getByText("Efetuar cadastro");
+
+    const funcionario = {
+      nome: "Geice Sousa",
+      email: "testeteste.com",
+      senha: "123456",
+      cargo: "Atendente"
+    }
+
+    await userEvent.type(colaborador, funcionario.nome);
+    await userEvent.type(email, funcionario.email);
+    await userEvent.type(senha, funcionario.senha);
+    await userEvent.selectOptions(select, screen.getByText(funcionario.cargo));
+    await userEvent.click(cadastra);
+
+    await waitFor(() => 
+			expect(toast.error).toHaveBeenCalledTimes(1) 
+		);
+		expect(toast.error).toHaveBeenCalledWith('E-mail no formato errado')
+
+    expect(createUser).toHaveBeenCalledTimes(0);
+    expect(createUser).not.toHaveBeenCalledWith(funcionario.nome, funcionario.email, funcionario.senha, funcionario.cargo);
+  });
+
+  it("should NOT register employee because input empty", async () => {
+    render(<Register />);
+
+    const colaborador = screen.getByPlaceholderText("Digite o nome do colaborador");
+    const email = screen.getByPlaceholderText("Digite o e-mail do colaborador");
+    const senha = screen.getByPlaceholderText("Digite uma senha");
+    const select = screen.getByRole("combobox");
+    const cadastra = screen.getByText("Efetuar cadastro");
+
+    const funcionario = {
+      nome: " ",
+      email: "teste@teste.com",
+      senha: "123456",
+      cargo: "Atendente"
+    }
+
+    await userEvent.type(colaborador, funcionario.nome);
+    await userEvent.type(email, funcionario.email);
+    await userEvent.type(senha, funcionario.senha);
+    await userEvent.selectOptions(select, screen.getByText(funcionario.cargo));
+    await userEvent.click(cadastra);
+
+    await waitFor(() => 
+			expect(toast.error).toHaveBeenCalledTimes(1) 
+		);
+		expect(toast.error).toHaveBeenCalledWith('Por favor digite o nome');
+
+    // não chega nem a chamar o createuser
+  });
+
+  it("should register employee ERROR", async () => {
+    render(<Register />);
+
+    createUser.mockResolvedValue({ ok: false }); // resposta com response.ook
+
+    const colaborador = screen.getByPlaceholderText("Digite o nome do colaborador");
+    const email = screen.getByPlaceholderText("Digite o e-mail do colaborador");
+    const senha = screen.getByPlaceholderText("Digite uma senha");
+    const select = screen.getByRole("combobox");
+    const cadastra = screen.getByText("Efetuar cadastro");
+
+    const funcionario = {
+      nome: "Geice Sousa",
+      email: "geice@gmail.com",
+      senha: "123456BB",
+      cargo: "Atendente"
+    }
+
+    await userEvent.type(colaborador, funcionario.nome);
+    await userEvent.type(email, funcionario.email);
+    await userEvent.type(senha, funcionario.senha);
+    await userEvent.selectOptions(select, screen.getByText(funcionario.cargo));
+    await userEvent.click(cadastra);
+
+    await waitFor(() => 
+			expect(toast.error).toHaveBeenCalledTimes(1) 
+		);
+		expect(toast.error).toHaveBeenCalledWith('Algo deu errado, confira os dados e tente novamente!')
+
+    expect(createUser).toHaveBeenCalledTimes(1);
+    expect(createUser).toHaveBeenCalledWith(funcionario.nome, funcionario.email, funcionario.senha, funcionario.cargo);
+  });
+
+
+
 });
