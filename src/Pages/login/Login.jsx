@@ -38,8 +38,6 @@ function Login() {
         localStorage.setItem("accessToken", data.accessToken);
         toast.success("Login efetuado!");
         setIsLoggedin(true);
-        setEmail('');
-        setPassword('');
         if (data.user.role === "atendente") {
           navigate("/attendance");
         } else if (data.user.role === "cozinha") {

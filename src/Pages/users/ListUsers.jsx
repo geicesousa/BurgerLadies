@@ -26,12 +26,12 @@ const ListUsers = () => {
 
   const getUsers = async () => {
     getApi(`users/`)
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    .then((data) => {
+      setUsers(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   };
 
   useEffect(() => {
@@ -60,32 +60,29 @@ const ListUsers = () => {
 
   async function deleteUsers(user) {
     deleteApi(`users/${idDelete.id}`)
-      .then((response) => {
-        if (response.ok) {
-          toast.success("colaborador excluído com sucesso");
-        }
-      })
-      .then((data) => {
-        // const teste = users.filter( item => item.id !== user.id)
-        setUsers((prevState) =>
-          prevState.filter((item) => item.id !== idDelete.id)
-        );
-        closeModalDelete();
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    console.log(user.id);
+    .then((response) => {
+      if (response.ok) {
+        toast.success("colaborador excluído com sucesso");
+      }
+    })
+    .then((data) => {
+      // const teste = users.filter( item => item.id !== user.id)
+      setUsers((prevState) =>
+        prevState.filter((item) => item.id !== idDelete.id)
+      );
+      closeModalDelete();
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   return (
     <>
       <Header />
       <H3>Lista de colaboradores</H3>
-
       {showModalEdit && <EditUser user={editingUser} fechar={closeModalEdit} />}
-
       {showModalDelete && idDelete && (
         <ModalDelete>
           <Text>Tem certeza que deseja excluir este colaborador?</Text>
@@ -95,6 +92,7 @@ const ListUsers = () => {
           </ButtonsModal>
         </ModalDelete>
       )}
+      
       <ContainerCards>
         {users.map((user) => (
           <>

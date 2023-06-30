@@ -10,12 +10,12 @@ const Ordered = ({ handleClick }) => {
 
   const getOrdered = async () => {
     getApi(`products/`)
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((data) => {
+      setProducts(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
   useEffect(() => {
     getOrdered();
@@ -46,8 +46,7 @@ const Ordered = ({ handleClick }) => {
         {showTypes &&
           filteredTypes.map((item) => (
             <Cards item={item} key={item.id} handleClick={handleClick} />
-            //  handleclik é uma props a função está vindo do componente testeOrdered
-          ))}
+         ))}
       </DivMenu>
     </main>
   );

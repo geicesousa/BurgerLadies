@@ -26,13 +26,11 @@ const EditProduct = ({ product }) => {
   const inputRef = useRef(null);
 
   const handleName = (e) => setName(e.target.value);
-  const handleImg = (e) => setImg(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handlePrice = (e) => setPrice(e.target.value);
   const handleType = (e) => setType(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
-  const handleAmount = (e) => setAmount(e.target.value);
-
+ 
   useEffect(()=>{
     inputRef.current.focus();
   }, [])
