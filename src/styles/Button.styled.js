@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ButtonContainer = styled.main`
   margin: auto;
-  padding: 5rem;
   width: 90vw;
   display: flex;
   justify-content: center;

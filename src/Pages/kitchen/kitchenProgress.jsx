@@ -108,18 +108,18 @@ const KitchenProgress = () => {
         {showStatus &&
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>                  
-              <li><strong>Data: </strong> {item.realizado}</li> 
-              <li><strong>Cliente: </strong> {item.name}</li> 
-              <li><strong>Mesa: </strong> {item.table} </li>
-              <li><strong>Status: </strong> {item.status} </li>
-              <li><strong>Preço: </strong> {item.total},00 </li>
-              <li>
-              <strong> Detalhes do pedido:</strong>{item.pedidos.map((item) => (
+              <li key={item.id}> <strong>Data: </strong> {item.realizado} </li> 
+              <li key={item.id}> <strong>Cliente: </strong> {item.name} </li> 
+              <li key={item.id}> <strong>Mesa: </strong> {item.table} </li>
+              <li key={item.id}> <strong>Status: </strong> {item.status} </li>
+              <li key={item.id}> <strong>Preço: </strong> {item.total},00 </li>
+
+              <li key={item.id}><strong> Detalhes do pedido:</strong>{item.pedidos.map((order) => (
               <>
-                <li key={item.id}> </li>    
+                <li key={order.id}> </li>    
                 <Itens>                      
-                  <><li><Check size={15} color="#03300b" weight="bold" />{item.name}</li></>
-                  <><li> Qtd:{item.amount}</li></>
+                  <><li key={order.id}><Check size={15} color="#03300b" weight="bold" />{order.name}</li></>
+                  <><li key={order.id}> Qtd:{order.amount}</li></>
                 </Itens> 
               </>      
                   ))}  
