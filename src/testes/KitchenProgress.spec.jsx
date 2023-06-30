@@ -4,7 +4,7 @@ import { getApi, deleteApi, patchOrders } from '../../src/services/api';
 import KitchenProgress from '../Pages/kitchen/KitchenProgress';
 
 jest.mock('react-router-dom');
-jest.mock('../services/api');
+jest.mock('../../src/services/api');
 
 const order = [
 {
@@ -99,7 +99,7 @@ const order = [
     }],
     "id": 26
 }]
-// colocar um status de cada pedido
+
 getApi.mockResolvedValue(order)
 deleteApi.mockResolvedValue(order)
 patchOrders.mockResolvedValue(order)

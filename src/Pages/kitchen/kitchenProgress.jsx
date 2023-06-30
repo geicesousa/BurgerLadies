@@ -19,12 +19,12 @@ const KitchenProgress = () => {
 
   const getOrders = async () => {
     getApi(`orders/`)
-    .then((data) => {
-      setOrders(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((data) => {
+        setOrders(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -107,36 +107,65 @@ const KitchenProgress = () => {
       <ContainerCards>
         {showStatus &&
           statusFiltered.map((item) => (
-            <CardOrder key={item.id}>                  
-              <li key={item.id}> <strong>Data: </strong> {item.realizado} </li> 
-              <li key={item.id}> <strong>Cliente: </strong> {item.name} </li> 
-              <li key={item.id}> <strong>Mesa: </strong> {item.table} </li>
-              <li key={item.id}> <strong>Status: </strong> {item.status} </li>
-              <li key={item.id}> <strong>Preço: </strong> {item.total},00 </li>
-
-              <li key={item.id}><strong> Detalhes do pedido:</strong>{item.pedidos.map((order) => (
-              <>
-                <li key={order.id}> </li>    
-                <Itens>                      
-                  <><li key={order.id}><Check size={15} color="#03300b" weight="bold" />{order.name}</li></>
-                  <><li key={order.id}> Qtd:{order.amount}</li></>
-                </Itens> 
-              </>      
-                  ))}  
+            <CardOrder key={item.id}>
+              <li>
+                {" "}
+                <strong>Data: </strong> {item.realizado}{" "}
               </li>
-                    
-            <br />
+              <li>
+                {" "}
+                <strong>Cliente: </strong> {item.name}{" "}
+              </li>
+              <li>
+                {" "}
+                <strong>Mesa: </strong> {item.table}{" "}
+              </li>
+              <li>
+                {" "}
+                <strong>Status: </strong> {item.status}{" "}
+              </li>
+              <li>
+                {" "}
+                <strong>Preço: </strong> {item.total},00{" "}
+              </li>
+
+              <ul>
+                <strong> Detalhes do pedido:</strong>
+                {item.pedidos.map((order) => (
+                  <div key={order.id}>
+                    <Itens>
+                      <li>
+                        <Check size={15} color="#03300b" weight="bold" />
+                        {order.name}
+                      </li>
+                      <li> Qtd:{order.amount}</li>
+                    </Itens>
+                  </div>
+                ))}
+              </ul>
+
+              <br />
               {item.status === "pronto" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto),new Date(item.data))} minutos.
+                    Este pedido ficou pronto em{" "}
+                    {differenceInMinutes(
+                      new Date(item.datapronto),
+                      new Date(item.data)
+                    )}{" "}
+                    minutos.
                   </strong>
                 </p>
               ) : null}
               {item.status === "entregue" ? (
                 <p key={item.id}>
                   <strong>
-                    Este pedido ficou pronto em {differenceInMinutes(new Date(item.datapronto), new Date(item.data))} minutos às {new Date(item.datapronto).toLocaleTimeString()}.
+                    Este pedido ficou pronto em{" "}
+                    {differenceInMinutes(
+                      new Date(item.datapronto),
+                      new Date(item.data)
+                    )}{" "}
+                    minutos às {new Date(item.datapronto).toLocaleTimeString()}.
                   </strong>
                 </p>
               ) : null}
