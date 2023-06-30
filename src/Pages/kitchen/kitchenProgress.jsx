@@ -11,7 +11,6 @@ import { deleteApi, getApi, patchOrders } from "../../services/api";
 import { ContainerCards } from "../../styles/Global.styles";
 import { CardOrder, Itens } from "./KitchenProgress.styled";
 
-
 const KitchenProgress = () => {
   const [orders, setOrders] = useState([]);
   const [selectedStatus, setSelectedStatus] = useState("");

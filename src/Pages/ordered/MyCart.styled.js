@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerCart = styled.header`
+export const ContainerCart = styled.header `
   width: 80vw;
   border-radius: 10px;
   display: flex;
