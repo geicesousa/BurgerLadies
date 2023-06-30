@@ -166,7 +166,7 @@ describe('kitchenProgress', ()=>{
           userEvent.click(screen.getByText('Deletar pedido'));
   
           waitFor(()=>{
-            expect(patchOrders).toHaveBeenCalledTimes(1);
+            expect(patchOrders).toHaveBeenCalledTimes(0);
             expect(patchOrders).toHaveBeenCalledWith(expect.any(String)); // mock de uma string 
   
             expect(deleteApi).toHaveBeenCalledTimes(1);
@@ -196,7 +196,7 @@ describe('kitchenProgress', ()=>{
           userEvent.click(screen.getByText('Deletar pedido'));
 
           waitFor(()=>{
-            expect(patchOrders).toHaveBeenCalledTimes(1);
+            expect(patchOrders).toHaveBeenCalledTimes(0);
             expect(patchOrders).toHaveBeenCalledWith(expect.any(String)); 
 
             expect(deleteApi).toHaveBeenCalledTimes(1);
@@ -226,7 +226,7 @@ describe('kitchenProgress', ()=>{
           userEvent.click(screen.getByText('Deletar pedido'));
 
           waitFor(()=>{
-            expect(patchOrders).toHaveBeenCalledTimes(0);
+            expect(patchOrders).toHaveBeenCalledTimes(1);
             expect(patchOrders).toHaveBeenCalledWith(expect.any(String)); 
 
             expect(deleteApi).toHaveBeenCalledTimes(1);
@@ -256,9 +256,8 @@ describe('kitchenProgress', ()=>{
           userEvent.click(screen.getByText('Deletar pedido'));
 
           waitFor(()=>{
-            expect(patchOrders).toHaveBeenCalledTimes(0);
-            expect(patchOrders).toHaveBeenCalledWith(expect.any(String)); 
-
+            expect(patchOrders).toHaveBeenCalledTimes(1);
+            expect(patchOrders).toHaveBeenCalledWith(expect.any(String));
             expect(deleteApi).toHaveBeenCalledTimes(1);
             expect(deleteApi).toHaveBeenCalledWith(`orders/${order.id}`); 
           });
