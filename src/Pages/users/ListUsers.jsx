@@ -14,7 +14,7 @@ import {
   ContainerCards,
   H3,
   SectionCards,
-  Text,
+  TextModal,
 } from "../../styles/Global.styles";
 
 const ListUsers = () => {
@@ -65,13 +65,12 @@ const ListUsers = () => {
         toast.success("colaborador excluído com sucesso");
       }
     })
-    .then((data) => {
+    .then(() => {
       // const teste = users.filter( item => item.id !== user.id)
       setUsers((prevState) =>
         prevState.filter((item) => item.id !== idDelete.id)
       );
       closeModalDelete();
-      console.log(data);
     })
     .catch((error) => {
       console.log(error);
@@ -85,7 +84,8 @@ const ListUsers = () => {
       {showModalEdit && <EditUser user={editingUser} fechar={closeModalEdit} />}
       {showModalDelete && idDelete && (
         <ModalDelete>
-          <Text>Tem certeza que deseja excluir este colaborador?</Text>
+          <TextModal>Tem certeza que deseja excluir este colaborador?
+          </TextModal>
           <ButtonsModal>
             <ButtonToEdit onClick={deleteUsers}>Sim</ButtonToEdit>
             <ButtonDelete onClick={closeModalDelete}>Cancelar</ButtonDelete>

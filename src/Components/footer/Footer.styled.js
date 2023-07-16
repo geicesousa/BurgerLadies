@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FooterStyle = styled.footer`
   text-align: center;
-  margin: 1.5rem;
+  margin-top: 1.5rem;
   font-family: monospace;
 
   h6, p {

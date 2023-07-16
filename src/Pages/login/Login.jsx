@@ -32,20 +32,24 @@ function Login() {
       }
     })
     .then((data) => {
-      if (!data) return 
-        console.log(localStorage);
-        localStorage.setItem("role", data.role);
-        localStorage.setItem("accessToken", data.accessToken);
-        toast.success("Login efetuado!");
-        setIsLoggedin(true);
-        if (data.user.role === "atendente") {
-          navigate("/attendance");
-        } else if (data.user.role === "cozinha") {
-          navigate("/kitchen");
-        } else if (data.user.role === "administração"){
-          navigate("/adm");
-        }
-      })
+      if (!data) { return }
+
+      console.log(data.user.role);
+      localStorage.setItem("role", data.role);
+      localStorage.setItem("accessToken", data.accessToken);
+      toast.success("Login efetuado!");
+      setIsLoggedin(true);
+
+      if (data.user.role === "Atendente") {
+        navigate("/attendance");
+      } 
+      else if (data.user.role === "Cozinha") {
+        navigate("/kitchen");
+      } 
+      else if (data.user.role === "Administração"){
+        navigate("/adm");
+      }
+    })
       .catch(() =>
         toast.error(
           "Usuário não encontrado, verifique os dados e tente novamente!"

@@ -9,7 +9,7 @@ import {
   ContainerCards,
   H3,
   SectionCards,
-  Text,
+  TextModal,
 } from "../../styles/Global.styles";
 import {
   ButtonDelete,
@@ -89,7 +89,7 @@ const ListProducts = () => {
 
       {showModalDelete && idDelete && (
         <ModalDelete>
-          <Text>Tem certeza que deseja excluir este produto?</Text>
+          <TextModal>Tem certeza que deseja excluir este produto?</TextModal>
           <ButtonsModal>
             <ButtonToEdit onClick={deleteProducts}>Sim</ButtonToEdit>
             <ButtonDelete onClick={closeModalDelete}>Cancelar</ButtonDelete>

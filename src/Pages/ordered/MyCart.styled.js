@@ -8,14 +8,14 @@ export const ContainerCart = styled.header `
   align-items: center;
   margin: auto;
   flex-wrap: wrap;
-  gap: 5rem;
+  gap: 1.5rem;
   padding: 2rem;
 
   @media (min-width: 300px) and (max-width: 772px) {
     justify-content: center;
   }
+`
 
- `
 export const SizeCart = styled.span`
   background-color: #8c0000;
   position: absolute;

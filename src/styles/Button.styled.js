@@ -93,7 +93,7 @@ border-radius: 5px;
 border: none;
 `;
 
-export const Buttonsair = styled.button `
+export const ButtonSair = styled.button `
 background-color: #03300b;
 width: 5rem;
 height: 2rem;
@@ -120,6 +120,4 @@ border: 0.3rem solid #963c08;
 export const ButtonsModal = styled.div`
 display: flex;
 gap: .5rem;
-margin-top: 2rem;
 `;
-

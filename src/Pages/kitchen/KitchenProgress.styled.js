@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardOrder = styled.ul`
+export const CardOrder = styled.div`
   width: 15rem;
   height: auto;
   border-radius: 15px;
@@ -12,14 +12,16 @@ export const CardOrder = styled.ul`
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: start;
-  gap: 0.5rem;
+
 `;
 
-export const Itens = styled.div`
-display: flex;
-justify-content: space-between;
-gap: 3rem;
-
+export const Itens = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  text-align: left;
+  padding: 0;
+  margin: .5rem;
 `

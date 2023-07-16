@@ -3,7 +3,7 @@ import { ContainerHeader, IconesMenu } from "./Header.styled";
 import { Return } from "../../Pages/ordered/MyCart.styled";
 import { logout } from "../../Pages/login/Login";
 import burguerLogo from "../../assets/ladies.png";
-import { ButtonVoltar, Buttonsair } from "../../styles/Button.styled";
+import { ButtonVoltar, ButtonSair } from "../../styles/Button.styled";
 
 function Header() {
   const navigate = useNavigate();
@@ -23,9 +23,9 @@ function Header() {
           <ButtonVoltar onClick={() => navigate(-1)}>Voltar</ButtonVoltar>
         </Return>
 
-        <Buttonsair
+        <ButtonSair
           onClick={sair}
-        >Sair</Buttonsair>
+        >Sair</ButtonSair>
       </IconesMenu>
     </ContainerHeader>
   );

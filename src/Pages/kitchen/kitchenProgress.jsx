@@ -108,41 +108,37 @@ const KitchenProgress = () => {
         {showStatus &&
           statusFiltered.map((item) => (
             <CardOrder key={item.id}>
-              <li>
+              <p>
                 {" "}
                 <strong>Data: </strong> {item.realizado}{" "}
-              </li>
-              <li>
+              </p>
+              <p>
                 {" "}
                 <strong>Cliente: </strong> {item.name}{" "}
-              </li>
-              <li>
+              </p>
+              <p>
                 {" "}
                 <strong>Mesa: </strong> {item.table}{" "}
-              </li>
-              <li>
+              </p>
+              <p>
                 {" "}
                 <strong>Status: </strong> {item.status}{" "}
-              </li>
-              <li>
+              </p>
+              <p>
                 {" "}
                 <strong>Preço: </strong> {item.total},00{" "}
-              </li>
+              </p>
 
-              <ul>
-                <strong> Detalhes do pedido:</strong>
+              <p><strong> Detalhes do pedido:</strong></p>
+          
                 {item.pedidos.map((order) => (
-                  <div key={order.id}>
-                    <Itens>
-                      <li>
-                        <Check size={15} color="#03300b" weight="bold" />
-                        {order.name}
-                      </li>
-                      <li> Qtd:{order.amount}</li>
-                    </Itens>
-                  </div>
-                ))}
-              </ul>
+                  <Itens key={order.id}>
+                    <li>
+                      <Check size={15} color="#03300b" weight="bold" /> {order.name}
+                    </li>
+                    <li> Qtd:{order.amount}</li>
+                  </Itens>
+              ))}
 
               <br />
               {item.status === "pronto" ? (

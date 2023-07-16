@@ -104,7 +104,7 @@ getApi.mockResolvedValue(order)
 deleteApi.mockResolvedValue(order)
 patchOrders.mockResolvedValue(order)
 
-describe('kitchenProgress', ()=>{
+describe('KitchenProgress', ()=>{
   // falta testes: getdelete e renderização dos cards na tela
   describe('buttons', ()=>{
 

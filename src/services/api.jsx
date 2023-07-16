@@ -1,10 +1,10 @@
 import { toast } from "react-toastify";
 
-const API = "http://localhost:8080";
-// const API = "https://burger-queen-api-mock-tau.vercel.app"
-//-------------POST-------------------------
+const API = "http://localhost:3000";
+// const API = "https://api-burger-ladies.vercel.app";
 
-//REGISTRO DE COLABORADOR
+//--------------- POST -------------------------
+// REGISTRO DE COLABORADOR
 export async function createUser(name, email, password, role) {
   const dataUser = {
     name,
@@ -26,7 +26,7 @@ export async function createUser(name, email, password, role) {
   // return data
 }
 
-//LOGIN DE COLABORADOR
+// LOGIN DE COLABORADOR
 export async function loginUser(email, password) {
   const dataLogin = {
     email,
@@ -36,8 +36,8 @@ export async function loginUser(email, password) {
   return await fetch(`${API}/login`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
-      // Authorization: `Bearer ${localStorage.getItem("accessToken")}`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
 
     },
     body: JSON.stringify(dataLogin),
@@ -46,7 +46,7 @@ export async function loginUser(email, password) {
   // return data
 }
 
-//CADASTRAR UM NOVO ÍTEM  PARA O CARDAPIO
+// CADASTRAR UM NOVO ÍTEM  PARA O CARDAPIO
 export async function createProducts(name, img, description, price, type, category, amount) {
   const dataProducts = {
     name,
@@ -70,7 +70,7 @@ export async function createProducts(name, img, description, price, type, catego
   // return data
 }
 
-//ENVIAR PEDIDOS PARA A API
+// ENVIAR PEDIDOS PARA A API
 export async function postOrder(parametro) {
   const response = await fetch(`${API}/orders`, {
   method: "POST",
@@ -87,8 +87,7 @@ export async function postOrder(parametro) {
   return data
 }
 
-
-//-----------DELETE----------------------
+//----------- DELETE ----------------------
 export async function deleteApi(parametro) {  
   // const response = 
   return await fetch(`${API}/${parametro}` , {
@@ -101,6 +100,7 @@ export async function deleteApi(parametro) {
   // const data = await response.json();
   // return data
 }
+
 //------------------ GET ------------------
 export async function getApi(parametro) {
   const response = await fetch(`${API}/${parametro}`, {
@@ -118,7 +118,9 @@ export async function getApi(parametro) {
   return data
 }
 
-//EDITAR COLABORADOR
+//------------------ PATCH ------------------
+
+// EDITAR COLABORADOR
 export async function pathUsers(item) {  
   const response = await fetch(`${API}/users/${item.id}` , {
     method: "PATCH",

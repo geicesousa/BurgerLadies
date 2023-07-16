@@ -55,13 +55,16 @@ export const DivTest = styled.div`
 `;
 export const DivButton = styled.div`
   background-color: #ddd9ce;
-  text-align: center;
   border-radius: 15px;
 
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
+    text-align: center;
     cursor: pointer;
   }
   span {

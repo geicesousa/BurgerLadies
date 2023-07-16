@@ -3,7 +3,7 @@ import { ButtonContainer } from "../../styles/Button.styled";
 import { AttendanceLink } from "../../styles/Links.styled";
 import KitchenProgress from "../kitchen/KitchenProgress";
 
-const Attendance = () => {
+function Attendance() {
   return (
     <>
       <Header />
@@ -13,6 +13,6 @@ const Attendance = () => {
       </ButtonContainer>
     </>
   );
-};
+}
 
 export default Attendance;
